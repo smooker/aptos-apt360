@@ -1,0 +1,6 @@
+      SUBROUTINE AGETSP
+      WRITE(6,1)
+ 1    FORMAT(33H0******* SUBROUTINE AGETSP CALLED//)
+      RETURN
+      END
+

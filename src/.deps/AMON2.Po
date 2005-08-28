@@ -1,0 +1,11 @@
+AMON2.o : \
+ AMON2.c /usr/include/f2c.h endianmacs.h /usr/include/assert.h \
+ /usr/include/features.h /usr/include/sys/cdefs.h \
+ /usr/include/gnu/stubs.h
+AMON2.c :
+/usr/include/f2c.h :
+endianmacs.h :
+/usr/include/assert.h :
+/usr/include/features.h :
+/usr/include/sys/cdefs.h :
+/usr/include/gnu/stubs.h :

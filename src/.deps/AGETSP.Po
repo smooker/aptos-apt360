@@ -1,0 +1,4 @@
+AGETSP.o : \
+ AGETSP.c /usr/include/f2c.h
+AGETSP.c :
+/usr/include/f2c.h :

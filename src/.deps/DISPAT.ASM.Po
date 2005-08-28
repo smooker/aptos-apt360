@@ -1,0 +1,3 @@
+DISPAT.ASM.o : \
+ DISPAT.ASM.c
+DISPAT.ASM.c :

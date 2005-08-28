@@ -1,0 +1,3 @@
+ASECT3.ASM.o : \
+ ASECT3.ASM.c
+ASECT3.ASM.c :

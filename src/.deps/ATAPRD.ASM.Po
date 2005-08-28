@@ -1,0 +1,3 @@
+ATAPRD.ASM.o : \
+ ATAPRD.ASM.c
+ATAPRD.ASM.c :

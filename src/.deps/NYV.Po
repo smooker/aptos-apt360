@@ -1,0 +1,4 @@
+NYV.o : \
+ NYV.c /usr/include/f2c.h
+NYV.c :
+/usr/include/f2c.h :

@@ -1,0 +1,3 @@
+ATAPOP.ASM.o : \
+ ATAPOP.ASM.c
+ATAPOP.ASM.c :

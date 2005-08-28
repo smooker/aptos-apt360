@@ -1,0 +1,4 @@
+VTLAXS.o : \
+ VTLAXS.c /usr/include/f2c.h
+VTLAXS.c :
+/usr/include/f2c.h :

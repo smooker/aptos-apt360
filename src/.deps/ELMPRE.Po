@@ -1,0 +1,4 @@
+ELMPRE.o : \
+ ELMPRE.c /usr/include/f2c.h
+ELMPRE.c :
+/usr/include/f2c.h :

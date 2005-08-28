@@ -1,0 +1,4 @@
+ADDST.o : \
+ ADDST.c /usr/include/f2c.h
+ADDST.c :
+/usr/include/f2c.h :

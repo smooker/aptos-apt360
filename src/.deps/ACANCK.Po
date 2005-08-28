@@ -1,0 +1,4 @@
+ACANCK.o : \
+ ACANCK.c /usr/include/f2c.h
+ACANCK.c :
+/usr/include/f2c.h :

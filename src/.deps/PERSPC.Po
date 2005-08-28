@@ -1,0 +1,4 @@
+PERSPC.o : \
+ PERSPC.c /usr/include/f2c.h
+PERSPC.c :
+/usr/include/f2c.h :

@@ -1,0 +1,4 @@
+YSCALV.o : \
+ YSCALV.c /usr/include/f2c.h
+YSCALV.c :
+/usr/include/f2c.h :

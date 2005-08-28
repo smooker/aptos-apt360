@@ -1,0 +1,4 @@
+ATN2.o : \
+ ATN2.c /usr/include/f2c.h
+ATN2.c :
+/usr/include/f2c.h :

@@ -1,0 +1,46 @@
+partno  slotted bolt hole circle
+machin/pmill
+machin/dxf
+clprnt
+print/on
+libry/strtup,tlend
+$$machin/abc,1
+bhRad1=3.$$ bolt hole circle radius 
+sltrad=.25 $$slot radius
+sltang=10  $$slot angle
+numslt=10 $$number of slots
+
+orig=point/0,0,0
+c1=circle/0,0,0,bhRad1
+l1=line/orig,atangl,(sltang/2),yaxis
+l2=line/orig,atangl,-(sltang/2),yaxis 
+p1=point/ylarge,intof,l1,c1  $$center of first radius slot
+p2=point/ylarge,intof,l2,c1   $$center of second radius slot
+c2=circle/center,p1,radius,sltrad
+c3=circle/center,p2,radius,sltrad
+c4=circle/center,orig,large,tanto,c2
+c5=circle/center,orig,small,tanto,c2
+pl1=plane/0,0,1,-.2
+
+call/strtup,tl=1,sfmin=1000,cutr=.1,spt=p1
+obtain,point/p1,p1x,p1y
+clpt=point/p1x,p1y,.1
+
+index/1
+	rapid, goto/clpt
+	indirv/1,1,0
+	go/to,c2,on,pl1,20
+	tllft,golft/c2,tanto,c5
+	gofwd/c5,tanto,c3
+	gofwd/c3,tanto,c4
+	gofwd/c4,tanto,c2
+	gofwd/c2,tanto,c5
+	gofwd/c2,to,c1
+	rapid, clrsrf/now
+index/1,nomore
+
+copy/1,xyrot,(360/numslt),numslt
+
+call/tlend
+
+fini

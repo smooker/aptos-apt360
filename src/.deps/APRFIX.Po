@@ -1,0 +1,5 @@
+APRFIX.o : \
+ APRFIX.c /usr/include/f2c.h endianmacs.h
+APRFIX.c :
+/usr/include/f2c.h :
+endianmacs.h :

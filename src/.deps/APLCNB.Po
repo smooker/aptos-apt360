@@ -1,0 +1,4 @@
+APLCNB.o : \
+ APLCNB.c /usr/include/f2c.h
+APLCNB.c :
+/usr/include/f2c.h :

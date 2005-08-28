@@ -1,0 +1,4 @@
+ACYLND.o : \
+ ACYLND.c /usr/include/f2c.h
+ACYLND.c :
+/usr/include/f2c.h :

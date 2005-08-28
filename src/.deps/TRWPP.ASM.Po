@@ -1,0 +1,3 @@
+TRWPP.ASM.o : \
+ TRWPP.ASM.c
+TRWPP.ASM.c :

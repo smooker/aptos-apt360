@@ -1,0 +1,4 @@
+AGENPL.o : \
+ AGENPL.c /usr/include/f2c.h
+AGENPL.c :
+/usr/include/f2c.h :

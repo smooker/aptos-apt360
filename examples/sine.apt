@@ -1,0 +1,32 @@
+partno/ a sine profile 
+machin/pmill
+machin/dxf
+libry/strtup,tlend
+print/on
+reserv/p,138
+l1=line/13,0,13,1
+ly=line/yaxis
+a=1
+
+loopst
+
+agn)	p(a)=point/(a/10),(4*sinf(4*a)),0
+	a=a+1
+	if(a-138)agn,agn,fin
+
+fin)loopnd
+
+
+$$spindl/3000
+$$coolnt/on
+tab1=tabcyl/noz,spline,p(all)
+setpt=point/-2,2,0
+$$cutter/.25
+call/strtup,tl=1,sfmin=1000,cutr=.25,spt=setpt
+from/setpt
+go/to,tab1
+tllft,golft/tab1,to,l1
+tlrgt,gofwd/l1,past,tab1
+gorgt/tab1,to,ly
+call/tlend
+fini

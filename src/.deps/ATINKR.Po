@@ -1,0 +1,4 @@
+ATINKR.o : \
+ ATINKR.c /usr/include/f2c.h
+ATINKR.c :
+/usr/include/f2c.h :

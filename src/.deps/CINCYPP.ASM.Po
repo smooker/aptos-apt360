@@ -1,0 +1,3 @@
+CINCYPP.ASM.o : \
+ CINCYPP.ASM.c
+CINCYPP.ASM.c :

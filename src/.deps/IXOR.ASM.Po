@@ -1,0 +1,9 @@
+IXOR.ASM.o : \
+ IXOR.ASM.c /usr/include/assert.h /usr/include/features.h \
+ /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h /usr/include/f2c.h
+IXOR.ASM.c :
+/usr/include/assert.h :
+/usr/include/features.h :
+/usr/include/sys/cdefs.h :
+/usr/include/gnu/stubs.h :
+/usr/include/f2c.h :

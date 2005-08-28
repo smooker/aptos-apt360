@@ -1,0 +1,4 @@
+ACROSS.o : \
+ ACROSS.c /usr/include/f2c.h
+ACROSS.c :
+/usr/include/f2c.h :

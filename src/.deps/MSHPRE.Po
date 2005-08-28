@@ -1,0 +1,4 @@
+MSHPRE.o : \
+ MSHPRE.c /usr/include/f2c.h
+MSHPRE.c :
+/usr/include/f2c.h :

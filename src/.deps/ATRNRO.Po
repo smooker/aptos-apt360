@@ -1,0 +1,4 @@
+ATRNRO.o : \
+ ATRNRO.c /usr/include/f2c.h
+ATRNRO.c :
+/usr/include/f2c.h :

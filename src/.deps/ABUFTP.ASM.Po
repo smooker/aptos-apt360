@@ -1,0 +1,3 @@
+ABUFTP.ASM.o : \
+ ABUFTP.ASM.c
+ABUFTP.ASM.c :

@@ -1,0 +1,4 @@
+ANAMLT.o : \
+ ANAMLT.c /usr/include/f2c.h
+ANAMLT.c :
+/usr/include/f2c.h :

@@ -1,0 +1,3 @@
+SETMIN.ASM.o : \
+ SETMIN.ASM.c
+SETMIN.ASM.c :

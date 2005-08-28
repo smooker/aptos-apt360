@@ -1,0 +1,4 @@
+ARROW.o : \
+ ARROW.c /usr/include/f2c.h
+ARROW.c :
+/usr/include/f2c.h :

@@ -1,0 +1,4 @@
+TRACUT.o : \
+ TRACUT.c /usr/include/f2c.h
+TRACUT.c :
+/usr/include/f2c.h :

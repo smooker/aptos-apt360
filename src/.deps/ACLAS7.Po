@@ -1,0 +1,4 @@
+ACLAS7.o : \
+ ACLAS7.c /usr/include/f2c.h
+ACLAS7.c :
+/usr/include/f2c.h :

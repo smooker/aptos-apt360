@@ -1,0 +1,5 @@
+BDYNDP.o : \
+ BDYNDP.c /usr/include/f2c.h endianmacs.h
+BDYNDP.c :
+/usr/include/f2c.h :
+endianmacs.h :

@@ -1,0 +1,2 @@
+EXTRA_DIST= STRTUP TEST TLEND readme
+

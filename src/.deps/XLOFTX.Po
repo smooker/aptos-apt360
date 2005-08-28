@@ -1,0 +1,4 @@
+XLOFTX.o : \
+ XLOFTX.c /usr/include/f2c.h
+XLOFTX.c :
+/usr/include/f2c.h :

@@ -1,0 +1,4 @@
+ACENTR.o : \
+ ACENTR.c /usr/include/f2c.h
+ACENTR.c :
+/usr/include/f2c.h :

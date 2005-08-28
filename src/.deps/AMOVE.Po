@@ -1,0 +1,4 @@
+AMOVE.o : \
+ AMOVE.c /usr/include/f2c.h
+AMOVE.c :
+/usr/include/f2c.h :

@@ -1,0 +1,4 @@
+APOCK.o : \
+ APOCK.c /usr/include/f2c.h
+APOCK.c :
+/usr/include/f2c.h :

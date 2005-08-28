@@ -1,0 +1,4 @@
+ASTORE.o : \
+ ASTORE.c /usr/include/f2c.h
+ASTORE.c :
+/usr/include/f2c.h :

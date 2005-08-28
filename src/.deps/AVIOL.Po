@@ -1,0 +1,4 @@
+AVIOL.o : \
+ AVIOL.c /usr/include/f2c.h
+AVIOL.c :
+/usr/include/f2c.h :

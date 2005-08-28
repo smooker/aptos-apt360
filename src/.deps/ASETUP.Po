@@ -1,0 +1,4 @@
+ASETUP.o : \
+ ASETUP.c /usr/include/f2c.h
+ASETUP.c :
+/usr/include/f2c.h :

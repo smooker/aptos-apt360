@@ -1,0 +1,4 @@
+AZVALU.o : \
+ AZVALU.c /usr/include/f2c.h
+AZVALU.c :
+/usr/include/f2c.h :

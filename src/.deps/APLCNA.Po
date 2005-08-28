@@ -1,0 +1,4 @@
+APLCNA.o : \
+ APLCNA.c /usr/include/f2c.h
+APLCNA.c :
+/usr/include/f2c.h :

@@ -1,0 +1,30 @@
+$$**********************************************************************
+$$               MACRO "STRTUP" 
+$$**********************************************************************
+STRTUP=MACRO/TL,SFMIN,CUTR,SPT  $$*TOOL NUMBER,RPM,CUTTER DIA,START*
+
+clrsrf/(plane/0,0,1,.1)
+$$safety/start line:
+SEQNO/TL
+INSERTG00 G49 G54 G80 Z0 G90 G98
+$$***TOOL DESCRIPTION***
+INSERT(TOOL DESCRIPTION)
+LOADTL/TL
+CUTTER/CUTR
+$$pi=3.1416
+
+rpm1=(4*SFMIN/(2*cutr))
+if(rpm1-10000)1,1,2
+1)SPINDL/rpm1,SFM
+jumpto/3
+2)SPINDL/10000,SFM
+
+3)RAPID
+GOTO/SPT
+OPSKIP/ON
+COOLNT/FLOOD
+OPSKIP/OFF
+CUTCOM/LENGTH,TL
+CLRSRF/NOW
+TERMAC
+$$**********************************************************************

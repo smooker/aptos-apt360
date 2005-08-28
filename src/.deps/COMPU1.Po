@@ -1,0 +1,4 @@
+COMPU1.o : \
+ COMPU1.c /usr/include/f2c.h
+COMPU1.c :
+/usr/include/f2c.h :

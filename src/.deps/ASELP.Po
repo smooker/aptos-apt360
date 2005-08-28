@@ -1,0 +1,4 @@
+ASELP.o : \
+ ASELP.c /usr/include/f2c.h
+ASELP.c :
+/usr/include/f2c.h :

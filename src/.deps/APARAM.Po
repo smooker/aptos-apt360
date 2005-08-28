@@ -1,0 +1,5 @@
+APARAM.o : \
+ APARAM.c /usr/include/f2c.h endianmacs.h
+APARAM.c :
+/usr/include/f2c.h :
+endianmacs.h :

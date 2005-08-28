@@ -1,0 +1,4 @@
+AREPRE.o : \
+ AREPRE.c /usr/include/f2c.h
+AREPRE.c :
+/usr/include/f2c.h :

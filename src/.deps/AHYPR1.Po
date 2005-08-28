@@ -1,0 +1,4 @@
+AHYPR1.o : \
+ AHYPR1.c /usr/include/f2c.h
+AHYPR1.c :
+/usr/include/f2c.h :

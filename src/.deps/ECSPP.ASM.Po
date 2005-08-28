@@ -1,0 +1,3 @@
+ECSPP.ASM.o : \
+ ECSPP.ASM.c
+ECSPP.ASM.c :

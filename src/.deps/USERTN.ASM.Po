@@ -1,0 +1,3 @@
+USERTN.ASM.o : \
+ USERTN.ASM.c
+USERTN.ASM.c :

@@ -1,0 +1,3 @@
+AFRDNL.ASM.o : \
+ AFRDNL.ASM.c
+AFRDNL.ASM.c :

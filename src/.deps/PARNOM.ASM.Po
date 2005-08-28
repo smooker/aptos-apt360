@@ -1,0 +1,9 @@
+PARNOM.ASM.o : \
+ PARNOM.ASM.c /usr/include/assert.h \
+ /usr/include/features.h /usr/include/sys/cdefs.h \
+ /usr/include/gnu/stubs.h
+PARNOM.ASM.c :
+/usr/include/assert.h :
+/usr/include/features.h :
+/usr/include/sys/cdefs.h :
+/usr/include/gnu/stubs.h :

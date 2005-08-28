@@ -1,0 +1,5 @@
+INITAL.o : \
+ INITAL.c /usr/include/f2c.h endianmacs.h
+INITAL.c :
+/usr/include/f2c.h :
+endianmacs.h :

@@ -1,0 +1,5 @@
+AEXPRS.o : \
+ AEXPRS.c /usr/include/f2c.h endianmacs.h
+AEXPRS.c :
+/usr/include/f2c.h :
+endianmacs.h :

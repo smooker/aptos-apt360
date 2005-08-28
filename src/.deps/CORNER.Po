@@ -1,0 +1,4 @@
+CORNER.o : \
+ CORNER.c /usr/include/f2c.h
+CORNER.c :
+/usr/include/f2c.h :

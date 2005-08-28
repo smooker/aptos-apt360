@@ -1,0 +1,4 @@
+ADOT.o : \
+ ADOT.c /usr/include/f2c.h
+ADOT.c :
+/usr/include/f2c.h :

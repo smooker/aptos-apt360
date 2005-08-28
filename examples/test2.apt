@@ -1,0 +1,65 @@
+PARTNO  TEST PART FOR SYSTEM/360 APT                                    TEST0000
+
+print/on
+clprnt
+
+
+
+l1=line/0,0,1,.85
+c1=circle/0,0,0,1
+p1=point/0,1,0
+p2=point/1,0,0
+p3=point/.7,.7,0
+p4=point/.5,.866,0
+p5=point/.866,.5,0
+
+
+p11=point/0,0,0
+p21=point/4,0,0
+p31=point/5,4,0
+p41=point/4,5,0
+p51=point/0,3,0
+d=1
+c=1.7
+f=c
+f1=20.
+f2=20.
+f3=20.
+re=c*(d/2)/2
+cutter/d
+$$poc1=pocket/re,c,f,f1,f2,f3,1,1,p11,p21,p31,p41,p51
+
+
+
+
+sphr1=sphere/center,(point/0,0,0),radius,1
+sphr2=sphere/center,(point/0,1,-20),radius,20
+tab1=tabcyl/noz,spline,p1,slope,0,p4,p3,p5,p2,slope,100000
+cyl1=cylndr/0,0,0,0,-1,0,5
+cone1=cone/(point/0,0,5),(vector/0,0,-1),45
+
+ptest=point/intof,l1,tab1,p4
+pl1=plane/0,0,1,0
+$$pl1=plane/0,0,1,-4.0
+pl2=plane/0,1,1,-4.0
+pl3=plane/0,1,0,-1
+cutter/.1,.05
+from/7,7,7
+$$go/to,tab1,on,pl1 $$fails
+$$go/to,tab1,on,sphr2 $$fails
+$$go/to,l1,to,pl2 $$works
+$$go/to,l1,to,pl1 $$works
+$$go/to,sphr1,to,sphr2,to,pl3 $$works
+$$go/to,sphr2,on,pl1 $$fails
+$$go/to,sphr1,on,cyl1 $$works
+$$go/to,pl3,on,pl1 $$works
+$$go/to,sphr2,to,cone1$$fails
+$$go/to,cone1,to,sphr2 $$fails
+$$go/to,cone1$$,on,pl1 $$fails
+$$go/to,cone1,on,sphr2 $$fails
+
+$$tllft,golft/sphr1,to,pl3
+tllft,golft/l1,to,tab1
+$$tllft,golft/l1,to,c1
+FINI                                                                    TEST1470
+

@@ -1,0 +1,5 @@
+ATABCR.o : \
+ ATABCR.c /usr/include/f2c.h endianmacs.h
+ATABCR.c :
+/usr/include/f2c.h :
+endianmacs.h :

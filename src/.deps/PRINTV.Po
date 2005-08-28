@@ -1,0 +1,4 @@
+PRINTV.o : \
+ PRINTV.c /usr/include/f2c.h
+PRINTV.c :
+/usr/include/f2c.h :

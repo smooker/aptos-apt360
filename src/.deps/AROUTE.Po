@@ -1,0 +1,4 @@
+AROUTE.o : \
+ AROUTE.c /usr/include/f2c.h
+AROUTE.c :
+/usr/include/f2c.h :

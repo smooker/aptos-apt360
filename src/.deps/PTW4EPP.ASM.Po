@@ -1,0 +1,3 @@
+PTW4EPP.ASM.o : \
+ PTW4EPP.ASM.c
+PTW4EPP.ASM.c :

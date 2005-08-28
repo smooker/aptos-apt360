@@ -1,0 +1,4 @@
+ADIAGM.o : \
+ ADIAGM.c /usr/include/f2c.h
+ADIAGM.c :
+/usr/include/f2c.h :

@@ -1,0 +1,4 @@
+ATAPE.o : \
+ ATAPE.c /usr/include/f2c.h
+ATAPE.c :
+/usr/include/f2c.h :

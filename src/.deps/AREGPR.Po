@@ -1,0 +1,4 @@
+AREGPR.o : \
+ AREGPR.c /usr/include/f2c.h
+AREGPR.c :
+/usr/include/f2c.h :

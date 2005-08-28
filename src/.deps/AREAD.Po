@@ -1,0 +1,5 @@
+AREAD.o : \
+ AREAD.c /usr/include/f2c.h endianmacs.h
+AREAD.c :
+/usr/include/f2c.h :
+endianmacs.h :

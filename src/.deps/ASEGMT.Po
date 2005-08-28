@@ -1,0 +1,4 @@
+ASEGMT.o : \
+ ASEGMT.c /usr/include/f2c.h
+ASEGMT.c :
+/usr/include/f2c.h :

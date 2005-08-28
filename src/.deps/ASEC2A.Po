@@ -1,0 +1,4 @@
+ASEC2A.o : \
+ ASEC2A.c /usr/include/f2c.h
+ASEC2A.c :
+/usr/include/f2c.h :

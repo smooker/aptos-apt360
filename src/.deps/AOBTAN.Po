@@ -1,0 +1,5 @@
+AOBTAN.o : \
+ AOBTAN.c /usr/include/f2c.h endianmacs.h
+AOBTAN.c :
+/usr/include/f2c.h :
+endianmacs.h :

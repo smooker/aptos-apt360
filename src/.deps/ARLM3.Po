@@ -1,0 +1,4 @@
+ARLM3.o : \
+ ARLM3.c /usr/include/f2c.h
+ARLM3.c :
+/usr/include/f2c.h :

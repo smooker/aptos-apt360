@@ -1,0 +1,4 @@
+ADECIS.o : \
+ ADECIS.c /usr/include/f2c.h
+ADECIS.c :
+/usr/include/f2c.h :

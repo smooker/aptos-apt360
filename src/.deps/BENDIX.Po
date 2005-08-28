@@ -1,0 +1,4 @@
+BENDIX.o : \
+ BENDIX.c /usr/include/f2c.h
+BENDIX.c :
+/usr/include/f2c.h :

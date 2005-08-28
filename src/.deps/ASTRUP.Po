@@ -1,0 +1,4 @@
+ASTRUP.o : \
+ ASTRUP.c /usr/include/f2c.h
+ASTRUP.c :
+/usr/include/f2c.h :

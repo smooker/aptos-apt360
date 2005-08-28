@@ -1,0 +1,4 @@
+AGOUCK.o : \
+ AGOUCK.c /usr/include/f2c.h
+AGOUCK.c :
+/usr/include/f2c.h :

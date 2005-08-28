@@ -1,0 +1,5 @@
+ASCAN.o : \
+ ASCAN.c /usr/include/f2c.h endianmacs.h
+ASCAN.c :
+/usr/include/f2c.h :
+endianmacs.h :

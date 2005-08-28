@@ -1,0 +1,4 @@
+APREPA.o : \
+ APREPA.c /usr/include/f2c.h
+APREPA.c :
+/usr/include/f2c.h :

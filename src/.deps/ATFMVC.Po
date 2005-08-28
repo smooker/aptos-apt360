@@ -1,0 +1,4 @@
+ATFMVC.o : \
+ ATFMVC.c /usr/include/f2c.h
+ATFMVC.c :
+/usr/include/f2c.h :

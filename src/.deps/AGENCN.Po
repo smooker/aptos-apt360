@@ -1,0 +1,5 @@
+AGENCN.o : \
+ AGENCN.c /usr/include/f2c.h endianmacs.h
+AGENCN.c :
+/usr/include/f2c.h :
+endianmacs.h :

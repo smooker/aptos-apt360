@@ -1,0 +1,7 @@
+Apt is an acronym for Automatically Programmed Tools.  It is a special-purpose 
+language created to run automatically controlled machine tools such as 
+milling machines and lathes.
+
+Apt360 is a port of the IBM's Apt program from  the 60's
+that ran on the s/360.  Expect to see some antique characteristics from that era, such
+as no dynamic memory ,and frequent references to "CARDS" and "TAPE", for example.

@@ -1,0 +1,4 @@
+PL3AXS.o : \
+ PL3AXS.c /usr/include/f2c.h
+PL3AXS.c :
+/usr/include/f2c.h :

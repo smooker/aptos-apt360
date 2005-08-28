@@ -1,0 +1,4 @@
+APREPC.o : \
+ APREPC.c /usr/include/f2c.h
+APREPC.c :
+/usr/include/f2c.h :

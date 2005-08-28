@@ -1,0 +1,4 @@
+APOCKA.o : \
+ APOCKA.c /usr/include/f2c.h
+APOCKA.c :
+/usr/include/f2c.h :

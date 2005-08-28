@@ -1,0 +1,3 @@
+ATAPWT.ASM.o : \
+ ATAPWT.ASM.c
+ATAPWT.ASM.c :

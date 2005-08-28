@@ -1,0 +1,4 @@
+AFWDSL.o : \
+ AFWDSL.c /usr/include/f2c.h
+AFWDSL.c :
+/usr/include/f2c.h :

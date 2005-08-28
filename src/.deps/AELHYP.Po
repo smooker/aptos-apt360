@@ -1,0 +1,4 @@
+AELHYP.o : \
+ AELHYP.c /usr/include/f2c.h
+AELHYP.c :
+/usr/include/f2c.h :

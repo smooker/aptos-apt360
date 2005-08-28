@@ -1,0 +1,4 @@
+AJUNDD.o : \
+ AJUNDD.c /usr/include/f2c.h
+AJUNDD.c :
+/usr/include/f2c.h :

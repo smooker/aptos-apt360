@@ -1,0 +1,9 @@
+PUNCHA.ASM.o : \
+ PUNCHA.ASM.c /usr/include/assert.h \
+ /usr/include/features.h /usr/include/sys/cdefs.h \
+ /usr/include/gnu/stubs.h
+PUNCHA.ASM.c :
+/usr/include/assert.h :
+/usr/include/features.h :
+/usr/include/sys/cdefs.h :
+/usr/include/gnu/stubs.h :

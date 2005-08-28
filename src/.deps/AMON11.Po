@@ -1,0 +1,5 @@
+AMON11.o : \
+ AMON11.c /usr/include/f2c.h endianmacs.h
+AMON11.c :
+/usr/include/f2c.h :
+endianmacs.h :

@@ -1,0 +1,4 @@
+ARPDIS.o : \
+ ARPDIS.c /usr/include/f2c.h
+ARPDIS.c :
+/usr/include/f2c.h :

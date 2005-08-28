@@ -1,0 +1,5 @@
+ACALSP.o : \
+ ACALSP.c /usr/include/f2c.h endianmacs.h
+ACALSP.c :
+/usr/include/f2c.h :
+endianmacs.h :

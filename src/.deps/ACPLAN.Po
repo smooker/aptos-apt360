@@ -1,0 +1,4 @@
+ACPLAN.o : \
+ ACPLAN.c /usr/include/f2c.h
+ACPLAN.c :
+/usr/include/f2c.h :

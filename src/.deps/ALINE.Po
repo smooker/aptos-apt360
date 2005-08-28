@@ -1,0 +1,5 @@
+ALINE.o : \
+ ALINE.c /usr/include/f2c.h endianmacs.h
+ALINE.c :
+/usr/include/f2c.h :
+endianmacs.h :

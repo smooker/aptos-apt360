@@ -1,0 +1,4 @@
+TYPE5.o : \
+ TYPE5.c /usr/include/f2c.h
+TYPE5.c :
+/usr/include/f2c.h :

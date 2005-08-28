@@ -1,0 +1,4 @@
+AMATMV.o : \
+ AMATMV.c /usr/include/f2c.h
+AMATMV.c :
+/usr/include/f2c.h :

@@ -1,0 +1,5 @@
+ASCHTB.o : \
+ ASCHTB.c /usr/include/f2c.h endianmacs.h
+ASCHTB.c :
+/usr/include/f2c.h :
+endianmacs.h :

@@ -1,0 +1,4 @@
+MSETUP.o : \
+ MSETUP.c /usr/include/f2c.h
+MSETUP.c :
+/usr/include/f2c.h :

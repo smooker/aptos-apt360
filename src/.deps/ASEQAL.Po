@@ -1,0 +1,5 @@
+ASEQAL.o : \
+ ASEQAL.c /usr/include/f2c.h endianmacs.h
+ASEQAL.c :
+/usr/include/f2c.h :
+endianmacs.h :

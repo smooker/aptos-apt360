@@ -1,0 +1,44 @@
+#!/bin/bash
+#  Script to execute postprocessors
+#  apt360 will call this script to execute the postprocessor given in a 
+#  MACHIN statement.. $1 is the name of the first postprocessor; $2 is
+#  the machine number; $3 and $4 are the next postprocessor and machine, 
+#  respectively, and so on.
+
+for machins in $*
+do
+
+	case $machins
+	in
+
+	DXF)
+	#dxf $machins 
+	string=$string" -p dxf"	
+#	echo string is: $string
+	;;
+
+	PMILL)
+	string=$string" -p pmill"	
+#	echo string is: $string
+	;;
+	[0-9]|[0-9][0-9])
+	#mill $machins 
+	;;
+
+	*)
+		echo postprocessor:WARNING: Could not find post $machins
+	esac
+
+
+done
+#echo string is : $string
+#call the postprocessor with the desired posts
+postp $string<cl.tap
+
+
+#if [ -e print.dxf ] 
+#	then
+#	cat cl.dxf print.dxf >cl_print.dxf
+#	cat cl.dxf print.dxf >temp.dxf
+
+#fi

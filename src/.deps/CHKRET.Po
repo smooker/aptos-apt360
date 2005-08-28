@@ -1,0 +1,4 @@
+CHKRET.o : \
+ CHKRET.c /usr/include/f2c.h
+CHKRET.c :
+/usr/include/f2c.h :

@@ -1,0 +1,4 @@
+AINVRT.o : \
+ AINVRT.c /usr/include/f2c.h
+AINVRT.c :
+/usr/include/f2c.h :

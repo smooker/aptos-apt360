@@ -1,0 +1,5 @@
+ACCALL.o : \
+ ACCALL.c /usr/include/f2c.h endianmacs.h
+ACCALL.c :
+/usr/include/f2c.h :
+endianmacs.h :

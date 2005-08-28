@@ -1,0 +1,4 @@
+ACHECK.o : \
+ ACHECK.c /usr/include/f2c.h
+ACHECK.c :
+/usr/include/f2c.h :

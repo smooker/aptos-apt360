@@ -1,0 +1,4 @@
+TRUNC.o : \
+ TRUNC.c /usr/include/f2c.h
+TRUNC.c :
+/usr/include/f2c.h :

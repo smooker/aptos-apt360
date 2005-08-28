@@ -1,0 +1,38 @@
+partno multax test
+print/on
+clprnt
+multax/on
+$$goto/0,0,1
+$$goto/1,3,1
+$$tlaxis/0,1,1
+$$goto/2,0,2
+cyl1=cylndr/0,0,0,1,0,0,5
+pl1=plane/1,0,0,0
+pl2=plane/0,0,1,0
+pl3=plane/0,1,0,0
+
+intol/.00001,.00001
+$$outtol/.00001,.00001
+
+$$cutter/.25$$,.125
+cutter/0
+tlaxis/normps
+from/-1,0,7
+go/to,pl1,on,cyl1
+pprint **first move**
+tllft,golft/pl1,to,pl2
+pprint **second move**
+gofwd/pl1,to,pl3
+pprint **third move**
+gofwd/pl1,to,pl2
+pprint **fourth move**
+gofwd/pl1,to,pl3
+
+
+$$multax/off
+
+goto/2,0,1,0,0,1
+goto/1,1,1,0,0,1
+goto/2,0,3,0,0,1
+
+fini

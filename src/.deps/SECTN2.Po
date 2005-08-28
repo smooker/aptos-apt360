@@ -1,0 +1,4 @@
+SECTN2.o : \
+ SECTN2.c /usr/include/f2c.h
+SECTN2.c :
+/usr/include/f2c.h :

@@ -1,0 +1,4 @@
+ASTYPE.o : \
+ ASTYPE.c /usr/include/f2c.h
+ASTYPE.c :
+/usr/include/f2c.h :

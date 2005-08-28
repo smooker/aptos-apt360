@@ -1,0 +1,4 @@
+ATRPOS.o : \
+ ATRPOS.c /usr/include/f2c.h
+ATRPOS.c :
+/usr/include/f2c.h :

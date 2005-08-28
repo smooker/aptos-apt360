@@ -1,0 +1,4 @@
+ASTUF.o : \
+ ASTUF.c /usr/include/f2c.h
+ASTUF.c :
+/usr/include/f2c.h :

@@ -1,0 +1,68 @@
+partno a window
+clprnt
+nopost
+print/on
+$$print/off
+
+d1=19   $$center arm radius
+d2=.13   $$corner radius
+d3=1.11 $$outside radius
+d4=.65 $$location of top fillet
+d5=.468 $$location of bottom fillet
+$$p1=point/22,-3.0,0 $$location of center arm radius 
+
+lx=line/xaxis
+ly=line/yaxis
+c1=circle/0,0,0,d3
+c1off=circle/0,0,0,(d3-d2)
+l2=line/parlel,ly,xlarge,d4
+p1=point/ylarge,intof,l2,c1off
+c3=circle/center,p1,radius,d2
+l3=line/parlel,ly,xlarge,d5
+p2=point/ysmall,intof,l3,c1off
+c4=circle/center,p2,radius,d2
+c2=circle/xlarge,in,c3,in,c4,radius,d1
+$$c2=circle/center,p1,radius,d1
+$$c3=circle/xlarge,in,c1,in,c2,radius,d2
+$$c4=circle/xsmall,in,c1,in,c2,radius,d2
+
+spt=point/4,0
+pl1=plane/0,0,1,.1
+clrsrf/pl1
+cutter/(7/32)
+pprint**7/32 em** 
+loadtl/1
+spindl/3000,clw
+rapid
+from/spt
+delete/on
+coolnt/on
+delete/off
+cutcom/length,1
+clrsrf/now
+$$clrsrf/pl1
+fedrat/30.
+cutcom/left,1
+go/to,c2
+tllft,golft/c2,tanto,c4
+gofwd/c4,tanto,c1
+gofwd/c1,tanto,c3
+gofwd/c3,tanto,c2,10
+$$gofwd/c2,to,l1
+cutcom/off
+gofwd/c2,past,lx
+
+print/on
+
+cutcom/length,off
+opstop
+
+
+
+
+
+
+
+
+
+fini

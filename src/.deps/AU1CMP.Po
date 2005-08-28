@@ -1,0 +1,4 @@
+AU1CMP.o : \
+ AU1CMP.c /usr/include/f2c.h
+AU1CMP.c :
+/usr/include/f2c.h :

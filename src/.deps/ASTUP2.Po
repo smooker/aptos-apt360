@@ -1,0 +1,4 @@
+ASTUP2.o : \
+ ASTUP2.c /usr/include/f2c.h
+ASTUP2.c :
+/usr/include/f2c.h :

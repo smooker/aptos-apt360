@@ -1,0 +1,4 @@
+AMIND.o : \
+ AMIND.c /usr/include/f2c.h
+AMIND.c :
+/usr/include/f2c.h :

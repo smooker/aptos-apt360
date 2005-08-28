@@ -1,0 +1,3 @@
+BURGPP.ASM.o : \
+ BURGPP.ASM.c
+BURGPP.ASM.c :

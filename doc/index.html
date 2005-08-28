@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>index</title>
+</head>
+<body bgcolor="#333333" alink="#ff00ff" link="#0000ff" vlink="#ff0000"
+ style="height: 100%; width: 100%; background-repeat: repeat;"
+ background="yelgridl.jpg">
+<span style="font-weight: bold;"><br>
+<big>Programmer's Notes for Apt360 Source</big><span
+ style="font-weight: bold;"></span><br>
+<br>
+<br>
+</span>This documentation is basically an extended series of notes I
+made while I was <br>
+was attempting to understand the source and convert the program to run
+on a <br>
+intel pc.&nbsp; As such, it is not authoritative and undoubtably
+contains many errors and<br>
+omissions.&nbsp; I'm presenting it simply as a help to whoever might be
+interested in learning<br>
+this program .<br>
+<span style="font-weight: bold;"><br>
+<br>
+<br>
+<a href="acntrl.html">ACNTRL</a> - (section 0 ) overall control </span><br>
+&nbsp;&nbsp; &nbsp;calls: <br>
+&nbsp;&nbsp; &nbsp;INITAL - initialize<br>
+&nbsp;&nbsp; &nbsp;ASCNTL - section 1&nbsp; language, parse, store
+canon forms<br>
+&nbsp;&nbsp; &nbsp;A2CTRL - section 2 - calculate cut vectors from
+motion commands<br>
+&nbsp;&nbsp; &nbsp;SECTN3 - section 3 - COPY and TRACUT transforms<br>
+&nbsp;&nbsp; &nbsp;APTPOS - section 4 - post process&nbsp;&nbsp; &nbsp;<br>
+<br>
+****************************************************************<br>
+<br>
+<span style="font-weight: bold;"><a href="ascntl.html">ASCNTL</a> -
+(section 1)&nbsp; language, parse, store canon forms</span><br>
+&nbsp;&nbsp; &nbsp;calls: <br>
+&nbsp;&nbsp; &nbsp;AMONTR -pass 1 control<br>
+&nbsp;&nbsp; &nbsp;ASYCTL -pass 2 control<br>
+&nbsp;&nbsp; &nbsp;ATAPRD - asm.<br>
+&nbsp;&nbsp; &nbsp;ATAPOP - asm.<br>
+<br>
+****************************************************************<br>
+<br>
+<span style="font-weight: bold;"><a href="a2ctrl.html">A2CTRL</a>&nbsp;&nbsp;
+- (section 2)&nbsp; motion, cut vectors </span><br>
+&nbsp;&nbsp; &nbsp;calls: <br>
+<br>
+&nbsp;&nbsp; &nbsp;ASEC2&nbsp;&nbsp;&nbsp; calls various sec 2 routines:<br>
+&nbsp;&nbsp; &nbsp;calls: <br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;ASEC2A&nbsp;&nbsp;&nbsp; calls
+ARPDIS dispatch to&nbsp; ARELEM3 or ARELEM2 (via AREPRE - arelem pre?)<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;ASEC2B&nbsp;&nbsp;&nbsp; calls
+ARPDIS dispatch to&nbsp; ARELEM3 or ARELEM2<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;ASEC2C&nbsp;&nbsp;&nbsp; calls
+(same as above)<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;ASEC2D<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ARLM2&nbsp; 2d ARELEM&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ARLM3&nbsp; 3d ARELEM <br>
+<br>
+********************************************<br>
+<span style="font-weight: bold;"><span
+ style="text-decoration: underline;"></span>&nbsp; <span
+ style="text-decoration: underline;"></span></span><br>
+<span style="font-weight: bold;"><a href="sectn3.html"><span
+ style="text-decoration: underline;">SECTN3</span></a>: -(section 3) -
+copy , transform cut vectors- final cl file</span><br>
+<br>
+<span style="font-weight: bold;"><a href="aptpos.html"><span
+ style="text-decoration: underline;">APTPOS</span></a>: -(section 4) -
+post process cl file</span><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</body>
+</html>

@@ -1,0 +1,5 @@
+      BLOCK DATA
+      COMMON/AC/IC(6)
+      DATA IC/1000,1001,1002,1003,1004,1005/
+      END
+

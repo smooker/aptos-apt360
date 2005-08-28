@@ -1,0 +1,5 @@
+PATGO.o : \
+ PATGO.c /usr/include/f2c.h endianmacs.h
+PATGO.c :
+/usr/include/f2c.h :
+endianmacs.h :

@@ -1,0 +1,4 @@
+AOFSET.o : \
+ AOFSET.c /usr/include/f2c.h
+AOFSET.c :
+/usr/include/f2c.h :

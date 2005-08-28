@@ -1,0 +1,100 @@
+dnl  Process this file with autoconf to produce a  configure script.
+AC_INIT([Apt360], [1.0], [crotchet@sourceforge.net])
+AM_INIT_AUTOMAKE([apt360], [1.0], [crotchet@sourceforge.net])
+AC_CONFIG_HEADER(config.h)
+
+dnl  Checks for programs.
+AC_PROG_CXX
+AC_PROG_CC
+AC_PROG_CPP
+AM_PROG_AS
+#AC_PROG_RANLIB
+
+
+dnl  Checks for libraries.
+hasdxf=1
+AC_CHECK_LIB([dxf], [main],,[hasdxf=]
+	[AC_MSG_WARN([no dxf lib- you will not be able to run the dxf post])])
+
+
+AC_CHECK_LIB([m], [fabs],,[AC_MSG_ERROR([could not find math libraries])])
+AC_CHECK_LIB([gslcblas],[main])
+AC_CHECK_LIB([gsl], [gsl_poly_solve_cubic],,
+	[AC_MSG_WARN([no gsl library- you will not be able to use the TABCYL command])])
+
+
+
+dnl f2c uses it's own "MAIN__" function, so AC_CHECK_LIB does not work
+savelibs=$LIBS
+LIBS="-lf2c  $LIBS"
+AC_MSG_CHECKING(for f2c library)
+AC_LINK_IFELSE([[     
+	/* Override any gcc2 internal prototype to avoid an error.  */
+	#ifdef __cplusplus
+	extern "C"
+	#endif
+	/* We use char because int might match the return type of a gcc2
+	   builtin and then its argument prototype would still apply.  */
+	char do_fio ();
+	MAIN__ (){
+		do_fio();
+	}
+
+ ]],
+	[AC_MSG_RESULT([yes])]
+		LIBS=$savelibs,  dnl -lf2c messes up other linking
+	[AC_MSG_RESULT([no]),
+		AC_MSG_ERROR([could not find f2c libraries]) 
+		]) 
+
+
+dnl  Checks for header files.
+AC_HEADER_STDC
+AC_HEADER_SYS_WAIT
+AC_CHECK_HEADERS([errno.h float.h limits.h stdlib.h string.h unistd.h])
+AC_CHECK_HEADERS([f2c.h],,
+	[AC_MSG_ERROR([could not find f2c headers])])
+AC_LANG([C++])
+AC_SUBST(dxfprog,[""])
+
+AC_CHECK_HEADERS([gsl/gsl_poly.h])
+AC_CHECK_HEADERS([dxflib/dl_dxf.h dxflib/dl_writer_ascii.h],[dxfprog=postDXF],
+	[AC_MSG_WARN(no dxf headers- you will not be able to run the dxf post)])
+
+
+dnl  Checks for typedefs, structures, and compiler characteristics.
+AC_C_CONST
+AC_STRUCT_TM
+#check for long long int?
+
+dnl  Checks for library functions.
+AC_FUNC_FORK
+AC_FUNC_STRFTIME
+AC_CHECK_FUNCS([rint sqrt strerror])
+
+
+AC_PROG_MAKE_SET
+AC_PROG_INSTALL
+
+AC_C_BIGENDIAN([AC_MSG_ERROR([big-endian machines not currently supported;\
+ contact the author if you can test])], ,])
+
+for each in $CFLAGS
+do
+	if test $each = -O1 || test $each = -O2 || test $each = -O3 
+	then
+		AC_MSG_WARN([your CFLAGS variable has optimizing turned on\
+-this may break the code])
+	fi
+done
+
+AM_CONDITIONAL(HASDXF,test $hasdxf)
+AC_SUBST(absolute_build_dir,[$PWD])
+
+
+
+
+AC_OUTPUT(Makefile src/Makefile doc/Makefile maclib/Makefile orig_source/Makefile \
+		examples/Makefile vim/Makefile vim/syntax/Makefile )
+	
+

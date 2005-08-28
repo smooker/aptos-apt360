@@ -1,0 +1,3 @@
+ADPRNT.ASM.o : \
+ ADPRNT.ASM.c
+ADPRNT.ASM.c :

@@ -1,0 +1,4 @@
+AQUAD.o : \
+ AQUAD.c /usr/include/f2c.h
+AQUAD.c :
+/usr/include/f2c.h :

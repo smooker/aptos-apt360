@@ -1,0 +1,4 @@
+ARADAR.o : \
+ ARADAR.c /usr/include/f2c.h
+ARADAR.c :
+/usr/include/f2c.h :

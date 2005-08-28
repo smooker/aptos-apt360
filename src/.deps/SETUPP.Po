@@ -1,0 +1,4 @@
+SETUPP.o : \
+ SETUPP.c /usr/include/f2c.h
+SETUPP.c :
+/usr/include/f2c.h :

@@ -1,0 +1,4 @@
+AORDP.o : \
+ AORDP.c /usr/include/f2c.h
+AORDP.c :
+/usr/include/f2c.h :

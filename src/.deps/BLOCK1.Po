@@ -1,0 +1,4 @@
+BLOCK1.o : \
+ BLOCK1.c /usr/include/f2c.h
+BLOCK1.c :
+/usr/include/f2c.h :

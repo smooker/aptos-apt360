@@ -1,0 +1,5 @@
+ASYCTL.o : \
+ ASYCTL.c /usr/include/f2c.h endianmacs.h
+ASYCTL.c :
+/usr/include/f2c.h :
+endianmacs.h :

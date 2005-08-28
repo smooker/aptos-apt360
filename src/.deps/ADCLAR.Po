@@ -1,0 +1,4 @@
+ADCLAR.o : \
+ ADCLAR.c /usr/include/f2c.h
+ADCLAR.c :
+/usr/include/f2c.h :

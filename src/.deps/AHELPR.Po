@@ -1,0 +1,4 @@
+AHELPR.o : \
+ AHELPR.c /usr/include/f2c.h
+AHELPR.c :
+/usr/include/f2c.h :

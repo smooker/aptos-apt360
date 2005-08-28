@@ -1,0 +1,4 @@
+ALCINT.o : \
+ ALCINT.c /usr/include/f2c.h
+ALCINT.c :
+/usr/include/f2c.h :

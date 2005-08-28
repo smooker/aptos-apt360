@@ -1,0 +1,4 @@
+ACCINT.o : \
+ ACCINT.c /usr/include/f2c.h
+ACCINT.c :
+/usr/include/f2c.h :

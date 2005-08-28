@@ -1,0 +1,3 @@
+APTLNK.ASM.o : \
+ APTLNK.ASM.c
+APTLNK.ASM.c :

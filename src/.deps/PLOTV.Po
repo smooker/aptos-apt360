@@ -1,0 +1,4 @@
+PLOTV.o : \
+ PLOTV.c /usr/include/f2c.h
+PLOTV.c :
+/usr/include/f2c.h :

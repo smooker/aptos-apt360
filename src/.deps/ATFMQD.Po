@@ -1,0 +1,4 @@
+ATFMQD.o : \
+ ATFMQD.c /usr/include/f2c.h
+ATFMQD.c :
+/usr/include/f2c.h :

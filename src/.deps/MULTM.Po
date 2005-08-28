@@ -1,0 +1,4 @@
+MULTM.o : \
+ MULTM.c /usr/include/f2c.h
+MULTM.c :
+/usr/include/f2c.h :

@@ -1,0 +1,4 @@
+LERROR.o : \
+ LERROR.c /usr/include/f2c.h
+LERROR.c :
+/usr/include/f2c.h :

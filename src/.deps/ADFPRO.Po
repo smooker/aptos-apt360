@@ -1,0 +1,5 @@
+ADFPRO.o : \
+ ADFPRO.c /usr/include/f2c.h endianmacs.h
+ADFPRO.c :
+/usr/include/f2c.h :
+endianmacs.h :

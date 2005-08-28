@@ -1,0 +1,9 @@
+BENCDPP.ASM.o : \
+ BENCDPP.ASM.c /usr/include/assert.h \
+ /usr/include/features.h /usr/include/sys/cdefs.h \
+ /usr/include/gnu/stubs.h
+BENCDPP.ASM.c :
+/usr/include/assert.h :
+/usr/include/features.h :
+/usr/include/sys/cdefs.h :
+/usr/include/gnu/stubs.h :

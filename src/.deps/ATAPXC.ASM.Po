@@ -1,0 +1,3 @@
+ATAPXC.ASM.o : \
+ ATAPXC.ASM.c
+ATAPXC.ASM.c :

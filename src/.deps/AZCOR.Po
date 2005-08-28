@@ -1,0 +1,4 @@
+AZCOR.o : \
+ AZCOR.c /usr/include/f2c.h
+AZCOR.c :
+/usr/include/f2c.h :

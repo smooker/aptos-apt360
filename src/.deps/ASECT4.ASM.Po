@@ -1,0 +1,3 @@
+ASECT4.ASM.o : \
+ ASECT4.ASM.c
+ASECT4.ASM.c :

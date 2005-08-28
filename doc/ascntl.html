@@ -1,0 +1,600 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>index</title>
+</head>
+<body bgcolor="#333333" alink="#ff00ff" link="#0000ff" vlink="#ff0000"
+ style="height: 100%; width: 100%; background-repeat: repeat;"
+ background="yelgridl.jpg">
+<span style="font-weight: bold;"></span><br>
+<br>
+&nbsp;<span style="font-weight: bold;">ASCNTL</span> <span
+ style="font-weight: bold;">-
+(section 1)&nbsp; language, parse, store canon forms</span><br>
+&nbsp;&nbsp; &nbsp;calls: <br>
+&nbsp;&nbsp; &nbsp;AMONTR -pass 1 control<br>
+&nbsp;&nbsp; &nbsp;ASYCTL -pass 2 control<br>
+&nbsp;&nbsp; &nbsp;ATAPRD - asm.<br>
+&nbsp;&nbsp; &nbsp;ATAPOP - asm.<br>
+<br>
+<br>
+<br>
+AMONTR -pass 1 control<br>
+&nbsp;&nbsp;&nbsp; AMON1 - read in a card<br>
+&nbsp;&nbsp;&nbsp; ASCAN - break up card, put in elment table<br>
+&nbsp;&nbsp;&nbsp; AMON2 - detect and store statement identifiers in VST<br>
+&nbsp;&nbsp;&nbsp; AMON3 - enter symbols in vst<br>
+&nbsp;&nbsp;&nbsp; AMON4 - store statements of macros and loops<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; AMATMV - move from ptpp area to
+canon<br>
+&nbsp;&nbsp;&nbsp; AMON5 - <br>
+&nbsp;&nbsp;&nbsp; AMON6 - <br>
+&nbsp;&nbsp;&nbsp; AMON7<br>
+&nbsp;&nbsp;&nbsp; AMON8 - nests and assignment statements<br>
+&nbsp;&nbsp;&nbsp; AMON10 - process vocabulary words 1-10<br>
+&nbsp;&nbsp;&nbsp; AMON11 - <br>
+&nbsp;&nbsp;&nbsp; AFINI - <br>
+&nbsp;&nbsp;&nbsp; APRINT - <br>
+&nbsp;&nbsp;&nbsp; ADIAGP - diagnostic print&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; APTPUT - write ptpp record to ptpp area, then tape
+when full<br>
+&nbsp;&nbsp;&nbsp; ACLAS7 - write class 7 record to ptpp, call aptput<br>
+&nbsp;&nbsp;&nbsp; IATYPE - <br>
+&nbsp;&nbsp;&nbsp; APAREN - <br>
+<br>
+********************************************<br>
+ASCAN - <br>
+&nbsp;&nbsp;&nbsp; ATBLKP - keyword lookup<br>
+&nbsp;&nbsp;&nbsp; AEXTRC - extract character, classify<br>
+&nbsp;&nbsp;&nbsp; ABUILD - build up word<br>
+&nbsp;&nbsp;&nbsp; ADIAGP - diagnostic print<br>
+<br>
+********************************************<br>
+<br>
+ASYCTL -pass 2 control<br>
+<br>
+<br>
+********************************************<br>
+<span style="font-weight: bold;"><span
+ style="text-decoration: underline;"></span>&nbsp; <span
+ style="text-decoration: underline;"></span></span><br>
+<span style="font-weight: bold;"><span
+ style="text-decoration: underline;"></span></span><br>
+***********************************************************<br>
+Surface Types:<br>
+1:point<br>
+2:line<br>
+3:plane<br>
+4:circle<br>
+5:cylinder<br>
+6:ellipse<br>
+7:hyperbola<br>
+8:cone<br>
+9:general conic<br>
+10:loft conics<br>
+11:vector<br>
+12:matrices<br>
+13:sphere<br>
+14:quadrics<br>
+15:polyconics -not implemented<br>
+16:loft<br>
+17:tool -not implemented<br>
+18:pattern<br>
+19:tabcyl<br>
+20:mesh<br>
+21:conic section<br>
+22:ruled surface<br>
+23:elementary surface for dac?<br>
+***********************************************************<br>
+struct {<br>
+&nbsp;&nbsp;&nbsp; doublereal elment[600];<br>
+&nbsp;&nbsp;&nbsp; integer iclass[600], jlment;<br>
+} ailmtb_;<br>
+<br>
+This structure represents a statement broken into its elements for
+entry into ptpp <br>
+and eventual use of pass 2 of section 1.&nbsp; <br>
+<br>
+Each iclass word represents a code for the type of element it is; a
+keyword will get<br>
+a class/subclass entry; a slash will get the code 0x304, etc.<br>
+<br>
+iclass:<br>
+&nbsp;&nbsp;&nbsp; 1- variable symbol<br>
+&nbsp;&nbsp;&nbsp; 2- vocabulary word<br>
+&nbsp;&nbsp;&nbsp; 3- number<br>
+&nbsp;&nbsp;&nbsp; 4- punctuation<br>
+&nbsp;&nbsp;&nbsp; 5- nested computing expression<br>
+&nbsp;&nbsp;&nbsp; 6- nested surface definition<br>
+<br>
+elment carries specific info about the element; for example, a DELAY
+statement would have<br>
+the number following the slash entered in elment as a float value. The
+iclass entry would <br>
+have 3 entries for the keyword class/subclass, the slash, and the
+number. <br>
+<br>
+<br>
+<br>
+punctuation codes in BLOCK2.c<br>
+<br>
+jlment is the number of elements (iclass words) entered<br>
+<br>
+next step is placement into aptpp and then into ptpp (vst)<br>
+<br>
+***********************************************************<br>
+<br>
+struct {<br>
+&nbsp;&nbsp;&nbsp; doublereal vst[2750],<br>
+&nbsp;&nbsp;&nbsp; ptpp[2225],<br>
+&nbsp;&nbsp;&nbsp; canon[2225];<br>
+} avst_;<br>
+<br>
+<br>
+***********************************************************<br>
+struct {<br>
+&nbsp;&nbsp;&nbsp; doublereal pt[300];<br>
+&nbsp;&nbsp;&nbsp; integer inptp, nw, jmode, klass, klastp, irecn, npt,
+npr;<br>
+} aptpp_;<br>
+<br>
+this structure is built using ailmtb_ to obtain needed information<br>
+then stored in avst_.ptpp and then to poc.tap<br>
+<br>
+klass - vocabulary classes<br>
+&nbsp;&nbsp;&nbsp; 1 fixed field statement eg, partno<br>
+&nbsp;&nbsp;&nbsp; 2 ARELEM parameters<br>
+&nbsp;&nbsp;&nbsp; 3 ARELEM parameters<br>
+&nbsp;&nbsp;&nbsp; 4 input /output<br>
+&nbsp;&nbsp;&nbsp; 5 OBTAIN<br>
+&nbsp;&nbsp;&nbsp; 6 ZSURF&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; 7 special program call<br>
+&nbsp;&nbsp;&nbsp; 8 REFSYS<br>
+&nbsp;&nbsp;&nbsp; 9 IF statement<br>
+&nbsp;&nbsp;&nbsp; 10 JUMPTO statement<br>
+see AXTABL.ASM.c for more keywords<br>
+<br>
+klastp - class subtype<br>
+<br>
+inptp - number of items in structure in doublewords<br>
+jmode -&nbsp;&nbsp;&nbsp; &nbsp; =1 - BEGINNING CLASS OF DATA <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =2 -
+CONTINUATION OF CLASS <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =3 - TERMINATION
+OF CLASS <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =4 - ERASE PTPP
+CLASS <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =5 - COMPLETE
+CLASS OF DATA <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =6 - FLUSH PTPP
+BUFFER <br>
+-------<br>
+ptpp classes:<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <span
+ style="font-weight: bold; text-decoration: underline;">CLASS 1</span>
+- ORIGINAL INPUT
+STATEMENT WITH ISN - PRINT THEM OUT */<br>
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <span
+ style="font-weight: bold; text-decoration: underline;">CLASS 2</span>
+- ERROR DIAGNOSTICS
+FROM PASS 1 */<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; CHECK
+FOR DIAGNOSTIC MESSAGE ONLY */<br>
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<span
+ style="font-weight: bold;"> <span style="text-decoration: underline;">CLASSES
+3 AND 14</span></span> - SURFACE
+DEFINITIONS - USE ADFPRE (1204) */<br>
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <span
+ style="font-weight: bold; text-decoration: underline;">CLASS 4</span>
+- REFSYS - USE
+ARFSYS (1205) */<br>
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <span
+ style="font-weight: bold; text-decoration: underline;">CLASS 5</span>
+- OUTPUT (PRINT,
+PUNCH, OR TITLES) - USE ACLAS5 (1213) */<br>
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <span
+ style="font-weight: bold; text-decoration: underline;">CLASS 6</span>
+- COPY ONTO PROTAP,
+2000 THROUGH */<br>
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+9000 AND 11000 TYPE RECORDS - USE ACPYTP (1206) */<br>
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <span
+ style="font-weight: bold; text-decoration: underline;">CLASS 7</span>
+- INPUT CARD
+SEQUENCE WITH STATEMENT ID AND ISN */<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;IF NO
+PROTAP RECORD TO BE OUTPUT,SAVE SEQ. NO. AND ISN FOR DIAG. */<br>
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<span
+ style="font-weight: bold; text-decoration: underline;"> CLASS 8</span>
+- FINI,DEBUG/ON OR
+OFF,PRINT/ON OR OFF -- CHECK FOR FINI */<br>
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<span
+ style="font-weight: bold; text-decoration: underline;"> CLASS 9</span>
+- OBTAIN - USE
+ASEQAL (1207) */<br>
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <span
+ style="font-weight: bold; text-decoration: underline;">CLASS 10</span>
+- JUMPTO/ID - SET
+PTPP INDEX AND CHECK RANGE */<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; IF AN
+ERROR HAS OCURRED,DO NOT BRANCH */<br>
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <span
+ style="font-weight: bold; text-decoration: underline;">CLASS 11</span>
+- IF(V)&nbsp; ID1,
+ID2, ID3 */<br>
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SET
+PTPP INDEX AS V IS LT, EQ, OR GT 0 */<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; IF AN ERROR
+HAS OCURRED,DO NOT BRANCH */<br>
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <span
+ style="font-weight: bold; text-decoration: underline;">CLASS 12</span>
+- COMPUTING
+EXPRESSION - USE ACLS12 (1214) */<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; TEST FOR
+UNARY MINUS RECORD */<br>
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <span
+ style="font-weight: bold; text-decoration: underline;">CLASS 13</span>
+- SCALAR EQUALS
+EXPRESSION */<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; GET
+SCALAR INDEX OF NUMERIC VALUE TO BE ASSIGNED */<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; TO THE
+SCALAR VARIABLE */<br>
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<span
+ style="font-weight: bold; text-decoration: underline;"> CLASS 16</span>
+- ZSURF - USE
+AZSURF (1211) */<br>
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <span
+ style="font-weight: bold; text-decoration: underline;">CLASS 17</span>
+- SPECIAL PROGRAM
+CALL - USE ACALSP (1212) */<br>
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <span
+ style="font-weight: bold; text-decoration: underline;">CLASS 18</span>
+- CODES REQUIRED
+FOR IMPLIED CHECK SURFACE LOGIC */<br>
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <span
+ style="font-weight: bold; text-decoration: underline;">CLASS 19</span>&nbsp;
+SET UP LOOPS
+FLAG TO INDICATE LOOP MODE FOR SEGMENTATION */<br>
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<span
+ style="font-weight: bold; text-decoration: underline;"> CLASS 20 </span>-
+NESTED PARAMETER
+LIST - USE ARGLST (1208) */<br>
+<br>
+<br>
+-----------------------<br>
+this pseudo code structure isn't actually defined in the program, but
+it represents<br>
+my best guesstimate of how a ptpp record is laid out<br>
+-----------------------<br>
+struct ptppRec{<br>
+<br>
+&nbsp;&nbsp;&nbsp; integer classCode;//see classes listed above <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; //1- copy of line<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; //2- error diagnostics from pass 1<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; //3 - surface definitions<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; //etc.<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; //6- copy to protap<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; //7-&nbsp; input card sequence<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; //8- fini<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; etc..<br>
+<br>
+&nbsp;&nbsp;&nbsp; union{&nbsp;&nbsp;&nbsp; <br>
+//------------------------------<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; //class 1: (original input
+statement)<br>
+//------------------------------<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; struct{&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; integer
+instructionNum;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; char
+lineCopy[]; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br>
+<br>
+//------------------------------<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; //class 3: (surface definitions)<br>
+//------------------------------<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; struct{&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; int length;
+//length of ptpp record, minus 1 (in doubles)<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; int
+surfDefCode;//surface definition code,ie,line,circle,etc<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; int
+subscript;//subscript type<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; int flag;
+//flag for surf read<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; int namsub;//
+a1com_.namsub-index into vst for symbol<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br>
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; struct
+ptppEntries{<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; int typeCode; //ptpp entry type, eg, variable, vocab
+word,etc.<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; //1: number<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; //2: variable symbol<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; //3:expression<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; //4:named surface<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; //5:nested, unnamed surface<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; //6:vocabulary word<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; //7:statement id<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; //8:punctuation<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; //9: arg list (out of context)<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; int pad;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; int entry1;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; int entry2; //varies depending on type-index to
+symbol in vst table,etc<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; or: double numberVal;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br>
+<br>
+//------------------------------<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; //class 7:(input card sequence)<br>
+//------------------------------<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; struct{&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; integer
+instructionNum;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; char
+lineCopy[]; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br>
+//------------------------------<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; //class 12:<br>
+//------------------------------<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; int length; //length of ptpp
+entry -1 (in doubles) <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; ptpp entries:<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; int entryType; //eg, 6-vocabulary
+word 9- nested argument list<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; double param;&nbsp; //eg protap
+code for vocab, or number value, index to <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; //storage<br>
+<br>
+//------------------------------<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; //class 13: (scalar=...._)<br>
+//------------------------------<br>
+//------------------------------<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; //class 20:<br>
+//------------------------------<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; int length; //length of ptpp
+entry -1 <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; int listno;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; int =0;<br>
+&nbsp;&nbsp;&nbsp; ptpp entries:<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; int entryType;
+//eg,surface=4&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; int ?<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; int ?<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; int vstIndex;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
+}<br>
+<br>
+<br>
+<br>
+this struct defines how the buffer area<br>
+for section one processing is laid out<br>
+struct {<br>
+&nbsp;&nbsp;&nbsp; integer maxtab,&nbsp; =7200 words - size of
+vst/ptpp/canon structure<br>
+&nbsp;&nbsp;&nbsp; maxvs1, =1<br>
+&nbsp;&nbsp;&nbsp; maxvs2, =1<br>
+&nbsp;&nbsp;&nbsp; maxptp, = updated whenever a new maximum in ptpp
+table for later reporting<br>
+&nbsp;&nbsp;&nbsp; maxscl, =0<br>
+&nbsp;&nbsp;&nbsp; maxvs,&nbsp; =0<br>
+&nbsp;&nbsp;&nbsp; maxvst, =2750&nbsp; length in words of vst, start of
+ptpp<br>
+&nbsp;&nbsp;&nbsp; mxptpp, =2225 length in words of ptpp area<br>
+&nbsp;&nbsp;&nbsp; mxcan,&nbsp; =2225 length in words of canon area<br>
+&nbsp;&nbsp;&nbsp; mxsrcn, =100<br>
+&nbsp;&nbsp;&nbsp; maxslr, =5000<br>
+&nbsp;&nbsp;&nbsp; maxelm, =600<br>
+&nbsp;&nbsp;&nbsp; maxpot; =0<br>
+} amxtab_;<br>
+<br>
+<br>
+<br>
+<br>
+***********************************************************<br>
+<br>
+<br>
+struct {<br>
+&nbsp;&nbsp;&nbsp; integer i__, j, k, l, movlge, kanmax, icanst,
+iovrec, kanptr, mdftab, <br>
+&nbsp;&nbsp;&nbsp; kancnt, kaux, kdfcnt, idefp, kprcnt, mdfpre, iprep,
+kovflp, <br>
+&nbsp;&nbsp;&nbsp; ksrfct, kovcnt, lscan, iovflo, maxcan, iref, icansc,
+namsta, <br>
+&nbsp;&nbsp;&nbsp; kango, lasptp, isub, lcomp, lgerec, irecn, jrec,
+jnum, kancur, <br>
+&nbsp;&nbsp;&nbsp; kancot, kdfent, kanpar, lgeloc, idtmov, ispprg,<br>
+&nbsp;&nbsp;&nbsp; indexs,<br>
+&nbsp;&nbsp;&nbsp; kptp, - record number?<br>
+&nbsp;&nbsp;&nbsp; kptpct, <br>
+&nbsp;&nbsp;&nbsp; klastp, - ptpp class type : 1-20<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; klasct,
+- number of words in ptpp class *except* classes 1,7,8<br>
+&nbsp;&nbsp;&nbsp; kprnt;<br>
+} a1pas2_;<br>
+<br>
+<br>
+***********************************************************<br>
+<br>
+struct {<br>
+&nbsp;&nbsp;&nbsp; doublereal name__, krfsys;<br>
+&nbsp;&nbsp;&nbsp; integer sum,<br>
+&nbsp;&nbsp;&nbsp; jsuber, -error number <br>
+&nbsp;&nbsp;&nbsp; namsub,<br>
+&nbsp;&nbsp;&nbsp; debug,<br>
+&nbsp;&nbsp;&nbsp; indxpt, - pointer to current position in vst<br>
+&nbsp;&nbsp;&nbsp; loop, <br>
+&nbsp;&nbsp;&nbsp; ifini; - flag set for end of program<br>
+} a1com_;<br>
+<br>
+common variables for section one.&nbsp; <br>
+<br>
+***********************************************************<br>
+struct {<br>
+&nbsp;&nbsp;&nbsp; integer istarp, // start point in iclass <br>
+&nbsp;&nbsp;&nbsp; iendp, //end of iclass in words<br>
+&nbsp;&nbsp;&nbsp; nmove, <br>
+&nbsp;&nbsp;&nbsp; nl, <br>
+&nbsp;&nbsp;&nbsp; itsq, <br>
+&nbsp;&nbsp;&nbsp; lindx;<br>
+} aprtab_;<br>
+<br>
+This structure used when searching for parentheses in iclass.<br>
+Used in APAREN when extracting nesting info.<br>
+<br>
+<br>
+struct {<br>
+&nbsp;&nbsp;&nbsp; integer ilpcnt, //left paren count<br>
+&nbsp;&nbsp;&nbsp; irpcnt, //right paren count<br>
+&nbsp;&nbsp;&nbsp; lstnst;//last nest flag<br>
+} apartb_;<br>
+<br>
+***********************************************************<br>
+struct {<br>
+&nbsp;&nbsp;&nbsp; doublereal macnam[5]; //maximum of 5 macros can be
+nested<br>
+&nbsp;&nbsp;&nbsp; integer maccur, //nesting level<br>
+&nbsp;&nbsp;&nbsp; maclcn[5], <br>
+&nbsp;&nbsp;&nbsp; macrd, //flag set when reading macro from canon<br>
+&nbsp;&nbsp;&nbsp; macstr[5],<br>
+&nbsp;&nbsp;&nbsp; nmacvr, <br>
+&nbsp;&nbsp;&nbsp; numids,<br>
+&nbsp;&nbsp;&nbsp; idlocn, <br>
+&nbsp;&nbsp;&nbsp; macids[5],<br>
+&nbsp;&nbsp;&nbsp; isvid;<br>
+} amcstf_;<br>
+<br>
+this stores macro nesting data<br>
+<br>
+***********************************************************<br>
+<br>
+<br>
+<br>
+<br>
+***********************************************************<br>
+ERROR NUMBERS:<br>
+<br>
+&nbsp;&nbsp;&nbsp; 1 - <br>
+&nbsp;&nbsp;&nbsp; 4 - bad number format<br>
+&nbsp;&nbsp;&nbsp; 5 - statement did not start with a variable name or
+vocabulary word<br>
+&nbsp;&nbsp;&nbsp; 7 - improper punctuation<br>
+&nbsp;&nbsp;&nbsp; 9 - no closing parenthesis<br>
+&nbsp;&nbsp;&nbsp; 10 - no opening parenthesis<br>
+&nbsp;&nbsp;&nbsp; 11 - illegal punctuation terminating statement<br>
+&nbsp;&nbsp;&nbsp; 14 - more than 5000 scalar definitions in program<br>
+&nbsp;&nbsp;&nbsp; 15 - out of space in vst?<br>
+&nbsp;&nbsp;&nbsp; 16 - FINI read while defining a macro<br>
+&nbsp;&nbsp;&nbsp; 22 - illegal debug format<br>
+&nbsp;&nbsp;&nbsp; 23 - fini with an illegal format<br>
+&nbsp;&nbsp;&nbsp; 40 - vst table size exceeded<br>
+&nbsp;&nbsp;&nbsp; 56 - more consecutive exponentiation operations than
+permitted<br>
+&nbsp;&nbsp;&nbsp; 63 - attempted division by zero<br>
+&nbsp;&nbsp;&nbsp; 65 - improper number of arguments for arithmetic
+function<br>
+&nbsp;&nbsp;&nbsp; 66 - illegal argument for an arithmetic function<br>
+&nbsp;&nbsp;&nbsp; 68 - negative value raised to a non-integral power<br>
+&nbsp;&nbsp;&nbsp; 79 - parameter should have been a surface<br>
+&nbsp;&nbsp;&nbsp; 83 - value must be a scalar<br>
+&nbsp;&nbsp;&nbsp; 84 - parameter string too long<br>
+&nbsp;&nbsp;&nbsp; 101 - undefined symbol<br>
+&nbsp;&nbsp;&nbsp; 105 - no subscript value given for subscripted
+variable<br>
+&nbsp;&nbsp;&nbsp; 106 - attempting to define surface in a scalar array<br>
+&nbsp;&nbsp;&nbsp; 108 - subscripted variable has not appeared in a
+RESERV statement<br>
+&nbsp;&nbsp;&nbsp; 129 - not enough parameters<br>
+&nbsp;&nbsp;&nbsp; 131 - illegal format - punctuation found<br>
+&nbsp;&nbsp;&nbsp; 132 - invalid parameter<br>
+&nbsp;&nbsp;&nbsp; 133 - improper vocabulary code<br>
+&nbsp;&nbsp;&nbsp; 139 - variable ill-defined<br>
+&nbsp;&nbsp;&nbsp; 152 - variable does not define a surface<br>
+&nbsp;&nbsp;&nbsp; 153 - word following OBTAIN must be a surface type<br>
+&nbsp;&nbsp;&nbsp; 154 - parameters exceed length of canonical form<br>
+&nbsp;&nbsp;&nbsp; 155 - format error; no slash found<br>
+&nbsp;&nbsp;&nbsp; 157 - attempt to incorrectly use a large surface<br>
+&nbsp;&nbsp;&nbsp; 201 - attempt to define a macro inside a loop<br>
+&nbsp;&nbsp;&nbsp; 203 - must be an = sign after macro name<br>
+&nbsp;&nbsp;&nbsp; 204 - macro name must be a variable symbol<br>
+&nbsp;&nbsp;&nbsp; 205 - macro call exceeds limit of 50 variables<br>
+&nbsp;&nbsp;&nbsp; 207 - bad symbol in macro def<br>
+&nbsp;&nbsp;&nbsp; 210 - LOOPST or LOOPND in macro definition<br>
+&nbsp;&nbsp;&nbsp; 226 - incorrect format for macro call<br>
+&nbsp;&nbsp;&nbsp; 227 - ?<br>
+&nbsp;&nbsp;&nbsp; 233 - incorrect macro name<br>
+&nbsp;&nbsp;&nbsp; 252 - RESERV not allowed in loop or macro<br>
+&nbsp;&nbsp;&nbsp; 253 - incorrect call format<br>
+&nbsp;&nbsp;&nbsp; 311 - cutter not defined<br>
+&nbsp;&nbsp;&nbsp; 402 - parameter within "if" parenthesis not a scalar<br>
+&nbsp;&nbsp;&nbsp; 406 - id not present in loop or macro<br>
+&nbsp;&nbsp;&nbsp; 407 - JUMPTO not within loop or macro<br>
+&nbsp;&nbsp;&nbsp; 503 - incorrect parameter type <br>
+&nbsp;&nbsp;&nbsp; 504 - too many MACHIN statements (&gt;10)<br>
+&nbsp;&nbsp;&nbsp; 505 - value of tool direction and fwd is greater
+than or equal to 88 deg.<br>
+&nbsp;&nbsp;&nbsp; 800 - patern - incorrect format<br>
+&nbsp;&nbsp;&nbsp; 802 - patern - overflow of defans area<br>
+&nbsp;&nbsp;&nbsp; 840 - error in file search, large surface file<br>
+&nbsp;&nbsp;&nbsp; 841 - error in file search, pattern file<br>
+&nbsp;&nbsp;&nbsp; 1000 - method of definition unknown<br>
+&nbsp;&nbsp;&nbsp; 1002 - redefinition of entity<br>
+&nbsp;&nbsp;&nbsp; 1005 - calculation failed in defining entity<br>
+&nbsp;&nbsp;&nbsp; 6134- <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</body>
+</html>

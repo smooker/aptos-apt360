@@ -1,0 +1,4 @@
+PLTSET.o : \
+ PLTSET.c /usr/include/f2c.h
+PLTSET.c :
+/usr/include/f2c.h :

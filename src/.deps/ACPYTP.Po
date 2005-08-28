@@ -1,0 +1,5 @@
+ACPYTP.o : \
+ ACPYTP.c /usr/include/f2c.h endianmacs.h
+ACPYTP.c :
+/usr/include/f2c.h :
+endianmacs.h :

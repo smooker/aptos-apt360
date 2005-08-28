@@ -1,0 +1,4 @@
+PRTSET.o : \
+ PRTSET.c /usr/include/f2c.h
+PRTSET.c :
+/usr/include/f2c.h :

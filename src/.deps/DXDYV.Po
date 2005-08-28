@@ -1,0 +1,4 @@
+DXDYV.o : \
+ DXDYV.c /usr/include/f2c.h
+DXDYV.c :
+/usr/include/f2c.h :

@@ -1,0 +1,4 @@
+MATMOV.o : \
+ MATMOV.c /usr/include/f2c.h
+MATMOV.c :
+/usr/include/f2c.h :

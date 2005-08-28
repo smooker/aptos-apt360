@@ -1,0 +1,4 @@
+ACCURV.o : \
+ ACCURV.c /usr/include/f2c.h
+ACCURV.c :
+/usr/include/f2c.h :

@@ -1,0 +1,4 @@
+FRAMEV.o : \
+ FRAMEV.c /usr/include/f2c.h
+FRAMEV.c :
+/usr/include/f2c.h :

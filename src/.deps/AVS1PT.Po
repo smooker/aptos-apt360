@@ -1,0 +1,4 @@
+AVS1PT.o : \
+ AVS1PT.c /usr/include/f2c.h
+AVS1PT.c :
+/usr/include/f2c.h :

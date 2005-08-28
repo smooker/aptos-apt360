@@ -1,0 +1,54 @@
+partno a square profile
+machin/dxf
+clprnt
+print/on
+$$print/off
+d1=5 $$overall length
+d2=5 $$overall width
+d3=.75 $$width of beam
+d4=2.5 $$cl of cross beam
+
+
+mat1=matrix/xyrot,45
+$$mat1=matrix/transl,0,2,0
+
+l1=line/xaxis
+l2=line/parlel,l1,ysmall,d1
+l3=line/yaxis
+l4=line/parlel,l3,xlarge,d2
+l5=line/parlel,l1,ysmall,(d4-d3/2)
+l6=line/parlel,l1,ysmall,(d4+d3/2)
+l7=line/parlel,l3,xlarge,(d2/2-d3/2)
+l8=line/parlel,l3,xlarge,(d2/2+d3/2)
+
+pl1=plane/0,0,1,-.03
+
+
+
+cutter/0.5
+index/1
+tracut/mat1
+from/-1,0,.3
+go/to,l5,on,pl1
+tllft,golft/l5,to,l7
+golft/l7,past,l1
+gorgt/l1,past,l8
+gorgt/l8,to,l5
+rapid
+golft/l5,past,l4
+gorgt/l4,past,l6
+gorgt/l6,to,l8
+golft/l8,past,l2
+gorgt/l2,past,l7
+rapid
+gorgt/l7,to,l6
+golft/l6,past,l3
+gorgt/l3,past,l5
+tracut/nomore
+index/1,nomore
+
+copy/1,transl,6,0,0,2
+
+
+
+fini

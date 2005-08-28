@@ -1,0 +1,4 @@
+ACSCF.o : \
+ ACSCF.c /usr/include/f2c.h
+ACSCF.c :
+/usr/include/f2c.h :

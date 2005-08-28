@@ -1,0 +1,4 @@
+ANORM.o : \
+ ANORM.c /usr/include/f2c.h
+ANORM.c :
+/usr/include/f2c.h :

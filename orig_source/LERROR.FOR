@@ -1,0 +1,6 @@
+      SUBROUTINE LERROR
+      WRITE(6,1)
+    1 FORMAT(' ERROR IN SECOND ARELEM')
+      RETURN
+      END
+

@@ -1,0 +1,4 @@
+ACNTR2.o : \
+ ACNTR2.c /usr/include/f2c.h
+ACNTR2.c :
+/usr/include/f2c.h :

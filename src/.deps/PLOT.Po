@@ -1,0 +1,4 @@
+PLOT.o : \
+ PLOT.c /usr/include/f2c.h
+PLOT.c :
+/usr/include/f2c.h :

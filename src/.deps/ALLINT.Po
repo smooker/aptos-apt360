@@ -1,0 +1,4 @@
+ALLINT.o : \
+ ALLINT.c /usr/include/f2c.h
+ALLINT.c :
+/usr/include/f2c.h :

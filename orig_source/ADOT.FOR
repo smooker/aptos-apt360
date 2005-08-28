@@ -1,0 +1,10 @@
+      SUBROUTINE ADOT(A,B,DOT)
+C     *** THIS PROGRAM LAST MODIFIED FOR VERSION 4, MODIFICATION 1 ***
+      REAL*8 A,B,DOT
+      DIMENSION A(3),B(3)
+      DOT=0.
+       DO 10  I = 1,3
+ 10   DOT=A(I)*B(I)+DOT
+      RETURN
+      END
+

@@ -1,0 +1,4 @@
+ASTOS.o : \
+ ASTOS.c /usr/include/f2c.h
+ASTOS.c :
+/usr/include/f2c.h :

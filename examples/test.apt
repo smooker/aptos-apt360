@@ -1,0 +1,28 @@
+PARTNO  
+machin/dxf
+clprnt
+reserv/pt,60
+print/on
+ly=line/yaxis
+l1=line/parlel,ly,xlarge,29
+a=0
+loopst
+st)if(60-a)qt,qt,agn
+agn)	a=a+1
+$$	pt(a)=point/a,(1./(logf(a+1))),0
+	pt(a)=point/(3*(a-30)),((a-30)**2),0
+jumpto/ st
+qt)print/all
+loopnd
+tab1=tabcyl/noz,spline,pt(all)
+
+cutter/0
+
+from/0,20,0
+indirv/-1,0,0
+go/on,tab1
+golft/tab1,on,l1
+
+
+FINI                                                                    TEST1470
+
