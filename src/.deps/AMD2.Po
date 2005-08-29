@@ -1,4 +1,3 @@
-AMD2.o : \
- AMD2.c /usr/include/f2c.h
-AMD2.c :
-/usr/include/f2c.h :
+AMD2.o AMD2.o: AMD2.c /usr/include/f2c.h
+
+/usr/include/f2c.h:

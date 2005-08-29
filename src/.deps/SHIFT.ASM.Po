@@ -1,8 +1,11 @@
-SHIFT.ASM.o : \
- SHIFT.ASM.c /usr/include/assert.h /usr/include/features.h \
- /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
-SHIFT.ASM.c :
-/usr/include/assert.h :
-/usr/include/features.h :
-/usr/include/sys/cdefs.h :
-/usr/include/gnu/stubs.h :
+SHIFT.ASM.o SHIFT.ASM.o: SHIFT.ASM.c /usr/include/assert.h \
+  /usr/include/features.h /usr/include/sys/cdefs.h \
+  /usr/include/gnu/stubs.h
+
+/usr/include/assert.h:
+
+/usr/include/features.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/gnu/stubs.h:

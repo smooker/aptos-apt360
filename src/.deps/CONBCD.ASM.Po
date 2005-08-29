@@ -1,9 +1,11 @@
-CONBCD.ASM.o : \
- CONBCD.ASM.c /usr/include/assert.h \
- /usr/include/features.h /usr/include/sys/cdefs.h \
- /usr/include/gnu/stubs.h
-CONBCD.ASM.c :
-/usr/include/assert.h :
-/usr/include/features.h :
-/usr/include/sys/cdefs.h :
-/usr/include/gnu/stubs.h :
+CONBCD.ASM.o CONBCD.ASM.o: CONBCD.ASM.c /usr/include/assert.h \
+  /usr/include/features.h /usr/include/sys/cdefs.h \
+  /usr/include/gnu/stubs.h
+
+/usr/include/assert.h:
+
+/usr/include/features.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/gnu/stubs.h:

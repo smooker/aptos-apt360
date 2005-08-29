@@ -1,5 +1,5 @@
-ASWICH.o : \
- ASWICH.c /usr/include/f2c.h endianmacs.h
-ASWICH.c :
-/usr/include/f2c.h :
-endianmacs.h :
+ASWICH.o ASWICH.o: ASWICH.c /usr/include/f2c.h endianmacs.h
+
+/usr/include/f2c.h:
+
+endianmacs.h:

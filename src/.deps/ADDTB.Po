@@ -1,5 +1,5 @@
-ADDTB.o : \
- ADDTB.c /usr/include/f2c.h endianmacs.h
-ADDTB.c :
-/usr/include/f2c.h :
-endianmacs.h :
+ADDTB.o ADDTB.o: ADDTB.c /usr/include/f2c.h endianmacs.h
+
+/usr/include/f2c.h:
+
+endianmacs.h:

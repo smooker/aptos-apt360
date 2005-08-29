@@ -1,4 +1,3 @@
-AINT.o : \
- AINT.c /usr/include/f2c.h
-AINT.c :
-/usr/include/f2c.h :
+AINT.o AINT.o: AINT.c /usr/include/f2c.h
+
+/usr/include/f2c.h:

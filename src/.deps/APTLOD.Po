@@ -1,5 +1,5 @@
-APTLOD.o : \
- APTLOD.c endianmacs.h /usr/include/f2c.h
-APTLOD.c :
-endianmacs.h :
-/usr/include/f2c.h :
+APTLOD.o APTLOD.o: APTLOD.c endianmacs.h /usr/include/f2c.h
+
+endianmacs.h:
+
+/usr/include/f2c.h:

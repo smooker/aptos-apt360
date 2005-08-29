@@ -1,5 +1,5 @@
-PATGEN.o : \
- PATGEN.c /usr/include/f2c.h endianmacs.h
-PATGEN.c :
-/usr/include/f2c.h :
-endianmacs.h :
+PATGEN.o PATGEN.o: PATGEN.c /usr/include/f2c.h endianmacs.h
+
+/usr/include/f2c.h:
+
+endianmacs.h:

@@ -1,20 +1,31 @@
-AMON1.o : \
- AMON1.c /usr/include/f2c.h endianmacs.h /usr/include/ctype.h \
- /usr/include/features.h /usr/include/sys/cdefs.h \
- /usr/include/gnu/stubs.h /usr/include/bits/types.h \
- /usr/lib/gcc-lib/i486-suse-linux/2.95.3/include/stddef.h \
- /usr/include/bits/pthreadtypes.h /usr/include/bits/sched.h \
- /usr/include/endian.h /usr/include/bits/endian.h
-AMON1.c :
-/usr/include/f2c.h :
-endianmacs.h :
-/usr/include/ctype.h :
-/usr/include/features.h :
-/usr/include/sys/cdefs.h :
-/usr/include/gnu/stubs.h :
-/usr/include/bits/types.h :
-/usr/lib/gcc-lib/i486-suse-linux/2.95.3/include/stddef.h :
-/usr/include/bits/pthreadtypes.h :
-/usr/include/bits/sched.h :
-/usr/include/endian.h :
-/usr/include/bits/endian.h :
+AMON1.o AMON1.o: AMON1.c /usr/include/f2c.h endianmacs.h \
+  /usr/include/ctype.h /usr/include/features.h /usr/include/sys/cdefs.h \
+  /usr/include/gnu/stubs.h /usr/include/bits/types.h \
+  /usr/include/bits/wordsize.h \
+  /usr/lib/gcc-lib/i586-suse-linux/3.3.4/include/stddef.h \
+  /usr/include/bits/typesizes.h /usr/include/endian.h \
+  /usr/include/bits/endian.h
+
+/usr/include/f2c.h:
+
+endianmacs.h:
+
+/usr/include/ctype.h:
+
+/usr/include/features.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/gnu/stubs.h:
+
+/usr/include/bits/types.h:
+
+/usr/include/bits/wordsize.h:
+
+/usr/lib/gcc-lib/i586-suse-linux/3.3.4/include/stddef.h:
+
+/usr/include/bits/typesizes.h:
+
+/usr/include/endian.h:
+
+/usr/include/bits/endian.h:

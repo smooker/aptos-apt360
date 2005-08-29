@@ -1,5 +1,5 @@
-AMONTR.o : \
- AMONTR.c /usr/include/f2c.h endianmacs.h
-AMONTR.c :
-/usr/include/f2c.h :
-endianmacs.h :
+AMONTR.o AMONTR.o: AMONTR.c /usr/include/f2c.h endianmacs.h
+
+/usr/include/f2c.h:
+
+endianmacs.h:

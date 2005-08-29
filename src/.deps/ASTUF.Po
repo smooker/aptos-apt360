@@ -1,4 +1,3 @@
-ASTUF.o : \
- ASTUF.c /usr/include/f2c.h
-ASTUF.c :
-/usr/include/f2c.h :
+ASTUF.o ASTUF.o: ASTUF.c /usr/include/f2c.h
+
+/usr/include/f2c.h:

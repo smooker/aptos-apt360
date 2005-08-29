@@ -1,4 +1,3 @@
-ACYLND.o : \
- ACYLND.c /usr/include/f2c.h
-ACYLND.c :
-/usr/include/f2c.h :
+ACYLND.o ACYLND.o: ACYLND.c /usr/include/f2c.h
+
+/usr/include/f2c.h:

@@ -1,4 +1,3 @@
-AZVECT.o : \
- AZVECT.c /usr/include/f2c.h
-AZVECT.c :
-/usr/include/f2c.h :
+AZVECT.o AZVECT.o: AZVECT.c /usr/include/f2c.h
+
+/usr/include/f2c.h:

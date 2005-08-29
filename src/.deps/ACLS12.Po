@@ -1,5 +1,5 @@
-ACLS12.o : \
- ACLS12.c /usr/include/f2c.h endianmacs.h
-ACLS12.c :
-/usr/include/f2c.h :
-endianmacs.h :
+ACLS12.o ACLS12.o: ACLS12.c /usr/include/f2c.h endianmacs.h
+
+/usr/include/f2c.h:
+
+endianmacs.h:

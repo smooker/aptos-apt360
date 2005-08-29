@@ -1,10 +1,13 @@
-IBCLAS.ASM.o : \
- IBCLAS.ASM.c /usr/include/assert.h \
- /usr/include/features.h /usr/include/sys/cdefs.h \
- /usr/include/gnu/stubs.h /usr/include/f2c.h
-IBCLAS.ASM.c :
-/usr/include/assert.h :
-/usr/include/features.h :
-/usr/include/sys/cdefs.h :
-/usr/include/gnu/stubs.h :
-/usr/include/f2c.h :
+IBCLAS.ASM.o IBCLAS.ASM.o: IBCLAS.ASM.c /usr/include/assert.h \
+  /usr/include/features.h /usr/include/sys/cdefs.h \
+  /usr/include/gnu/stubs.h /usr/include/f2c.h
+
+/usr/include/assert.h:
+
+/usr/include/features.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/gnu/stubs.h:
+
+/usr/include/f2c.h:

@@ -1,4 +1,3 @@
-LINEV.o : \
- LINEV.c /usr/include/f2c.h
-LINEV.c :
-/usr/include/f2c.h :
+LINEV.o LINEV.o: LINEV.c /usr/include/f2c.h
+
+/usr/include/f2c.h:

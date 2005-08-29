@@ -1,5 +1,5 @@
-ASEC2B.o : \
- ASEC2B.c /usr/include/f2c.h endianmacs.h
-ASEC2B.c :
-/usr/include/f2c.h :
-endianmacs.h :
+ASEC2B.o ASEC2B.o: ASEC2B.c /usr/include/f2c.h endianmacs.h
+
+/usr/include/f2c.h:
+
+endianmacs.h:

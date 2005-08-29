@@ -1,5 +1,5 @@
-AMON3.o : \
- AMON3.c /usr/include/f2c.h endianmacs.h
-AMON3.c :
-/usr/include/f2c.h :
-endianmacs.h :
+AMON3.o AMON3.o: AMON3.c /usr/include/f2c.h endianmacs.h
+
+/usr/include/f2c.h:
+
+endianmacs.h:

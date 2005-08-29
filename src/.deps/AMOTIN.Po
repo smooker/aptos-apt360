@@ -1,5 +1,5 @@
-AMOTIN.o : \
- AMOTIN.c /usr/include/f2c.h endianmacs.h
-AMOTIN.c :
-/usr/include/f2c.h :
-endianmacs.h :
+AMOTIN.o AMOTIN.o: AMOTIN.c /usr/include/f2c.h endianmacs.h
+
+/usr/include/f2c.h:
+
+endianmacs.h:

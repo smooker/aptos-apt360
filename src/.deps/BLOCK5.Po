@@ -1,4 +1,3 @@
-BLOCK5.o : \
- BLOCK5.c /usr/include/f2c.h
-BLOCK5.c :
-/usr/include/f2c.h :
+BLOCK5.o BLOCK5.o: BLOCK5.c /usr/include/f2c.h
+
+/usr/include/f2c.h:

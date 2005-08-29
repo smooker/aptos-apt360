@@ -1,5 +1,5 @@
-APRINT.o : \
- APRINT.c /usr/include/f2c.h endianmacs.h
-APRINT.c :
-/usr/include/f2c.h :
-endianmacs.h :
+APRINT.o APRINT.o: APRINT.c /usr/include/f2c.h endianmacs.h
+
+/usr/include/f2c.h:
+
+endianmacs.h:

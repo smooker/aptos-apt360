@@ -1,5 +1,5 @@
-ARGLST.o : \
- ARGLST.c /usr/include/f2c.h endianmacs.h
-ARGLST.c :
-/usr/include/f2c.h :
-endianmacs.h :
+ARGLST.o ARGLST.o: ARGLST.c /usr/include/f2c.h endianmacs.h
+
+/usr/include/f2c.h:
+
+endianmacs.h:

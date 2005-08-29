@@ -1,5 +1,5 @@
-ACIRCL.o : \
- ACIRCL.c /usr/include/f2c.h endianmacs.h
-ACIRCL.c :
-/usr/include/f2c.h :
-endianmacs.h :
+ACIRCL.o ACIRCL.o: ACIRCL.c /usr/include/f2c.h endianmacs.h
+
+/usr/include/f2c.h:
+
+endianmacs.h:

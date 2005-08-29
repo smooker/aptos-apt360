@@ -45,17 +45,8 @@ int apolyr_(double* aa,int* ii,void* nn,double* r,int* err)
 
 	return 0; //three roots
 #else
-	fprintf(stderr,
-"\n\n\napt360 error:
- ***no gsl libraries installed***
-you will need to install gsl libs and run: 
-		make clean
-		configure
-		make install 
-to prevent TABCYL and other functions that use gsl
-from failing\n");
-	exit(1);
-
+	fprintf(stderr, "\n\n\napt360 error: ***no gsl libraries installed*** you will need to install gsl libs and run: make clean configure make install to prevent TABCYL and other functions that use gsl from failing\n"); 
+	exit(1); 
 #endif
 }
 /*

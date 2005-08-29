@@ -1,4 +1,3 @@
-ALNGTH.o : \
- ALNGTH.c /usr/include/f2c.h
-ALNGTH.c :
-/usr/include/f2c.h :
+ALNGTH.o ALNGTH.o: ALNGTH.c /usr/include/f2c.h
+
+/usr/include/f2c.h:

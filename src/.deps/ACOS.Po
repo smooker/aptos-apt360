@@ -1,4 +1,3 @@
-ACOS.o : \
- ACOS.c /usr/include/f2c.h
-ACOS.c :
-/usr/include/f2c.h :
+ACOS.o ACOS.o: ACOS.c /usr/include/f2c.h
+
+/usr/include/f2c.h:

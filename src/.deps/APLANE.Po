@@ -1,4 +1,3 @@
-APLANE.o : \
- APLANE.c /usr/include/f2c.h
-APLANE.c :
-/usr/include/f2c.h :
+APLANE.o APLANE.o: APLANE.c /usr/include/f2c.h
+
+/usr/include/f2c.h:

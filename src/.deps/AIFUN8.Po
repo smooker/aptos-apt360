@@ -1,5 +1,5 @@
-AIFUN8.o : \
- AIFUN8.c /usr/include/f2c.h endianmacs.h
-AIFUN8.c :
-/usr/include/f2c.h :
-endianmacs.h :
+AIFUN8.o AIFUN8.o: AIFUN8.c /usr/include/f2c.h endianmacs.h
+
+/usr/include/f2c.h:
+
+endianmacs.h:

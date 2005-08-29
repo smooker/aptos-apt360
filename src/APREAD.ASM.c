@@ -25,7 +25,7 @@ int apread_(doublereal* inword ,integer* readmode,doublereal *segname ,integer *
 
 	if( (strlen(directoryPath)) > (DIRECTORY_PATH_SPACE-1) ){
 		fprintf(stderr,"error:maclib directory path too long\n");	
-		exit();
+		exit(1);
 	}
 
 	strcpy(fullFileName,directoryPath);

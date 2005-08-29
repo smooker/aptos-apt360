@@ -1,4 +1,3 @@
-ADDSTR.o : \
- ADDSTR.c /usr/include/f2c.h
-ADDSTR.c :
-/usr/include/f2c.h :
+ADDSTR.o ADDSTR.o: ADDSTR.c /usr/include/f2c.h
+
+/usr/include/f2c.h:

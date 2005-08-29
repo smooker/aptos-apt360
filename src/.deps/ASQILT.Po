@@ -1,5 +1,5 @@
-ASQILT.o : \
- ASQILT.c /usr/include/f2c.h endianmacs.h
-ASQILT.c :
-/usr/include/f2c.h :
-endianmacs.h :
+ASQILT.o ASQILT.o: ASQILT.c /usr/include/f2c.h endianmacs.h
+
+/usr/include/f2c.h:
+
+endianmacs.h:

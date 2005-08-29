@@ -1,9 +1,11 @@
-ACRDPN.ASM.o : \
- ACRDPN.ASM.c /usr/include/assert.h \
- /usr/include/features.h /usr/include/sys/cdefs.h \
- /usr/include/gnu/stubs.h
-ACRDPN.ASM.c :
-/usr/include/assert.h :
-/usr/include/features.h :
-/usr/include/sys/cdefs.h :
-/usr/include/gnu/stubs.h :
+ACRDPN.ASM.o ACRDPN.ASM.o: ACRDPN.ASM.c /usr/include/assert.h \
+  /usr/include/features.h /usr/include/sys/cdefs.h \
+  /usr/include/gnu/stubs.h
+
+/usr/include/assert.h:
+
+/usr/include/features.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/gnu/stubs.h:

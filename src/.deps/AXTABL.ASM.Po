@@ -1,5 +1,5 @@
-AXTABL.ASM.o : \
- AXTABL.ASM.c AXTABL.ASM.h /usr/include/f2c.h
-AXTABL.ASM.c :
-AXTABL.ASM.h :
-/usr/include/f2c.h :
+AXTABL.ASM.o AXTABL.ASM.o: AXTABL.ASM.c AXTABL.ASM.h /usr/include/f2c.h
+
+AXTABL.ASM.h:
+
+/usr/include/f2c.h:

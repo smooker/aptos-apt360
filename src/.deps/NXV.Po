@@ -1,4 +1,3 @@
-NXV.o : \
- NXV.c /usr/include/f2c.h
-NXV.c :
-/usr/include/f2c.h :
+NXV.o NXV.o: NXV.c /usr/include/f2c.h
+
+/usr/include/f2c.h:

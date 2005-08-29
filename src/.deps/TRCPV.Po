@@ -1,4 +1,3 @@
-TRCPV.o : \
- TRCPV.c /usr/include/f2c.h
-TRCPV.c :
-/usr/include/f2c.h :
+TRCPV.o TRCPV.o: TRCPV.c /usr/include/f2c.h
+
+/usr/include/f2c.h:

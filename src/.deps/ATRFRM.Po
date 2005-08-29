@@ -1,4 +1,3 @@
-ATRFRM.o : \
- ATRFRM.c /usr/include/f2c.h
-ATRFRM.c :
-/usr/include/f2c.h :
+ATRFRM.o ATRFRM.o: ATRFRM.c /usr/include/f2c.h
+
+/usr/include/f2c.h:

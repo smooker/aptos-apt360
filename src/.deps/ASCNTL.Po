@@ -1,5 +1,5 @@
-ASCNTL.o : \
- ASCNTL.c /usr/include/f2c.h endianmacs.h
-ASCNTL.c :
-/usr/include/f2c.h :
-endianmacs.h :
+ASCNTL.o ASCNTL.o: ASCNTL.c /usr/include/f2c.h endianmacs.h
+
+/usr/include/f2c.h:
+
+endianmacs.h:

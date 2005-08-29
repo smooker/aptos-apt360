@@ -1,4 +1,3 @@
-APLNEX.o : \
- APLNEX.c /usr/include/f2c.h
-APLNEX.c :
-/usr/include/f2c.h :
+APLNEX.o APLNEX.o: APLNEX.c /usr/include/f2c.h
+
+/usr/include/f2c.h:

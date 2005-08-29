@@ -1,4 +1,3 @@
-AJUNDD.o : \
- AJUNDD.c /usr/include/f2c.h
-AJUNDD.c :
-/usr/include/f2c.h :
+AJUNDD.o AJUNDD.o: AJUNDD.c /usr/include/f2c.h
+
+/usr/include/f2c.h:

@@ -1,4 +1,3 @@
-ASTSEL.o : \
- ASTSEL.c /usr/include/f2c.h
-ASTSEL.c :
-/usr/include/f2c.h :
+ASTSEL.o ASTSEL.o: ASTSEL.c /usr/include/f2c.h
+
+/usr/include/f2c.h:

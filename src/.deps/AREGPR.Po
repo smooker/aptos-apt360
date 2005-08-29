@@ -1,4 +1,3 @@
-AREGPR.o : \
- AREGPR.c /usr/include/f2c.h
-AREGPR.c :
-/usr/include/f2c.h :
+AREGPR.o AREGPR.o: AREGPR.c /usr/include/f2c.h
+
+/usr/include/f2c.h:

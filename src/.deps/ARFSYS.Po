@@ -1,5 +1,5 @@
-ARFSYS.o : \
- ARFSYS.c /usr/include/f2c.h endianmacs.h
-ARFSYS.c :
-/usr/include/f2c.h :
-endianmacs.h :
+ARFSYS.o ARFSYS.o: ARFSYS.c /usr/include/f2c.h endianmacs.h
+
+/usr/include/f2c.h:
+
+endianmacs.h:

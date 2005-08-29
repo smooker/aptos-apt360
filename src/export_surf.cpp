@@ -1,7 +1,7 @@
 #include "config.h"
 #ifdef HAVE_DXFLIB_DL_DXF_H 
 #include "export_surf.h"
-
+using namespace std;
 DL_WriterA dxfWriter("print.dxf");
 DL_Dxf dxfWrite;
 DL_Attributes attrib("surfaces",7,0.001,"CONTINUOUS");

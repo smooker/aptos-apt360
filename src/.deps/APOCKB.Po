@@ -1,4 +1,3 @@
-APOCKB.o : \
- APOCKB.c /usr/include/f2c.h
-APOCKB.c :
-/usr/include/f2c.h :
+APOCKB.o APOCKB.o: APOCKB.c /usr/include/f2c.h
+
+/usr/include/f2c.h:

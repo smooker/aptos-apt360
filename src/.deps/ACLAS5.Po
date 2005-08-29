@@ -1,5 +1,5 @@
-ACLAS5.o : \
- ACLAS5.c /usr/include/f2c.h endianmacs.h
-ACLAS5.c :
-/usr/include/f2c.h :
-endianmacs.h :
+ACLAS5.o ACLAS5.o: ACLAS5.c /usr/include/f2c.h endianmacs.h
+
+/usr/include/f2c.h:
+
+endianmacs.h:

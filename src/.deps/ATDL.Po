@@ -1,4 +1,3 @@
-ATDL.o : \
- ATDL.c /usr/include/f2c.h
-ATDL.c :
-/usr/include/f2c.h :
+ATDL.o ATDL.o: ATDL.c /usr/include/f2c.h
+
+/usr/include/f2c.h:

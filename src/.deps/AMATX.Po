@@ -1,5 +1,5 @@
-AMATX.o : \
- AMATX.c /usr/include/f2c.h endianmacs.h
-AMATX.c :
-/usr/include/f2c.h :
-endianmacs.h :
+AMATX.o AMATX.o: AMATX.c /usr/include/f2c.h endianmacs.h
+
+/usr/include/f2c.h:
+
+endianmacs.h:

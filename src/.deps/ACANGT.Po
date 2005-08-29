@@ -1,5 +1,5 @@
-ACANGT.o : \
- ACANGT.c /usr/include/f2c.h endianmacs.h
-ACANGT.c :
-/usr/include/f2c.h :
-endianmacs.h :
+ACANGT.o ACANGT.o: ACANGT.c /usr/include/f2c.h endianmacs.h
+
+/usr/include/f2c.h:
+
+endianmacs.h:

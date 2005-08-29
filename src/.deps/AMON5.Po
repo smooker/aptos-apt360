@@ -1,11 +1,15 @@
-AMON5.o : \
- AMON5.c /usr/include/f2c.h endianmacs.h /usr/include/assert.h \
- /usr/include/features.h /usr/include/sys/cdefs.h \
- /usr/include/gnu/stubs.h
-AMON5.c :
-/usr/include/f2c.h :
-endianmacs.h :
-/usr/include/assert.h :
-/usr/include/features.h :
-/usr/include/sys/cdefs.h :
-/usr/include/gnu/stubs.h :
+AMON5.o AMON5.o: AMON5.c /usr/include/f2c.h endianmacs.h \
+  /usr/include/assert.h /usr/include/features.h /usr/include/sys/cdefs.h \
+  /usr/include/gnu/stubs.h
+
+/usr/include/f2c.h:
+
+endianmacs.h:
+
+/usr/include/assert.h:
+
+/usr/include/features.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/gnu/stubs.h:

@@ -1,5 +1,5 @@
-ADIAGP.o : \
- ADIAGP.c /usr/include/f2c.h endianmacs.h
-ADIAGP.c :
-/usr/include/f2c.h :
-endianmacs.h :
+ADIAGP.o ADIAGP.o: ADIAGP.c /usr/include/f2c.h endianmacs.h
+
+/usr/include/f2c.h:
+
+endianmacs.h:

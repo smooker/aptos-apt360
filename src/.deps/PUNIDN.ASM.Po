@@ -1,9 +1,11 @@
-PUNIDN.ASM.o : \
- PUNIDN.ASM.c /usr/include/assert.h \
- /usr/include/features.h /usr/include/sys/cdefs.h \
- /usr/include/gnu/stubs.h
-PUNIDN.ASM.c :
-/usr/include/assert.h :
-/usr/include/features.h :
-/usr/include/sys/cdefs.h :
-/usr/include/gnu/stubs.h :
+PUNIDN.ASM.o PUNIDN.ASM.o: PUNIDN.ASM.c /usr/include/assert.h \
+  /usr/include/features.h /usr/include/sys/cdefs.h \
+  /usr/include/gnu/stubs.h
+
+/usr/include/assert.h:
+
+/usr/include/features.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/gnu/stubs.h:

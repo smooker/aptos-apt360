@@ -1,5 +1,5 @@
-APTPUT.o : \
- APTPUT.c /usr/include/f2c.h endianmacs.h
-APTPUT.c :
-/usr/include/f2c.h :
-endianmacs.h :
+APTPUT.o APTPUT.o: APTPUT.c /usr/include/f2c.h endianmacs.h
+
+/usr/include/f2c.h:
+
+endianmacs.h:

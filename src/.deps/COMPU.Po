@@ -1,4 +1,3 @@
-COMPU.o : \
- COMPU.c /usr/include/f2c.h
-COMPU.c :
-/usr/include/f2c.h :
+COMPU.o COMPU.o: COMPU.c /usr/include/f2c.h
+
+/usr/include/f2c.h:

@@ -1,5 +1,5 @@
-ANEST.o : \
- ANEST.c /usr/include/f2c.h endianmacs.h
-ANEST.c :
-/usr/include/f2c.h :
-endianmacs.h :
+ANEST.o ANEST.o: ANEST.c /usr/include/f2c.h endianmacs.h
+
+/usr/include/f2c.h:
+
+endianmacs.h:
