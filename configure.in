@@ -12,9 +12,9 @@ AM_PROG_AS
 
 
 dnl  Checks for libraries.
-hasdxf=1
-AC_CHECK_LIB([dxf], [main],,[hasdxf=]
-	[AC_MSG_WARN([no dxf lib- you will not be able to run the dxf post])])
+#hasdxf=1
+AC_CHECK_LIB([dxf], [main],,
+	[AC_MSG_WARN([no dxf lib- you will not be able to print dxf])])
 
 
 AC_CHECK_LIB([m], [fabs],,[AC_MSG_ERROR([could not find math libraries])])
@@ -55,10 +55,10 @@ AC_CHECK_HEADERS([errno.h float.h limits.h stdlib.h string.h unistd.h])
 AC_CHECK_HEADERS([f2c.h],,
 	[AC_MSG_ERROR([could not find f2c headers])])
 AC_LANG([C++])
-AC_SUBST(dxfprog,[""])
+#AC_SUBST(dxfprog,[""])
 
 AC_CHECK_HEADERS([gsl/gsl_poly.h])
-AC_CHECK_HEADERS([dxflib/dl_dxf.h dxflib/dl_writer_ascii.h],[dxfprog=postDXF],
+AC_CHECK_HEADERS([dxflib/dl_dxf.h dxflib/dl_writer_ascii.h],,
 	[AC_MSG_WARN(no dxf headers- you will not be able to run the dxf post)])
 
 
@@ -88,11 +88,8 @@ do
 	fi
 done
 
-AM_CONDITIONAL(HASDXF,test $hasdxf)
+#AM_CONDITIONAL(HASDXF,test $hasdxf)
 AC_SUBST(absolute_build_dir,[$PWD])
-
-
-
 
 AC_OUTPUT(Makefile src/Makefile doc/Makefile maclib/Makefile orig_source/Makefile \
 		examples/Makefile vim/Makefile vim/syntax/Makefile )

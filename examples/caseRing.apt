@@ -1,0 +1,81 @@
+PARTNO 30234-0
+print/on
+machin/dxf
+remark this program is for the foot cutouts only
+MACHIN/pmill
+SEQNO/OFF
+
+tTL=4 $$STARTING TOOL NUMBER
+
+
+
+ $$*****GLOBAL VALUES******
+
+$$ CLRSRF/(PLANE/0,0,1,.1)
+
+
+
+
+ $$****MACRO "STRTUP" ***************************************************
+libry/strtup,tlend
+
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$      MILL WINDOW
+$$      7/32 mill
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+  
+D1=1.4         $$window width
+D2=.5          $$window depth
+D3=.26         $$window radii
+cutrr=(7/32)    $$cutter dia
+ly=line/yaxis
+xa=line/xaxis
+l1=line/parlel,ly,xlarge,d2                                             10000000
+l2=line/parlel,xa,ylarge,(d1/2)
+l3=line/parlel,xa,ysmall,(d1/2)
+c1=circle/xsmall,l1,ylarge,l3,radius,d3
+c2=circle/xsmall,l1,ysmall,l2,radius,d3
+
+
+strt=POINT/-(cutrr/2 +.1),(-d1/2+(cutrr/2+.1))
+CHPLD=.002      $$CHIPLOAD PER REVOLUTION
+PL1=PLANE/0,0,1,-.3
+
+
+CALL/STRTUP,TL=tTL,SFMIN=1000,CUTR=cutrr,SPT=STRT
+
+insert(**first pass**)
+cutter/(7/32+.03)
+from/strt
+go/to,l3,to,pl1,20.
+tllft,golft/l3,tanto,c1
+gofwd/c1,tanto,l1
+gofwd/l1,tanto,c2
+gofwd/c2,tanto,l2
+gofwd/l2,past,ly
+godlta/-.1,0,0
+rapid
+clrsrf/now
+insert(**second pass**)
+
+$$cutter/(7/32)
+$$rapid
+$$from/strt
+$$go/to,l3,to,pl1,20.
+$$tllft,golft/l3,tanto,c1
+$$gofwd/c1,tanto,l1
+$$gofwd/l1,tanto,c2
+$$gofwd/c2,tanto,l2
+$$gofwd/l2,past,ly
+$$godlta/-.1,0,0
+$$rapid
+$$clrsrf/now
+$$call/tlend
+
+
+FINI
+

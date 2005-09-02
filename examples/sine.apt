@@ -21,7 +21,7 @@ $$spindl/3000
 $$coolnt/on
 tab1=tabcyl/noz,spline,p(all)
 setpt=point/-2,2,0
-$$cutter/.25
+cutter/.25
 call/strtup,tl=1,sfmin=1000,cutr=.25,spt=setpt
 from/setpt
 go/to,tab1

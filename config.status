@@ -534,10 +534,8 @@ s,@CPP@,gcc -E,;t t
 s,@CCAS@,$(CC),;t t
 s,@CCASFLAGS@,$(CFLAGS),;t t
 s,@EGREP@,grep -E,;t t
-s,@dxfprog@,postDXF,;t t
 s,@CXXCPP@,g++ -E,;t t
-s,@HASDXF_TRUE@,,;t t
-s,@HASDXF_FALSE@,#,;t t
+config.status
 s,@absolute_build_dir@,/home/brent/apt360,;t t
 s,@LIBOBJS@,,;t t
 s,@LTLIBOBJS@,,;t t
