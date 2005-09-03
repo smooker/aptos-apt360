@@ -1,5 +1,5 @@
-ACNTRL.o : \
- ACNTRL.c /usr/include/f2c.h ../config.h
-ACNTRL.c :
-/usr/include/f2c.h :
-../config.h :
+ACNTRL.o ACNTRL.o: ACNTRL.c /usr/include/f2c.h ../config.h
+
+/usr/include/f2c.h:
+
+../config.h:
