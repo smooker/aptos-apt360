@@ -1,5 +1,0 @@
-ARITAP.o ARITAP.o: ARITAP.c /usr/include/f2c.h endianmacs.h
-
-/usr/include/f2c.h:
-
-endianmacs.h:

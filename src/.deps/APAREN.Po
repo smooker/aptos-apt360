@@ -1,5 +1,0 @@
-APAREN.o APAREN.o: APAREN.c /usr/include/f2c.h endianmacs.h
-
-/usr/include/f2c.h:
-
-endianmacs.h:

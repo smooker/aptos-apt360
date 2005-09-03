@@ -1,3 +1,0 @@
-AREPRE.o AREPRE.o: AREPRE.c /usr/include/f2c.h
-
-/usr/include/f2c.h:

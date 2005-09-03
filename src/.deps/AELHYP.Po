@@ -1,3 +1,0 @@
-AELHYP.o AELHYP.o: AELHYP.c /usr/include/f2c.h
-
-/usr/include/f2c.h:

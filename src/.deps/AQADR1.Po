@@ -1,3 +1,0 @@
-AQADR1.o AQADR1.o: AQADR1.c /usr/include/f2c.h
-
-/usr/include/f2c.h:

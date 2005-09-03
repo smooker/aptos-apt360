@@ -1,3 +1,0 @@
-BENDIX.o BENDIX.o: BENDIX.c /usr/include/f2c.h
-
-/usr/include/f2c.h:

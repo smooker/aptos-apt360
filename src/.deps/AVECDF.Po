@@ -1,5 +1,0 @@
-AVECDF.o AVECDF.o: AVECDF.c /usr/include/f2c.h endianmacs.h
-
-/usr/include/f2c.h:
-
-endianmacs.h:

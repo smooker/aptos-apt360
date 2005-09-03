@@ -1,3 +1,0 @@
-AERR.o AERR.o: AERR.c /usr/include/f2c.h
-
-/usr/include/f2c.h:

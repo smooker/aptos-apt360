@@ -1,5 +1,0 @@
-AMON6.o AMON6.o: AMON6.c /usr/include/f2c.h endianmacs.h
-
-/usr/include/f2c.h:
-
-endianmacs.h:

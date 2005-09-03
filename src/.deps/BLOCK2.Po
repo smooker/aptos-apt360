@@ -1,3 +1,0 @@
-BLOCK2.o BLOCK2.o: BLOCK2.c /usr/include/f2c.h
-
-/usr/include/f2c.h:

@@ -1,5 +1,0 @@
-ASCLPT.o ASCLPT.o: ASCLPT.c /usr/include/f2c.h endianmacs.h
-
-/usr/include/f2c.h:
-
-endianmacs.h:

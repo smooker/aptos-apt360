@@ -1,3 +1,0 @@
-ADSCF.o ADSCF.o: ADSCF.c /usr/include/f2c.h
-
-/usr/include/f2c.h:

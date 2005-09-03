@@ -1,5 +1,0 @@
-AFINI.o AFINI.o: AFINI.c /usr/include/f2c.h endianmacs.h
-
-/usr/include/f2c.h:
-
-endianmacs.h:

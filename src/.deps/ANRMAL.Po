@@ -1,3 +1,0 @@
-ANRMAL.o ANRMAL.o: ANRMAL.c /usr/include/f2c.h
-
-/usr/include/f2c.h:

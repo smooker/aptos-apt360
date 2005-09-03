@@ -1,5 +1,0 @@
-AFLAGS.o AFLAGS.o: AFLAGS.c /usr/include/f2c.h endianmacs.h
-
-/usr/include/f2c.h:
-
-endianmacs.h:

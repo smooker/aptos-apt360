@@ -1,5 +1,0 @@
-ALSFPT.o ALSFPT.o: ALSFPT.c /usr/include/f2c.h endianmacs.h
-
-/usr/include/f2c.h:
-
-endianmacs.h:

@@ -1,5 +1,0 @@
-ATABPT.o ATABPT.o: ATABPT.c /usr/include/f2c.h endianmacs.h
-
-/usr/include/f2c.h:
-
-endianmacs.h:

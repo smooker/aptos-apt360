@@ -1,3 +1,0 @@
-DDLIMT.o DDLIMT.o: DDLIMT.c /usr/include/f2c.h
-
-/usr/include/f2c.h:

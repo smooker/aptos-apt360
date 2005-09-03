@@ -1,3 +1,0 @@
-PL3AXS.o PL3AXS.o: PL3AXS.c /usr/include/f2c.h
-
-/usr/include/f2c.h:

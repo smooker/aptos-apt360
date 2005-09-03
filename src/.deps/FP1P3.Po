@@ -1,3 +1,0 @@
-FP1P3.o FP1P3.o: FP1P3.c /usr/include/f2c.h
-
-/usr/include/f2c.h:

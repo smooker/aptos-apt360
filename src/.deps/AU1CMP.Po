@@ -1,3 +1,0 @@
-AU1CMP.o AU1CMP.o: AU1CMP.c /usr/include/f2c.h
-
-/usr/include/f2c.h:

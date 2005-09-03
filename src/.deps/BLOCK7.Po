@@ -1,3 +1,0 @@
-BLOCK7.o BLOCK7.o: BLOCK7.c /usr/include/f2c.h
-
-/usr/include/f2c.h:

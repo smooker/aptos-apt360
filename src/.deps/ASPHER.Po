@@ -1,3 +1,0 @@
-ASPHER.o ASPHER.o: ASPHER.c /usr/include/f2c.h
-
-/usr/include/f2c.h:

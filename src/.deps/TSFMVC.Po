@@ -1,3 +1,0 @@
-TSFMVC.o TSFMVC.o: TSFMVC.c /usr/include/f2c.h
-
-/usr/include/f2c.h:

@@ -1,3 +1,0 @@
-GRID1V.o GRID1V.o: GRID1V.c /usr/include/f2c.h
-
-/usr/include/f2c.h:
