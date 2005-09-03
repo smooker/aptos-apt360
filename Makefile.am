@@ -2,8 +2,8 @@
  
 SUBDIRS=src doc maclib orig_source examples vim 
 DIST_SUBDIRS=src doc maclib orig_source examples vim 
-bin_SCRIPTS=apt postprocess
-EXTRA_DIST=apt postprocess
+bin_SCRIPTS=apt callpost
+EXTRA_DIST=apt callpost
 #edit=sed  's,@bindir\@,$(bindir),g' 
 
 #postprocess: Makefile $(top_builddir)/postprocess.in

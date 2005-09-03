@@ -7,16 +7,6 @@ SEQNO/OFF
 
 tTL=4 $$STARTING TOOL NUMBER
 
-
-
- $$*****GLOBAL VALUES******
-
-$$ CLRSRF/(PLANE/0,0,1,.1)
-
-
-
-
- $$****MACRO "STRTUP" ***************************************************
 libry/strtup,tlend
 
 
@@ -62,19 +52,19 @@ rapid
 clrsrf/now
 insert(**second pass**)
 
-$$cutter/(7/32)
-$$rapid
-$$from/strt
-$$go/to,l3,to,pl1,20.
-$$tllft,golft/l3,tanto,c1
-$$gofwd/c1,tanto,l1
-$$gofwd/l1,tanto,c2
-$$gofwd/c2,tanto,l2
-$$gofwd/l2,past,ly
-$$godlta/-.1,0,0
-$$rapid
-$$clrsrf/now
-$$call/tlend
+cutter/(7/32)
+rapid
+from/strt
+go/to,l3,to,pl1,20.
+tllft,golft/l3,tanto,c1
+gofwd/c1,tanto,l1
+gofwd/l1,tanto,c2
+gofwd/c2,tanto,l2
+gofwd/l2,past,ly
+godlta/-.1,0,0
+rapid
+clrsrf/now
+call/tlend
 
 
 FINI

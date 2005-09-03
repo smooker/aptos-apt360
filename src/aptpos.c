@@ -27,11 +27,11 @@ int aptpos_(){
 	int i,j,k,l;
 	int decPt,sign;
 	char* arg[22]={0};
-	char fullpath[DIRECTORY_PATH_SPACE +12];
-	char* prognm="/postprocess";
+	char fullpath[DIRECTORY_PATH_SPACE +9];
+	char* prognm="/callpost";
 	char* path=QUOTE(BINDIR);//configure replaces with actual value	
 
-	strcpy(&args[0][0],"postprocess");
+	strcpy(&args[0][0],"callpost");
 	arg[0]=&args[0][0];
 	for(i=1,j=0;j<(asistm_.numpst*2);i+=2,j+=2){
 		memcpy(&args[i][0],&apostp_.ppname[j],6);
@@ -67,7 +67,7 @@ int aptpos_(){
 		strcat(fullpath,prognm);
 		execv(fullpath, arg);
 		fprintf(stderr,"failed to start postprocessor script\ncheck that\
- script 'postprocess' is installed in /usr/local/bin\n");
+ script 'callpost' is installed in /usr/local/bin\n");
 		
 	}
 	wait(0);

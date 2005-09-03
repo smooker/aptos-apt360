@@ -46,13 +46,13 @@ AWK = gawk
 CC = gcc
 CCAS = $(CC)
 CCASFLAGS = $(CFLAGS)
-CCDEPMODE = depmode=gcc3
-CFLAGS = -O0 -g
+CCDEPMODE = depmode=gcc
+CFLAGS = -g -O2
 CPP = gcc -E
 CPPFLAGS = 
 CXX = g++
 CXXCPP = g++ -E
-CXXDEPMODE = depmode=gcc3
+CXXDEPMODE = depmode=gcc
 CXXFLAGS = -g -O2
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
@@ -87,10 +87,10 @@ absolute_build_dir = /home/brent/apt360
 ac_ct_CC = gcc
 ac_ct_CXX = g++
 ac_ct_STRIP = 
-am__fastdepCC_FALSE = #
-am__fastdepCC_TRUE = 
-am__fastdepCXX_FALSE = #
-am__fastdepCXX_TRUE = 
+am__fastdepCC_FALSE = 
+am__fastdepCC_TRUE = #
+am__fastdepCXX_FALSE = 
+am__fastdepCXX_TRUE = #
 am__include = include
 am__leading_dot = .
 am__quote = 
@@ -116,8 +116,8 @@ target_alias =
 
 SUBDIRS = src doc maclib orig_source examples vim 
 DIST_SUBDIRS = src doc maclib orig_source examples vim 
-bin_SCRIPTS = apt postprocess
-EXTRA_DIST = apt postprocess
+bin_SCRIPTS = apt callpost
+EXTRA_DIST = apt callpost
 subdir = .
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
