@@ -4,6 +4,7 @@
 */
 
 #include "f2c.h"
+#include "endianmacs.h"
 
 /* Common Block Declarations */
 
@@ -59,7 +60,7 @@ static integer c__1 = 1;
 
     /* Local variables */
     extern /* Subroutine */ int atdl_();
-#define kstyp ((integer *)&adfsto_1)
+#define kstyp ((integer *)&adfsto_1+OTHER_ENDIAN_S(0))
     extern /* Subroutine */ int acanck_(), atfmqd_(), atfmvc_();
 
     /* Fortran I/O blocks */

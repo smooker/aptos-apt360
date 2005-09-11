@@ -4,6 +4,7 @@
 */
 
 #include "f2c.h"
+#include "endianmacs.h"
 
 /* Common Block Declarations */
 
@@ -43,7 +44,7 @@ integer *it;
     static doublereal x, y, z__;
     static integer tt;
     static doublereal fac, det, sum;
-#define kstyp ((integer *)&adfsto_1)
+#define kstyp ((integer *)&adfsto_1+OTHER_ENDIAN_S(0))
 
 /*     *** THIS PROGRAM LAST MODIFIED FOR VERSION 4,MODIFICATION 4 *** */
     tt = *it;

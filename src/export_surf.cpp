@@ -67,8 +67,8 @@ void export_circle(double* canon)
 void export_line(double* canon)
 {
 
-	DL_PointData lowerLeft(-10000,-10000,0);
-	DL_PointData upperRight(10000,10000,0);
+	DL_PointData lowerLeft(-100,-100,0);
+	DL_PointData upperRight(100,100,0);
 	const double SMALL_DOUBLE=1e-10;
 
 //		current limits:
