@@ -1,0 +1,32 @@
+partno cone from spiral
+$$	This program profiles a cone by spiralling around
+$$	the surface.  It uses a parametric equation for a
+$$	helix, and decreases the spiral's radius as it 
+$$	generates the spiral.
+clprnt
+machin/dxf
+machin/pmill
+
+d1=90 $$included angle of cone
+d2=3 $$start dia
+d3=1.7 $$end dia
+d4=.02 $$spiral feed per rev
+d5=10 $$degree increments 
+
+
+endz=(d2-d3)/2/tanf(d1/2)$$depth of cone
+goto/0,0,0
+theta=0
+tanAng=tanf(d1/2)
+
+loopst
+agn)	z=-(d4/360)*theta
+	x=(d2/2+z*tanAng)*cosf(theta)
+	y=(d2/2+z*tanAng)*sinf(theta)
+	goto/x,y,z
+	theta=theta+d5
+if(endz+z)quit,quit,agn
+quit)loopnd
+
+
+fini

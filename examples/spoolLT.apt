@@ -1,6 +1,7 @@
 partno a window
 clprnt
 machin/pmill
+machin/dxf
 $$nopost
 print/on
 $$print/off
