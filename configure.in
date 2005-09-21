@@ -5,17 +5,13 @@ AC_CONFIG_HEADER(config.h)
 
 dnl  Checks for programs.
 AC_PROG_CXX
+CFLAGS='-g -O0' dnl optimizing causes problems
 AC_PROG_CC
 AC_PROG_CPP
 AM_PROG_AS
-#AC_PROG_RANLIB
-
-
 dnl  Checks for libraries.
-#hasdxf=1
 AC_CHECK_LIB([dxf], [main],,
 	[AC_MSG_WARN([no dxf lib- you will not be able to print dxf])])
-
 
 AC_CHECK_LIB([m], [fabs],,[AC_MSG_ERROR([could not find math libraries])])
 AC_CHECK_LIB([gslcblas],[main])
@@ -76,8 +72,8 @@ AC_CHECK_FUNCS([rint sqrt strerror])
 AC_PROG_MAKE_SET
 AC_PROG_INSTALL
 
-AC_C_BIGENDIAN([AC_MSG_ERROR([big-endian machines not currently supported;\
- contact the author if you can test])], ,])
+#AC_C_BIGENDIAN()
+AC_C_BIGENDIAN([AC_MSG_ERROR([big-endian machines not currently supported])], ,])
 
 for each in $CFLAGS
 do
@@ -88,7 +84,6 @@ do
 	fi
 done
 
-#AM_CONDITIONAL(HASDXF,test $hasdxf)
 AC_SUBST(absolute_build_dir,[$PWD])
 
 AC_OUTPUT(Makefile src/Makefile doc/Makefile maclib/Makefile orig_source/Makefile \

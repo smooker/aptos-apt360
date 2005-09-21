@@ -5,26 +5,39 @@ using namespace std;
 DL_WriterA dxfWriter("print.dxf");
 DL_Dxf dxfWrite;
 DL_Attributes attrib("surfaces",7,0.001,"CONTINUOUS");
+DL_Attributes attribText("text",4,0.001,"CONTINUOUS");
 static bool start=true;
-void export_surf(int* idfsto,double* canon)
+
+
+//DL_TextData text(x,y,z,xa,ya,za,.02,1,0,0,0,"text","STANDARD",0);
+//void export_surf(int* idfsto,double* canon)
+void export_surf(int* idfsto, double* canon ,double* name, int* sub)
 {
 	
+//DL_TextData text(x,y,z,xa,ya,za,.02,1,0,0,0,"text","STANDARD",0);
+//DL_TextData text(0,0,0,.1,0,0,.18,1,0,0,0,"******text*****","STANDARD",0);
+//
+////void DL_Dxf::writeText(DL_WriterA& dw,
+ //                      const DL_TextData& data,
+  //                     const DL_Attributes& attrib) 
+
 	if(start){
 		dxfWrite.writeHeader(dxfWriter);
 		dxfWriter.sectionEnd();
 		dxfWriter.sectionEntities();
 		start=false;	
+//dxfWrite.writeText(dxfWriter,text,attribText);
 	}
 
 	switch(idfsto[1]){
 		case 1:
-		export_point(canon);
+		export_point(canon,name,sub);
 		break;	
 		case 2:
-		export_line(canon);
+		export_line(canon,name,sub);
 		break;	
 		case 4:
-		export_circle(canon);
+		export_circle(canon,name,sub);
 		break;
 		default:
 	break;
@@ -40,7 +53,7 @@ void export_surf_end()
 		}
 }
 //--------------------------------------------------------------------------
-void export_point(double* canon)
+void export_point(double* canon,double* name, int* sub)
 {
 
 	DL_PointData ptdata;
@@ -56,15 +69,20 @@ void export_point(double* canon)
 
 
 //--------------------------------------------------------------------------
-void export_circle(double* canon)
+void export_circle(double* canon,double* name, int* sub)
 {
 	
 	DL_CircleData cirData(canon[3],canon[4],canon[5],canon[9]); 
 	dxfWrite.writeCircle(dxfWriter, cirData,attrib);
+	std::string str((char*)name);
+	DL_TextData text(canon[3],canon[4],canon[5],.1,0,0,.045,1,0,0,0,str,"STANDARD",0);
+	dxfWrite.writeText(dxfWriter,text,attribText);
+
+
 }
 
 //--------------------------------------------------------------------------
-void export_line(double* canon)
+void export_line(double* canon,double* name, int* sub)
 {
 
 	DL_PointData lowerLeft(-100,-100,0);

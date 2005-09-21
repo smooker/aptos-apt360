@@ -1018,7 +1018,7 @@ L220:
     e_wsfe();
 	//added this to view surfaces in cad programs with dxf
 #ifdef HAVE_DXFLIB_DL_DXF_H 
-	export_surf(idfsto,adfsto_.defsto);
+	export_surf(idfsto,adfsto_.defsto,&a2cls7_1.einame,&ns);
 #endif
     goto L250;
 
@@ -1037,9 +1037,9 @@ L230:
     }
     e_wsfe();
 
-//	//added this to view surfaces in cad programs with dxf
+//	added this to view surfaces in cad programs with dxf
 #ifdef HAVE_DXFLIB_DL_DXF_H 
-	export_surf(idfsto,adfsto_.defsto);
+	export_surf(idfsto,adfsto_.defsto,&a2cls7_1.einame,&ns);
 #endif
 L250:
     return 0;

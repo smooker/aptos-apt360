@@ -3,6 +3,10 @@ machin/dxf
 clprnt
 reserv/pt,60
 print/on
+
+
+
+con1=cone/(point/0,0,0),(vector/0,0,1),20
 ly=line/yaxis
 l1=line/parlel,ly,xlarge,29
 a=0

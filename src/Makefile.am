@@ -3,9 +3,7 @@
 
 #ASFLAGS= -a #generate listings for assembler
 AM_CPPFLAGS = -DTOP_BLD_DIR="$(absolute_build_dir)" \
-	-DBINDIR="$(bindir)" \
-	-O0 #optimizing causes problems on some systems- use optimizing at your own risk
-#AM_CFLAGS = -g -Wall #-static
+	-DBINDIR="$(bindir)" 
 LDADD= -lf2c 
 
 bin_PROGRAMS=apt360 

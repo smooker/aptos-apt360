@@ -19,5 +19,5 @@ It is probably available from your distro's website also.
 
 In addition to f2c, you will also probably want the Qcad dxf library.  The program 
 will compile without it, but you will not be able to view the geometry you create.
-Two very good programs I have been using are Qcad and Blender.
+Two very good programs I have been using for viewing dxf's are Qcad and Blender.
 
