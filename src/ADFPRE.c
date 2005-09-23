@@ -186,9 +186,7 @@ static integer c__1 = 1;
     /* Fortran I/O blocks */
     static cilist io___55 = { 0, 0, 0, fmt_225, 0 };
     static cilist io___56 = { 0, 0, 0, fmt_235, 0 };
-#ifdef HAVE_DXFLIB_DL_DXF_H 
 	extern 	void export_surf();
-#endif
 /*     *** THIS PROGRAM LAST MODIFIED FOR VERSION 4,MODIFICATION 4 *** */
 
 
@@ -1016,10 +1014,8 @@ L220:
 	do_fio(&c__1, (char *)&defans[ii - 1], (ftnlen)sizeof(doublereal));
     }
     e_wsfe();
-	//added this to view surfaces in cad programs with dxf
-#ifdef HAVE_DXFLIB_DL_DXF_H 
-	export_surf(idfsto,adfsto_.defsto,&a2cls7_1.einame,&ns);
-#endif
+	//added this to view surfaces in cad programs 
+	export_surf(idfsto,adfsto_.defsto,&a2cls7_1.einame,&ns,il);
     goto L250;
 
 /* ...     SURFACE IS NAMED - PRINT NAME, SUBSCRIPT, TYPE, LENGTH, */
@@ -1037,10 +1033,8 @@ L230:
     }
     e_wsfe();
 
-//	added this to view surfaces in cad programs with dxf
-#ifdef HAVE_DXFLIB_DL_DXF_H 
-	export_surf(idfsto,adfsto_.defsto,&a2cls7_1.einame,&ns);
-#endif
+//	added this to view surfaces in cad programs
+	export_surf(idfsto,adfsto_.defsto,&a2cls7_1.einame,&ns,il);
 L250:
     return 0;
 } /* adfpre_ */

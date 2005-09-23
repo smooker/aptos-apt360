@@ -1,19 +1,69 @@
 #include "config.h"
-#ifdef HAVE_DXFLIB_DL_DXF_H 
+//#ifdef HAVE_DXFLIB_DL_DXF_H 
 #include "export_surf.h"
+#include <fstream>
 using namespace std;
+/*
 DL_WriterA dxfWriter("print.dxf");
 DL_Dxf dxfWrite;
 DL_Attributes attrib("surfaces",7,0.001,"CONTINUOUS");
 DL_Attributes attribText("text",4,0.001,"CONTINUOUS");
 static bool start=true;
-
+*/
 
 //DL_TextData text(x,y,z,xa,ya,za,.02,1,0,0,0,"text","STANDARD",0);
 //void export_surf(int* idfsto,double* canon)
-void export_surf(int* idfsto, double* canon ,double* name, int* sub)
+//
+
+
+std::ofstream printFile;
+void export_surf(int* idfsto, double* canon ,double* name, int* sub,int* canonLength)
 {
-	
+
+	static bool start=true;
+	if(start==true)printFile.open("print.tap",std::ios::binary);
+	if(!printFile){
+		cerr<<"could not open file 'print.tap'"<<endl;
+		return;
+	}else start=false;
+
+	CanonDataRec rec;
+	rec.surfaceType=static_cast<Surfaces>(idfsto[1]);
+//	cout<<"surface type: "<<rec.surfaceType<<endl;
+	compressName(reinterpret_cast<char*>(name));	
+	memcpy(rec.name,name,7);
+	rec.subscript=*sub;
+//	cout<<"subscript: "<<rec.subscript<<endl;
+	rec.size=*canonLength;
+//	cout<<"rec size: "<<rec.size<<endl;
+	printFile.write(reinterpret_cast<char*>(&rec),sizeof(CanonDataRec));
+	canon+=3;
+	for(int i=0; i<*canonLength;++i){
+		printFile.write(reinterpret_cast<char*>(canon),sizeof(double));
+		//cout<<"canon: "<<*canon<<endl;
+		++canon;
+	}
+
+
+/*enum Surfaces{ POINT=1, LINE, PLANE, CIRCLE, CYLINDER,ELLIPSE, HYPERBOLA, CONE, 
+	GEN_CONIC, LOFT_CONIC, VECTOR,  MATRIX, SPHERE, QUADRIC, PATERN=18,
+       	TABCYL, RULED_SURF=22
+};
+
+struct CanonDataRec{
+	Surfaces surfaceType;
+	std::vector<float>canon;
+	std::string name;	
+	int subscript;
+};
+*/
+
+
+
+
+
+
+
 //DL_TextData text(x,y,z,xa,ya,za,.02,1,0,0,0,"text","STANDARD",0);
 //DL_TextData text(0,0,0,.1,0,0,.18,1,0,0,0,"******text*****","STANDARD",0);
 //
@@ -21,12 +71,14 @@ void export_surf(int* idfsto, double* canon ,double* name, int* sub)
  //                      const DL_TextData& data,
   //                     const DL_Attributes& attrib) 
 
-	if(start){
+/*	if(start){
 		dxfWrite.writeHeader(dxfWriter);
 		dxfWriter.sectionEnd();
 		dxfWriter.sectionEntities();
 		start=false;	
+		*/
 //dxfWrite.writeText(dxfWriter,text,attribText);
+/*
 	}
 
 	switch(idfsto[1]){
@@ -42,17 +94,36 @@ void export_surf(int* idfsto, double* canon ,double* name, int* sub)
 		default:
 	break;
 	}
+*/
+}
 
+//-----remove blanks----------------------------------------------------------
+void compressName(char* name)
+{
+	char tmp[8]={0};
+	int j=0,i=0;
+	while(i<8){
+		while(name[i]==' ')++i;
+		tmp[j]=name[i];
+		++i;++j;
+	}
+	memcpy(name,tmp,8);
 }
 //--------------------------------------------------------------------------
 void export_surf_end()
 {
+	
+	cout<<"closing printFile"<<endl;
+	printFile.close();
+	/*
 		if(start==false){
 			dxfWriter.sectionEnd();
 			dxfWriter.dxfEOF();
 		}
+		*/
 }
 //--------------------------------------------------------------------------
+/*
 void export_point(double* canon,double* name, int* sub)
 {
 
@@ -184,9 +255,10 @@ void export_line(double* canon,double* name, int* sub)
 
 }
 //--------------------------------------------------------------------------
-#endif
+*/
+//#endif
 
 
 
 
-
+ 
