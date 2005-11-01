@@ -1,11 +1,5 @@
 /* config.h.in.  Generated from configure.in by autoheader.  */
 
-/* Define to 1 if you have the <dxflib/dl_dxf.h> header file. */
-#undef HAVE_DXFLIB_DL_DXF_H
-
-/* Define to 1 if you have the <dxflib/dl_writer_ascii.h> header file. */
-#undef HAVE_DXFLIB_DL_WRITER_ASCII_H
-
 /* Define to 1 if you have the <errno.h> header file. */
 #undef HAVE_ERRNO_H
 
@@ -23,9 +17,6 @@
 
 /* Define to 1 if you have the <inttypes.h> header file. */
 #undef HAVE_INTTYPES_H
-
-/* Define to 1 if you have the `dxf' library (-ldxf). */
-#undef HAVE_LIBDXF
 
 /* Define to 1 if you have the `gsl' library (-lgsl). */
 #undef HAVE_LIBGSL

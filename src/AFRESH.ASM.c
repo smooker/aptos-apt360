@@ -49,6 +49,7 @@ int afresh_()
 	remove("err.tap");
 	remove("cl.tap");
 	remove("pro.tap");
+	remove("print.tap");
 	//remove("cl.dxf");
 	//remove("print.dxf");
 	//remove("cl_print.dxf");

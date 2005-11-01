@@ -73,12 +73,19 @@ static integer c__0 = 0;
 /* Subroutine */ int patgo_()
 {
     /* Initialized data */
-
+#ifdef WORDS_BIGENDIAN
+//original structure
     static struct {
 	integer e_1[8];
 	doublereal e_2;
 	} equiv_40 = { 5000, 5, 2000, 1054, 0, 71, 0, 53, 0. };
+#else//little endian
+    static struct {
+	integer e_1[8];
+	doublereal e_2;
+	} equiv_40 = { 5, 5000, 1054, 2000, 71, 0, 53, 0, 0. };
 
+#endif
 
     /* Format strings */
     static char fmt_2020[] = "(\0020    FNUM =\002,f12.4,\002,  AVOIDZ =\002\
@@ -116,7 +123,7 @@ static integer c__0 = 0;
 #define iptdat (equiv_21)
 #define iptflg (equiv_36)
 #define nopflg (equiv_36 + 6)
-#define kreslt ((integer *)equiv_7 + 1)
+#define kreslt ((integer *)equiv_7 + OTHER_ENDIAN_S(1))
 #define ipatyp (equiv_21)
 #define numpts (equiv_21 + 1)
 #define nocols (equiv_21 + 2)
@@ -820,7 +827,7 @@ L415:
     aritap_();
 /* ...     RESTORE 'GOTO/' RECORD DATA */
     jprotp[OTHER_ENDIAN_S(1)] = 6;
-    aprotp_1.protp[1] = *gotype;
+    aprotp_1.protp[1] =*gotype;
     aprotp_1.protp[2] = patnam;
 /* ...     CLEAR FLAG INDICATING AN 'AVOID' TO BE TERMINATED */
     voidls = 0.;

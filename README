@@ -2,22 +2,15 @@ Apt is an acronym for Automatically Programmed Tools.  It is a special-purpose
 language created to run automatically controlled machine tools such as 
 milling machines and lathes.
 
-Apt360 is a port of the IBM's Apt program from  the 60's
-that ran on the s/360.  Expect to see some antique characteristics from that era, such
-as no dynamic memory ,and frequent references to "CARDS" and "TAPE".
+Apt360 is a port of IBM's Apt program from  the 60's that ran on the s/360. 
+References from that era, such as "CARDS" and "TAPE" abound in the code.
 
-You will need the libraries for f2c to compile.  F2c is a C program that was
-used to convert the Fortran H code to C.  The resulting C code makes calls to the f2c 
-library.  You don't need to use f2c the program, but you will need the library.  Your
-distribution may include it or it may be an option.  If not, you can get the f2c 
-library at: 
+Apt is considered by many to be obsolete, but it still is good for many tasks 
+a machinist does daily that are not handled easily by modern graphical systems.
+These include family of parts programs, math-oriented geometry, and 4 and 5 
+axis contouring.
 
-http://www.netlib.org/f2c/libf2c.zip
-
-It is probably available from your distro's website also.
-
-
-In addition to f2c, you will also probably want the Qcad dxf library.  The program 
-will compile without it, but you will not be able to view the geometry you create.
-Two very good programs I have been using for viewing dxf's are Qcad and Blender.
-
+As far as I know, the original source code in Fortran that is included in 
+this package was made public domain by IBM many years ago.  As such, that 
+portion of the present package is available for any purpose whatsoever.  
+The c code however, is made available with the GNU GPL.  

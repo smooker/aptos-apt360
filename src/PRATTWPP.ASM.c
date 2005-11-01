@@ -2,7 +2,9 @@
 #include <f2c.h>
 #include <stdio.h>
 #include "ASM.h"
-
+//---most of this routine is ad hoc and messy-I don't know how the
+//original assembler worked, so I just try to give the main program
+//what it wants.  
 void ataprd_(doublereal* tapeType, integer* ioflag, integer* nwrds, integer* param1, 
 	integer* irecn, integer* param2, integer* hdr1, integer* param3, 
 	integer* hdr2, integer* param4, integer* startAddress, integer* param5, 
@@ -36,13 +38,26 @@ void ataprd_(doublereal* tapeType, integer* ioflag, integer* nwrds, integer* par
 			return;		
 
 		}else if(*param1==3){
-			*irecn=tapeHdr.irecn;
-			*hdr1=tapeHdr.hdr1;
-			*hdr2=tapeHdr.hdr2;
-			*nwrds=tapeHdr.recordLength;
-			fseek(filePtr,sizeof(doublereal)*tapeHdr.recordLength,SEEK_CUR);
-			*ioflag=-1;
-			return;		
+			if(*param2==1){
+				*irecn=tapeHdr.irecn;
+				*hdr1=tapeHdr.hdr1;
+				*hdr2=tapeHdr.hdr2;
+				*nwrds=tapeHdr.recordLength;
+				fseek(filePtr,
+					sizeof(doublereal)*tapeHdr.recordLength,
+						SEEK_CUR);
+				*ioflag=-1;
+				return;		
+			}else if(*param2==3){
+				if(fread(hdr2-4 ,sizeof(doublereal),
+						tapeHdr.recordLength,filePtr)
+						!=(tapeHdr.recordLength)){
+					*ioflag=1;
+					return;		
+				} 
+				*ioflag=-1;
+				return;		
+			}else assert(0);
 		} else if(*param1==4){
 
 			*irecn=tapeHdr.irecn;

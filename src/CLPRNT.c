@@ -258,7 +258,7 @@ OUTTOL/ CUTTER/ TRANTO/ CSTRANTODYNDMP/ GO/     OFFSET/ ";
 /*       DATA AQ2/'DEBUG/OFF       DEBUG/ON        SECT. 2 RESTART CLPRNT */
 /*     1/OFF     CLPRNT/ON       CLPRNT/OPTION   '/ */
 	static char aq2C[]= "DEBUG/OFF       DEBUG/ON        SECT. 2 RESTART CLPRNT\
-/OFF     CLPRNT/ON       CLPRNT/OPTION   " ;
+/OFF      CLPRNT/ON       CLPRNT/OPTION   " ;
 #define  aq2 ((doublereal *)&aq2C)
 
 /*       DATA AQ3/'TLAXIS  MULTAX  MAXDP   NUMPTS  THICK   NOPS    AUTOPS */

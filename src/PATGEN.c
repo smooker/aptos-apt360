@@ -110,7 +110,7 @@ integer *il;
 #define ptpp ((doublereal *)&avst_1)
     static integer npts, nopt1, nopt2;
 #define canon ((doublereal *)&avst_1)
-#define iodat ((integer *)equiv_8)
+#define iodat ((integer *)equiv_8 + OTHER_ENDIAN_S(0))
     static doublereal radcv, theta, stang, xdcos;
 #define kmove ((integer *)&avst_1 + OTHER_ENDIAN_S(12401))
     static doublereal ydcos, xincr, yincr, zincr, zdcos;
@@ -119,12 +119,12 @@ integer *il;
 #define idftab ((integer *)&avst_1 + 12400)
     static doublereal endang;
 #define defans ((doublereal *)&adfsto_1 + 3)
-#define ioflag ((integer *)equiv_8)
+#define ioflag ((integer *)equiv_8  + OTHER_ENDIAN_S(0))
 #define kdfans ((shortint *)&adfsto_1 + 12)
     extern integer aextra_();
 #define idfsto ((integer *)&adfsto_1)
 #define fildat (equiv_8)
-#define irecno ((integer *)equiv_8 + 1)
+#define irecno ((integer *)equiv_8 + OTHER_ENDIAN_S(1))
     static doublereal totang;
     extern /* Subroutine */ int aserch_(), ataprd_();
     static integer ispcol, norows, nocols;
@@ -512,7 +512,7 @@ L3010:
 	goto L802;
     }
 /* ...     NO - LOCATE PATTERN DEFINITION ON LARGE SURFACE FILE */
-    *fildat = deftab[ilim];
+    *fildat =  deftab[ilim];
     aserch_(&ataptb_1.srftap, irecno, ioflag);
 /* ...     TEST FOR ERROR IN FILE SEARCH OPERATION */
     if (*ioflag >= 0) {
@@ -560,7 +560,8 @@ L4000:
 	goto L802;
     }
 /* ...     NO - LOCATE PATTERN DEFINITION ON LARGE SURFACE FILE */
-    *fildat = deftab[ilim];
+
+    *fildat =  deftab[ilim];
     aserch_(&ataptb_1.srftap, irecno, ioflag);
 /* ...     TEST FOR ERROR IN FILE SEARCH OPERATION */
     if (*ioflag >= 0) {
@@ -664,7 +665,7 @@ L4008:
 	goto L801;
     }
 
-    *fildat = deftab[ilim];
+    *fildat =  deftab[ilim];
 /* ...     TEST FOR SUFFICIENT ROOM IN WORKING STORAGE FOR 2ND PATTERN */
     if (jj > 999 - aextra_(&deftab[ilim + 1], &c__4)) {
 	goto L802;

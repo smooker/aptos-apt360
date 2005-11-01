@@ -106,6 +106,12 @@ static integer c__85 = 85;
 #define jopsto ((shortint *)&avst_1 + 24960)
 #define ioprnd ((integer *)&adfsto_1)
 #define oprand ((doublereal *)&avst_1 + 6210)
+    //TODO: this needs to be changed 
+    //to : 
+//#define kstype ((integer *)equiv_3 + OTHER_ENDIAN_S(0))
+//#define kreslt ((integer *)equiv_3 + OTHER_ENDIAN_S(1))
+//TODO:  and tested-- 
+//
 //original big endian:
 //#define kstype ((integer *)equiv_3)
 //#define kreslt ((integer *)equiv_3 + 1)

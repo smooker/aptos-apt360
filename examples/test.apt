@@ -1,13 +1,15 @@
-PARTNO  
+partno test 
 machin/dxf
 clprnt
-reserv/pt,60
-
-
-
-con1=cone/(point/0,0,0),(vector/0,0,1),20
-ly=line/yaxis
 print/on
-xxxxx1=line/parlel,ly,xlarge,29
-FINI                                                                    TEST1470
 
+pt1=point/0,0,0
+pt2=point/1,0,0
+pat1=patern/linear,pt1,pt2,20
+pt3=point/0,1,0
+pat2=patern/linear,pt1,pt3,20
+cycle/drill
+a=122
+c)b=2
+c)goto/pat1
+fini

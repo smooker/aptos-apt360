@@ -12,17 +12,14 @@ do
 	in
 
 	DXF)
-	#dxf $machins 
 	string=$string" -p dxf"	
-#	echo string is: $string
 	;;
 
 	PMILL)
 	string=$string" -p pmill"	
-#	echo string is: $string
 	;;
 	[0-9]|[0-9][0-9])
-	#mill $machins 
+	string=$string" -n"$machins	
 	;;
 
 	*)
@@ -31,14 +28,7 @@ do
 
 
 done
-#echo string is : $string
-#call the postprocessor with the desired posts
-postp $string<cl.tap
+
+postp $string<cl.tap > ${APT_FILENAME%.apt}.tap
 
 
-#if [ -e print.dxf ] 
-#	then
-#	cat cl.dxf print.dxf >cl_print.dxf
-#	cat cl.dxf print.dxf >temp.dxf
-
-#fi

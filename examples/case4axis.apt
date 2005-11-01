@@ -1,20 +1,17 @@
 partno 4th axis sample
-$$machin/pmill
+machin/pmill
 machin/dxf
 remark this represents the profile of a fly-fishing reel line guard
 clprnt
 d1=3.06 $$case diameter
-d2=.509$$line guard width
+d2=0.25$$line guard width
 d3=5/16 $$line guard radius
 d4=5/16+.055 $$ x position of first radius
-$$d5=1.130-5/16 $$ x position of second radius
-$$d6=d2+2*(5/16)   $$ ear width
 d6=d2+2*(5/16)-.2   $$ ear width
 d7=1.1  $$back edge of case
 d8=.03 $$outer edge radius
-$$d9=-90 $$angle of bottom cut
 d9=145 $$angle of bottom cut
-$$d9=0.0 $$angle of bottom cut
+d10=d3-.1 $$lip edge location from cl of line guard radius
 
 v1=vector/-1,0,0
 cyl1=cylndr/(point/0,0,0),v1,(d1/2)
@@ -25,20 +22,16 @@ l1=line/parlel,lx,ysmall,(d2/2)
 l1b=line/parlel,lx,ylarge,(d2/2)
 pt1=point/d4,-(d2/2+d3)
 pt1b=point/d4,(d2/2+d3)
-print/on
 c1=circle/center,pt1,tanto,l1
 c1b=circle/center,pt1b,tanto,l1b
-print/off
 l2=line/parlel,lx,ysmall,(d6/2)
 l2b=line/parlel,lx,ylarge,(d6/2)
 l3=line/parlel,(line/yaxis),xlarge,d7
-print/on
 c2=circle/ylarge,l2,xsmall,out,c1,radius,d8
 c2b=circle/ysmall,l2b,xsmall,out,c1b,radius,d8
 c3=circle/ysmall,l1,xsmall,l3,radius,d3
 c3b=circle/ylarge,l1b,xsmall,l3,radius,d3
 $$ these are check surfaces
-print/off
 l4=line/(point/center,c1),(point/center,c2)
 l4b=line/(point/center,c1b),(point/center,c2b)
 l5=line/(point/center,c1),perpto,l2
@@ -46,34 +39,29 @@ l6=line/(point/center,c2),perpto,l2
 l7=line/(point/center,c3),perpto,l2
 l8=line/(point/center,c3),perpto,l3
 l9=line/(point/center,c3b),perpto,l3
-mat1=matrix/yzrot,d9
+$$mat1=matrix/yzrot,d9
+mat1=matrix/yzrot,170
 refsys/mat1
 	v2=vector/0,0,1	
 	ptrot=point/-.5,(d3+.5),(d1/2+.1)
 	lxrot=line/xaxis
-print/on
 	c4=circle/xsmall,l3,ylarge,lxrot,radius,d3
 	c5=circle/d4,d3,0,d3
-print/off
-	l10=line/parlel,lxrot,ylarge,d3
-print/on
+	l10=line/parlel,lxrot,ylarge,d10
 	c6=circle/ysmall,l10,xsmall,out,c5,radius,d8
-print/off
 	$$ check surfaces
 	l11=line/(point/center,c6),(point/center,c5)
 	l12=line/(point/center,c4),(point/center,c5)
+	l13=line/(point/center,c5),perpto,l2
 refsys/nomore
 mat2=matrix/yzrot,-d9
+$$mat2=matrix/yzrot,-180
 refsys/mat2
 	lxrotb=line/xaxis
-print/on
 	c4b=circle/xsmall,l3,ysmall,lxrotb,radius,d3
 	c5b=circle/d4,-d3,0,d3
-print/off
-	l10b=line/parlel,lxrotb,ysmall,d3
-print/on
+	l10b=line/parlel,lxrotb,ysmall,d10
 	c6b=circle/ylarge,l10b,xsmall,out,c5b,radius,d8
-print/off
 	l6b=line/(point/center,c6b),perpto,l2
 	$$ check surfaces
 	l11b=line/(point/center,c6b),(point/center,c5b)
@@ -84,9 +72,9 @@ intol/.0001
 outtol/.0001
 
 multax
-cut1=0.2
+cut1=0.1$$.2
 setpt=point/-.5,1,(d1/2+.1)
-cutter/cut1,.0,0,0,0,0,1
+cutter/cut1,.0,0,0,0,0,.25
 from/setpt
 tlaxis/normps
 go/to,l2b,on,cyl1
@@ -108,21 +96,19 @@ cutter/option,2,(cut1/2),0
 gofwd/c5b,on,l11b
 cutter/option,2,off
 gofwd/c6b,on,l6b
-$$gofwd/l10b,past,ly
 godlta/-.5,0,0
 $$next window:
 rapid
 go/past,l10,on,cyl1
-tllft,gorgt/l10,on,l6
-$$gofwd/c6,on,l11
-$$cutter/option,2,(cut1/2),0
-$$gofwd/c5,on,l5
-$$cutter/option,2,off
-$$gofwd/lxrot,on,l7
+tllft,tlonps,gorgt/l10,on,l6
+gofwd/c6,on,l11
+gofwd/c5,on,l13
+$$gofwd/c5,past,l13
+gofwd/lxrot,on,l7
 $$cutter/option,2,(cut1/2),0
 $$gofwd/c4,on,l12
 $$cutter/option,2,off
-$$gofwd/l3,on,l8
+$$gofwd/l3,on,2,intof,l8
 $$cutter/option,2,(cut1/2),0
 $$gofwd/c3,on,l7
 $$cutter/option,2,off

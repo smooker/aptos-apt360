@@ -2,14 +2,14 @@
 #define EXPORT_SURF_H
 
 #include "config.h"
-//#ifdef HAVE_DXFLIB_DL_DXF_H 
 #include <stdio.h>
 #include <iostream>
 #include <string>
-//#include <dxflib/dl_dxf.h>
-//#include <dxflib/dl_writer_ascii.h>
 #include <vector>
 
+//	dump canon data values produced by the PRINT command into a binary file
+//	usable by a post-processor
+//
 #ifdef __cplusplus
 	extern "C"{
 #endif
@@ -41,13 +41,7 @@ struct CanonDataRec{
 void compressName(char*);
 
 
-//void export_point(double* canon, double* name, int* sub);
-//void export_circle(double* canon, double* name, int* sub);
-//void export_line(double* canon, double* name, int* sub);
-
-
 #endif
-//#endif
 
 
 

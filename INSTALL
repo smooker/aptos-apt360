@@ -1,0 +1,41 @@
+the install of apt360 works in the usual fashion of the GNU autotools:
+type: 
+
+./configure
+make
+make install 
+
+if you are not familiar with the GNU autotools, be aware that many more
+options exist. 
+
+You will need the libraries for f2c to compile.  F2c is a C program that was
+used to convert the Fortran H code to C.  The resulting C code makes calls to 
+the f2c library.  You don't need to use f2c the program, but you will need 
+the library.  Your distribution may include it or it may be an option.  
+If not, you can get the f2c library at: 
+
+http://www.netlib.org/f2c/libf2c.zip
+
+It is probably available from your distro's website also.
+
+Also used for the some math issues in the TABCYL command is the Gnu 
+scientific library gsl. The program will compile without it, and the TABCYL
+command will often work ok, but be aware of the problem. 
+
+If you are compiling on a bigendian machine (e.g., Mac OSX, Solaris sparc,etc.)
+the code will not work. Since the code was originally for the bigendian 
+OS/360 machine, the conversion to bigendian will only require the writing 
+of one file (ADFPRL.ASM.S) and undefining some macros.  If the demand is 
+there, I will try to work on this.  
+
+To generate the final post from the cl-file that apt creates, you will
+need a post-processor. Postp, from the same site as this package, is being 
+developed for this purpose.  
+
+You will want some way of viewing your geometry.  The postp post-processor 
+includes a dxf post-processor that I have been using to view geometry in 
+dxf format.  Two good, open-source packages I have been using are QCad 
+and Blender.
+
+I've also included a vim syntax file in the /vim directory.  If you use vim, 
+you may want to install these files in your ~/.vim directory.

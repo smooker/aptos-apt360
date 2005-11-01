@@ -516,17 +516,23 @@ this stores macro nesting data<br>
 ***********************************************************<br>
 ERROR NUMBERS:<br>
 <br>
-&nbsp;&nbsp;&nbsp; 1 - <br>
+&nbsp;&nbsp;&nbsp; 1 - too many characters in a variable name<br>
+&nbsp;&nbsp;&nbsp; 2 - too many characters in scalar value (&gt;16)<br>
+&nbsp;&nbsp;&nbsp; 3 - symbol is already defined<br>
 &nbsp;&nbsp;&nbsp; 4 - bad number format<br>
 &nbsp;&nbsp;&nbsp; 5 - statement did not start with a variable name or
 vocabulary word<br>
+&nbsp;&nbsp;&nbsp; 6 - label is&nbsp; duplicated <br>
 &nbsp;&nbsp;&nbsp; 7 - improper punctuation<br>
 &nbsp;&nbsp;&nbsp; 9 - no closing parenthesis<br>
 &nbsp;&nbsp;&nbsp; 10 - no opening parenthesis<br>
 &nbsp;&nbsp;&nbsp; 11 - illegal punctuation terminating statement<br>
+&nbsp;&nbsp;&nbsp; 13 - element table overflow<br>
 &nbsp;&nbsp;&nbsp; 14 - more than 5000 scalar definitions in program<br>
-&nbsp;&nbsp;&nbsp; 15 - out of space in vst?<br>
+&nbsp;&nbsp;&nbsp; 15 - out of space in vst<br>
 &nbsp;&nbsp;&nbsp; 16 - FINI read while defining a macro<br>
+&nbsp;&nbsp;&nbsp; 17 - vocabulary word illegal here<br>
+&nbsp;&nbsp;&nbsp; 20 - decimal out of context<br>
 &nbsp;&nbsp;&nbsp; 22 - illegal debug format<br>
 &nbsp;&nbsp;&nbsp; 23 - fini with an illegal format<br>
 &nbsp;&nbsp;&nbsp; 40 - vst table size exceeded<br>
@@ -571,7 +577,7 @@ RESERV statement<br>
 &nbsp;&nbsp;&nbsp; 379 - maximum tape records exceeded (65365)<br>
 &nbsp;&nbsp;&nbsp; 402 - parameter within "if" parenthesis not a scalar<br>
 &nbsp;&nbsp;&nbsp; 406 - id not present in loop or macro<br>
-&nbsp;&nbsp;&nbsp; 407 - JUMPTO not within loop or macro<br>
+&nbsp;&nbsp;&nbsp; 407 - JUMPTO or IF not within loop or macro<br>
 &nbsp;&nbsp;&nbsp; 503 - incorrect parameter type <br>
 &nbsp;&nbsp;&nbsp; 504 - too many MACHIN statements (&gt;10)<br>
 &nbsp;&nbsp;&nbsp; 505 - value of tool direction and fwd is greater

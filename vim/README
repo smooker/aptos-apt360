@@ -1,3 +1,6 @@
-these are the syntax files I use for Vim.  Consult the Vim help for 
-installing and using these files.
-TODO: make an option to install or make a default
+These are the syntax files I use for Vim.  Consult the Vim help for 
+more information on installing and using these files.
+
+If you don't have an existing .vim directory, simply create one and copy 
+the filetype.vim and syntax directory and contents there.
+

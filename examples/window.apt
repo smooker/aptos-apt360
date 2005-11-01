@@ -2,16 +2,17 @@ partno a window
 machin/pmill
 $$clprnt
 $$nopost
-$$print/on
 $$print/off
 d1=21.5   $$center arm radius
 d2=.25   $$corner radius
 p1=point/22,-3.0,0 $$location of center arm radius 
+print/on
 c1=circle/0,0,0,2.
 c2=circle/center,p1,radius,d1
 c3=circle/xlarge,in,c1,in,c2,radius,d2
 c4=circle/xsmall,in,c1,in,c2,radius,d2
 l1=line/xaxis
+print/off
 spt=point/4,0
 clpl=plane/0,0,1,.1
 

@@ -6,8 +6,6 @@
 	//one type are cast to another type, or arrays of 
 	//one type are indexed as the type of another.
 	//These macros are for dealing with those occurances.
-	//This was easily the most frustrating part of porting
-	//this code.
 	
   #ifdef WORDS_BIGENDIAN
 	//define macros to nothing; code is ok as is
