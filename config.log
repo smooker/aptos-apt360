@@ -52,7 +52,7 @@ configure:1576: result: gawk
 configure:1586: checking whether make sets $(MAKE)
 configure:1606: result: yes
 configure:1820: checking for g++
-configure:1836: found /usr/bin/g++
+configure:1836: found /usr/local/bin/g++
 configure:1846: result: g++
 configure:1862: checking for C++ compiler version
 configure:1865: g++ --version </dev/null >&5
@@ -156,7 +156,7 @@ configure:2363: result: GNU
 configure:2391: checking dependency style of g++
 configure:2481: result: gcc3
 configure:2544: checking for gcc
-configure:2560: found /usr/bin/gcc
+configure:2560: found /usr/local/bin/gcc
 configure:2570: result: gcc
 configure:2814: checking for C compiler version
 configure:2817: gcc --version </dev/null >&5

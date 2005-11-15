@@ -577,10 +577,6 @@ L13504:
     if (a2cmmn_.ier >= 0) {
 	aerr_(&c__11);
     }
-//finish the dxf file, if any
-#ifdef HAVE_DXFLIB_DL_DXF_H 
-	export_surf_end();
-#endif
 
     a2ctrl_();
 L14000:

@@ -1,15 +1,2 @@
 partno test 
-machin/dxf
-clprnt
-print/on
-
-pt1=point/0,0,0
-pt2=point/1,0,0
-pat1=patern/linear,pt1,pt2,20
-pt3=point/0,1,0
-pat2=patern/linear,pt1,pt3,20
-cycle/drill
-a=122
-c)b=2
-c)goto/pat1
 fini

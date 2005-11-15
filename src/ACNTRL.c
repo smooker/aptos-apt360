@@ -275,10 +275,6 @@ L9510:
 /* ...     GET STANDARD SECTION 2 */
 /* 	cut vectors, tool motion: */
 L9520:
-	//finish the dxf file, if any
-#ifdef HAVE_DXFLIB_DL_DXF_H 
-	export_surf_end();
-#endif
     a2ctrl_();
 /* 	print out time, errors, etc. goto the next section: */
     goto L9000;

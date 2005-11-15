@@ -104,7 +104,7 @@ tllft,tlonps,gorgt/l10,on,l6
 gofwd/c6,on,l11
 gofwd/c5,on,l13
 $$gofwd/c5,past,l13
-gofwd/lxrot,on,l7
+$$gofwd/lxrot,on,l7
 $$cutter/option,2,(cut1/2),0
 $$gofwd/c4,on,l12
 $$cutter/option,2,off

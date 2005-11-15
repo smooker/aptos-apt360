@@ -28,7 +28,6 @@ do
 
 
 done
-
-postp $string<cl.tap > ${APT_FILENAME%.apt}.tap
+postp $string < cl.tap > ${APT_FILENAME%.apt}.tap
 
 

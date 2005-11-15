@@ -1,3 +1,4 @@
+#include "../config.h"
 #include <stdlib.h>
 #include <f2c.h>
 #include <stdio.h>
@@ -55,7 +56,7 @@ int aptpos_(){
 		arg[i+1]=&args[i+1][0];
 
 	}
-	
+	export_surf_end();//close print.tap
 
 	if(!fork()){
 		if( (strlen(fullpath)) > (DIRECTORY_PATH_SPACE-1) ){

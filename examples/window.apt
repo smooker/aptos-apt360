@@ -1,6 +1,7 @@
 partno a window
 machin/pmill
-$$clprnt
+machin/dxf
+clprnt
 $$nopost
 $$print/off
 d1=21.5   $$center arm radius
