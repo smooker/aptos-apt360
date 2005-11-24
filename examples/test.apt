@@ -1,2 +1,4 @@
 partno test 
+syn/ci,circle
+c1=ci/0,0,0,1
 fini
