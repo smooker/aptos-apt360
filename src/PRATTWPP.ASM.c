@@ -88,9 +88,8 @@ void ataprd_(doublereal* tapeType, integer* ioflag, integer* nwrds, integer* par
 				*ioflag=1;
 				return;		
 			} 
-	
 			if(fread(deftab ,sizeof(doublereal),tapeHdr.recordLength,filePtr)
-									!=(tapeHdr.recordLength)-2){
+						!=(tapeHdr.recordLength)){
 				*ioflag=1;
 				return;		
 			} 

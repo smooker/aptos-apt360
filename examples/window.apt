@@ -1,6 +1,6 @@
 partno a window
-machin/pmill
-machin/dxf
+machin/pmill,1
+machin/dxf,1
 clprnt
 $$nopost
 $$print/off
@@ -16,19 +16,19 @@ l1=line/xaxis
 print/off
 spt=point/4,0
 clpl=plane/0,0,1,.1
-
 clrsrf/clpl
 cutter/0.2
+loadtl/1,adjust,11
+coolnt/on
 spindl/3000,clw
 rapid
 from/spt
-delete/on
-coolnt/on
-delete/off
+$$coolnt/on
 $$prefun/43
-cutcom/length,1
+$$cutcom/length,1
 clrsrf/now
 fedrat/30.
+rapid
 godlta/0,0,-.2
 autops
 go/to,c2

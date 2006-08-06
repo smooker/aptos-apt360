@@ -1,4 +1,64 @@
-partno test 
-syn/ci,circle
-c1=ci/0,0,0,1
+partno spirograph
+$$ generate a spirograph figure by the following
+$$ parametric equations:
+$$ x	=	x_0[mcost+acos(nt)]-y_0[msint-asin(nt)]	
+$$ y	=	y_0[mcost+acos(nt)]+x_0[msint-asin(nt)]
+$$ Eric W. Weisstein."Spirograph."From MathWorld-A Wolfram Web Resource.
+$$ see http://mathworld.wolfram.com/Spirograph.html
+machin/dxf
+machin/pmill
+theta=0 $$ 
+t=0 $$parametric variable
+pi=3.1416
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$ adjust these variables for varying shapes and positions, etc.
+$$ p=2,q=3,a=.2,aend=.5,ainc=.03 gives a graph similar to the
+$$ mathworld.wolfram.com site
+p=3 
+q=7 
+a=.2 $$starting value of a 
+aend= .5$$end value of a
+ainc=.03 $$ incr value of a - aend/ainc=number of individual spirographs
+$$ overlaid on one another
+inc=5 $$the t increment-controls the smoothness of the curve
+$$  There is no checking of when the loop closes
+$$  you will have to adjust endt manually
+endt=3*359 $$ endt/inc =number of lines of g-code or dxf entities 
+$$ per graph
+scl= 1 $$use this variable to scale the output
+rot=0 $$use this variable to rotate the output
+xtrans=0 $$x and y locations of center of graph
+ytrans=0
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+m=(q-p)/q
+n=(q-p)/p
+x0=cosf(theta)
+y0=sinf(theta)
+mat1=matrix/scale,scl
+mat2=matrix/xyrot,rot
+mat3=matrix/mat2,mat1
+mat4=matrix/transl,xtrans,ytrans
+mat5=matrix/mat4,mat3
+rapid
+tracut/mat5
+goto/(x0*(m*cosf(t)+a*cosf(n*t))-y0*(m*sinf(t)-a*sinf(n*t))),$
+     (y0*(m*cosf(t)+a*cosf(n*t))+x0*(m*sinf(t)-a*sinf(n*t))),(.1/scl)
+godlta/0,0,(-.11/scl)
+loopst
+agn) 		x=x0*(m*cosf(t)+a*cosf(n*t))-y0*(m*sinf(t)-a*sinf(n*t))
+		y=y0*(m*cosf(t)+a*cosf(n*t))+x0*(m*sinf(t)-a*sinf(n*t))
+		goto/x,y,(-.01/scl)
+		t=t+inc
+		if(endt-t)quit,quit,agn
+	quit)a=a+ainc
+	t=0
+	rapid
+	godlta/0,0,(.11/scl)
+	rapid
+	goto/(x0*(m*cosf(t)+a*cosf(n*t))-y0*(m*sinf(t)-a*sinf(n*t))),$
+	     (y0*(m*cosf(t)+a*cosf(n*t))+x0*(m*sinf(t)-a*sinf(n*t))),(.1/scl)
+if(aend-a)quit2,agn,agn
+quit2) loopnd
+tracut/nomore
+
 fini

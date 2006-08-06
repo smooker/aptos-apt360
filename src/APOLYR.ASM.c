@@ -6,7 +6,6 @@
 #ifdef HAVE_GSL_GSL_POLY_H
 	#include <gsl/gsl_poly.h>
 #endif
-
 //as far as I can tell, the only roots this function needs to solve
 //are 3rd and 5th degree
 int apolyr_(double* aa,int* ii,void* nn,double* r,int* err)

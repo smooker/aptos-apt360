@@ -61,7 +61,7 @@ int atapwt_(doublereal* tapeType, integer* ioflag, integer* param1, integer* ire
 		return 0;
 
 	} else if(*param1==6){
-			tapeHdr.recordLength=*n+2;
+			tapeHdr.recordLength=*n;
 			tapeHdr.hdr1=*hdr1;
 			tapeHdr.hdr2=*hdr2;
 			if(fwrite(&tapeHdr ,sizeof(struct TapeHdr),1,filePtr)!=1)*ioflag=0;

@@ -5,6 +5,7 @@ $$ x	=	x_0[mcost+acos(nt)]-y_0[msint-asin(nt)]
 $$ y	=	y_0[mcost+acos(nt)]+x_0[msint-asin(nt)]
 $$ Eric W. Weisstein."Spirograph."From MathWorld-A Wolfram Web Resource.
 $$ see http://mathworld.wolfram.com/Spirograph.html
+clprnt
 machin/dxf
 machin/pmill
 theta=0 $$ 
@@ -23,8 +24,7 @@ $$ overlaid on one another
 inc=5 $$the t increment-controls the smoothness of the curve
 $$  There is no checking of when the loop closes
 $$  you will have to adjust endt manually
-endt=2000 $$ endt/inc =number of lines of g-code or dxf entities 
-$$ per graph
+endt=2*360 $$ endt/inc =number of lines of g-code or dxf entities per graph
 scl= 1 $$use this variable to scale the output
 rot=0 $$use this variable to rotate the output
 xtrans=0 $$x and y locations of center of graph
