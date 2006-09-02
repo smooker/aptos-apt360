@@ -3,39 +3,39 @@
 <head>
   <meta content="text/html; charset=ISO-8859-1"
  http-equiv="content-type">
-  <title>index</title>
+ <title>a2cntrl</title>
 </head>
 <body alink="#ff00ff" link="#0000ff" vlink="#ff0000"
  style="background-image: url(yelgridl.jpg); height: 100%; width: 100%; background-repeat: repeat; background-color: rgb(51, 51, 51);">
 <span style="font-weight: bold;"></span><br>
 <span style="font-weight: bold;"><br>
-<span style="font-weight: bold;">A2CTRL&nbsp;&nbsp;
-- (section 2)&nbsp; motion, cut vectors </span><br>
-&nbsp;&nbsp; &nbsp;calls: <br>
+<span style="font-weight: bold;">A2CTRL  
+- (section 2)  motion, cut vectors </span><br>
+    calls: <br>
 <br>
-&nbsp;&nbsp; &nbsp;</span>ASEC2&nbsp;&nbsp;&nbsp; calls various sec 2
+    </span>ASEC2    calls various sec 2
 routines:<br>
 <br>
-&nbsp;&nbsp; &nbsp;calls: <br>
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;ASEC2A&nbsp;&nbsp; -handles&nbsp;
+    calls: <br>
+        ASEC2A   -handles 
 type 5000 records (startup,from, goto)<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; ASEC2B&nbsp;&nbsp;&nbsp; -
+         ASEC2B    -
 6000 type records - cutter def, tolerances<br>
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;ASEC2C&nbsp;&nbsp;&nbsp; 4000
+        ASEC2C    4000
 type records TLLFT,TLRGT,etc., 7000 records<br>
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;ASEC2D 3000 type records (surface
+        ASEC2D 3000 type records (surface
 info, store canon forms)<br>
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <br>
+        <br>
 <br>
-&nbsp;&nbsp;&nbsp; <br>
+    <br>
 <br>
 <br>
 all call
-ARPDIS dispatch to&nbsp; ARELEM3 or ARELEM2 (via AREPRE - arelem pre?)<br>
-&nbsp;&nbsp;&nbsp; ASTRUP - startup (go/to...)call <br>
+ARPDIS dispatch to  ARELEM3 or ARELEM2 (via AREPRE - arelem pre?)<br>
+    ASTRUP - startup (go/to...)call <br>
 <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ARLM2&nbsp; 2d ARELEM&nbsp; <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ARLM3&nbsp; 3d ARELEM<br>
+        ARLM2  2d ARELEM  <br>
+        ARLM3  3d ARELEM<br>
 <br>
 section 2 common structure:<br>
 <a href="#a2cmmn_">a2cmmn_</a><br>
@@ -43,143 +43,143 @@ section 2 common structure:<br>
 <br>
 <br>
 2d routines ARLM2 : <br>
-&nbsp;&nbsp;&nbsp; calls: <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ADSCF - 2d&nbsp; DS&nbsp;
+    calls: <br>
+        ADSCF - 2d  DS 
 canonical form - determine canon values , circle or line<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ACSCF - 2d&nbsp; CS&nbsp;
+        ACSCF - 2d  CS 
 canonical form - determine canon values , circle or line<br>
 <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; AZCOR&nbsp;&nbsp; z correction -
+        AZCOR   z correction -
 "CORRECTS COMPUTED CUTTER LOCATION FOR Z VALUE<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; MORE
+             MORE
 ACCURATELY8 MOVES CUTTER UP OR DOWN ALONG ITS AXIS<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             
 UNTIL THE CUTTER END POINT IS IN A PLANE PARALLEL TO<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             
 THE PART SURVACE PLANE, AND WHICH PLANE ALSO CONTAINS THE<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             
 ORIGINAL CUTTER END POINT TE , WHERE THE CUTTER WAS AT THE<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; START OF
+             START OF
 I-D PROCESSING"1<br>
 <br>
 <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ASEGMT &nbsp;&nbsp;&nbsp;
+        ASEGMT    
 "SEGMENTS A CIRCULAR DRIVE SURFACE<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; GENERAL
+            GENERAL
 CALCULATION PROCEESS IS AS FOLLOWS...<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; INITIALLY, SET
+            INITIALLY, SET
 UP SOME VALUES TO BE USED LATER<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; RBIG IS LARGE
+            RBIG IS LARGE
 RADIUS RSMAL IS SMALL RADIUS OF TOLERANCE BAND<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; RTE IS VECTOR
+            RTE IS VECTOR
 FROM CENTER OF CIRCLE TO TE POSITION<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; F&nbsp;&nbsp;
+            F  
 RFP IS VECTOR FROM CENTER TO FINAL POINT FPNT<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; SET UP SENSE =
+            SET UP SENSE =
 + OR - 1. FOR CLOCKWISE OR COUNTERCLOCKWISE<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; MOTION
-REQUIRED.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; THEN COMPUTE THE ANGULAR
+            MOTION
+REQUIRED.      THEN COMPUTE THE ANGULAR
 DIFFERENCE<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; BETWEEN THE
-POINTS&nbsp; DELTAN<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; WHICH HAS BEEN
+            BETWEEN THE
+POINTS  DELTAN<br>
+            WHICH HAS BEEN
 CORRECTED FOR MULTIPLE REVOLUTIONS<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ALSO COMPUTE
-THE MAXIMUM ALLOWABLE ANCLE&nbsp; DECIDE WOW MANY<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; STEPS ARE
+            ALSO COMPUTE
+THE MAXIMUM ALLOWABLE ANCLE  DECIDE WOW MANY<br>
+            STEPS ARE
 REQUIRED, AND SEGMENT<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; DO NOT OUPUT
+            DO NOT OUPUT
 THE LAST POINT, AS THAT IS DONE BY ARLMI"<br>
 <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; AORDP&nbsp;&nbsp;&nbsp; order
+        AORDP    order
 points in direction of travel<br>
 <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ADYNDP,BDYNDP - debug dump?<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ASELP&nbsp;&nbsp;&nbsp; select
+        ADYNDP,BDYNDP - debug dump?<br>
+        ASELP    select
 final point based on TO, ON, PAST, TANTO<br>
 <br>
 <br>
 <br>
 3d routines ARLM3 : <br>
-&nbsp;&nbsp;&nbsp; calls: <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ACENTR&nbsp; -&nbsp; 3d TO
+    calls: <br>
+        ACENTR  -  3d TO
 ITERATE THE CUTTER INTO A POSITION WITHIN THE SPECIFIED TOLERANCE OF
 TWO OR THREE SURFACES.<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; calls ACNTR2 -
-a continuation&nbsp;&nbsp;&nbsp; <br>
+            calls ACNTR2 -
+a continuation    <br>
 <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; APLANE - references TLON, TANTO,
+        APLANE - references TLON, TANTO,
 etc.<br>
 <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ADYNDP,BDYNDP - dynamic dump -
+        ADYNDP,BDYNDP - dynamic dump -
 debugging info -<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ACHECK - check surface <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ADELTA - step vector calc for
+        <br>
+        ACHECK - check surface <br>
+        <br>
+        ADELTA - step vector calc for
 calculating if the cut vector satisfies INTOL/OUTOL<br>
 <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; AMIND -&nbsp; minimum distance to
+        AMIND -  minimum distance to
 a surface<br>
-&nbsp;&nbsp;&nbsp; <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ATLNRM -&nbsp; tool normal - only
+    <br>
+        ATLNRM -  tool normal - only
 calls vector subroutines - consider shape of tool <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-&nbsp;&nbsp; examine segments, get tool normal , tool point<br>
+               
+              
+   examine segments, get tool normal , tool point<br>
 <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ATAPE - write data to tape<br>
+        ATAPE - write data to tape<br>
 <br>
-&nbsp;&nbsp;&nbsp; routines in ACENTR, ACNTR2:<br>
-&nbsp;&nbsp;&nbsp; calls: <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; AMIND -
+    routines in ACENTR, ACNTR2:<br>
+    calls: <br>
+            AMIND -
 minimum distance <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; calls AJUNDD <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; calls ADDST and ARADAR (calls
+           
+    calls AJUNDD <br>
+           
+        calls ADDST and ARADAR (calls
 ANRMAL)<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+           
+           
+    <br>
+            <br>
+           
 ADYNDP-assembler; calls BDYNDP dynamic dump - for debugging<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ADDST -
+            <br>
+            ADDST -
 directed distance DDPLAN, DDCYLN, DDQUAD, DDCONE, DDSPHR<br>
 <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ATLTST -
+            ATLTST -
 tolerance test<br>
 <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ATINKR - multi
+            ATINKR - multi
 axis processing<br>
 <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; APLNEX - TO
+            APLNEX - TO
 CALCULATE A VECTOR, CMOVE, WHICH, IF APPLIED AT TE POSITION,<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; WILL MOVE THE CUTTER TO SIMULTANEOUS CONTACT WITH
+           
+    WILL MOVE THE CUTTER TO SIMULTANEOUS CONTACT WITH
 THREE PLANES.<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; RETURN VARIALBE&nbsp;&nbsp;&nbsp; JPXR = 0&nbsp;
+           
+    RETURN VARIALBE    JPXR = 0 
 CMOVE CALCULATION OK<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; JPXR = 1&nbsp; UNABLE TO CALCULATE CMOVE<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; <br>
+           
+    JPXR = 1  UNABLE TO CALCULATE CMOVE<br>
+           
+    <br>
 <br>
 <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ACPLAN - check
+            <br>
+            ACPLAN - check
 surface plane <br>
 <br>
-&nbsp;&nbsp;&nbsp; routines in APLANE:<br>
-&nbsp;&nbsp;&nbsp; calls: <br>
+    routines in APLANE:<br>
+    calls: <br>
 <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ACHECK - see
+            ACHECK - see
 above<br>
 <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ACENTR - ditto<br>
+            ACENTR - ditto<br>
 <br>
 <br>
 <br>
@@ -193,59 +193,59 @@ Protap entries:<br>
 <br>
 -Instruction 1:record -<br>
 1000: record id<br>
-&nbsp;&nbsp;&nbsp; <br>
+    <br>
 2000: post processor params<br>
-&nbsp;&nbsp;&nbsp; copied to cl tape <br>
-&nbsp;&nbsp;&nbsp; <br>
+    copied to cl tape <br>
+    <br>
 3000: surface info, store canon forms, etc. -ASEC2D<br>
-&nbsp;&nbsp;&nbsp; instr. 2:<br>
-&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp; part surface<br>
-&nbsp; &nbsp; 2&nbsp; drive surface<br>
-&nbsp;&nbsp;&nbsp; 3 check surface<br>
+    instr. 2:<br>
+    1   part surface<br>
+    2  drive surface<br>
+    3 check surface<br>
 <br>
-4000:&nbsp; Tool position&nbsp; ASEC2C<br>
-&nbsp;&nbsp;&nbsp; instr. 2:<br>
-&nbsp;&nbsp;&nbsp; 1 TLLFT<br>
-&nbsp;&nbsp;&nbsp; 2 TLRGT<br>
-&nbsp;&nbsp;&nbsp; 3 TLON<br>
-&nbsp;&nbsp;&nbsp; 4 TLNDON<br>
-&nbsp;&nbsp;&nbsp; 5 TLONPS<br>
-&nbsp;&nbsp;&nbsp; 6 TLOFPS<br>
+4000:  Tool position  ASEC2C<br>
+    instr. 2:<br>
+    1 TLLFT<br>
+    2 TLRGT<br>
+    3 TLON<br>
+    4 TLNDON<br>
+    5 TLONPS<br>
+    6 TLOFPS<br>
 <br>
 5000: startup commands,from, goto, - ASEC2A<br>
-&nbsp;&nbsp;&nbsp; instr. 2:<br>
-&nbsp;&nbsp;&nbsp; 1 INDIRP<br>
-&nbsp;&nbsp;&nbsp; 2 INDIRV<br>
-&nbsp;&nbsp;&nbsp; 3 FROM point<br>
-&nbsp;&nbsp;&nbsp; 4 GODLTA<br>
-&nbsp;&nbsp;&nbsp; 5 GOTO<br>
-&nbsp;&nbsp;&nbsp; 6<br>
-&nbsp;&nbsp;&nbsp; 7<br>
-&nbsp;&nbsp;&nbsp; 8<br>
+    instr. 2:<br>
+    1 INDIRP<br>
+    2 INDIRV<br>
+    3 FROM point<br>
+    4 GODLTA<br>
+    5 GOTO<br>
+    6<br>
+    7<br>
+    8<br>
 6000: cutter def, tolerances, flags -ASEC2B<br>
-&nbsp;&nbsp;&nbsp; instr. 2:<br>
-&nbsp;&nbsp;&nbsp; 1 CUT/DNTCUT<br>
-&nbsp;&nbsp;&nbsp; 2<br>
-&nbsp;&nbsp;&nbsp; 3<br>
-&nbsp;&nbsp;&nbsp; 4 tolerances<br>
-&nbsp;&nbsp;&nbsp; 5<br>
-&nbsp;&nbsp;&nbsp; 6 cutter definition<br>
-&nbsp;&nbsp;&nbsp; 7<br>
-&nbsp;&nbsp;&nbsp; 8<br>
-&nbsp;&nbsp;&nbsp; 9<br>
+    instr. 2:<br>
+    1 CUT/DNTCUT<br>
+    2<br>
+    3<br>
+    4 tolerances<br>
+    5<br>
+    6 cutter definition<br>
+    7<br>
+    8<br>
+    9<br>
 <br>
 7000: movement commands ASEC2C<br>
-&nbsp;&nbsp;&nbsp; instr. 2:<br>
-&nbsp;&nbsp;&nbsp; 1 startup<br>
-&nbsp;&nbsp;&nbsp; 2 <br>
-&nbsp;&nbsp;&nbsp; 3<br>
-&nbsp;&nbsp;&nbsp; 4<br>
-&nbsp;&nbsp;&nbsp; 5<br>
-&nbsp;&nbsp;&nbsp; 6<br>
-&nbsp;&nbsp;&nbsp; 7<br>
-&nbsp;&nbsp;&nbsp; 8<br>
-&nbsp;&nbsp;&nbsp; 9<br>
-&nbsp;&nbsp;&nbsp; <br>
+    instr. 2:<br>
+    1 startup<br>
+    2 <br>
+    3<br>
+    4<br>
+    5<br>
+    6<br>
+    7<br>
+    8<br>
+    9<br>
+    <br>
 8000: end of movement command? ASEC2B<br>
 <br>
 9000 - ASEC2B<br>
@@ -254,11 +254,11 @@ Protap entries:<br>
 <br>
 11000 - ASEC2C<br>
 <br>
-12000 -&nbsp; user supplied routines ASEC2C<br>
+12000 -  user supplied routines ASEC2C<br>
 <br>
-13000 - error&nbsp; - ASEC2<br>
+13000 - error  - ASEC2<br>
 <br>
-14000 FINI&nbsp; -ASEC2C &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; <br>
+14000 FINI  -ASEC2C         <br>
 <br>
 ***********************************************************<br>
 <a name="a2cmmn_"></a>
@@ -266,30 +266,30 @@ section 2 common:<br>
 <br>
 struct {<br>
 <span style="font-style: italic;">---offset 0</span><br>
-&nbsp;&nbsp;&nbsp; doublereal sp[3], sn[3], tp[3], tn[3], snk[3],
+    doublereal sp[3], sn[3], tp[3], tn[3], snk[3],
 snl[3], spk[3], spl[3], <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; tnk[3], tnl[3], tpk[3], tpl[3],
+        tnk[3], tnl[3], tpk[3], tpl[3],
 plnv[3], cc[3], u1[3], cuth[3], <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; sfvct[3], vndir[3], vmd[3],
+        sfvct[3], vndir[3], vmd[3],
 vt[3], tee[3], slx[3], dplan[3],<br>
 <br>
-<span style="font-style: italic;">---offset 552&nbsp; /4=138 /8=69</span><br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;s[1], rc[1], plnd[1],
+<span style="font-style: italic;">---offset 552  /4=138 /8=69</span><br>
+         s[1], rc[1], plnd[1],
 th[1],
 csd[1], z__[1], eps1[1], eps2[1], eps3[1],<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; eps4[1], eps6[1], eps8[1],
+         eps4[1], eps6[1], eps8[1],
 tau[1], tau1[1], tau2[1], stck[1], <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; stckn[1], stck1[1], stck2[1],
+        stckn[1], stck1[1], stck2[1],
 cos1[1], dpmx1[1], cplfl[1], cptst[<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 1], plncs[1], plnd1[1], pltst[1],
+        1], plncs[1], plnd1[1], pltst[1],
 past[1], spast[1], adcs[1], h__[<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 1], cutr[1], <br>
+        1], cutr[1], <br>
 <span style="font-style: italic;">--offset 800 /4=200 /8=100</span><br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; afillr[500]; //this area is a
+        afillr[500]; //this area is a
 repeat of the above section for drive and <br>
-&nbsp;&nbsp;&nbsp; check surface:<br>
-&nbsp;&nbsp;&nbsp; &lt;name&gt;[101] drive surface<br>
-&nbsp;&nbsp;&nbsp; &lt;name&gt;[201] check surface<br>
+    check surface:<br>
+    &lt;name&gt;[101] drive surface<br>
+    &lt;name&gt;[201] check surface<br>
 <br>
 <span style="font-style: italic;">--offset 4800 /4=1200 /8=600</span><br>
 <br>
@@ -299,7 +299,7 @@ tangent surface planes, otherwise +1<br>
 //cptst - counter which controls calling of acplan() by acentr()<br>
 //past - dist PAST surface?<br>
 //rc - radius of curvature?<br>
-// s&nbsp; - directed distance to surface<br>
+// s  - directed distance to surface<br>
 //sp - surface point <br>
 //sn - surface normal<br>
 //tau - tolerance on surfaces<br>
@@ -309,23 +309,23 @@ tangent surface planes, otherwise +1<br>
 //tau,eps, etc - float constants<br>
 <br>
 <span style="font-style: italic;">--offset 4800 /4=1200 /8=600</span><br>
-&nbsp;&nbsp;&nbsp; integer iafl[1], ipontr[1], ifar[1], ipl[1],
+    integer iafl[1], ipontr[1], ifar[1], ipl[1],
 iunfl[1], isftyp[1], itlon[1]<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; , isvfl[1], ifl4[1], iop[1],
+        , isvfl[1], ifl4[1], iop[1],
 iopset[1], jiops[1], notan[1], jent[<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 1], ju1[1], isigcr[1], itseg[1],
+        1], ju1[1], isigcr[1], itseg[1],
 jtlflg[1], lofs[1], limfl[1], <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; icstr[1], jtn[1], ichkct[1],
+        icstr[1], jtn[1], ichkct[1],
 j20[1], j21[1], j22[1], j23[1], j24[<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 1], j50[1], j51[1], indir__[1],
+        1], j50[1], j51[1], indir__[1],
 <br>
 <span style="font-style: italic;">--offset 4924 /4=1231 </span><br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ifillr[209];&nbsp; //contains
+        ifillr[209];  //contains
 repeat of above section for drive and check surface<br>
-&nbsp;&nbsp;&nbsp; &lt;name&gt;[41] drive surface<br>
-&nbsp;&nbsp;&nbsp; &lt;name&gt;[81] check surface<br>
-&nbsp;&nbsp;&nbsp; <br>
-&nbsp;&nbsp;&nbsp; <br>
+    &lt;name&gt;[41] drive surface<br>
+    &lt;name&gt;[81] check surface<br>
+    <br>
+    <br>
 <span style="font-style: italic;">--offset 5760 /4=1440 /8=720<br>
 </span>//ifar - intersection counter<br>
 //ipontr - pointer into canon storage for this surface<br>
@@ -336,33 +336,33 @@ repeat of above section for drive and check surface<br>
 //j24 surface type - plane, sphere, etc<br>
 <span style="font-style: italic;">--offset 5760 /4=1440 /8=720</span><br>
 <br>
-&nbsp;&nbsp;&nbsp; doublereal te[3], tek[3], tel[3], tes[3], ta[3],
+    doublereal te[3], tek[3], tel[3], tes[3], ta[3],
 tak[3], tal[3], pmove[3],<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; ti[3], tik[3], til[3],
+         ti[3], tik[3], til[3],
 u2[3], uvec[3], vtem[3], cmove[3], ex[3], <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ey[3], ez[3], vnul[3], tm[3],
+        ey[3], ez[3], vnul[3], tm[3],
 dir[3], axis[3], axis1[3], axis2[3],<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; axis3[3], refpnt[3],
+         axis3[3], refpnt[3],
 rgt[3], fwd[3], up[3], zlnorm[3], zlpnt[3], <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; tndir[3], va[3], tmvcmp[3],
+        tndir[3], va[3], tmvcmp[3],
 p1[3], p2[3], pnt[3], pnt1[3], oldu1[<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 3], ogle[3], rzero[3], tanmot[3],
+        3], ogle[3], rzero[3], tanmot[3],
 tlend1[3], v[3], cend[3], <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; delmot[3], d2[3], dnmot[3],
+        delmot[3], d2[3], dnmot[3],
 ax4[3], a, b, c__, ra, hi, alpha, <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; gamma, cagl, sagl, com1, com4,
+        gamma, cagl, sagl, com1, com4,
 costh, ctocl, diam, dif, difout, <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; dinc, dp, dpe, dpi, dpl, dpmax,
+        dinc, dp, dpe, dpi, dpl, dpmax,
 dp1, dpcnt, dsmov, d1, d2a, el1, <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; el2, fipnt, flipck, hafdia,
+        el2, fipnt, flipck, hafdia,
 hchord, offset, prod1, prod2, psi, <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; radno, rc1, rdrm, rdrn, rone,
+        radno, rc1, rdrm, rdrn, rone,
 rzerol, save1, siuth, tangl, theta, <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; alp, eps7, vamax, vl, zdotc,
+        alp, eps7, vamax, vl, zdotc,
 zgamma, zign, zl, zl1, zl2, znpts, <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; tolbnd, cendis, cenlen, chord,
+        tolbnd, cendis, cenlen, chord,
 abcd[2], acard[2], save[6], cutdat[<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 7], tem[10], temp[20],
+        7], tem[10], temp[20],
 tcdat[260], qequiv[20];<br>
 <br>
 <span style="font-style: italic;">--offset 10048 /4=2512 /8=1256</span><br>
@@ -375,30 +375,30 @@ tcdat[260], qequiv[20];<br>
 //cutdat - cutter definition variables<br>
 //tcdat - tool cut data - stored on tape (disk) when full<br>
 //ctocl - tool on center line flag 0=on, -1=tllft +1=tlrgt<br>
-//tm - tool midpoint&nbsp; <br>
+//tm - tool midpoint  <br>
 <br>
 <br>
 <br>
 <span style="font-style: italic;">--offset 10048 /4=2512 /8=1256</span><br>
-&nbsp;&nbsp;&nbsp; integer is, iis, it, iit, ips, iips, ids, iids, ics,
+    integer is, iis, it, iit, ips, iips, ids, iids, ics,
 iics, igs, iigs, <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; icdefl, icdefs, iautps, igo,
+        icdefl, icdefs, iautps, igo,
 icrdct, icut, igtflg, inops, isrch, <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; iofset, istrup, i3dflg, mulout,
+        iofset, istrup, i3dflg, mulout,
 multax, numax, numsfs, numsur, <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; igoug, ipdpl, numdim, irstrt,
+        igoug, ipdpl, numdim, irstrt,
 icscnt, i3, i31, j, ja, jl, js, jt, <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; kc, knd, kr, l, incfs, np,
+        kc, knd, kr, l, incfs, np,
 ibegin, ifar1, ik, ins1, itnflg, <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ivamax, iws, iiws, iz, next1,
+        ivamax, iws, iiws, iz, next1,
 next2, npts, numpt1, jam, jap, <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; jtused, ifrl, n, m, mdic, jbr,
+        jtused, ifrl, n, m, mdic, jbr,
 jckr, jcpr, jcr, jdr, jgr, jmin, <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; jminr, jpr, jpxr, jtr, jcnt1,
+        jminr, jpr, jpxr, jtr, jcnt1,
 jcnt2, jcnt3, jsw, jtkf, lisv, lsv, <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ipt, jfind, ic, icc, il, k,
+        ipt, jfind, ic, icc, il, k,
 numpts, iamdct, ifl2, j5, j6, jw6, <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; j10, j12, j13, j40, j43, j54,
+        j10, j12, j13, j40, j43, j54,
 j103;<br>
 <br>
 <span style="font-style: italic;">--offset 10464 /4=2616 /8=1308</span><br>
@@ -428,20 +428,20 @@ call aerr<br>
 //jtused - cells used for storing surface<br>
 <br>
 <span style="font-style: italic;">--offset 10464 /4=2616 /8=1308</span><br>
-&nbsp;&nbsp;&nbsp; doublereal probuf[100], <br>
+    doublereal probuf[100], <br>
 <br>
 <span style="font-style: italic;">--offset 11264 /4=2816 /8=1408</span><br>
-&nbsp;&nbsp;&nbsp; cansto[2000];
+    cansto[2000];
 //canon storage for ps,ds,cs<br>
-//&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; in the format:<br>
-//&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; cell 1: surface type<br>
-//&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; cell 2: number of words
+//        in the format:<br>
+//        cell 1: surface type<br>
+//        cell 2: number of words
 following for this entry<br>
-//&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; cell 3: name<br>
-//&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; cell 4: subscript<br>
-//&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; cell 5,etc: canon values<br>
+//        cell 3: name<br>
+//        cell 4: subscript<br>
+//        cell 5,etc: canon values<br>
 <br>
-&nbsp;&nbsp;&nbsp; integer ier, instr1, instr2, nwds, icl, nrec,
+    integer ier, instr1, instr2, nwds, icl, nrec,
 irecno, itrflg, nw, idummy;<br>
 <br>
 //ier- error flag<br>
@@ -471,9 +471,9 @@ cl records<br>
 14000 - fini<br>
 <br>
 1000 - original input sequence number<br>
-&nbsp;&nbsp;&nbsp; hdr2 - seq. number<br>
-&nbsp;&nbsp;&nbsp; text of column 72?-80 (card id)<br>
-&nbsp;&nbsp;&nbsp; <br>
+    hdr2 - seq. number<br>
+    text of column 72?-80 (card id)<br>
+    <br>
 2000 - auxilary commands:<br>
 <br>
 *posta:*(no parameters)<br>
@@ -498,86 +498,86 @@ cl records<br>
 19 PROBX<br>
 20 ULOCKX<br>
 21 LOCKX<br>
-22 FACEML&nbsp; <br>
+22 FACEML  <br>
 <br>
 <br>
 *postp1_:*(with parameters)<br>
 1001 PLUNGE<br>
-1002 HEAD&nbsp;&nbsp;&nbsp; <br>
-1003 MODE&nbsp;&nbsp;&nbsp; <br>
-1004 CLEARP&nbsp; <br>
-1005 TMARK&nbsp;&nbsp; <br>
-1006 REWIND&nbsp; <br>
-1007 CUTCOM&nbsp; <br>
-1008 REVERS&nbsp; <br>
-1009 FEDRAT&nbsp; <br>
-1010 DELAY&nbsp;&nbsp; <br>
-1011 AIR&nbsp;&nbsp;&nbsp;&nbsp; <br>
-1012 DELETE&nbsp; <br>
-1013 LEADER&nbsp; <br>
-1014 PPLOT&nbsp;&nbsp; <br>
+1002 HEAD    <br>
+1003 MODE    <br>
+1004 CLEARP  <br>
+1005 TMARK   <br>
+1006 REWIND  <br>
+1007 CUTCOM  <br>
+1008 REVERS  <br>
+1009 FEDRAT  <br>
+1010 DELAY   <br>
+1011 AIR     <br>
+1012 DELETE  <br>
+1013 LEADER  <br>
+1014 PPLOT   <br>
 1015 MACHIN<br>
-1016 MCHTOL&nbsp; <br>
-1017 PIVOTZ&nbsp; <br>
-1018 MCHFIN&nbsp; <br>
-1019 SEQNO&nbsp;&nbsp; <br>
-1020 INTCOD&nbsp; <br>
-1021 DISPLY&nbsp; <br>
-1022 AUXFUN&nbsp; <br>
-1023 CHECK&nbsp;&nbsp; <br>
-1024 POSTN&nbsp;&nbsp; <br>
-1025 TOOLNO&nbsp; <br>
-1026 ROTABL&nbsp; <br>
+1016 MCHTOL  <br>
+1017 PIVOTZ  <br>
+1018 MCHFIN  <br>
+1019 SEQNO   <br>
+1020 INTCOD  <br>
+1021 DISPLY  <br>
+1022 AUXFUN  <br>
+1023 CHECK   <br>
+1024 POSTN   <br>
+1025 TOOLNO  <br>
+1026 ROTABL  <br>
 1027 ORIGIN<br>
-1028 SAFETY&nbsp; <br>
-1029 ARCSLP&nbsp; <br>
-1030 COOLNT&nbsp; <br>
-1031 SPINDL&nbsp; <br>
-1032 IFRO&nbsp;&nbsp;&nbsp; <br>
-1033 TURRET&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+1028 SAFETY  <br>
+1029 ARCSLP  <br>
+1030 COOLNT  <br>
+1031 SPINDL  <br>
+1032 IFRO    <br>
+1033 TURRET        <br>
 1034 &lt;not used&gt;<br>
-1035 ROTHED&nbsp; <br>
+1035 ROTHED  <br>
 1036 THREAD <br>
-1037 TRANS&nbsp;&nbsp; <br>
-1038 TRACUT&nbsp; <br>
-1039 INDEX&nbsp;&nbsp; <br>
-1040 COPY&nbsp;&nbsp;&nbsp; <br>
-1041 PLOT&nbsp;&nbsp;&nbsp; <br>
-1042 OVPLOT&nbsp; <br>
+1037 TRANS   <br>
+1038 TRACUT  <br>
+1039 INDEX   <br>
+1040 COPY    <br>
+1041 PLOT    <br>
+1042 OVPLOT  <br>
 1043 LETTER <br>
-1044 PPRINT&nbsp; <br>
+1044 PPRINT  <br>
 1045 PARTNO<br>
-1046 INSERT&nbsp; <br>
-1047 CAMERA&nbsp; <br>
-1048 PREFUN&nbsp; <br>
-1049 COUPLE&nbsp; <br>
-1050 PITCH&nbsp;&nbsp; <br>
+1046 INSERT  <br>
+1047 CAMERA  <br>
+1048 PREFUN  <br>
+1049 COUPLE  <br>
+1050 PITCH   <br>
 1051 MDWRIT<br>
-1052 MDEND&nbsp;&nbsp; <br>
-1053 ASLOPE&nbsp; <br>
-1054 CYCLE&nbsp;&nbsp; <br>
-1055 LOADTL&nbsp; <br>
-1056 SELCTL&nbsp; <br>
-1057 CLRSRF&nbsp; <br>
-1058 DWELL&nbsp;&nbsp; <br>
-1059 DRAFT&nbsp;&nbsp; <br>
-1060 CLAMP&nbsp;&nbsp; <br>
-1061 PLABEL&nbsp; <br>
-1062 MAXDPM&nbsp; <br>
-1063 SLOWDN&nbsp; <br>
-1064 MAXVEL&nbsp; <br>
-1065 LPRINT&nbsp; <br>
-1066 MOVETO&nbsp; <br>
-1067 CORNFD&nbsp; <br>
-1068 PBS&nbsp;&nbsp;&nbsp;&nbsp; <br>
+1052 MDEND   <br>
+1053 ASLOPE  <br>
+1054 CYCLE   <br>
+1055 LOADTL  <br>
+1056 SELCTL  <br>
+1057 CLRSRF  <br>
+1058 DWELL   <br>
+1059 DRAFT   <br>
+1060 CLAMP   <br>
+1061 PLABEL  <br>
+1062 MAXDPM  <br>
+1063 SLOWDN  <br>
+1064 MAXVEL  <br>
+1065 LPRINT  <br>
+1066 MOVETO  <br>
+1067 CORNFD  <br>
+1068 PBS     <br>
 1069 REGBRK<br>
-1070 VTLAXS&nbsp; <br>
-1071 WCORN&nbsp;&nbsp; <br>
+1070 VTLAXS  <br>
+1071 WCORN   <br>
 1072 MAGTAP <br>
 <br>
 3000 - surface data<br>
-&nbsp;&nbsp;&nbsp; hdr2: ? 2 for circle<br>
-&nbsp;&nbsp;&nbsp; data: canonical form data<br>
+    hdr2: ? 2 for circle<br>
+    data: canonical form data<br>
 <br>
 5000 - cutter locations<br>
 <br>
@@ -586,33 +586,33 @@ hdr2:<br>
 5 first 242 double words of cldata<br>
 6 next 242 double words of cldata<br>
 <br>
-6000 cutter def, intol, etc&nbsp;&nbsp; <br>
+6000 cutter def, intol, etc   <br>
 hdr2:<br>
 <br>
-&nbsp;&nbsp;&nbsp; 1 - <br>
-&nbsp;&nbsp;&nbsp; 2-<br>
-&nbsp;&nbsp;&nbsp; 3-<br>
-&nbsp;&nbsp;&nbsp; 4-<br>
-&nbsp;&nbsp;&nbsp; 5<br>
-&nbsp;&nbsp;&nbsp;&nbsp; 6 - cutter definition<br>
-&nbsp;&nbsp;&nbsp; 7<br>
-&nbsp;&nbsp;&nbsp; 8<br>
-&nbsp;&nbsp;&nbsp; 9<br>
+    1 - <br>
+    2-<br>
+    3-<br>
+    4-<br>
+    5<br>
+     6 - cutter definition<br>
+    7<br>
+    8<br>
+    9<br>
 <br>
 <br>
 <br>
 9000 - arelem parameters<br>
 hdr2:<br>
-&nbsp;&nbsp;&nbsp; 1 TLAXIS<br>
-&nbsp;&nbsp;&nbsp; 2 MULTAX<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; 0- off<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; 1 - on<br>
-&nbsp;&nbsp;&nbsp; 3 MAXDP<br>
-&nbsp;&nbsp;&nbsp; 4 NUMPTS<br>
-&nbsp;&nbsp;&nbsp; 5 THICK<br>
-&nbsp;&nbsp;&nbsp; 6 NOPS<br>
-&nbsp;&nbsp;&nbsp; 7 AUTOPS<br>
-&nbsp;&nbsp;&nbsp; 8 GOUGE CHECK<br>
+    1 TLAXIS<br>
+    2 MULTAX<br>
+       0- off<br>
+       1 - on<br>
+    3 MAXDP<br>
+    4 NUMPTS<br>
+    5 THICK<br>
+    6 NOPS<br>
+    7 AUTOPS<br>
+    8 GOUGE CHECK<br>
 <br>
 <br>
 <br>

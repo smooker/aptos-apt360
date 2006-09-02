@@ -15,40 +15,21 @@
 	</STYLE>
 </HEAD>
 <BODY LANG="en-US" TEXT="#000000" LINK="#0000ff" VLINK="#ff0000" BGCOLOR="#333333" BACKGROUND="yelgridl.jpg" DIR="LTR">
-<P><B><BR><FONT SIZE=4>Programmer's Notes for Apt360 Source</FONT><BR><BR><BR></B>This
-documentation is basically an extended series of notes I made while I
-was <BR>was attempting to understand the source and convert the
-program to run on a <BR>intel pc.&nbsp; As such, it is not
-authoritative and undoubtedly contains many errors and<BR>omissions.&nbsp;
-I'm presenting it simply as a help to whoever might be interested in
-learning<BR>this program .<BR><B><BR><BR><BR><A HREF="acntrl.html">ACNTRL</A>
-- (section 0 ) overall control </B><BR>&nbsp;&nbsp; &nbsp;calls: <BR>&nbsp;&nbsp;
-&nbsp;INITAL - initialize<BR>&nbsp;&nbsp; &nbsp;ASCNTL - section 1&nbsp;
-language, parse, store canon forms<BR>&nbsp;&nbsp; &nbsp;A2CTRL -
-section 2 - calculate cut vectors from motion commands<BR>&nbsp;&nbsp;
-&nbsp;SECTN3 - section 3 - COPY and TRACUT transforms<BR>&nbsp;&nbsp;
-&nbsp;APTPOS - section 4 - post process&nbsp;&nbsp;
-&nbsp;<BR><BR>****************************************************************<BR><BR><B><A HREF="ascntl.html">ASCNTL</A>
-- (section 1)&nbsp; language, parse, store canon forms</B><BR>&nbsp;&nbsp;
-&nbsp;calls: <BR>&nbsp;&nbsp; &nbsp;AMONTR -pass 1 control<BR>&nbsp;&nbsp;
-&nbsp;ASYCTL -pass 2 control<BR>&nbsp;&nbsp; &nbsp;ATAPRD - asm.<BR>&nbsp;&nbsp;
-&nbsp;ATAPOP -
-asm.<BR><BR>****************************************************************<BR><BR><B><A HREF="a2ctrl.html">A2CTRL</A>&nbsp;&nbsp;
-- (section 2)&nbsp; motion, cut vectors </B><BR>&nbsp;&nbsp; &nbsp;calls:
-<BR><BR>&nbsp;&nbsp; &nbsp;ASEC2&nbsp;&nbsp;&nbsp; calls various sec
-2 routines:<BR>&nbsp;&nbsp; &nbsp;calls: <BR>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;ASEC2A&nbsp;&nbsp;&nbsp; calls ARPDIS dispatch to&nbsp; ARELEM3
-or ARELEM2 (via AREPRE - arelem pre?)<BR>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;ASEC2B&nbsp;&nbsp;&nbsp; calls ARPDIS dispatch to&nbsp; ARELEM3
-or ARELEM2<BR>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;ASEC2C&nbsp;&nbsp;&nbsp;
-calls (same as above)<BR>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;ASEC2D<BR>&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; &nbsp;<BR>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-ARLM2&nbsp; 2d ARELEM&nbsp; <BR>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-ARLM3&nbsp; 3d ARELEM
-<BR><BR>********************************************<BR>&nbsp;
-<BR><B><A HREF="sectn3.html"><U>SECTN3</U></A>: -(section 3) - copy ,
-transform cut vectors- final cl file</B><BR><BR><B><A HREF="aptpos.html"><U>APTPOS</U></A>:
--(section 4) - post process cl file</B><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
-</P>
+<h1>Apt/360 Documentation</h1>
+<p>rough and unfinished</p>
+<a href=program_notes.html>source code info</a> 
+<br>
+<br>
+<br>
+<a href=surface_defs.html>Surface Definitions</a>
+<br>
+<br>
+<br>
+<a href=tutorial.html>Tutorial</a>
+<br>
+<br>
+<br>
+<a href=Section1ErrorCodes.html>Error Codes</a>
+
 </BODY>
 </HTML>

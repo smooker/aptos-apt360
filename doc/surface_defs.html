@@ -3,434 +3,434 @@
 <head>
   <meta content="text/html; charset=ISO-8859-1"
  http-equiv="content-type">
-  <title>index</title>
+  <title>surface definitions</title>
 </head>
 <body alink="#ff00ff" link="#0000ff" vlink="#ff0000"
  style="background-image: url(yelgridl.jpg); height: 100%; width: 100%; background-repeat: repeat; background-color: rgb(51, 51, 51);">
 <span style="font-weight: bold;"></span><br>
 <big style="font-weight: bold;">Apt360 Surface Definitions</big><br>
 <br>
-&nbsp;<a name="top"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
-&nbsp;12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#points">POINT</a>&nbsp;
+ <a name="top"></a>      <br>
+ 12       <a href="#points">POINT</a> 
 <br>
-&nbsp;17&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#lines">LINE</a><br>
-&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#planes">PLANE</a><br>
-&nbsp;13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#circles">CIRCLE</a><br>
-&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#cylinders">CYLINDER</a><br>
-&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#ellipse">ELLIPS</a><br>
-&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#hyperbola">HYPERBOLA</a><br>
-&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#cone">CONE</a><br>
-&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#general_conics">GCONIC</a><br>
-&nbsp;6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#loft_conics">LCONIC</a><br>
-&nbsp;12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#vectors">VECTOR</a><br>
-&nbsp;37&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#matrices">MATRIX</a><br>
-&nbsp;6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#spheres">SPHERE</a><br>
-&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#quadric">QADRIC</a><br>
-&nbsp;0,0&nbsp;&nbsp;&nbsp;&nbsp; POLCON&nbsp; not implemented<br>
-&nbsp;5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LOFT not implemented<br>
-&nbsp;0,0&nbsp;&nbsp;&nbsp;&nbsp; TOOL(17) not implemented<br>
-&nbsp;0,0&nbsp;&nbsp;&nbsp;&nbsp; PATERN(18)<br>
-&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#tabcyl">TABCYL</a><br>
-&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MESH not implemented<br>
-&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CONSEC not implemented<br>
-&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#ruledsurf"> RLDSRF</a><br>
+ 17      <a href="#lines">LINE</a><br>
+ 8        <a href="#planes">PLANE</a><br>
+ 13      <a href="#circles">CIRCLE</a><br>
+ 4       <a href="#cylinders">CYLINDER</a><br>
+ 1       <a href="#ellipse">ELLIPS</a><br>
+ 1       <a href="#hyperbola">HYPERBOLA</a><br>
+ 1       <a href="#cone">CONE</a><br>
+ 3       <a href="#general_conics">GCONIC</a><br>
+ 6       <a href="#loft_conics">LCONIC</a><br>
+ 12      <a href="#vectors">VECTOR</a><br>
+ 37      <a href="#matrices">MATRIX</a><br>
+ 6       <a href="#spheres">SPHERE</a><br>
+ 1       <a href="#quadric">QADRIC</a><br>
+ 0,0     POLCON  not implemented<br>
+ 5       LOFT not implemented<br>
+ 0,0     TOOL(17) not implemented<br>
+ 0,0     PATERN(18)<br>
+ 1       <a href="#tabcyl">TABCYL</a><br>
+ 1       MESH not implemented<br>
+ 1       CONSEC not implemented<br>
+ 1      <a href="#ruledsurf"> RLDSRF</a><br>
 <br>
 <a href="#ARith_func">ARITHMETIC FUNCTIONS</a><br>
 <br>
 <br>
 <br>
 <span style="font-weight: bold; text-decoration: underline;"><a
- name="points"></a>&nbsp;POINTS</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ name="points"></a> POINTS</span>                                   
 <a href="#top">top </a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; P1 = POINT/X,Y<br>
-&nbsp;&nbsp;&nbsp;&nbsp; P1A = POINT/X,Y,Z<br>
+     P1 = POINT/X,Y<br>
+     P1A = POINT/X,Y,Z<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; P2 = POINT/INTOF,LN1,LN2<br>
+     P2 = POINT/INTOF,LN1,LN2<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; P3 = POINT/X- OR YLARGE OR SMALL ,&nbsp;
+     P3 = POINT/X- OR YLARGE OR SMALL , 
 INTOF,LN1,CIR1<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; P4 = POINT/ X- OR YLARGE OR SMALL,
+     P4 = POINT/ X- OR YLARGE OR SMALL,
 INTOF,CIR1,CIR2<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; P5 = POINT/CIR1,ATANGL,A<br>
+     P5 = POINT/CIR1,ATANGL,A<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; P6 = POINT/CENTER,CIR1<br>
+     P6 = POINT/CENTER,CIR1<br>
 <br>
-&nbsp;&nbsp;&nbsp; P7 = POINT/ X- OR YLARGE OR SMALL, INTOF,LN1, ANY OF
+    P7 = POINT/ X- OR YLARGE OR SMALL, INTOF,LN1, ANY OF
 THE SURFACES$<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          
 TAKING THE QUADRIC CANONICAL FORM<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; P8 = POINT/INTOF,PLN1,PLN2,PLN3<br>
+     P8 = POINT/INTOF,PLN1,PLN2,PLN3<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; P9 = POINT/ RTHETA, XY- OR YZ OR ZXPLAN, R,A<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     P9 = POINT/ RTHETA, XY- OR YZ OR ZXPLAN, R,A<br>
+            
 OR<br>
-&nbsp;&nbsp;&nbsp;&nbsp; P9 = POINT/THETAR, XY- OR YZ- OR ZXPLAN, A,R<br>
+     P9 = POINT/THETAR, XY- OR YZ- OR ZXPLAN, A,R<br>
 <br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; P10 = POINT/INTOF,LN1,TBC1,PT1<br>
+     P10 = POINT/INTOF,LN1,TBC1,PT1<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; P11 = POINT/PAT1,N<br>
+     P11 = POINT/PAT1,N<br>
 <br>
 <br>
-&nbsp;&nbsp;<a name="lines"></a>&nbsp; <span
- style="font-weight: bold; text-decoration: underline;">LINES&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a name="lines"></a>  <span
+ style="font-weight: bold; text-decoration: underline;">LINES  </span>                                 
 <a href="file:///home/brent/apt360/doc/surface_defs.html#top">top </a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; L1 = LINE/X1,Y1,X2,Y2<br>
+     L1 = LINE/X1,Y1,X2,Y2<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; L1A = LINE/PT1,PT2<br>
+     L1A = LINE/PT1,PT2<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; L1B = LINE/X1,Y1,Z1,X2,Y2,Z2<br>
+     L1B = LINE/X1,Y1,Z1,X2,Y2,Z2<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; L2 = LINE/PT1, RIGHT OR LEFT, TANTO,CIR1<br>
+     L2 = LINE/PT1, RIGHT OR LEFT, TANTO,CIR1<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; L3 = LINE/ RIGHT OR LEFT, TANTO,CIR1,RIGHT OR
+     L3 = LINE/ RIGHT OR LEFT, TANTO,CIR1,RIGHT OR
 LEFT, TANTO,CIR2<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; L4 = LINE/PT1,ATANGL OR SLOPE, A<br>
+     L4 = LINE/PT1,ATANGL OR SLOPE, A<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; L5 = LINE/PT1,ATANGL OR SLOPE, A,LN1<br>
+     L5 = LINE/PT1,ATANGL OR SLOPE, A,LN1<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; L6 = LINE/PT1,PARLEL,LN1<br>
+     L6 = LINE/PT1,PARLEL,LN1<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; L7 = LINE/PT1,PERPTO,LN1<br>
+     L7 = LINE/PT1,PERPTO,LN1<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; L8 = LINE/PARLEL,LN1, X- OR YLARGE OR SMALL, D<br>
+     L8 = LINE/PARLEL,LN1, X- OR YLARGE OR SMALL, D<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; L9 = LINE/INTOF,PLN1,PLN2<br>
+     L9 = LINE/INTOF,PLN1,PLN2<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; L14A = LINE/ ATANGL OR SLOPE,A,INTERC,B<br>
+     L14A = LINE/ ATANGL OR SLOPE,A,INTERC,B<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; L11 = LINE/PT1,TANTO,TBC1,PT2<br>
+     L11 = LINE/PT1,TANTO,TBC1,PT2<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; L12 = LINE/PT1,PERPTO,TBC1,PT2<br>
+     L12 = LINE/PT1,PERPTO,TBC1,PT2<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; L13 = LINE/XAXIS OR YAXIS<br>
+      L13 = LINE/XAXIS OR YAXIS<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; L14 = LINE/ATANGL OR SLOPE, A,INTERC, XAXIS OR
+     L14 = LINE/ATANGL OR SLOPE, A,INTERC, XAXIS OR
 YAXIS, B<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; L15 = LINE/PNT1,ATANGL OR SLOPE, A,XAXIS OR
+     L15 = LINE/PNT1,ATANGL OR SLOPE, A,XAXIS OR
 YAXIS<br>
 <br>
 <br>
-&nbsp;&nbsp;<a name="planes"></a> <span
- style="font-weight: bold; text-decoration: underline;">PLANES</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a name="planes"></a> <span
+ style="font-weight: bold; text-decoration: underline;">PLANES</span>                              
 <a href="file:///home/brent/apt360/doc/surface_defs.html#top">top </a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; PL1 = PLANE/A,B,C,D<br>
+     PL1 = PLANE/A,B,C,D<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; PL2 = PLANE/PT1,PT2,PT3<br>
+     PL2 = PLANE/PT1,PT2,PT3<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; PL3 = PLANE/PT1,PARLEL,PLN1<br>
+     PL3 = PLANE/PT1,PARLEL,PLN1<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; PL4 = PLANE/PARLEL,PLN1, X- OR Y- OR ZLARGE OR
+     PL4 = PLANE/PARLEL,PLN1, X- OR Y- OR ZLARGE OR
 SMALL,D<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; PL5 = PLANE/PT1,PERPTO,VEC1<br>
+     PL5 = PLANE/PT1,PERPTO,VEC1<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; PL6 = PLANE/PERPTO,PLN1,PT1,PT2&nbsp;
+     PL6 = PLANE/PERPTO,PLN1,PT1,PT2 
 (ORIGINAL FORMAT)<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; PL7 = PLANE/PT1,PT2,PERPTO,PL1&nbsp;
+     PL7 = PLANE/PT1,PT2,PERPTO,PL1 
 (ALTERNATE FORMAT)<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; PL8 = PLANE/PT1,PERPTO,PL1,PL2<br>
+     PL8 = PLANE/PT1,PERPTO,PL1,PL2<br>
 <br>
 <br>
-&nbsp;&nbsp;<a name="circles"></a> <span
- style="font-weight: bold; text-decoration: underline;">CIRCLES</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="file:///home/brent/apt360/doc/surface_defs.html#top">top </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a name="circles"></a> <span
+ style="font-weight: bold; text-decoration: underline;">CIRCLES</span>                               
+<a href="file:///home/brent/apt360/doc/surface_defs.html#top">top </a>       
 <br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; C1 = CIRCLE/X,Y,Z,R<br>
+     C1 = CIRCLE/X,Y,Z,R<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; C1A = CIRCLE/X,Y,R<br>
+     C1A = CIRCLE/X,Y,R<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; C1B = CIRCLE/CENTER,PT1,RADIUS,R<br>
+     C1B = CIRCLE/CENTER,PT1,RADIUS,R<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; C1C = CIRCLE/CENTER,X,Y,Z,RADIUS,R<br>
+     C1C = CIRCLE/CENTER,X,Y,Z,RADIUS,R<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; C2 = CIRCLE/CENTER,PT1,TANTO,LN1<br>
+     C2 = CIRCLE/CENTER,PT1,TANTO,LN1<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; C3 = CIRCLE/CENTER,PT1,PT2<br>
+     C3 = CIRCLE/CENTER,PT1,PT2<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; C4 = CIRCLE/PT1,PT2,PT3<br>
+     C4 = CIRCLE/PT1,PT2,PT3<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; C5 = CIRCLE/CENTER,PT1,LARGE OR SMALL, TANTO,
+     C5 = CIRCLE/CENTER,PT1,LARGE OR SMALL, TANTO,
 CIRCLE<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; C6 = CIRCLE/ X- OR YLARGE OR SMALL, LN1, X- OR
+     C6 = CIRCLE/ X- OR YLARGE OR SMALL, LN1, X- OR
 YLARGE OR SMALL, $<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 
 LN2,RADIUS,R<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; C7 = CIRCLE/ TANTO,LN1, X- OR YLARGE OR SMALL,
+     C7 = CIRCLE/ TANTO,LN1, X- OR YLARGE OR SMALL,
 PT1,RADIUS,R<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; C8 = CIRCLE/ X- OR YLARGE OR SMALL, LN1,X- OR
+     C8 = CIRCLE/ X- OR YLARGE OR SMALL, LN1,X- OR
 YLARGE OR SMALL, $<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                
 IN OR OUT,CIR1,RADIUS,R<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; C9 = CIRCLE/ X- OR YLARGE OR SMALL,IN OR
-OUT,CIR1,IN OR OUT,&nbsp; $<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     C9 = CIRCLE/ X- OR YLARGE OR SMALL,IN OR
+OUT,CIR1,IN OR OUT,  $<br>
+                    
 CIR2,RADIUS,R<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; C10 = CIRCLE/TANTO,LN1, X- OR YLARGE OR
+     C10 = CIRCLE/TANTO,LN1, X- OR YLARGE OR
 SMALL,TBC1, X- OR YLARGE$<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 
 OR SMALL,PT1,RADIUS,R<br>
 <br>
-&nbsp;&nbsp;&nbsp;<a name="cylinders"></a> <span
- style="font-weight: bold; text-decoration: underline;">CYLINDERS</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="file:///home/brent/apt360/doc/surface_defs.html#top">top </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <a name="cylinders"></a> <span
+ style="font-weight: bold; text-decoration: underline;">CYLINDERS</span>                         
+<a href="file:///home/brent/apt360/doc/surface_defs.html#top">top </a>       
 <br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; CYL2 = CYLINDER/PT1,DX,DY,DZ,R<br>
+     CYL2 = CYLINDER/PT1,DX,DY,DZ,R<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; CYL3 = CYLNDR/PT1,VEC1,R<br>
+     CYL3 = CYLNDR/PT1,VEC1,R<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; CYL4 = CYLNDER/X,Y,Z,VEC1,R<br>
+     CYL4 = CYLNDER/X,Y,Z,VEC1,R<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; CYL5 = CYLNDR/X,Y,Z,DX,DY,DZ,R<br>
-<br>
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a name="ellipse"></a><span
- style="font-weight: bold; text-decoration: underline;">ELLIPSE&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="file:///home/brent/apt360/doc/surface_defs.html#top">top </a>&nbsp;&nbsp;&nbsp;
+     CYL5 = CYLNDR/X,Y,Z,DX,DY,DZ,R<br>
 <br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; ELL1 = ELLIPS/CENTER,PT1,M,N,ANG<br>
+      <a name="ellipse"></a><span
+ style="font-weight: bold; text-decoration: underline;">ELLIPSE </span>                     
+<a href="file:///home/brent/apt360/doc/surface_defs.html#top">top </a>   
+<br>
+<br>
+     ELL1 = ELLIPS/CENTER,PT1,M,N,ANG<br>
 <br>
 <br>
 <br>
-&nbsp;&nbsp;&nbsp;<a name="hyperbola"></a> <span
- style="font-weight: bold; text-decoration: underline;">HYPERBOLA&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="file:///home/brent/apt360/doc/surface_defs.html#top">top </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <a name="hyperbola"></a> <span
+ style="font-weight: bold; text-decoration: underline;">HYPERBOLA </span>                
+<a href="file:///home/brent/apt360/doc/surface_defs.html#top">top </a>                
 <br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a name="cone"></a> <span
- style="font-weight: bold; text-decoration: underline;">CONE</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="file:///home/brent/apt360/doc/surface_defs.html#top">top </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a name="cone"></a> <span
+ style="font-weight: bold; text-decoration: underline;">CONE</span>                             
+<a href="file:///home/brent/apt360/doc/surface_defs.html#top">top </a>      
 <br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; CON2 = CONE/PT1,VEC1,ANG<br>
+     CON2 = CONE/PT1,VEC1,ANG<br>
 <br>
-&nbsp;&nbsp;&nbsp;<a name="general_conics"></a> <span
- style="font-weight: bold; text-decoration: underline;">GENERAL&nbsp;
-CONICS</span>&nbsp;&nbsp;&nbsp; <a
- href="file:///home/brent/apt360/doc/surface_defs.html#top">top </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<br>
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp; GC1 = GCONIC/A,B,C,D,E,F<br>
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp; GC2 = GCONIC/A,B,C,D,E<br>
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp; GC3 = GCONIC/A,B,C,D,E,FUNOFY<br>
+   <a name="general_conics"></a> <span
+ style="font-weight: bold; text-decoration: underline;">GENERAL 
+CONICS</span>    <a
+ href="file:///home/brent/apt360/doc/surface_defs.html#top">top </a>                     
 <br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a name="loft_conics"></a> <span
- style="font-weight: bold; text-decoration: underline;">LOFT CONICS</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="file:///home/brent/apt360/doc/surface_defs.html#top">top </a>&nbsp;&nbsp;&nbsp;&nbsp;
+     GC1 = GCONIC/A,B,C,D,E,F<br>
+<br>
+     GC2 = GCONIC/A,B,C,D,E<br>
+<br>
+     GC3 = GCONIC/A,B,C,D,E,FUNOFY<br>
 <br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; LCON1 =
+    <a name="loft_conics"></a> <span
+ style="font-weight: bold; text-decoration: underline;">LOFT CONICS</span>     
+<a href="file:///home/brent/apt360/doc/surface_defs.html#top">top </a>    
+<br>
+<br>
+     LCON1 =
 LCONIC/5PT,X1,Y1,X2,Y2,X3,Y3,X4,Y4,X5,Y5<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; LCON2 = LCONIC/5PT,PT1,PT2,PT3,PT4,PT5<br>
+     LCON2 = LCONIC/5PT,PT1,PT2,PT3,PT4,PT5<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; LCON3 =
+     LCON3 =
 LCONIC/4PT1SL,X1,Y1,,S1,X2,Y2,X3,Y3,X4,Y4<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; LCON4 = LCONIC/4PT1SL,PT1,S1,PT2,PT3,PT4<br>
+     LCON4 = LCONIC/4PT1SL,PT1,S1,PT2,PT3,PT4<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; LCON5 = LCONIC/3PT2SL,X1,Y1,S1,X2,Y2,S2,X3,Y3<br>
+     LCON5 = LCONIC/3PT2SL,X1,Y1,S1,X2,Y2,S2,X3,Y3<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; LCON6 = LCONIC/3PT2SL,PT1,S1,PT2,S2,PT3<br>
+     LCON6 = LCONIC/3PT2SL,PT1,S1,PT2,S2,PT3<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name="vectors"></a> <span
- style="font-weight: bold; text-decoration: underline;">VECTORS</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="file:///home/brent/apt360/doc/surface_defs.html#top">top </a>&nbsp;
+     <a name="vectors"></a> <span
+ style="font-weight: bold; text-decoration: underline;">VECTORS</span>                 
+<a href="file:///home/brent/apt360/doc/surface_defs.html#top">top </a> 
 <br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; VC1 = VECTOR/A,B,C<br>
+     VC1 = VECTOR/A,B,C<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; VC2 = VECTOR/A,B,C,D,E,F<br>
+     VC2 = VECTOR/A,B,C,D,E,F<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; VC2A = VECTOR/PT1,PT2<br>
+     VC2A = VECTOR/PT1,PT2<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; VC3 = VECTOR/PERPTO,PLN1, POS- OR NEG- X OR Y
+     VC3 = VECTOR/PERPTO,PLN1, POS- OR NEG- X OR Y
 OR Z<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; VC4 = VECTOR/S,TIMES,VEC1 OR PT1<br>
+     VC4 = VECTOR/S,TIMES,VEC1 OR PT1<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; VC5 = VECTOR/VEC1 OR PT1,CROSS,VEC2 OR PT2<br>
+     VC5 = VECTOR/VEC1 OR PT1,CROSS,VEC2 OR PT2<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; VC6 = VECTOR/UNIT,VEC1 OR PT1<br>
+     VC6 = VECTOR/UNIT,VEC1 OR PT1<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; VC6A = VECTOR/UNIT,A,B,C<br>
+     VC6A = VECTOR/UNIT,A,B,C<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; VC7 = VECTOR/LENGTH,A,ATANGL,B, XY- OR YZ- OR
+     VC7 = VECTOR/LENGTH,A,ATANGL,B, XY- OR YZ- OR
 ZXPLAN<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; VC8 = VECTOR/PARLEL,INTOF,PLN1,PLN2, POS- OR
+     VC8 = VECTOR/PARLEL,INTOF,PLN1,PLN2, POS- OR
 NEG- X OR Y OR Z<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; VC9 = VECTOR/VEC1 OR PT1,PLUS OR MINUS,VEC2 OR
+     VC9 = VECTOR/VEC1 OR PT1,PLUS OR MINUS,VEC2 OR
 PT2<br>
 <br>
-&nbsp; &nbsp;&nbsp;&nbsp; VC10=VECTOR/ATANGL,A,LN1,POS- OR NEGX OR Y OR
+      VC10=VECTOR/ATANGL,A,LN1,POS- OR NEGX OR Y OR
 X- OR YLARGE OR SMALL<br>
 <br>
 <br>
-&nbsp;&nbsp;&nbsp; <span
+    <span
  style="font-weight: bold; text-decoration: underline;"><a
- name="matrices"></a>MATRICES</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ name="matrices"></a>MATRICES</span>                
 <a href="file:///home/brent/apt360/doc/surface_defs.html#top">top </a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT1 = MATRIX/A,B,C,D,E,F,G,H,I,J,K,L<br>
+     SMAT1 = MATRIX/A,B,C,D,E,F,G,H,I,J,K,L<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT2 = MATRIX/TRANSL,A,B,C<br>
+     SMAT2 = MATRIX/TRANSL,A,B,C<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT2A = MATRIX/TRANSL,A,B<br>
+     SMAT2A = MATRIX/TRANSL,A,B<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT3 = MATRIX/XY- OR YZ- OR ZXROT, ANG<br>
+     SMAT3 = MATRIX/XY- OR YZ- OR ZXROT, ANG<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT4 = MATRIX/ XY- OR YZ- OR ZXROT,
+     SMAT4 = MATRIX/ XY- OR YZ- OR ZXROT,
 ANG,TRANSL,A,B,C<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT4A = MATRIX/ XY- OR YZ- OR ZXROT, ANG,
+     SMAT4A = MATRIX/ XY- OR YZ- OR ZXROT, ANG,
 TRANSL,A,B<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT5 = MATRIX/MAT1,MAT2<br>
+     SMAT5 = MATRIX/MAT1,MAT2<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT6 = MATRIX/INVERS,MAT1<br>
+     SMAT6 = MATRIX/INVERS,MAT1<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT7 = MATRIX/PLN1,PLN2,PLN3<br>
+     SMAT7 = MATRIX/PLN1,PLN2,PLN3<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT8 = MATRIX/SCALE,A<br>
+     SMAT8 = MATRIX/SCALE,A<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT9 = MATRIX/TRANSL,A,B,XY- OR YZ- OR
+     SMAT9 = MATRIX/TRANSL,A,B,XY- OR YZ- OR
 ZXROT,ANG<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT10 = MATRIX/TRANSL,A,B,C, XY- OR YZ- OR
+     SMAT10 = MATRIX/TRANSL,A,B,C, XY- OR YZ- OR
 ZXROT,ANG<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT11 = MATRIX/MX1, XY- OR YZ- OR ZXROT,ANG<br>
+     SMAT11 = MATRIX/MX1, XY- OR YZ- OR ZXROT,ANG<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT12 = MATRIX/MX1,TRANSL,A,B,C<br>
+     SMAT12 = MATRIX/MX1,TRANSL,A,B,C<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT13 = MATRIX/MX1,TRANSL,A,B<br>
+     SMAT13 = MATRIX/MX1,TRANSL,A,B<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT14 = MATRIX/MX1,SCALE,A<br>
+     SMAT14 = MATRIX/MX1,SCALE,A<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT15 = MATRIX/ XY- OR YZ- OR ZXROT,A,MX1<br>
+     SMAT15 = MATRIX/ XY- OR YZ- OR ZXROT,A,MX1<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT16 = MATRIX/ XY- OR YZ- OR ZXROT,ANG,XY-
+     SMAT16 = MATRIX/ XY- OR YZ- OR ZXROT,ANG,XY-
 OR YZ- OR ZXROT,ANG2<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT17 = MATRIX/XY- OR YZ- OR ZXROT,ANG,SCALE,B<br>
+     SMAT17 = MATRIX/XY- OR YZ- OR ZXROT,ANG,SCALE,B<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT18 = MATRIX/TRANSL,A,B,C,MX1<br>
+     SMAT18 = MATRIX/TRANSL,A,B,C,MX1<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT19 = MATRIX/TRANSL,A,B,C,TRANSL,D,E,F<br>
+     SMAT19 = MATRIX/TRANSL,A,B,C,TRANSL,D,E,F<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT20 = MATRIX/TRANSL,A,B,C,TRANSL,D,E<br>
+     SMAT20 = MATRIX/TRANSL,A,B,C,TRANSL,D,E<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT21 = MATRIX/TRANSL,A,B,C,SCALE,D<br>
+     SMAT21 = MATRIX/TRANSL,A,B,C,SCALE,D<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT22 = MATRIX/TRANSL,A,B,MX1<br>
+     SMAT22 = MATRIX/TRANSL,A,B,MX1<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT23 = MATRIX/TRANSL,A,B,TRANSL,C,D,E<br>
+     SMAT23 = MATRIX/TRANSL,A,B,TRANSL,C,D,E<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT24 = MATRIX/TRANSL,A,B,TRANSL,C,D<br>
+     SMAT24 = MATRIX/TRANSL,A,B,TRANSL,C,D<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT25 = MATRIX/TRANSL,A,B,SCALE,C<br>
+     SMAT25 = MATRIX/TRANSL,A,B,SCALE,C<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT26 = MATRIX/SCALE,A,MX1<br>
+     SMAT26 = MATRIX/SCALE,A,MX1<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT27 = MATRIX/SCALE,A,XY- OR YZ- OR ZXROT,B<br>
+     SMAT27 = MATRIX/SCALE,A,XY- OR YZ- OR ZXROT,B<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT28 = MATRIX/SCALE,A,TRANSL,B,C,D<br>
+     SMAT28 = MATRIX/SCALE,A,TRANSL,B,C,D<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT29 = MATRIX/SCALE,A,TRANSL,B,C<br>
+     SMAT29 = MATRIX/SCALE,A,TRANSL,B,C<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT30 = MATRIX/SCALE,A,SCALE,B<br>
+     SMAT30 = MATRIX/SCALE,A,SCALE,B<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT31 = MATRIX/PT1,VEC1,VEC2<br>
+     SMAT31 = MATRIX/PT1,VEC1,VEC2<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT32 = MATRIX/MIRROR,XY- OR YZ- OR ZXPLAN<br>
+     SMAT32 = MATRIX/MIRROR,XY- OR YZ- OR ZXPLAN<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT33 = MATRIX/MIRROR,XY- OR YZ- OR
+     SMAT33 = MATRIX/MIRROR,XY- OR YZ- OR
 ZXPLAN,XY- OR YZ- OR ZXPLAN<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT34 = MATRIX/MIRROR,XY- OR YZ- OR
+     SMAT34 = MATRIX/MIRROR,XY- OR YZ- OR
 ZXPLAN,XY- OR YZ- OR $<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    
 ZXPLAN, XY- OR YZ- OR ZXPLAN<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SMAT35 = MATRIX/MIRROR,PLN1 OR LN1<br>
+     SMAT35 = MATRIX/MIRROR,PLN1 OR LN1<br>
 <br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a name="spheres"></a> <span
- style="font-weight: bold; text-decoration: underline;">SPHERES</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="file:///home/brent/apt360/doc/surface_defs.html#top">top </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a name="spheres"></a> <span
+ style="font-weight: bold; text-decoration: underline;">SPHERES</span>               
+<a href="file:///home/brent/apt360/doc/surface_defs.html#top">top </a>                      
 <br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SP1 = SPHERE/X,Y,Z,R<br>
+     SP1 = SPHERE/X,Y,Z,R<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SP2 = SPHERE/CENTER,PT1,RADIUS,R<br>
+     SP2 = SPHERE/CENTER,PT1,RADIUS,R<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SP3 = SPHERE/CENTER,PT1,PT2<br>
+     SP3 = SPHERE/CENTER,PT1,PT2<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SP4 = SPHERE/CENTER,PT1,TANTO,PLN1<br>
+     SP4 = SPHERE/CENTER,PT1,TANTO,PLN1<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SP5 = SPHERE/PT1,PT2,PT3,PT4<br>
+     SP5 = SPHERE/PT1,PT2,PT3,PT4<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; SP6 = SPHERE/PT1,A<br>
+     SP6 = SPHERE/PT1,A<br>
 <br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+      <span
  style="font-weight: bold; text-decoration: underline;"><a
  name="quadric"></a>QUADRIC </span><br
  style="font-weight: bold; text-decoration: underline;">
 <br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name="polcon"></a> <span
+     <a name="polcon"></a> <span
  style="font-weight: bold; text-decoration: underline;">POLCON</span><br>
 <br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+      <span
  style="font-weight: bold; text-decoration: underline;"><a name="tabcyl"></a>TABCYL</span><br>
 <br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+      <span
  style="font-weight: bold; text-decoration: underline;"><a name="mesh"></a>MESH</span><br>
 <br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+      <span
  style="font-weight: bold; text-decoration: underline;"><a name="consec"></a>CONSEC</span><br>
 <br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+      <span
  style="font-weight: bold; text-decoration: underline;"><a
  name="ruledsurf"></a>RULED SURF</span><br>
 <br>
 RSF=RLDSRF/SURF1,PT1A,PT1B,(PT OR VECTOR),SURF2,PT2A,PT2B,(PT OR VECTOR)<br>
 RSF = RLDSRF/SURF1,PT1,PT2,(PT OR VECTOR),P4<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name="loft"></a> <span
+     <a name="loft"></a> <span
  style="font-weight: bold; text-decoration: underline;">LOFT<br>
 <br>
 <br>
-<a name="ARith_func"></a>AVAILABLE ARITHMETIC FUNCTIONS&nbsp;&nbsp;</span><span
- style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a name="ARith_func"></a>AVAILABLE ARITHMETIC FUNCTIONS  </span><span
+ style="font-weight: bold;">        
 </span><span style="font-weight: bold;"><span
  style="text-decoration: underline;"><a
  href="file:///home/brent/apt360/doc/surface_defs.html#top">top </a></span></span><span
@@ -438,22 +438,22 @@ RSF = RLDSRF/SURF1,PT1,PT2,(PT OR VECTOR),P4<br>
 <br>
 <br>
 <br>
-</span><span style="font-weight: bold;"> 1.&nbsp; DOTF&nbsp;&nbsp;
+</span><span style="font-weight: bold;"> 1.  DOTF  
 (VECTOR OR POINT, VECTOR OR POINT) <br>
-2.&nbsp; LNTHF&nbsp; (VECTOR OR POINT) <br>
-3.&nbsp; SQRTF&nbsp; (SCALAR) <br>
-4.&nbsp; SINF&nbsp;&nbsp; (SCALAR) <br>
-5.&nbsp; COSF&nbsp;&nbsp; (SCALAR) <br>
-6.&nbsp; EXPF&nbsp;&nbsp; (SCALAR) <br>
-7.&nbsp; LOGF&nbsp;&nbsp; (SCALAR) <br>
-8.&nbsp; ATANF&nbsp; (SCALAR)<br>
-9.&nbsp; ABSF&nbsp;&nbsp; (SCALAR) <br>
-10.&nbsp; ANGLF&nbsp; (CIRCLE, POINT) <br>
-11.&nbsp; NUMF&nbsp;&nbsp; (PATTERN) <br>
-12.&nbsp; LOG10F (SCALAR) <br>
-13.&nbsp; TANF&nbsp;&nbsp; (SCALAR) <br>
-14.&nbsp; ATAN2F (SIN,COS)<br>
-15.&nbsp; DISTF&nbsp; (LINE OR PLANE, LINE OR PLANE) <br>
+2.  LNTHF  (VECTOR OR POINT) <br>
+3.  SQRTF  (SCALAR) <br>
+4.  SINF   (SCALAR) <br>
+5.  COSF   (SCALAR) <br>
+6.  EXPF   (SCALAR) <br>
+7.  LOGF   (SCALAR) <br>
+8.  ATANF  (SCALAR)<br>
+9.  ABSF   (SCALAR) <br>
+10.  ANGLF  (CIRCLE, POINT) <br>
+11.  NUMF   (PATTERN) <br>
+12.  LOG10F (SCALAR) <br>
+13.  TANF   (SCALAR) <br>
+14.  ATAN2F (SIN,COS)<br>
+15.  DISTF  (LINE OR PLANE, LINE OR PLANE) <br>
 </span><span style="font-weight: bold; text-decoration: underline;"><br>
 <br>
 <br>

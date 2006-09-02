@@ -1,4 +1,5 @@
 this is a repository for user defined macros.  You can import a
 macro with a "LIBRY/<mymacro,mymacro2,etc>" statement. It behaves as
 if the macro was pasted into that portion of the program where the 
-libry statement declares it. Macro files must be all caps.
+libry statement declares it. Macro files must be all caps.  File naming
+must follow Apt syntax.
