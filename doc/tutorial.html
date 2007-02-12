@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+  <title>Simple Tutorial</title>
+  <link rel="stylesheet" href="style/default.css" type="text/css">
+  </head>
+<body>
+<h1 align="center">A Simple Tutorial</h1>
+
+<p>
+This tutorial assumes that you have a working installation of apt360, plus
+the postprocessor postp with dxf capability.
+In this tutorial, we will make this <A href="images/samplePart.png" >sample part</A> using 
+Apt. The finished program can be found <a href=samplePart.apt.html>here.</a>
+A list of the final machine code can be found <a href="samplePart.tap.html">here.</a>
+
+</p>
+<h2>Minimal Apt Program</h2>
+A minimal Apt program consists of the keyword PARTNO, which always starts
+the program, and the keyword FINI, which ends it.
+<pre>
+partno sample part
+fini
+</pre>
+Apt is not sensitive to case, so "PARTNO" or "Partno" are equivalent to "partno".  
+One Fortran-like restriction with apt360 on PARTNO is the word must begin in the 
+first column.  Most apt360 words are free-format, and indentation should be
+used when necessary to make the program more readable.
+<h2>Some Preliminary Statements</h2>
+Next we will add the following statements:
+<pre>
+clprnt
+machin/dxf
+machin/pmill
+print/on
+</pre>
+Clprnt prints a readable copy of the CL file to the screen, useful for debugging.
+The "machin" statements are for postprocessors. After the CL file is generated, the 
+postprocessors specified as arguments to the machin statements are called and the
+CL file is processed accordingly.  The dxf and pmill postprocessors generate a 
+dxf file and a gcode file respectively. The "print/on" will also print geometric
+definitions in canonical form. In addition, if the dxf post is specified, the 
+geometric definitions will be placed in the dxf file.
+<h2>Variables</h2>
+I like to specify print dimensions early on so that if the print dimensions 
+change, the variables only have to be changed in one place:
+<pre>
+d1=2 $$height
+d2=3 $$length
+d3=.25$$corner rad
+d4=12 $$number of holes in hole pattern
+d5=1.1246 $$y value of corner cut
+d6=131 $$corner cut angle
+</pre>
+A user defined identifier can be any combination of letters and numbers up to 6 letters as long
+as the name is not a reserved keyword, such as "partno", or "fini".  A name must have at least
+one letter. With over 300 keywords, it is difficult to avoid name clashes.  A safe workaround 
+is to include at least one number in a name, although in apt360 at least, there are a few keywords 
+with numeric characters.  The characters following the "$$" are comments and are ignored
+by the program.
+<h2>Geometry</h2>
+The following lines specify the entities that will be used in defining the cutter path.
+<pre>
+lx=line/xaxis
+ly=line/yaxis
+l1=line/parlel,lx,ylarge,d1
+l2=line/parlel,ly,xlarge,d2
+l3=line/(point/d2,d5),atangl,(360-d6),l2
+l4=line/parlel,ly,xsmall,.4
+
+c1=circle/xlarge,ly,ylarge,lx,radius,d3
+c2=circle/xlarge,ly,ysmall,l1,radius,d3
+c3=circle/xsmall,l2,ylarge,lx,radius,d3
+p1=point/xlarge,intof,lx,c1
+</pre>
+
+Note that lines and circles are named for use in other definitions. In addition, notice
+that named constants can be used in place of hard numbers.  Apt includes many other 
+geometric <a href="surface_defs.html">definitions</a>.
+<h2>Running a Preliminary Test</h2>
+So far, we have a program that looks like <a href="tutorial1.html">this</a>.
+Save this text file as "samplePart.apt", then, from a command line in the directory the file is
+located, type
+<pre> apt samplePart.apt</pre>
+You should get output that looks like <a href="tutorial2.html">this</a>, and a file named
+"cl.dxf" should exist in the same directory. If we open this file in Qcad, you should see
+something resembling <a href="images/tutorial2.png">this</a>.  The red box around the 
+geometry is a bounding box.  Because lines in apt are considered to be infinite in extent,
+the bounding box is needed for rendering in a cad program.  You may want to consider this 
+as the stock before machining. The size and placement of the box is specified in 
+"postp/conf/dxf01.pst".
+
+</body>
+</html>

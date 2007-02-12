@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+	<title>samplePart.apt</title>
+  <link rel="stylesheet" href="style/default.css" type="text/css">
+  </head>
+<body>
+	<h1 align="center">Sample Apt Program</h1>
+<pre>
+partno sample part drawing
+clprnt
+machin/dxf,1
+machin/pmill
+print/on
+d1=2 $$height
+d2=3 $$length
+d3=.25$$corner rad
+d4=12 $$number of holes in hole pattern
+d5=1.1246 $$y value of corner cut
+d6=131 $$corner cut angle
+
+lx=line/xaxis
+ly=line/yaxis
+l1=line/parlel,lx,ylarge,d1
+l2=line/parlel,ly,xlarge,d2
+l3=line/(point/d2,d5),atangl,(360-d6),l2
+l4=line/parlel,ly,xsmall,.4
+
+c1=circle/xlarge,ly,ylarge,lx,radius,d3
+c2=circle/xlarge,ly,ysmall,l1,radius,d3
+c3=circle/xsmall,l2,ylarge,lx,radius,d3
+p1=point/xlarge,intof,lx,c1
+obtain/circle,c1,,c1y
+p2=point/0,c1y
+c4=circle/tanto,ly,xsmall,p2,radius,1
+pl1=plane/0,0,1,0
+pl2=plane/0,0,1,-.25
+cutter/0.00025
+loadtl/1
+coolnt/on
+from/-.5,-.5,2
+go/to,ly,on,pl2
+tllft,golft/ly,tanto,c2
+gofwd/c2,tanto,l1
+gofwd/l1,past,l3
+gorgt/l3,past,l2
+gorgt/l2,tanto,c3
+gofwd/c3,tanto,lx
+gofwd/lx,tanto,c1
+gofwd/c1,tanto,c4
+gofwd/c4,on,l4
+coolnt/off
+goto/-.5,-.5,0
+p3=point/0,0,0
+loadtl/2
+coolnt/flood
+cycle/drill,-2,ipm,23,.05
+c5=circle/1.5,1,0,(1.25/2)
+pat1=patern/arc,c5,0,(360-(360/d4)),cclw,d4 
+cut
+goto/pat1
+cycle/off
+coolnt/off
+fini
+</pre>
+</body>
+</html>

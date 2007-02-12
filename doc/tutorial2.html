@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+	<title>samplePart.apt</title>
+  <link rel="stylesheet" href="style/default.css" type="text/css">
+  </head>
+<body>
+	<h1 align="center">Sample Apt Program Output</h1>
+</body>
+<pre>
+1      N/C 360 APT VERSION 4, MODIFICATION 4     DATE= 13Nov05  TIME OF DAY IN HRS./MIN./SEC IS 14:31:21   
+
+
+
+
+0                                          TABLE USAGE DURING INPUT TRANSLATION
+
+                                  PASS ONE                                      PASS TWO
+                                 ALLOCATED     USED                       DYNAMIC ALLOCATION
+                          VST       2750         38                       VST             39
+                          PTPP      2225        260                       PTPP           260
+                          SCALARS                 6                       SCALARS          6
+                          CANON     2225          0                       CANON         5895
+
+
+
+     1  PARTNO SAMPLE PART                                                              
+     2  CLPRNT                                                                          
+     3  MACHIN/DXF,1                                                                    
+     4  MACHIN/PMILL                                                                    
+     5  PRINT/ON                                                                        
+     6  D1=2 $$HEIGHT                                                                   
+     7  D2=3 $$LENGTH                                                                   
+     8  D3=.25$$CORNER RAD                                                              
+     9  D4=12 $$NUMBER OF HOLES IN HOLE PATTERN                                         
+    10  D5=1.1246 $$Y VALUE OF CORNER CUT                                               
+    11  D6=131 $$CORNER CUT ANGLE                                                       
+    12                                                                                  
+    13  LX=LINE/XAXIS                                                                   
+     LX(   0)    LINE  4      .000000     1.000000      .000000      .000000
+    14  LY=LINE/YAXIS                                                                   
+     LY(   0)    LINE  4     1.000000      .000000      .000000      .000000
+    15  L1=LINE/PARLEL,LX,YLARGE,D1                                                     
+     L1(   0)    LINE  4      .000000     1.000000      .000000     2.000000
+    16  L2=LINE/PARLEL,LY,XLARGE,D2                                                     
+     L2(   0)    LINE  4     1.000000      .000000      .000000     3.000000
+    17  L3=LINE/(POINT/D2,D5),ATANGL,(360-D6),L2                                        
+ NESTED         POINT  3     3.000000     1.124600      .000000
+     L3(   0)    LINE  4     -.656059     -.754710      .000000    -2.816924
+    18  L4=LINE/PARLEL,LY,XSMALL,.4                                                     
+     L4(   0)    LINE  4    -1.000000      .000000      .000000      .400000
+    19                                                                                  
+    20  C1=CIRCLE/XLARGE,LY,YLARGE,LX,RADIUS,D3                                         
+     C1(   0)  CIRCLE  7      .250000      .250000      .000000      .000000      .000000     1.000000      .250000
+
+    21  C2=CIRCLE/XLARGE,LY,YSMALL,L1,RADIUS,D3                                         
+     C2(   0)  CIRCLE  7      .250000     1.750000      .000000      .000000      .000000     1.000000      .250000
+
+    22  C3=CIRCLE/XSMALL,L2,YLARGE,LX,RADIUS,D3                                         
+     C3(   0)  CIRCLE  7     2.750000      .250000      .000000      .000000      .000000     1.000000      .250000
+
+    23  P1=POINT/XLARGE,INTOF,LX,C1                                                     
+     P1(   0)   POINT  3      .250000      .000000      .000000
+    24                                                                                  
+    25  FINI                                                                            
+1
+
+
+
+
+                                          ELAPSED TIME IS       .00000 MINUTES
+0
+
+
+
+
+                                          ELAPSED TIME IS       .00000 MINUTES
+0
+1.....SECTION 3....
+                                                                                    RECNO     1 CARD          ISN     1
+  PARTNO   SAMPLE PART                                                      
+                                                                                    RECNO     3 CARD          ISN     3
+     MACHIN/   DXF  ,    1.0000
+                                                                                    RECNO     5 CARD          ISN     4
+     MACHIN/ PMILL  
+                                                                                    RECNO     7 CARD          ISN    25
+  ** FINI **
+-END OF SECTN3
+
+
+
+
+                                          ELAPSED TIME IS       .00000 MINUTES
+0
+
+
+
+
+                                          ELAPSED TIME IS       .00000 MINUTES
+0
+</pre>
+</html>
