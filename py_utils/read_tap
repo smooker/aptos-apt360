@@ -1,0 +1,30 @@
+#!/usr/bin/python
+# Program to read the values of a binary tape file
+#from Apt/360
+import struct
+import optparse
+opt=optparse.OptionParser()
+opt.add_option("-f","--file",action="store",type="string",dest="filename",help="open file")
+(options, args) = opt.parse_args()
+if options.filename==None:
+	options.filename="pro.tap"	
+f=open(options.filename)
+print "reading file: ",options.filename
+while 1:
+	p=f.read(16)
+	if len(p)!=16:
+		break
+	header=struct.unpack("iiii",p)
+	print "record: ", header[0]
+	length=header[1]
+	print "length: ", length
+	print "type: ",header[2]
+	print "subtype: ", header[3]
+	rec=f.read(length*8)
+	print "record: ",rec
+	raw_input("hit enter for next record")
+print "----at EOF-----"	
+f.close()
+
+
+
