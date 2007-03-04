@@ -4,7 +4,7 @@
 #  MACHIN statement.. $1 is the name of the first postprocessor; $2 is
 #  the machine number; $3 and $4 are the next postprocessor and machine, 
 #  respectively, and so on.
-
+echo ....SECTN4 POST.....
 for machins in $*
 do
 
