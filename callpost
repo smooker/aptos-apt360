@@ -2,26 +2,34 @@
 #  Script to execute postprocessors
 #  apt360 will call this script to execute the postprocessor given in a 
 #  MACHIN statement.. $1 is the name of the first postprocessor; $2 is
-#  the machine number; $3 and $4 are the next postprocessor and machine, 
-#  respectively, and so on.
+#  the machine number; $3 is the next postprocessor or machine, and so on.
+
+function callpp 
+{
+	echo "....calling postp as:
+\"postp $1 < cl.tap > ${APT_FILENAME%.apt}.$post$number.tap\""
+	postp $1 < cl.tap > ${APT_FILENAME%.apt}.$post$number.tap
+	echo
+}
+
+
 echo ....SECTN4 POST.....
+echo
+number=
+post=
 for machins in $*
 do
+	if [ -n "$(echo $machins|egrep '[0-9]+')" ]
+	then
+		nstr="-n$machins"
+		number=$machins
+		callpp "$pstr $nstr"
 
-	case $machins
-	in
-
-	[0-9]|[0-9][0-9])
-	string=$string" -n"$machins	
-	;;
-
-	*)
-	string=$string" -p "$machins	
-	;;
-	esac
-
+	else 
+		post=$machins
+		pstr="-p$machins"
+	fi
+	
 done
-echo ....calling postp with options $string
-postp $string < cl.tap > ${APT_FILENAME%.apt}.tap
 
 

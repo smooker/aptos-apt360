@@ -56,13 +56,13 @@ AWK = gawk
 CC = gcc
 CCAS = gcc
 CCASFLAGS = -g -O0
-CCDEPMODE = depmode=none
+CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O0
 CPP = gcc -E
 CPPFLAGS = 
 CXX = g++
 CXXCPP = g++ -E
-CXXDEPMODE = depmode=none
+CXXDEPMODE = depmode=gcc3
 CXXFLAGS = -g -O2
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
@@ -97,10 +97,10 @@ absolute_build_dir = /home/brent/apt360
 ac_ct_CC = gcc
 ac_ct_CXX = g++
 ac_ct_STRIP = 
-am__fastdepCC_FALSE = 
-am__fastdepCC_TRUE = #
-am__fastdepCXX_FALSE = 
-am__fastdepCXX_TRUE = #
+am__fastdepCC_FALSE = #
+am__fastdepCC_TRUE = 
+am__fastdepCXX_FALSE = #
+am__fastdepCXX_TRUE = 
 am__include = include
 am__leading_dot = .
 am__quote = 
