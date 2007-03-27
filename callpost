@@ -19,7 +19,7 @@ number=
 post=
 for machins in $*
 do
-	if [ -n "$(echo $machins|egrep '[0-9]+')" ]
+	if [ -n "$(echo $machins|egrep '^[0-9]+')" ]
 	then
 		nstr="-n$machins"
 		number=$machins
