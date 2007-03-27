@@ -36,17 +36,21 @@ int aptpos_(){
 	arg[0]=&args[0][0];
 	for(i=1,j=0;j<(asistm_.numpst*2);i+=2,j+=2){
 		memcpy(&args[i][0],&apostp_.ppname[j],6);
-
 		//get rid of leading blanks:
 		for(k=0,l=0;k<6;){
-			if(args[i][k]==' '){
+			while(args[i][k]==' '){
 				++k;
-			}else{
+			}
+			while(args[i][k]!=0){
 				args[i][l]=args[i][k];
 				++k, ++l;
-			}	
-			args[i][l]=0;
+			}
+			while(l<7){
+				args[i][l]=0;
+				++l;
+			}
 		}
+
 
 		arg[i]=&args[i][0];
 		//machine number:
