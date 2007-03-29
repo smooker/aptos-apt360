@@ -6,6 +6,8 @@
 #include "f2c.h"
 #include <config.h>
 
+extern int nopost_flag;
+
 /* Common Block Declarations */
 
 struct {
@@ -297,7 +299,8 @@ L9530:
 
 /* ...     GET SECTION 4 */
 L9540:
-    aptpos_();
+    if (!nopost_flag)
+        aptpos_();
 /* 	print out time, errors, etc. goto the next section: */
     goto L9000;
 
