@@ -1,22 +1,81 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE>index</TITLE>
-	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.3  (Linux)">
-	<META NAME="CREATED" CONTENT="20050908;22071400">
-	<META NAME="CHANGED" CONTENT="16010101;0">
-	<STYLE>
-	<!--
-		P { color: #000000 }
-		A:link { color: #0000ff }
-		A:visited { color: #ff0000 }
-	-->
-	</STYLE>
-</HEAD>
-<BODY LANG="en-US" TEXT="#000000" LINK="#0000ff" VLINK="#ff0000" BGCOLOR="#333333" BACKGROUND="yelgridl.jpg" DIR="LTR">
-<h1>Apt/360 Documentation</h1>
-<p>rough and unfinished</p>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+	<title>Apt/360 Documentation</title>
+  <link rel="stylesheet" href="style/default.css" type="text/css">
+  </head>
+<body>
+
+<h1 align="center">Apt/360 Documentation</h1>
+<h2>Using Apt360</h2>
+<p>
+Apt360 consists of a binary file, 'apt360', and two scripts, 'apt' and 'callpost'.  The binary
+simply reads from stdin.  To use it, you could use a command such as: 
+<pre>apt360 &lt;somefile.apt</pre>
+As 
+a convenience, the script 'apt' allows a command line like: 
+<pre>apt somefile_1.apt somefile_2.apt</pre>
+This runs two consecutive files and sets some environment variables, but basically runs the 
+previous command.  The "apt" script is the preferred way of running the program.  As of 1.0.0, 
+there are no command options, although future versions undoubtedly will have some.  The apt360 binary is
+hardwired to call a program named "callpost" which is used to execute a seperate postprocessing 
+program.  
+</p>
+<h2>Vapt</h2>
+<p>
+Apt360 is language based, and it does not come with any means of viewing the geometry you create with
+it.  This is a serious limitation, and Sean Dolan's <a href=https://sourceforge.net/projects/vapt/
+	>vapt project </a> is a must-have for doing any serious work in apt.  Vapt reads the stdout of
+apt360, parses it, and displays the geometry in 3-d, with an animated tool-path.  A typical use of 
+the program would be: 
+<pre>apt somefile.apt|vapt</pre>
+The stdout of apt360 is read by vapt, and a geometry
+representation is created, with the ability to zoom, rotate and scale.
+
+</p>
+
+<h2>Postp</h2>
+
+<h2>Learning Apt</h2>
+<p>
+Apt is a large and powerful language, and giving a detailed treatment of it would require
+writing a fairly good sized textbook.  Rather than try to create a introduction to Apt that
+would be far too brief and incomplete, I would like to point you in the direction of some of the 
+resources I have used in learning Apt.
+</p>
+<p>
+Probably the best resource I have found is the book <cite>Numerical Control Programming in Apt</cite>
+by Irvin H. Kral.  It covers Apt in great detail, has numerous examples, and the version of Apt used
+in the book, Apt-AC, is very similar to Apt360. With the exception of some surface definitions and 
+a few advanced features, the two programs are nearly identical.  Most of the examples, with the exception of
+the polyconic surfaces, should work with minor tweaking, and in fact, many of us have used the examples to
+verify that apt360 was working properly.  This is a good sized textbook, at almost 500 pages. Unfortunately,
+the book is out of print,  although you can get some copies
+off of Amazon.com and Barnes and Noble.
+</p>
+<p>
+With the source code is an example directory with several sample programs that you can look at to get 
+an idea of what can be done with the program.  
+</p>
+<p>
+Cadwiki
+</p>
+<h2>Other Useful Resources</h2>
+
+<h3>#cam</h3>
+<p>
+Many of us with interest in this cam system have taken to communicating with one another on the irc.freenode.net
+channel #cam.  If you have an issue or question, you can often find one of us who can answer a question for you.
+</p>
+<h3>Sourceforge</h3>
+<p>
+Sourceforge, the host of this program and vapt, has many resources you can use to communicate with the developers
+of this and other related projects.  If you subscribe to the mailing list, for example, you can ask questions your questions will be 
+</p>
+
+
+<h2>Appendix</h2>
 <a href=program_notes.html>source code info</a> 
 <br>
 <br>
