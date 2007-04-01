@@ -8,6 +8,10 @@
 <body>
 
 <h1 align="center">Apt/360 Documentation</h1>
+<p>
+Apt360 is an open source Apt processor, based on public-domain source code from the IBM N/C 360 Apt Version IV from the 
+late '60's.  It is part of the <a href=https://sourceforge.net/projects/aptos>Aptos cam project</a>.
+</p>
 <h2>Using Apt360</h2>
 <p>
 Apt360 consists of a binary file, 'apt360', and two scripts, 'apt' and 'callpost'.  The binary
@@ -18,8 +22,9 @@ a convenience, the script 'apt' allows a command line like:
 <pre>apt somefile_1.apt somefile_2.apt</pre>
 This runs two consecutive files and sets some environment variables, but basically runs the 
 previous command.  The "apt" script is the preferred way of running the program.  As of 1.0.0, 
-there are no command options, although future versions undoubtedly will have some.  The apt360 binary is
-hardwired to call a program named "callpost" which is used to execute a seperate postprocessing 
+command options are limited to the "--nopost" option, although future versions undoubtedly 
+will have more. The apt360 binary is
+hardwired to call a bash script named "callpost" which is used to execute a seperate postprocessing 
 program.  
 </p>
 <h2>Vapt</h2>
@@ -28,7 +33,7 @@ Apt360 is language based, and it does not come with any means of viewing the geo
 it.  This is a serious limitation, and Sean Dolan's <a href=https://sourceforge.net/projects/vapt/
 	>vapt project </a> is a must-have for doing any serious work in apt.  Vapt reads the stdout of
 apt360, parses it, and displays the geometry in 3-d, with an animated tool-path.  A typical use of 
-the program would be: 
+vapt would be: 
 <pre>apt somefile.apt|vapt</pre>
 The stdout of apt360 is read by vapt, and a geometry
 representation is created, with the ability to zoom, rotate and scale.
@@ -36,13 +41,22 @@ representation is created, with the ability to zoom, rotate and scale.
 </p>
 
 <h2>Postp</h2>
+<p>
+Postp is a postprocessor developed for use with apt360 and other cam packages.  It can be downloaded
+from the Aptos site as well. 
+</p>
 
 <h2>Learning Apt</h2>
 <p>
 Apt is a large and powerful language, and giving a detailed treatment of it would require
 writing a fairly good sized textbook.  Rather than try to create a introduction to Apt that
-would be far too brief and incomplete, I would like to point you in the direction of some of the 
-resources I have used in learning Apt.
+would be far too brief and incomplete, I would like to point you in the direction of some good 
+resources for learning Apt.
+</p>
+<p>
+The official <a href=http://fenn.dyndns.org/apt360/> documentation</a> for Apt360 is being  hosted by 
+<a href=http://fenn.freeshell.org/home.html>fenn</a>, an EMC regular.  Help us make this wiki complete.
+You can often contact fenn on the irc.freenode.net channel #cam.
 </p>
 <p>
 Probably the best resource I have found is the book <cite>Numerical Control Programming in Apt</cite>
@@ -59,20 +73,28 @@ With the source code is an example directory with several sample programs that y
 an idea of what can be done with the program.  
 </p>
 <p>
-Cadwiki
+The <a href=http://wiki.linuxcnc.org/cgi-bin/emcinfo.pl?AptProgrammingForEMC>EMC Documentation Wiki</a>
+has some good background on Apt360.
 </p>
-<h2>Other Useful Resources</h2>
+<p>
+<a href=http://cncfocus.com/index.htm>Cnc Focus</a> is the home page of a very good Windows based version of Apt.
+Included on the website is a downloadable pdf file which, although specifically for Personal Apt, covers enough
+common ground with other Apt processors to be a very good resource.  If you are interested in a Windows version
+of Apt, you might want to download the Visual CamScript program as well.
+</p>
 
+<h2>Other Useful Resources</h2>
+A good, brief overview of Apt can be found at <a href=http://www.nfrpartners.com/cncfaq.htm >NFR partners</a>
 <h3>#cam</h3>
 <p>
 Many of us with interest in this cam system have taken to communicating with one another on the irc.freenode.net
-channel #cam.  If you have an issue or question, you can often find one of us who can answer a question for you.
+channel #cam.  If you have an issue or question, you can often find one of us who can help you.
 </p>
 <h3>Sourceforge</h3>
 <p>
 Sourceforge, the host of this program and vapt, has many resources you can use to communicate with the developers
-of this and other related projects.  If you subscribe to the mailing list, for example, you can ask questions your questions will be 
-</p>
+of this and other related projects. See the public areas  of the 
+<a href=https://sourceforge.net/projects/aptos>Aptos cam project</a>.</p>
 
 
 <h2>Appendix</h2>

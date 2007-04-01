@@ -1,7 +1,6 @@
 partno sample part
 clprnt
-machin/dxf,1
-machin/pmill
+machin/emc,1
 print/on
 d1=2 $$height
 d2=3 $$length

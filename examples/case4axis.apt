@@ -1,6 +1,7 @@
 partno 4th axis sample
-machin/pmill
-machin/dxf
+machin/emc,1
+$$machin/pmill,2
+$$machin/dxf
 remark this represents the profile of a fly-fishing reel line guard
 clprnt
 d1=3.06 $$case diameter
@@ -12,12 +13,13 @@ d7=1.1  $$back edge of case
 d8=.03 $$outer edge radius
 d9=145 $$angle of bottom cut
 d10=d3-.1 $$lip edge location from cl of line guard radius
-
 v1=vector/-1,0,0
 cyl1=cylndr/(point/0,0,0),v1,(d1/2)
-print/on
+$$print/on
 lx=line/xaxis
 ly=line/yaxis
+lend=line/parlel,ly,xsmall,.5
+pl1=plane/-1,0,0,1.5
 l1=line/parlel,lx,ysmall,(d2/2)
 l1b=line/parlel,lx,ylarge,(d2/2)
 pt1=point/d4,-(d2/2+d3)
@@ -39,8 +41,7 @@ l6=line/(point/center,c2),perpto,l2
 l7=line/(point/center,c3),perpto,l2
 l8=line/(point/center,c3),perpto,l3
 l9=line/(point/center,c3b),perpto,l3
-$$mat1=matrix/yzrot,d9
-mat1=matrix/yzrot,170
+mat1=matrix/yzrot,d9
 refsys/mat1
 	v2=vector/0,0,1	
 	ptrot=point/-.5,(d3+.5),(d1/2+.1)
@@ -55,7 +56,6 @@ refsys/mat1
 	l13=line/(point/center,c5),perpto,l2
 refsys/nomore
 mat2=matrix/yzrot,-d9
-$$mat2=matrix/yzrot,-180
 refsys/mat2
 	lxrotb=line/xaxis
 	c4b=circle/xsmall,l3,ysmall,lxrotb,radius,d3
@@ -68,11 +68,14 @@ refsys/mat2
 	l12b=line/(point/center,c4b),(point/center,c5b)
 refsys/nomore
 
+
+
 intol/.0001
 outtol/.0001
 
 multax
-cut1=0.1$$.2
+$$cut1=0.1$$.2
+cut1=0.25$$.2
 setpt=point/-.5,1,(d1/2+.1)
 cutter/cut1,.0,0,0,0,0,.25
 from/setpt
@@ -97,40 +100,25 @@ gofwd/c5b,on,l11b
 cutter/option,2,off
 gofwd/c6b,on,l6b
 godlta/-.5,0,0
+
 $$next window:
+from/-.5,-4,0,0,-1,-1
 rapid
-go/past,l10,on,cyl1
-tllft,tlonps,gorgt/l10,on,l6
+tlaxis/normps
+go/to,l10,on,cyl1
+tllft,tlonps,golft/l10,on,l6
 gofwd/c6,on,l11
-gofwd/c5,on,l13
-$$gofwd/c5,past,l13
-$$gofwd/lxrot,on,l7
-$$cutter/option,2,(cut1/2),0
-$$gofwd/c4,on,l12
-$$cutter/option,2,off
-$$gofwd/l3,on,2,intof,l8
-$$cutter/option,2,(cut1/2),0
-$$gofwd/c3,on,l7
-$$cutter/option,2,off
-$$gofwd/l1,on,l5
-$$gofwd/c1,on,l4
-$$gofwd/c2,on,l6
-$$gofwd/l2,past,ly
-$$godlta/-.5,0,0
+cutter/option,2,(cut1/2),0
+gofwd/c5,on,l5
+gofwd/lxrot,on,l7
+gofwd/c4,on,l12
+gofwd/l3,on,l8
+gofwd/c3,on,l7
+gofwd/l1,on,l5
+gofwd/c1,on,l4
+gofwd/c2,on,l6
+gofwd/l2,past,ly
+godlta/-.5,0,0
 
 
 fini
-
-
-
-
-
-
-
-
-
-
-
-
-
-

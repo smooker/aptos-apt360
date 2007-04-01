@@ -1,5 +1,5 @@
 partno multax test
-machin/dxf
+machin/dxf,1
 print/on
 clprnt
 multax/on

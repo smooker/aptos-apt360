@@ -7,10 +7,10 @@
   </head>
 <body>
 <h1 align="center">A Simple Tutorial</h1>
-
+<i>currently incomplete</i>
 <p>
 This tutorial assumes that you have a working installation of apt360, plus
-the postprocessor postp with dxf capability.
+the postprocessor postp and the vapt viewer.
 In this tutorial, we will make this <A href="images/samplePart.png" >sample part</A> using 
 Apt. The finished program can be found <a href=samplePart.apt.html>here.</a>
 A list of the final machine code can be found <a href="samplePart.tap.html">here.</a>
@@ -31,17 +31,15 @@ used when necessary to make the program more readable.
 Next we will add the following statements:
 <pre>
 clprnt
-machin/dxf
-machin/pmill
+machin/emc,1
 print/on
 </pre>
 Clprnt prints a readable copy of the CL file to the screen, useful for debugging.
 The "machin" statements are for postprocessors. After the CL file is generated, the 
 postprocessors specified as arguments to the machin statements are called and the
-CL file is processed accordingly.  The dxf and pmill postprocessors generate a 
-dxf file and a gcode file respectively. The "print/on" will also print geometric
-definitions in canonical form. In addition, if the dxf post is specified, the 
-geometric definitions will be placed in the dxf file.
+CL file is processed accordingly.  The EMC postprocessor generates a 
+gcode file. The "print/on" will also print geometric
+definitions in canonical form for use in vapt. 
 <h2>Variables</h2>
 I like to specify print dimensions early on so that if the print dimensions 
 change, the variables only have to be changed in one place:
@@ -83,13 +81,9 @@ So far, we have a program that looks like <a href="tutorial1.html">this</a>.
 Save this text file as "samplePart.apt", then, from a command line in the directory the file is
 located, type
 <pre> apt samplePart.apt</pre>
-You should get output that looks like <a href="tutorial2.html">this</a>, and a file named
-"cl.dxf" should exist in the same directory. If we open this file in Qcad, you should see
-something resembling <a href="images/tutorial2.png">this</a>.  The red box around the 
-geometry is a bounding box.  Because lines in apt are considered to be infinite in extent,
-the bounding box is needed for rendering in a cad program.  You may want to consider this 
-as the stock before machining. The size and placement of the box is specified in 
-"postp/conf/dxf01.pst".
-
+You should get output that looks like <a href="tutorial2.html">this</a>. If we open this file in vapt, you should see
+something resembling <a href="images/tutorial2.png">this</a>.  Because lines in apt are 
+considered to be infinite in extent,
+the lines are bounded by the vapt program.
 </body>
 </html>

@@ -13,14 +13,6 @@ fi
 for each in $@
 do
 	export APT_FILENAME=${each##*/} #for postproc's use
-#	if [-x vapt]
-#	then
-#		echo in then
-		apt360 <$each|vapt
-#	else
-#		echo in else
-#		apt360 <$each #1> /dev/null
-
-#	fi
+		apt360 <$each
 done
 

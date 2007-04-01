@@ -20,7 +20,9 @@ It is probably available from your distro's website also.
 
 Also used for the some math issues in the TABCYL command is the Gnu 
 scientific library gsl. The program will compile without it, and the TABCYL
-command will often work ok, but be aware of the problem. 
+command will often work ok, but be aware of the problem. The command will
+fail with an error message if the gsl library is required for a TABCYL 
+definition.
 
 If you are compiling on a bigendian machine (e.g., Mac OSX, Solaris sparc,etc.)
 the code will not work. Since the code was originally for the bigendian 
@@ -32,10 +34,10 @@ To generate the final post from the cl-file that apt creates, you will
 need a post-processor. Postp, from the same site as this package, is being 
 developed for this purpose.  
 
-You will want some way of viewing your geometry.  The postp post-processor 
-includes a dxf post-processor that I have been using to view geometry in 
-dxf format.  Two good, open-source packages I have been using are QCad 
-and Blender.
+You will want some way of viewing your geometry. Sean Dolan's vapt project
+has been developed for this purpose.  Get it at:
 
+https://sourceforge.net/projects/vapt/
+ 
 I've also included a vim syntax file in the /vim directory.  If you use vim, 
 you may want to install these files in your ~/.vim directory.

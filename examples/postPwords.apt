@@ -23,8 +23,8 @@ coolnt/mist
 toolno/2
 loadtl/1
 cutcom/on
-cutcom/left
-cutcom/right
+cutcom/left,3
+cutcom/right,4
 cutcom/off
 fedrat/32
 auxfun/3

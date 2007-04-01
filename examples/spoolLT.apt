@@ -1,10 +1,7 @@
 partno a window
 clprnt
-machin/pmill
-machin/dxf
-$$nopost
+machin/emc,1
 print/on
-$$print/off
 
 d1=19   $$center arm radius
 d2=.13   $$corner radius
@@ -40,7 +37,7 @@ from/spt
 delete/on
 coolnt/on
 delete/off
-cutcom/length,1
+cutcom/zaxis,1
 clrsrf/now
 $$clrsrf/pl1
 fedrat/30.

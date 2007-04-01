@@ -6,6 +6,9 @@
 #include "f2c.h"
 #include <getopt.h>
 #include <stdio.h>
+#ifdef HAVE_CONFIG_H
+	#include "../config.h"	
+#endif
 
 /* Common Block Declarations */
 
@@ -55,6 +58,14 @@ void parse_args(void) {
     extern /* Subroutine */ int acntrl_();
 /* L10: */
         parse_args();
+
+#ifdef HAVE_CONFIG_H
+	printf("\nAptos Version:\n");
+	printf(PACKAGE_STRING);
+	printf("\nreport bugs to ");
+	printf(PACKAGE_BUGREPORT);
+	printf("\n\n");
+#endif
 	acntrl_();
 	return 0;
 } /* MAIN__ */
