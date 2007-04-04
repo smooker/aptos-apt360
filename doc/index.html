@@ -13,6 +13,8 @@ Apt360 is an open source Apt processor, based on public-domain source code from 
 late '60's.  It is part of the <a href=https://sourceforge.net/projects/aptos>Aptos cam project</a>.
 </p>
 <h2>Using Apt360</h2>
+<p>Usage of Apt360 follows the general flow diagram below.<br><br>
+<img src=aptprocess.png>
 <p>
 Apt360 consists of a binary file, 'apt360', and two scripts, 'apt' and 'callpost'.  The binary
 simply reads from stdin.  To use it, you could use a command such as: 
@@ -27,6 +29,7 @@ will have more. The apt360 binary is
 hardwired to call a bash script named "callpost" which is used to execute a seperate postprocessing 
 program.  
 </p>
+
 <h2>Vapt</h2>
 <p>
 Apt360 is language based, and it does not come with any means of viewing the geometry you create with
