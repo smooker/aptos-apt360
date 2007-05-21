@@ -1,0 +1,37 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>7.2. The Auxiliary Symbol Definition (OBTAIN) Statement</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="special_words.html" title="Chapter 7. Special Words in the APT Language"><link rel="prev" href="special_words.html" title="Chapter 7. Special Words in the APT Language"><link rel="next" href="apt_control_words.html" title="7.3. APT Processor Control Words"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">7.2. The Auxiliary Symbol Definition (OBTAIN) Statement</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="special_words.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center">Chapter 7. Special Words in the APT Language</th><td width="20%" align="right"> <a accesskey="n" href="apt_control_words.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="aux_symbol_def"></a>7.2. The Auxiliary Symbol Definition (OBTAIN) Statement</h2></div></div></div><p><a name="obtain_kw"></a>
+      The OBTAIN statement defines (or assigns a value to) a scalar variable
+      with reference to a particular geometric type. The general form of the
+      OBTAIN statement is:
+      </p><div class="blockquote"><blockquote class="blockquote"><p>OBTAIN, type/ S1, [a], [b], [c],
+          etc.</p></blockquote></div><p>
+    </p><p>
+      The foregoing statement defines the scalar variable a, b and c as
+      follows:
+    </p><div class="itemizedlist"><ul type="disc"><li><p>a</p><p>
+          The value of the first parameter of the canonical form of S1.
+        </p></li><li><p>b</p><p>
+          The value of the second parameter of the canonical form of S1.
+        </p></li><li><p>c</p><p>
+          The value of the third parameter of the canonical form of S1.
+        </p></li></ul></div><p>
+      The following rules are to be observed when using the OBTAIN
+      statement.
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          The surface type given must correspond to the surface type S1.
+        </p></li><li><p>
+          Commas to the right of S1 denote position. Hence, care must be
+          exercised in specifying the number and positions of the commas.
+        </p></li><li><p>
+          The variables a, b and c must be scalar variable.
+        </p></li></ul></div><p>
+      The number of parameters referred to in the OBTAIN statement
+      cannot exceed the total number of parameters in the canonical
+      form of the referenced surface type (see <a href="canon_forms.html" title="Chapter 16. Canonical Forms">Chapter 16</a>
+      for a
+      discussion of the canonical form for the various APT surfaces).
+    </p><div class="blockquote"><blockquote class="blockquote"><div class="example"><a name="obtain_usage_example"></a><p class="title"><b>Example 7.1. OBTAIN Usage</b></p><pre class="programlisting">C1 = CIRCLE/ PT1, PT2, PT3
+OBTAIN/ CIRCLE/ C1, X, Y, , , , , RAD</pre></div></blockquote></div><p>
+      The first statement defines C1 as a circle through the three points
+      PT1, PT2 and PT3. The OBTAIN statement is then used to define the
+      scalar variables X, Y and RAD as follows:
+    </p><div class="itemizedlist"><ul type="disc"><li><p>X</p><p>The X coordinate for the center of the circle C1</p></li><li><p>Y</p><p>The Y coordinate for the center of the circle C1</p></li><li><p>RAD</p><p>The radius of the circle C1</p></li></ul></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="special_words.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"><a accesskey="u" href="special_words.html"><img src="images/up.gif" alt="Up"></a></td><td width="40%" align="right"> <a accesskey="n" href="apt_control_words.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 7. Special Words in the APT Language </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> 7.3. APT Processor Control Words</td></tr></table></div></body></html>

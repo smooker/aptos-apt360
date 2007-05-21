@@ -1,0 +1,33 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>14.7. Limitations on Usage of Planes</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="spec_tech.html" title="Chapter 14. Special Techniques"><link rel="prev" href="rldsrf_implications.html" title="14.6. Implications of Ruled Surface (RLDSRF)"><link rel="next" href="tan_surf_limitations.html" title="14.8. Tangent Surface Limitations"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">14.7. Limitations on Usage of Planes</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="rldsrf_implications.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center">Chapter 14. Special Techniques</th><td width="20%" align="right"> <a accesskey="n" href="tan_surf_limitations.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="plane_limitations"></a>14.7. Limitations on Usage of Planes</h2></div></div></div><p>
+      In theory, any two planes which are not exactly parallel have a line of
+      intersection, and consequently could be used simultaneously as PS and
+      DS, PS and CS, or DS and CS in an APT motion statement.  In practice,
+      the numerical precision of calculations and the algorithms used in
+      positioning the cutter impose limits on the degree of parallelism which
+      the APT system will process without failure.  The exact limits are a
+      function of the cutter geometry, programmed relationship with surfaces
+      (tool on or offset from surface), cutter location with respect to
+      surfaces, and distance from the origin of coordinates.
+    </p><p>
+      In general, no difficulty is encountered using planes which are more
+      than one degree from parallel.  With planes more nearly parallel than
+      one degree, an attempt to position the cutter properly, is likely to
+      result in error 901 or 902.
+    </p><p>
+      This problem can normally be eliminated through the use of a pseudo check
+      surface.  For example, in <a href="plane_limitations.html#figure148" title="Figure 14.45. Pseudo CS with Shallow Plane">Figure 14.45</a> the cutter is to
+      be driven along P1
+      past P2 and then along P2.  By specifying L1 as the intersection of P1
+      and P2 and using L1 (considered a vertical plane by the arithmetic
+      element) as a pseudo check surface, the problem is eliminated (assume PS
+      as the plane of the paper).
+    </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure148"></a><p class="title"><b>Figure 14.45. Pseudo CS with Shallow Plane</b></p><div class="mediaobject"><img src="images/figure148.png" alt="Pseudo CS with Shallow Plane"></div></div><pre class="programlisting">
+$$ Would probably fail
+GOFWD/ P1, PAST, P2
+GOFWD/ P2
+
+$$ Eliminates calculations simultaneously
+$$ invloving P1 and P2
+GOFWD/ P1, ON, L1
+GO/ P2, PS
+GOFWD/ P2</pre></blockquote></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="rldsrf_implications.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"><a accesskey="u" href="spec_tech.html"><img src="images/up.gif" alt="Up"></a></td><td width="40%" align="right"> <a accesskey="n" href="tan_surf_limitations.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">14.6. Implications of Ruled Surface (RLDSRF) </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> 14.8. Tangent Surface Limitations</td></tr></table></div></body></html>

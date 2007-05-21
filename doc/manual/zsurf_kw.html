@@ -1,0 +1,15 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>3.2. The ZSURF Definition</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="geometry.html" title="Chapter 3. Geometric Statements in APT"><link rel="prev" href="geometry.html" title="Chapter 3. Geometric Statements in APT"><link rel="next" href="point_kw.html" title="3.3. The Point (POINT) Definitions"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.2. The ZSURF Definition</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="geometry.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center">Chapter 3. Geometric Statements in APT</th><td width="20%" align="right"> <a accesskey="n" href="point_kw.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="zsurf_kw"></a>3.2. The ZSURF Definition</h2></div></div></div><p>
+      The ZSURF definition supplies a means of defining an implicit Z
+      coordinate for a point whenever it is required for use in a geometric
+      definition or a motion command. The general form of this statement is:
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig3-02-1.png"></div></blockquote></div><p>
+    </p><p>
+      When only the X and Y coordinates for a point have been specified in a
+      part program statement, the APT processor projects the point on the
+      ZSURF plane to calculate the implicit Z value. (if ZSURF is not
+      specified, the XY plane is assumed.) For example:
+      </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">ZSURF/ SPLANE
+SPOINT = POINT/ X, Y</pre></blockquote></div><p>
+      The Z value is supplied by projecting the point (X, Y) in a direction
+      parallel to the Z axis onto the plane SPLANE.
+    </p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="geometry.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"><a accesskey="u" href="geometry.html"><img src="images/up.gif" alt="Up"></a></td><td width="40%" align="right"> <a accesskey="n" href="point_kw.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 3. Geometric Statements in APT </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> 3.3. The Point (POINT) Definitions</td></tr></table></div></body></html>

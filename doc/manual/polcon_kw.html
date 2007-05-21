@@ -1,0 +1,63 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>3.19. The Polyconic (POLCON) Definition</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="geometry.html" title="Chapter 3. Geometric Statements in APT"><link rel="prev" href="tabcyl_kw.html" title="3.18. The Tabulated Cylinder (TABCYL) Definition"><link rel="next" href="rldsrf_kw.html" title="3.20. The Ruled Surface (RLDSRF) Definitions"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.19. The Polyconic (POLCON) Definition</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="tabcyl_kw.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center">Chapter 3. Geometric Statements in APT</th><td width="20%" align="right"> <a accesskey="n" href="rldsrf_kw.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="polcon_kw"></a>3.19. The Polyconic (POLCON) Definition</h2></div></div></div><p>
+      The polyconic surface is defined to be a continuous family of conic
+      sections in parallel planes. The shape of the conics is regulated by a
+      set of polynomial curves.
+    </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure64"></a><p class="title"><b>Figure 3.68. POLCON Nomenclature</b></p><div class="mediaobject"><img src="images/figure64.png" alt="POLCON Nomenclature"></div></div></blockquote></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="polcon_meth_of_def"></a>3.19.1. Method of Definition</h3></div></div></div><p>
+        The input to the polyconic routine is the canonical form of the
+        polyconic, as follows:
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="literallayout"><p>POLY1 = POLCON/ CANON, JROOTS,<br>
+<br>
+M<sub>1</sub>, M<sub>2</sub>, M<sub>3</sub>, M<sub>4</sub>, M<sub>5</sub>, M<sub>6</sub>, M<sub>7</sub>, M<sub>8</sub>, M<sub>9</sub>, M<sub>10</sub>, M<sub>11</sub>, M<sub>12</sub>,<br>
+<br>
+T, Cb, Pb,<br>
+<br>
+A0, A1, A2, A3, A4, A5, A6, A7,<br>
+<br>
+B0, B1, B2, B3, B4, B5, B6, B7,<br>
+<br>
+C0, C1, C2, C3, C4, C5, C6, C7,<br>
+<br>
+D0, D1, D2, D3, D4, D5, D6, D7,<br>
+<br>
+L0, L1, L2, L3, L4, L5, L6, L7,<br>
+<br>
+H0, H1, H2, H3, H4, H5, H6, H7,<br>
+<br>
+P0, P1, P2, P3, P4, P5, P6, P7,<br>
+<br>
+A 1/2, B 1/2, C 1/2, D 1/2, L 1/2, H 1/2, P 1/2</p></div></blockquote></div><p>
+        where:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>JROOTS</p><p>
+            Equal to 2 if there are square root terms, 1 otherwise
+          </p></li><li><p>
+            M<sub>1</sub> -
+            M<sub>12</sub>
+          </p><p>
+            Transformation matrix (may be all zeros)
+          </p></li><li><p>T</p><p>
+            Thickness between defined surface and working surface
+          </p></li><li><p>Cb</p><p>
+            Origin of curves, that is, the start of the polyconic
+          </p></li><li><p>Pb</p><p>
+            Full-size length of the valid region of the surface
+          </p></li><li><p>
+            A0-P<sub>1/2</sub>
+          </p><p>
+            Coefficients of surface control equations, each of the form:
+            </p><div class="blockquote"><blockquote class="blockquote"><p>
+                f(d) = A 1/2 &#8730;d + A0 + A1d +
+                a2d<sup>2</sup> +
+                a3d<sup>3</sup> +
+                a4d<sup>4</sup> +
+                a5d<sup>5</sup> +
+                a6d<sup>6</sup> +
+                a7d<sup>7</sup>
+              </p></blockquote></div><p>
+          </p></li></ul></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>
+          The coefficients of the square root terms for all the surface
+          control equations are in the bottom line of the canonical form. The
+          square root terms may all be zero (JROOTS = 1).
+        </p></td></tr></table></div><p>
+        See <a href="polcon_kw.html#figure64" title="Figure 3.68. POLCON Nomenclature">Figure 3.68</a> for a graphic representation of a
+        POLCON.
+      </p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="tabcyl_kw.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"><a accesskey="u" href="geometry.html"><img src="images/up.gif" alt="Up"></a></td><td width="40%" align="right"> <a accesskey="n" href="rldsrf_kw.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">3.18. The Tabulated Cylinder (TABCYL) Definition </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> 3.20. The Ruled Surface (RLDSRF) Definitions</td></tr></table></div></body></html>

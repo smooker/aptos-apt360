@@ -1,0 +1,320 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Chapter 14. Special Techniques</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="index.html" title="APT360 Programmers Manual"><link rel="prev" href="spec_trans_stmnt.html" title="13.4. Special Transformation Statements (VTLAXS, WCORN)"><link rel="next" href="startup_cmds.html" title="14.2. Startup Commands"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 14. Special Techniques</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="spec_trans_stmnt.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="startup_cmds.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="spec_tech"></a>Chapter 14. Special Techniques</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="sect1"><a href="spec_tech.html#spec_feats">14.1. Special Features</a></span></dt><dd><dl><dt><span class="sect2"><a href="spec_tech.html#multax_kw">14.1.1. The Multiaxis Output (MULTAX) Statement</a></span></dt><dt><span class="sect2"><a href="spec_tech.html#2dcalc_3dcalc_ndtest_kw">14.1.2. The Processor Mode (2DCALC, 3DCALC, NDTEST) Statements</a></span></dt><dt><span class="sect2"><a href="spec_tech.html#numpts_kw">14.1.3. The Number of Points (NUMPTS) Statement </a></span></dt><dt><span class="sect2"><a href="spec_tech.html#maxdp_kw">14.1.4. The Maximum Step (MAXDP) Statement</a></span></dt><dt><span class="sect2"><a href="spec_tech.html#thick_kw">14.1.5. The Thickness (THICK) Statement</a></span></dt><dt><span class="sect2"><a href="spec_tech.html#dntcut_cut_kw">14.1.6. The Delete Output (DNTCUT, CUT) Statements</a></span></dt><dt><span class="sect2"><a href="spec_tech.html#tranto_kw">14.1.7. The Transfer statement (TRANTO) Statements</a></span></dt><dt><span class="sect2"><a href="spec_tech.html#spec_cutter_opt">14.1.8. The Special Cutter Option</a></span></dt><dt><span class="sect2"><a href="spec_tech.html#gougck_kw">14.1.9. The Special Calculation (GOUGCK) Statement</a></span></dt></dl></dd><dt><span class="sect1"><a href="startup_cmds.html">14.2. Startup Commands</a></span></dt><dd><dl><dt><span class="sect2"><a href="startup_cmds.html#indir_effect">14.2.1. The Effect of INDIR Vectors</a></span></dt><dt><span class="sect2"><a href="startup_cmds.html#special_go_stmnts">14.2.2. Special Case GO/ Statements</a></span></dt><dt><span class="sect2"><a href="startup_cmds.html#offset_error">14.2.3. Possible Startup Error Using OFFSET</a></span></dt><dt><span class="sect2"><a href="startup_cmds.html#srfvct_kw">14.2.4. The SRFVCT Statement</a></span></dt></dl></dd><dt><span class="sect1"><a href="to_on_past_tanto_pstan_impl.html">14.3. Implications of TO, ON, PAST, TANTO, and PSTAN</a></span></dt><dd><dl><dt><span class="sect2"><a href="to_on_past_tanto_pstan_impl.html#to_past">14.3.1. TO and PAST</a></span></dt><dt><span class="sect2"><a href="to_on_past_tanto_pstan_impl.html#on">14.3.2. ON</a></span></dt><dt><span class="sect2"><a href="to_on_past_tanto_pstan_impl.html#tanto_pstan">14.3.3. TANTO and PSTAN</a></span></dt><dt><span class="sect2"><a href="to_on_past_tanto_pstan_impl.html#implicit_chk_surf">14.3.4. Implicit Check Surface</a></span></dt><dt><span class="sect2"><a href="to_on_past_tanto_pstan_impl.html#limiting_conditions">14.3.5. Some Limiting Conditions</a></span></dt></dl></dd><dt><span class="sect1"><a href="multiaxis_prog.html">14.4. Multiaxis Programming</a></span></dt><dd><dl><dt><span class="sect2"><a href="multiaxis_prog.html#tlaxis_kw">14.4.1. The Tool Axis (TLAXIS) Specification Statement</a></span></dt><dt><span class="sect2"><a href="multiaxis_prog.html#4axis_case">14.4.2. The Four-Axis Case</a></span></dt><dt><span class="sect2"><a href="multiaxis_prog.html#5axis_case">14.4.3. The Five-Axis Case</a></span></dt><dt><span class="sect2"><a href="multiaxis_prog.html#impossible_spec">14.4.4. Impossible Specification</a></span></dt></dl></dd><dt><span class="sect1"><a href="arelem_requirements.html">14.5. Arithmetic Element Requirements</a></span></dt><dd><dl><dt><span class="sect2"><a href="arelem_requirements.html#cutter_arelem_calc">14.5.1. Definition of Cutter Used in ARELEM Calculations</a></span></dt><dt><span class="sect2"><a href="arelem_requirements.html#cut2surf_calc">14.5.2. Cutter-to-Surface Calculation</a></span></dt><dt><span class="sect2"><a href="arelem_requirements.html#improp_cut2surf">14.5.3. Improper Cutter-to-Surface Relationships</a></span></dt><dt><span class="sect2"><a href="arelem_requirements.html#toolpos_mod_change">14.5.4. Change in Tool Position Modifier</a></span></dt><dt><span class="sect2"><a href="arelem_requirements.html#arelem_impossble_spec">14.5.5. Impossible Specification</a></span></dt></dl></dd><dt><span class="sect1"><a href="rldsrf_implications.html">14.6. Implications of Ruled Surface (RLDSRF)</a></span></dt><dt><span class="sect1"><a href="plane_limitations.html">14.7. Limitations on Usage of Planes</a></span></dt><dt><span class="sect1"><a href="tan_surf_limitations.html">14.8. Tangent Surface Limitations</a></span></dt></dl></div><p>
+    This chapter describes those features of the processor or language with
+    regard to motion commands that were sufficiently complex so as to warrant
+    their exclusion from the basic discussion of motion commands (<a href="motion_cmds.html" title="5.4. Motion Commands">Section 5.4</a>).  It also includes extensions of concepts
+    originally introduced in <a href="prog_toolpath.html" title="Chapter 5. Programming a Tool Path">Chapter 5</a> in a simpler form.
+  </p><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="spec_feats"></a>14.1. Special Features</h2></div></div></div><p>
+      Certain options are available in the APT language that can override the
+      normal manner in which the processor computes the required information
+      for a series of motion commands.  These options should be used when it
+      is know that a special condition exists such that the normal assumptions
+      made by the processor will not result in the desired output.
+    </p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="multax_kw"></a>14.1.1. The Multiaxis Output (MULTAX) Statement</h3></div></div></div><p>
+        Many machine tools have the capability of controlling rotation in one
+        or more directions, in addition to moving along the coordinate axes.
+        The APT processor has the capability for outputting, in addition to
+        the location of the end of the cutter, the components of the tool axis
+        vector.  This information is used later by the postprocessor to
+        control the rotational axes on the machine tool.  The statement that
+        requests the APT processor to output the axis vector along with the
+        end point of the tool is as follows:
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig14-01-01-1.png"></div></blockquote></div><p>
+        The first form specifies that, from the location of the MULTAX
+        statement on, all subsequent cutter locations will carry an associated
+        axis vector for the rest of the part program.  In certain instances
+        this information is needed only in a portion of the part program.  The
+        second form is then available.  The axis vectors will be output from
+        the MULTAX/ ON statement until the MULTAX/ OFF statement is encountered.
+        If both forms have been specified, the MULTAX statement takes
+        precedence, and the axis vectors will be output for the rest of the
+        part program.
+      </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>
+          The individual postprocessor that is to be used at the conclusion of
+          the cutter calculation phase may be set up only to recognize the
+          MULTAX specification; that is, it may expect axis vectors for the
+          rest of the part program as soon as any MULTAX specification is
+          given.  The user must be sure that the postprocessor will accept the
+          alternate form (that is, MULTAX/ ON and MULTAX/ OFF) before it is
+          specified in the part program.
+        </p></td></tr></table></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="2dcalc_3dcalc_ndtest_kw"></a>14.1.2. The Processor Mode (2DCALC, 3DCALC, NDTEST) Statements</h3></div></div></div><p>
+        The APT processor generally uses an iterative technique to determine
+        an acceptable cut vector in an elementary cut sequence such that the
+        tolerances are not exceeded.  However, the APT processor does have the
+        capability of determining whether an analytical solution can be used,
+        and it uses this technique whenever possible to provide a more
+        efficient operation.  The analytical method can be used under the
+        following conditions:
+      </p><div class="blockquote"><blockquote class="blockquote"><p>For normal motion commands (that is, GOLFT/ S1, S2)</p><div class="itemizedlist"><ul type="disc"><li><p>No multiple check surface specification</p></li><li><p>MULTAX not in effect</p></li><li><p>Vertical tool axis</p></li><li><p>DS and CS are vertical planes or cylinders</p></li><li><p>PSTAN  not specified</p></li><li><p>PS is a non-vertical plane</p></li><li><p>
+              No &#946; angle specified in the definition of the cutter
+            </p></li></ul></div><p>
+          For start-up statements (that is, GO/ S1, S2)
+        </p><div class="itemizedlist"><ul type="disc"><li><p>Maximum of two surfaces involved</p></li><li><p>MULTAX not in effect</p></li><li><p>THICK not specified for the PS</p></li><li><p>SFVCT not specified</p></li><li><p>INDIR not specified for the PS</p></li><li><p>No angle specified in the definition of the cutter</p></li><li><p>PS is a non-vertical plane</p></li><li><p>DS is a vertical plane or cylinder</p></li></ul></div></blockquote></div><p>
+        The automatic selection of the analytical method by the processor can
+        be overridden by the vocabulary word 3DCALC.  When this word is
+        specified on a card by itself, the processor uses the iterative method
+        in all cases.  This statement is modal; that is, it is in effect until
+        overridden by another statement.
+      </p><p>
+        Two statements can override the 3DCALC statement.  These are 2DCALC and
+        NDTEST.  The effect of these statements is identical -- the processor
+        is to check again for the possible use of analytical calculations.
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="numpts_kw"></a>14.1.3. The Number of Points (NUMPTS) Statement </h3></div></div></div><p>
+        The iterative technique basically involves the following:
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="itemizedlist"><ul type="disc"><li><p>
+              Compute a cut vector whose origin is the current cutter
+              location.
+            </p></li><li><p>
+              Is it an acceptable vector (as long as possible, but still within
+              tolerance)?
+            </p></li><li><p>
+              If not, go back and compute a new vector, and repeat until a
+              satisfactory cut vector is obtained.
+            </p></li><li><p>
+              Each time a satisfactory vector is found, the processor
+              investigates the check surface to see whether it has been
+              reached. If it has, this motion command has been completed.  If
+              the CS has not been encountered, another cut vector is found on
+              the basis of the end of the previous vector, and the whole
+              operation is repeated. 
+            </p></li></ul></div></blockquote></div><p>
+        This is a very rough outline of the way in which cut vectors -- and
+        later, cut sequences -- are computed.  Note, however, that this
+        iterative technique can be stopped only when the check surface is
+        reached.  If an improper part program statement is specified, it is
+        possible to generate cut vectors indefinitely along the same part
+        surface and drive surface, never reaching the check surface.
+        <a href="spec_tech.html#figure107" title="Figure 14.1. Improper Check Surface">Figure 14.1</a> illustrates such a case.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure107"></a><p class="title"><b>Figure 14.1. Improper Check Surface</b></p><div class="mediaobject"><img src="images/figure107.png" alt="Improper Check Surface"></div></div><pre class="programlisting">
+FROM/ PTA
+GO/ DS
+TLRGT, GORGT/ DS, CS</pre></blockquote></div><p>
+        The processor avoids the possibility of an infinite loop by allowing
+        only 400 cut vectors to be defined for any one elementary cut
+        sequence.  If the processor fails to encounter the check surface after
+        computing 400 cut vectors along the same part and drive surface
+        combination, an error is indicated.
+      </p><p>
+        It is possible that a particular situation may arise where more than
+        400 cut vectors would be required to reach a valid check surface.  The
+        NUMPTS statement provides the capability of overriding the 400 maximum
+        set by the processor.  The format of this statement is:
+      </p><div class="blockquote"><blockquote class="blockquote"><p>NUMPTS/ N</p></blockquote></div><p>
+        This statement specifies that the maximum number of cut vectors in any
+        cut sequence shall not exceed N.  The statement is modal; N will be in
+        effect until a new NUMPTS  statement is specified.
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="maxdp_kw"></a>14.1.4. The Maximum Step (MAXDP) Statement</h3></div></div></div><p>
+        The rough outline given for the generation of a cut sequence actually
+        contains two iterative schemes, one embedded in the other.  As just
+        discussed for NUMPTS, the one iteration involves computing more and
+        more cut vectors until a check surface is reached.  The other
+        iteration is concerned with optimizing the length of the individual
+        cut vector.  The processor computes an acceptable cut vector that will
+        not result in a violation of the specified tolerances.  However, the
+        processor does have an upper limit on the length of the individual
+        vectors.  This upper limit is taken to be ten units, unless otherwise
+        specified in the part program.  The upper limit can be controlled in
+        the part program by the use of the MAXDP statement, whose format is as
+        follows:
+      </p><div class="blockquote"><blockquote class="blockquote"><p>MAXDP/ A</p></blockquote></div><p>
+        The maximum length of the individual cut vectors is set to A units;
+        this will continue in effect until a new MAXDP statement is specified.
+        The following rules apply to the use of MAXDP:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            The statement affects only the iterative scheme, not the
+            analytical method.
+          </p></li><li><p>
+            This statement is ignored if both the drive and part surfaces are
+            planes.
+          </p></li><li><p>
+            This statement affects only cut sequences resulting from a regular
+            motion command, not those resulting from either point-to-point
+            statements (GOTO, GODLTA) or start-up commands (GO, OFFSET).
+          </p></li></ul></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="thick_kw"></a>14.1.5. The Thickness (THICK) Statement</h3></div></div></div><p>
+        The APT language permits a thickness to be added to any or all of the
+        surfaces used in a motion or start-up statement.  The format of the
+        THICK statement is as follows:
+      </p><div class="blockquote"><blockquote class="blockquote"><p>THICK/ THPS, THDS, THCS, THCS1</p></blockquote></div><p>
+        This statement specifies that the thickness for the part surface is
+        THPS, for the drive surface, THDS, and for the first and second check
+        surfaces, THCS and THCS1, respectively.  The processor assumes that
+        the last thickness specified is to apply for the remaining surfaces;
+        that is, THICK/.002, .004 results in the same processing as
+        THICK/ .002, .004, .004, .004. The THICK statement is in effect for all
+        surfaces until another THICK statement is specified.
+      </p><p>
+        A positive thickness specification results in a machined surface that
+        will have excess stock left; a negative thickness specification
+        results in an undercutting condition.  An value may be specified for a
+        positive thickness; however, because of the method used by the
+        processor in implementing the THICK feature, a negative thickness must
+        have a magnitude that does not exceed the cutter radius.  For example,
+        if the cutter radius is .5, any value T can be used for thickness as
+        long as T &#8805; -.5.  <a href="spec_tech.html#figure108" title="Figure 14.2. THICK, Add Material">Figure 14.2</a> and <a href="spec_tech.html#figure109" title="Figure 14.3. THICK, Remove Material">Figure 14.3</a> show examples of positive and
+        negative specifications for THICK.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure108"></a><p class="title"><b>Figure 14.2. THICK, Add Material</b></p><div class="mediaobject"><img src="images/figure108.png" alt="THICK, Add Material"></div></div><pre class="programlisting">
+FROM/ PTB
+THICK/ 0, TH, 0
+GO/ PAST, C1
+
+FROM/ PTA
+THICK/ 0, TH, 0
+GO/ TO, C1</pre></blockquote></div><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure109"></a><p class="title"><b>Figure 14.3. THICK, Remove Material</b></p><div class="mediaobject"><img src="images/figure109.png" alt="THICK, Remove Material"></div></div><pre class="programlisting">
+FROM/ PTB
+THICK/ 0, -.25, 0
+GO/ PAST, C1
+
+FROM/ PTA
+THICK/ 0, -.25, 0
+GO/ C1</pre></blockquote></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>
+          THICK  is ignored for any surface for which the
+          cutter-to-surface relationship is ON. This is necessary because the
+          processor is unable to determine what is meant by a positive or
+          negative thickness when the end of the tool is on the surface in
+          question. 
+        </p></td></tr></table></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="dntcut_cut_kw"></a>14.1.6. The Delete Output (DNTCUT, CUT) Statements</h3></div></div></div><p>
+        The APT statement DNTCUT specifies that the processor is to execute
+        the following commands involving cutter motion, but the resulting
+        cutter points are not to be output.  The CUT statement indicates that
+        the processor is to resume outputting the cutter points.  When a CUT
+        statement is given, the current cutter location is output by the
+        processor.  This, in effect, causes a cutter motion directly from the
+        last location preceding the DNTCUT statement to the current cutter
+        location.  This feature is used principally to solve start-up problems
+        that require intermediate cutter positions without actually forcing
+        the cutter to move through these intermediate positions.
+      </p><p>
+        <a href="spec_tech.html#figure110" title="Figure 14.4. DNTCUT, CUT Usage">Figure 14.4</a> illustrates a usage of CUT and DNTCUT.  The
+        desired start-up location is PTB.  This can be reached by using a DNTCUT
+        command and moving the cutter to PTC. A normal start-up command is then
+        given, followed by a CUT statement.  The resultant output points will
+        be such that the cutter moves directly from PTA to PTB.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure110"></a><p class="title"><b>Figure 14.4. DNTCUT, CUT Usage</b></p><div class="mediaobject"><img src="images/figure110.png" alt="DNTCUT, CUT Usage"></div></div><pre class="programlisting">
+FROM/ PTA
+DNTCUT
+GO/ TO, PTC
+GO/ S4, S2
+CUT</pre></blockquote></div><p>
+        When the DNTCUT mode is in effect, the points calculated, except for
+        the final point, do not appear on the CLFILE and are therefore not
+        available for debugging purpose.  If it is desirable to see the
+        intermediate points, DNTCUT/ PRINT may be specified.  This will cause
+        the intermediate points and their ISN'S (Internal Statement Numbers)
+        to be output during ARELEM processing.
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="tranto_kw"></a>14.1.7. The Transfer statement (TRANTO) Statements</h3></div></div></div><p>
+        The concept of branching within a part program was discussed in
+        <a href="loops_macros.html" title="Chapter 8. Loops and Macros in the APT Language">Chapter 8</a>.  All of the branching operations
+        introduced there are
+        actually executed by the processor before the time the cutter paths
+        are computed.  There are instances when the desired branching can be
+        acted upon only on the basis of the results of executing a statement
+        involving movement of the tool.  This can be done by using the TRANTO
+        statement.  This statement will be ignored by the other portions of
+        the processor and will be acted upon only when the cutter paths are
+        computed.  The format of this statement is as follows:
+      </p><div class="blockquote"><blockquote class="blockquote"><p>TRANTO/ ID1</p></blockquote></div><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure111"></a><p class="title"><b>Figure 14.5. TRANTO Usage</b></p><div class="mediaobject"><img src="images/figure111.png" alt="TRANTO Usage"></div></div></blockquote></div><p>
+        When the arithmetic element (the portion of the APT processor that
+        computes the cutter points) encounters this statement, control is
+        passed immediately to the statement whose label is ID1.  The statement
+        labeled ID1 must generate a PROTAP record. (For contents of PROTAP,
+        see section titled "Postprocessor Interface" in IBM manual N/C 360 APT
+        Application Description (H20-0181).)  This capability is useful in
+        certain multiple check surface cases (see <a href="motion_cmds.html#mult_check_surf" title="5.4.3.4. Multiple Check Surfaces">Section 5.4.3.4</a>).  An
+        example is shown in <a href="spec_tech.html#figure111" title="Figure 14.5. TRANTO Usage">Figure 14.5</a>.  The same contour is
+        to be machined
+        with two different-size cutters (a rough and finish cut).  The fillet
+        defined as S2 requires that multiple check surface branching be used.
+        In addition, the motion along S4 requires a GOFWD for the small cutter
+        and GORGT for the large cutter.  The following set of APT statements
+        would be required for the large cutter:
+      </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">FROM/ PTA
+GO/ S1, PS, ON, S3
+TLRGT, GORGT/ S1, TO, S4
+GORGT/ S4
+GOLFT/ S5
+$$
+$$ Other APT Statements
+$$</pre></blockquote></div><p>
+        However, the following instructions would be required for the small
+        cutter:
+      </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">FROM/ PTA
+GO/S1, PS, ON, S3
+TLRGT, GORGT/ S1, TANTO, S2
+GOFWD/ S2, TANTO, S4
+GOFWD/ S4, PAST, S5
+GOLFT/ S5
+$$
+$$ Other APT Statements
+$$</pre></blockquote></div><p>
+        Using the concept of multiple check surfaces and the TRANTO statement,
+        the two sets of instructions can be combined as follows:
+      </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">FROM/ PTA
+GO/ S1, PS, ON, S3
+TLRGHT, GORGHT/ S1, TANTO, S2, ID1, TO, S4, $
+ID2
+ID1) GOFWD/ S2, TANTO, S4
+GOFWD/ S4, PAST, S5
+TRANTO/ ID3
+ID2) GORGT/ S4
+ID3) GOLFT/ S5
+$$
+$$ Other APT Statements
+$$</pre></blockquote></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="spec_cutter_opt"></a>14.1.8. The Special Cutter Option</h3></div></div></div><p>
+        The basic cutter configuration statement (CUTTER/) was described in
+        <a href="prog_toolpath.html#cutter_kw" title="5.1.1. Description of Cutter">Section 5.1.1</a>. The following is a special form
+        of the cutter statement:
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig14-01-08-1.png"></div></blockquote></div><p>
+        This statement defines a disk or ring cutter, with radius equal to RA
+        and height along the tool axis from the bottom of the cutter equal to
+        HI.  The selection of the integer 1 or 2 indicates:
+      </p><div class="orderedlist"><ol type="1"><li><p>The cutter is to be used for the part surface.</p></li><li><p>The cutter is to be used for the drive surface.</p></li></ol></div><p>
+        The cutter specified by this statement is used instead of the real
+        cutter for the indicated surface.
+      </p><p>
+        The specification remains in effect until either a new disk is
+        specified or the same statement is used with the OFF modifier (that
+        is, <span class="inlinemediaobject"><img src="images/fig14-01-08-2.png"></span>). <a href="spec_tech.html#figure112" title="Figure 14.6. Disk Cutter Definition">Figure 14.6</a> shows a sample disk
+        cutter definition.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure112"></a><p class="title"><b>Figure 14.6. Disk Cutter Definition</b></p><div class="mediaobject"><img src="images/figure112.png" alt="Disk Cutter Definition"></div></div></blockquote></div><p>
+        The following example shows a possible usage of a disk cutter.
+      </p><p>
+        <a href="spec_tech.html#figure113" title="Figure 14.7. Special CUTTER Position Move">Figure 14.7</a> shows a part to be machined (represented
+        by the shaded
+        area).  The indicated motion statement would result in the cutter
+        being moved to position B. <a href="spec_tech.html#figure114" title="Figure 14.8. Special CUTTER Invalid Cut Move">Figure 14.8</a> shows the part
+        program
+        statements required to machine the part.  However, motion cannot be
+        continued along HYPERP to the desired stopping location at PL2.  This
+        situation occurs because HYPERP is a hyperbola, and the cutter would
+        be in contact with the drive surface at more than one point when it
+        reaches location C.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure113"></a><p class="title"><b>Figure 14.7. Special CUTTER Position Move</b></p><div class="mediaobject"><img src="images/figure113.png" alt="Special CUTTER Position Move"></div></div></blockquote></div><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure114"></a><p class="title"><b>Figure 14.8. Special CUTTER Invalid Cut Move</b></p><div class="mediaobject"><img src="images/figure114.png" alt="Special CUTTER Invalid Cut Move"></div></div></blockquote></div><p>
+        This situation can be resolved by the sequence of instructions shown
+        in <a href="spec_tech.html#figure115" title="Figure 14.9. Special CUTTER Valid Cut Move">Figure 14.9</a>.  The cutter is positioned as before,
+        at location B,
+        with the first command.  The second command specifies that, for
+        calculations involving the drive surface (HYPERP), a disk cutter will
+        be used.  The height of the disk will be zero (the radius must be the
+        same as given in the standard cutter definition -- the example assumes
+        that this value is .5).  Now, the next motion command will position the
+        cutter correctly at location D.  The disk cutter option is then turned
+        off, and the final statement positions the cutter at location E.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure115"></a><p class="title"><b>Figure 14.9. Special CUTTER Valid Cut Move</b></p><div class="mediaobject"><img src="images/figure115.png" alt="Special CUTTER Valid Cut Move"></div></div></blockquote></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="gougck_kw"></a>14.1.9. The Special Calculation (GOUGCK) Statement</h3></div></div></div><p>
+        Under certain conditions an APT surface may have an extreme change in
+        curvature over a very small portion of the curve.  See <a href="spec_tech.html#figure116" title="Figure 14.10. GOUGCK Sample Surface">Figure 14.10</a> for
+        an example of such a situation.  When this occurs, the arithmetic
+        element may output a cut vector that is within tolerance at the end
+        point of the vector but out of tolerance at some point (usually near
+        the middle of the vector).  See <a href="spec_tech.html#figure117" title="Figure 14.11. GOUGCK Bad Cut Vector">Figure 14.11</a>.  The GOUGCK
+        statement can
+        be used to force the arithmetic element to go through a special
+        calculation phase to eliminate the error condition.  The format of
+        this statement is:
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig14-01-09-1.png"></div></blockquote></div><p>
+        The processor goes through the special calculation phase from the
+        point where the GOUGCK/ ON statement occurs to the place where
+        GOUGCK/ OFF is specified.
+      </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>
+          This special calculation phase is extremely time-consuming and
+          should be used only when absolutely necessary. (Although this should
+          not pose a problem with today's processor speed. -- SED)
+        </p></td></tr></table></div><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure116"></a><p class="title"><b>Figure 14.10. GOUGCK Sample Surface</b></p><div class="mediaobject"><img src="images/figure116.png" alt="GOUGCK Sample Surface"></div></div><div class="figure"><a name="figure117"></a><p class="title"><b>Figure 14.11. GOUGCK Bad Cut Vector</b></p><div class="mediaobject"><img src="images/figure117.png" alt="GOUGCK Bad Cut Vector"></div></div></blockquote></div></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="spec_trans_stmnt.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="startup_cmds.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">13.4. Special Transformation Statements (VTLAXS, WCORN) </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> 14.2. Startup Commands</td></tr></table></div></body></html>

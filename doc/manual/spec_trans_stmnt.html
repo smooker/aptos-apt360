@@ -1,0 +1,192 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>13.4. Special Transformation Statements (VTLAXS, WCORN)</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="cutpath_xform.html" title="Chapter 13. Cutter Path Transformation Statements"><link rel="prev" href="tracut_copy_usage.html" title="13.3. Combined Use of TRACUT and COPY"><link rel="next" href="spec_tech.html" title="Chapter 14. Special Techniques"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">13.4. Special Transformation Statements (VTLAXS, WCORN)</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="tracut_copy_usage.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center">Chapter 13. Cutter Path Transformation Statements</th><td width="20%" align="right"> <a accesskey="n" href="spec_tech.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="spec_trans_stmnt"></a>13.4. Special Transformation Statements (VTLAXS, WCORN)</h2></div></div></div><p>
+      A special transformation capability is provided that can be used to
+      prorate cutter axial change linearly as a function of the distance
+      traveled along a cutter path.  The processor first computes the required
+      cutter path (which must be two-dimensional only, that is, must be at a
+      constant Z height) and then reworks the path to achieve a given starting
+      axis angle, ending axis angle, and a linear proration of angular change
+      along the path. <a href="spec_trans_stmnt.html#swarf_cut1" title="Figure 13.3. Swarf Cut Path 1">Figure 13.3</a> and
+      <a href="spec_trans_stmnt.html#swarf_cut2" title="Figure 13.4. Swarf Cut Path 2">Figure 13.4</a> illustrate the types of parts
+      that can be cut using this capability.
+
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="swarf_cut1"></a><p class="title"><b>Figure 13.3. Swarf Cut Path 1</b></p><div class="mediaobject"><img src="images/figure12-04-1.png" alt="Swarf Cut Path 1"></div></div></blockquote></div><p>
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="swarf_cut2"></a><p class="title"><b>Figure 13.4. Swarf Cut Path 2</b></p><div class="mediaobject"><img src="images/figure12-04-2.png" alt="Swarf Cut Path 2"></div></div></blockquote></div><p>
+    </p><p>
+      The following conditions must be fulfilled before the special
+      transformation capability can be used.
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          The cutter path before transformation is applied must be at a
+          constant Z height.
+        </p></li><li><p>
+          MULTAX must be specified in the part program, and, before
+          transformation is applied, the tool axis vector must be 0, 0, 1
+          throughout the path to be transformed.
+        </p></li><li><p>
+          The cutter path must not contain any inflections.
+          <a href="spec_trans_stmnt.html#path_inflection" title="Figure 13.5. Path Inflection">Figure 13.5</a> illustrates this requirement.
+        </p><p>
+          </p><div class="figure"><a name="path_inflection"></a><p class="title"><b>Figure 13.5. Path Inflection</b></p><div class="mediaobject"><img src="images/figure12-04-3.png" alt="Path Inflection"></div></div><p>
+          </p><div class="itemizedlist"><ul type="circle"><li><p>Path A: No inflection, OK</p></li><li><p>Path B: No inflection, OK</p></li><li><p>
+                Path C: Inflection, special transformation not allowed.
+              </p></li></ul></div><p>
+        </p></li></ul></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="vtlaxs_kw"></a>13.4.1. The VTLAXS Statement</h3></div></div></div><p>
+        The VTLAXS statement is used to define the special transformation to
+        be performed. The general format for the VTLAXS statement is:
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig12-04-01-1.png"></div></blockquote></div><p>
+        Two VTLAXS statements are used for each section of cutter path to be
+        transformed.  Motion statements included between the two VTLAXS
+        commands define the actual path segment.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig12-04-01-2.png"></div></blockquote></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="vtlaxs_on_format"></a>13.4.1.1. ON Format</h4></div></div></div><p>
+          Initial cutter orientation and type are defined by the parameters
+          after the VTLAXS/ON statement.
+        </p><div class="itemizedlist"><ul type="disc"><li><p>ON</p><p>
+              Indicates that the following motion statements will define
+              cutter path to be transformed.
+            </p></li><li><p>RIGHT or LEFT (1st instance)</p><p>
+              Specifies the initial direction from vertical that the cutter
+              tilt angle is to be made relative to the direction of cutter
+              motion. (see <a href="spec_trans_stmnt.html#vtlaxs_tilt_dir" title="Figure 13.6. VTLAXS Tilt Direction">Figure 13.6</a>)
+            </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="vtlaxs_tilt_dir"></a><p class="title"><b>Figure 13.6. VTLAXS Tilt Direction</b></p><div class="mediaobject"><img src="images/figure12-04-01-1.png" alt="VTLAXS Tilt Direction"></div></div></blockquote></div></li><li><p><span class="emphasis"><em>alpha</em></span></p><p>
+              The initial cutter tilt angle in degrees from vertical (less than
+              80 degrees).
+            </p></li><li><p><span class="emphasis"><em>d</em></span></p><p>The cutter diameter. </p></li><li><p><span class="emphasis"><em>r</em></span></p><p>The cutter corner radius.</p></li><li><p>RIGHT or LEFT (2nd instance)</p><p>
+              Specifies on which side of the drive surface the cutter is
+              located along the direction of cutter motion.
+              (see <a href="spec_trans_stmnt.html#vtlaxs_drvsrf_side" title="Figure 13.7. VTLAXS Drive Surface Side">Figure 13.7</a>)
+            </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="vtlaxs_drvsrf_side"></a><p class="title"><b>Figure 13.7. VTLAXS Drive Surface Side</b></p><div class="mediaobject"><img src="images/figure12-04-01-2.png" alt="VTLAXS Drive Surface Side"></div></div></blockquote></div></li><li><p>ZSMALL</p><p>
+              Specifies desired cutter penetration into the part surface.  Use
+              this parameter when the cutter orientation in
+              <a href="spec_trans_stmnt.html#vtlaxs_partpent_1" title="Figure 13.8. VTLAXS Part Surface Penetration 1">Figure 13.8</a> is
+              desired.  Leave this field blank (omit comma also) if the cutter
+              orientation in <a href="spec_trans_stmnt.html#vtlaxs_partpent_2" title="Figure 13.9. VTLAXS Part Surface Penetration 2">Figure 13.9</a> is desired
+              (This parameter has no effect on cutter orientation when the
+              cutter tilt angle is as illustrated in
+              <a href="spec_trans_stmnt.html#vtlaxs_partpent_3" title="Figure 13.10. VTLAXS Part Surface Penetration 3">Figure 13.10</a>).
+              </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>
+                  The ZSMALL parameter cannot be used unless
+                  <span class="emphasis"><em>r</em></span>, the cutter corner radius is zero.
+                </p></td></tr></table></div><p>
+            </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="vtlaxs_partpent_1"></a><p class="title"><b>Figure 13.8. VTLAXS Part Surface Penetration 1</b></p><div class="mediaobject"><img src="images/figure12-04-01-3.png" alt="VTLAXS Part Surface Penetration 1"></div></div></blockquote></div><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="vtlaxs_partpent_2"></a><p class="title"><b>Figure 13.9. VTLAXS Part Surface Penetration 2</b></p><div class="mediaobject"><img src="images/figure12-04-01-4.png" alt="VTLAXS Part Surface Penetration 2"></div></div></blockquote></div><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="vtlaxs_partpent_3"></a><p class="title"><b>Figure 13.10. VTLAXS Part Surface Penetration 3</b></p><div class="mediaobject"><img src="images/figure12-04-01-5.png" alt="VTLAXS Part Surface Penetration 3"></div></div></blockquote></div></li></ul></div></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="vtlaxs_off_format"></a>13.4.1.2. OFF Format</h4></div></div></div><p>
+          Terminal cutter orientation is defined by the parameters after the
+          VTLAXS/ OFF, statement.
+        </p><div class="itemizedlist"><ul type="disc"><li><p>OFF</p><p>
+              Indicates the end of all motion statements defining the cutter
+              path to be transformed.
+            </p></li><li><p>RIGHT or LEFT</p><p>
+              Specifies the terminal direction from vertical that the cutter
+              tilt angle is to be made relative to the direction of cutter
+              motion.
+            </p></li><li><p><span class="emphasis"><em>beta</em></span></p><p>
+              The terminal cutter tilt angle in degrees from vertical
+              (less than 80 degrees).
+            </p></li></ul></div></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="vtlaxs_useage"></a>13.4.1.3. Use of VTLAXS Feature</h4></div></div></div><p>
+          <a href="spec_trans_stmnt.html#vtlaxs_example" title="Example 13.1. VTLAXS Usage">Example 13.1</a> displays the use of the VTLAXS
+          statement. Statements labeled 1 through 3 position the cutter to
+          perform the swarf cut. The actual cut sequence with the desired
+          cutter axis transformation is generated by statements labeled 4
+          and 5. The last statement, labeled 6, is used to clear the part
+          before returning to the set point. 
+        </p><div class="blockquote"><blockquote class="blockquote"><div class="example"><a name="vtlaxs_example"></a><p class="title"><b>Example 13.1. VTLAXS Usage</b></p><div class="mediaobject"><img src="images/figure12-04-01-6.png"></div><pre class="programlisting">   MULTAX/ ON
+
+   $$ Geometry definition
+   $$ *******************************
+   SP = POINT/ 3, -4, 4 
+   C1 = CIRCLE/ 0, 0, 0, 6
+   P0 = PLANE/ 0, 0, 1, 0
+   P1 = PLANE/ 0, 1, 0, -2
+   P2 = PLANE/ 1, 0, 0, -6
+   P3 = PLANE/ 1, 0, 0, 6
+   P4 = PLANE/ 0, 1, 0, 0
+   P5 = PLANE/ 1, 0, 0, 0
+   $$ ******************************
+
+   TLAXIS/ (VECTOR/ 0, 0, 1)
+   CUTTER/ 2
+
+   $$ Cutter motion
+   $$ ******************************
+1) FROM/ SP
+2) GO/ PAST, P3, P0
+3) TLRGT, GOLFT/ P3, ON, P4
+   VTLAXS/ ON, LEFT, 0, 2, 0, RIGHT
+4) GOFWD/ C1, ON, P5
+   VTLAXS/ OFF, LEFT, 10
+   VTLAXS/ ON, LEFT, 10, 2, 0, RIGHT
+5) GOFWD/ C1, ON, P4
+   VTLAXS/ OFF, LEFT, 0
+6) GOFWD/ P2, PAST, P1
+   GOTO/ SP
+   $$ ******************************
+
+   FINI</pre></div></blockquote></div></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="wcorn_kw"></a>13.4.2. The WCORN Statement</h3></div></div></div><p>
+        The WCORN statement may be used in conjunction with the VTLAXS
+        statement to clean out inside corners, as illustrated in
+        <a href="spec_trans_stmnt.html#wcorn_cleanout" title="Figure 13.11. WCORN Clean Out">Figure 13.11</a>.
+        The WCORN statement is placed between a VTLAXS/ ON and its
+        corresponding VTLAXS/ OFF statement.  It is placed immediately after
+        the motion statement that moves the cutter into the corner to be
+        processed. Only on WCORN statement can appear between VTLAXS/ ON and
+        VTLAXS/ OFF statements. However, several sets of these statements
+        (VTLAXS/ON, WCORN, VTLAXS/OFF, ...) may be used in a part program.  The
+        general format for the WCORN statement is:
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig12-04-02-1.png"></div></blockquote></div><p>
+        Transitional cutter axes vectors are generated for the corner
+        according to the definition of the parameters after the
+        WCORN/statement.
+      </p><div class="itemizedlist"><ul type="disc"><li><p>RIGHT or LEFT (1st instance)</p><p>
+            Specifies the initial direction from vertical that the cutter tilt
+            angle is to be made relative to the direction of the cutter
+            motion.
+          </p></li><li><p><span class="emphasis"><em>alpha</em></span></p><p>
+            The initial cutter tilt angle in degrees from the vertical (less
+            than 80 degrees).
+          </p></li><li><p>RIGHT or LEFT (2nd instance)</p><p>
+            Specifies the terminal direction from vertical that the cutter
+            tilt angle is to be made relative to the direction of cutter
+            motion.
+          </p></li><li><p><span class="emphasis"><em>beta</em></span></p><p>
+            The terminal cutter tilt angle in degrees from the vertical (less
+            than 80 degrees).
+          </p></li><li><p><span class="emphasis"><em>h</em></span></p><p>
+            The vertical height of flange (drive surface).
+          </p></li><li><p><span class="emphasis"><em>n</em></span></p><p>
+            The number of steps to be taken on each side of the corner.
+            Leave this field blank (omit comma also)  if the value 6 is
+            desired
+            </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>
+                Each step will be defined by the APT processor so that it is
+                &gt;= .0005.
+              </p></td></tr></table></div><p>
+          </p></li></ul></div><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="wcorn_cleanout"></a><p class="title"><b>Figure 13.11. WCORN Clean Out</b></p><div class="mediaobject"><img src="images/figure12-04-02-1.png" alt="WCORN Clean Out"></div></div></blockquote></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="wcorn_usage"></a>13.4.2.1. Use of WCORN Feature</h4></div></div></div><p>
+          <a href="spec_trans_stmnt.html#wcorn_example" title="Example 13.2. WCORN Example Usage">Example 13.2</a> displays the use of the WCORN
+          statement. Statements labeled 1 and 2 position the cutter to perform
+          the swarf cut. The actual cut sequence with the desired cutter axis
+          transition is generated by statements labeled 3 and 4. The last
+          statement, labeled 5, returns to the set point.
+        </p><div class="blockquote"><blockquote class="blockquote"><div class="example"><a name="wcorn_example"></a><p class="title"><b>Example 13.2. WCORN Example Usage</b></p><div class="mediaobject"><img src="images/figure12-04-02-2.png"></div><pre class="programlisting">   MULTAX/ ON
+
+   $$ Geometry definition
+   $$ ***************************************
+   SP = POINT/ 0, 0, 0
+   C1 = CIRCLE/ CENTER, -4, -4, 0, RADIUS, 14
+   C2 = CIRCLE/ CENTER, 6, -7, 0, RADIUS, 17
+   L1 = LINE/ 0, 0, 1, 0
+   $$ ***************************************
+
+   TLAXIS/ (VECTOR/ 0, 0, 1)
+   CUTTER/ 2
+
+   $$ Cutter motion
+   $$ ***************************************
+1) FROM/ SP
+   INDIRV/ 1, 0, 0
+2) GO/ C1
+   VTLAXS/ ON, LEFT, 10, 2, .5, LEFT
+3) TLLFT, GOLFT/ C1, TO, C2
+   WCORN/ LEFT, 5, RIGHT, 6, 1
+4) GOFWD/ C2, ON, L1
+   VTLAXS/ OFF, RIGHT, 8
+5) GOTO/ SP
+   $$ ***************************************
+
+   FINI</pre></div></blockquote></div></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="tracut_copy_usage.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"><a accesskey="u" href="cutpath_xform.html"><img src="images/up.gif" alt="Up"></a></td><td width="40%" align="right"> <a accesskey="n" href="spec_tech.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">13.3. Combined Use of TRACUT and COPY </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> Chapter 14. Special Techniques</td></tr></table></div></body></html>

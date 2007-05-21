@@ -1,0 +1,254 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>5.3. Startup Procedures</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="prog_toolpath.html" title="Chapter 5. Programming a Tool Path"><link rel="prev" href="cut_surf_relate.html" title="5.2. CUTTER to Surface Relationships"><link rel="next" href="motion_cmds.html" title="5.4. Motion Commands"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">5.3. Startup Procedures</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="cut_surf_relate.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center">Chapter 5. Programming a Tool Path</th><td width="20%" align="right"> <a accesskey="n" href="motion_cmds.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="startup"></a>5.3. Startup Procedures</h2></div></div></div><p>
+      The tool must be positioned properly with regard to the part surface
+      and drive surface before any statement can be given involving motion
+      along these surfaces. Usually, the location of such a starting
+      position is not defined explicitly. This section discusses the startup
+      procedures available to orient the cutter in space properly.
+    </p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="strtup_init"></a>5.3.1. Initialization</h3></div></div></div><p>
+        The tool must have a specific coordinate location before a command
+        involving movement of the tool is given. This is accomplished
+        initially with a FROM command (see <a href="p2p_programming.html#from_kw" title="4.1. The Initialization (FROM) Statement">Section 4.1</a>);
+        subsequently,
+        the location is the final position after executing the last
+        programmed movement. 
+      </p><p>
+        In addition to a coordinate location, a sense of direction must be
+        established. This can be done by one of the following.
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            Specifying a point-to-point command (GOTO, GODLTA). The
+            sense of direction is the direction resulting from moving the
+            tool to the specified location.
+          </p></li><li><p>
+            Specifying a previous command involving motion with regard to
+            part, drive and check surfaces. The sense of direction is taken
+            to be the direction of the last cut vector in the cut sequence.
+          </p></li><li><p>
+            Specifying either an INDIRV/ or an INDIRP/ statement.
+          </p></li></ul></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="indirv_kw"></a>5.3.1.1. INDIRV</h4></div></div></div><p>The general format for the INDIRV statement is:</p><div class="blockquote"><blockquote class="blockquote"><p>INDIRV/ svector</p></blockquote></div><p>
+          The INDIRV statement indicates that the forward direction of the
+          tool is the same as that of the vector specified to the right of the
+          slash (see <a href="startup.html#figure80a" title="Figure 5.12. INDIRV">Figure 5.12</a> for an example).
+          Section <a href="startup_cmds.html" title="14.2. Startup Commands">Section 14.2</a> discusses an expanded
+          INDIRV statement.
+        </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure80a"></a><p class="title"><b>Figure 5.12. INDIRV</b></p><div class="mediaobject"><img src="images/figure80a.png" alt="INDIRV"></div></div><pre class="programlisting">
+VECA = VECTOR/ .8660254, 0, .5
+FROM/ PTA
+INDIRV/ VECA</pre></blockquote></div></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="indirp_kw"></a>5.3.1.2. INDIRP</h4></div></div></div><p>The general format of the INDIRP statement is:</p><div class="blockquote"><blockquote class="blockquote"><p>INDIRP/ spoint</p></blockquote></div><p>
+          A vector is established which originates at the current tool
+          location and is directed toward the point defined to the right of
+          the slash in the INDIRP statement. This vector establishes the
+          forward direction of the tool. See <a href="startup.html#figure80b" title="Figure 5.13. INDIRP">Figure 5.13</a> for
+          an example. Chapter <a href="spec_tech.html" title="Chapter 14. Special Techniques">Chapter 14</a> discusses an
+          expanded INDIRP
+          statement.
+          </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>
+              The current tool location and the INDIRP point must not be
+              identical.
+            </p></td></tr></table></div><p>
+        </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure80b"></a><p class="title"><b>Figure 5.13. INDIRP</b></p><div class="mediaobject"><img src="images/figure80b.png" alt="INDIRP"></div></div><pre class="programlisting">
+FROM/ PTB
+INDIRP/ PTC</pre></blockquote></div></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="go_kw"></a>5.3.2. GO Surface Command</h3></div></div></div><p>
+        The GO/ statement is used to position the cutter with regard to one,
+        two, or three surfaces. The general format is:
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig5-03-02-1.png"></div></blockquote></div><p>
+        The positional modifiers TO, PAST, and ON
+        (See <a href="startup.html#figure81" title="Figure 5.14. Position Modifiers TO, ON, PAST">Figure 5.14</a>) indicate the
+        relationship of the tool with regard to the following surface in the
+        GO/ statement. As viewed from the current location of the tool, the
+        final position of the tool for each modifier is:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>TO</p><p>Tangent to the surface near (cutter) side.</p></li><li><p>PAST</p><p>Tangent to the surface far (opposite cutter) side.</p></li><li><p>ON</p><p>Tool end is on the indicated surface.</p></li></ul></div><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure81"></a><p class="title"><b>Figure 5.14. Position Modifiers TO, ON, PAST</b></p><div class="mediaobject"><img src="images/figure81.png" alt="Position Modifiers TO, ON, PAST"></div></div><pre class="programlisting">
+FROM/ PTA
+GO/ TO, S1
+
+FROM/ PTB
+GO/ ON, S2
+
+FROM/ PTC
+GO/ PAST, S3</pre></blockquote></div><p>
+        The first surface to the right of the slash is the DS, the second is
+        the PS, and, if given, the third surface is called the startup check
+        surface (CS). The third surface is used if it is necessary too specify
+        more exactly where the cutter is to be positioned. The cutter will be
+        required to be positioned with regard to the CS as well as the DS and
+        PS. When the GO/ statement references only one surface (the DS), the
+        APT processor will position the cutter with respect to the specified
+        DS and the current PS, if one has been defined. If no PS has been
+        defined, the XY-Plane is used as a PS to position the cutter properly.
+      </p><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="onesurf_strtup"></a>5.3.2.1. One-Surface Startup</h4></div></div></div><p>The format of the one-surface startup is:</p><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig5-03-02-2.png"></div></blockquote></div><p>
+          The final cutter position will be at the indicated relationship
+          (TO, ON, PAST) with the specified surface. The direction in
+          which the cutter moves is determined as follows:
+        </p><div class="itemizedlist"><ul type="disc"><li><p>
+              The normal movement is such that the final tool position also
+              satisfied a TO condition with regard to the part surface (if
+              no part surface has been defined, the XY-Plane is assumed). See
+              <a href="startup.html#figure82" title="Figure 5.15. TO, ON, PAST in One-Surface Startup">Figure 5.15</a> for examples.
+            </p></li><li><p><a name="nops_kw"></a>
+              The vocabulary word NOPS used before a one-surface startup
+              causes the processor to ignore the part surface and move only
+              with regard to the surface designated in the GO/ statement.
+              The final cutter position is calculated such that the shortest
+              possible movement is made from the current tool position to the
+              new one (see <a href="startup.html#figure83" title="Figure 5.16. NOPS in One-Surface Startup">Figure 5.16</a> for examples).
+            </p></li></ul></div><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure82"></a><p class="title"><b>Figure 5.15. TO, ON, PAST in One-Surface Startup</b></p><div class="mediaobject"><img src="images/figure82a.png" alt="TO, ON, PAST in One-Surface Startup"></div><pre class="programlisting">
+FROM/ PTA
+PSIS/ S1
+GO/ TO, S2</pre><div class="mediaobject"><img src="images/figure82b.png" alt="TO, ON, PAST in One-Surface Startup"></div><pre class="programlisting">
+FROM/ PTA
+PSIS/ S1
+GO/ ON, S2</pre><div class="mediaobject"><img src="images/figure82c.png" alt="TO, ON, PAST in One-Surface Startup"></div><pre class="programlisting">
+FROM/ PTA
+PSIS/ S1
+GO/ PAST, S2</pre></div></blockquote></div><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure83"></a><p class="title"><b>Figure 5.16. NOPS in One-Surface Startup</b></p><div class="mediaobject"><img src="images/figure83a.png" alt="NOPS in One-Surface Startup"></div><pre class="programlisting">
+FROM/ PTA
+NOPS
+GO/ TO, S1</pre><div class="mediaobject"><img src="images/figure83b.png" alt="NOPS in One-Surface Startup"></div><pre class="programlisting">
+FROM/ PTA
+NOPS
+GO/ ON, S1</pre><div class="mediaobject"><img src="images/figure83c.png" alt="NOPS in One-Surface Startup"></div><pre class="programlisting">
+FROM/ PTA
+NOPS
+GO/ PAST, S1</pre></div></blockquote></div><p>
+          A problem may arise when the NOPS feature is used. A previously
+          defined part surface, although ignored when executing the startup,
+          is still in effect for later motion statements. Upon completion of
+          the startup command, any attempt to move the cutter with a motion
+          instruction results in failure if the cutter is not within tolerance
+          of the part surface. 
+        </p><p><b>Directed One-Surface Startup. </b>
+            Use of an INDIRV or an INDIRP statement with a NOPS command
+            indicates the cutter is to move exactly in the direction of the
+            vector to the referenced surface without regard to the ""shortest"
+            or minimum movement (see <a href="startup.html#figure84" title="Figure 5.17. INDIRV or INDIRP with NOPS">Figure 5.17</a> for an example).
+            Caution must be exercised when using this feature of the processor,
+            since it is easy to specify an impossible condition (see
+            <a href="startup.html#figure85" title="Figure 5.18. Impossible One-Surface Startup">Figure 5.18</a> for such a case). If a NOPS is not used, a
+            part surface is in effect, and the INDIRV vector is used as an aid
+            in determining the general move in the direction of the referenced
+            surfaces.
+          </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure84"></a><p class="title"><b>Figure 5.17. INDIRV or INDIRP with NOPS</b></p><div class="mediaobject"><img src="images/figure84.png" alt="INDIRV or INDIRP with NOPS"></div></div><pre class="programlisting">
+FROM/ PTA
+INDIRV/ VECA
+NOPS
+GO/ S1</pre></blockquote></div><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure85"></a><p class="title"><b>Figure 5.18. Impossible One-Surface Startup</b></p><div class="mediaobject"><img src="images/figure85.png" alt="Impossible One-Surface Startup"></div></div><pre class="programlisting">
+FROM/ PTA
+INDIRV/ V1
+NOPS
+GO/ C1</pre></blockquote></div><p>
+          The cutter will not necessarily move exactly in the vector
+          direction because of the added restraint of having to move within
+          tolerance of the referenced surface and the part surface (see
+          <a href="startup.html#figure86" title="Figure 5.19. Actual INDIRV Move">Figure 5.19</a> for an example).
+        </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure86"></a><p class="title"><b>Figure 5.19. Actual INDIRV Move</b></p><div class="mediaobject"><img src="images/figure86.png" alt="Actual INDIRV Move"></div></div><pre class="programlisting">
+FROM/ PTA
+PSIS/ PS
+INDIRV/ V1
+GO/S1</pre></blockquote></div></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="twosurf_strtup"></a>5.3.2.2. Two-Surface Startup</h4></div></div></div><p>The format of the two-surface startup is:</p><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig5-03-02-3.png"></div></blockquote></div><p>
+          The cutter is moved the shortest possible distance to the required
+          relationship with the specified surfaces. The second surface
+          automatically becomes the part surface for later motion commands.
+        </p><p>
+          Examples of the possible combination of cutter positions are given
+          in <a href="startup.html#figure87" title="Figure 5.20. Possible Two-Surface Startup Positions">Figure 5.20</a>.
+        </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure87"></a><p class="title"><b>Figure 5.20. Possible Two-Surface Startup Positions</b></p><div class="mediaobject"><img src="images/figure87a.png" alt="Possible Two-Surface Startup Positions"></div><pre class="programlisting">
+FROM/ PTA
+GO/ TO, S1, TO, S2
+
+FROM/ PTA
+GO/ TO, S1, ON, S2
+
+FROM/ PTA
+GO/ TO, S1, PAST, S2</pre><div class="mediaobject"><img src="images/figure87b.png" alt="Possible Two-Surface Startup Positions"></div><pre class="programlisting">
+FROM/ PTA
+GO/ ON, S1, TO, S2
+
+FROM/ PTA
+GO/ ON, S1, ON, S2
+
+FROM/ PTA
+GO/ ON, S1, PAST, S2</pre><div class="mediaobject"><img src="images/figure87c.png" alt="Possible Two-Surface Startup Positions"></div><pre class="programlisting">
+FROM/ PTA
+GO/ PAST, S1, TO, S2
+
+FROM/ PTA
+GO/ PAST, S1, ON, S2
+
+FROM/ PTA
+GO/ PAST, S1, PAST, S2</pre></div></blockquote></div><p><b>Use of INDIRV or INDIRP. </b>
+            An INDIRV or INDIRP used before a two-surface startup
+            establishes a "guiding" direction to be used in locating the
+            proper final position. The tool will not necessarily move in the
+            referenced direction, since it must satisfy the given surface
+            requirements. This feature permits proper selection of the desired
+            position from among more than one possibility.
+            <a href="startup.html#figure88" title="Figure 5.21. Two-Surface Startup INDIRV">Figure 5.21</a> depicts the situation where either PTB
+            or PTC could be the result from a straight GO/ CIRC1, CIRC2
+            command -- the INDIRV is used to show that PTC is the desired
+            point.)
+          </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure88"></a><p class="title"><b>Figure 5.21. Two-Surface Startup INDIRV</b></p><div class="mediaobject"><img src="images/figure88.png" alt="Two-Surface Startup INDIRV"></div></div><pre class="programlisting">
+FROM/ PTA
+INDIRV/ V1
+GO/ CIRC1, CIRC2</pre></blockquote></div></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="threesurf_strtup"></a>5.3.2.3. Three-Surface Startup</h4></div></div></div><p>The format of the three-surface startup is:</p><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig5-03-02-4.png"></div></blockquote></div><p>
+          The tool is moved to the closest position at which it can satisfy
+          the given relationships. The TANTO modifier can be used with the
+          third surface only, and indicates that the second and third surfaces
+          are tangent at the desired tool location. An example of a
+          three-surface startup is shown in <a href="startup.html#figure89" title="Figure 5.22. Three-Surface Startup">Figure 5.22</a>.
+        </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure89"></a><p class="title"><b>Figure 5.22. Three-Surface Startup</b></p><div class="mediaobject"><img src="images/figure89.png" alt="Three-Surface Startup"></div></div><pre class="programlisting">
+GO/ TO, SURF1, PAST, SURF2, ON, SURF3</pre></blockquote></div><p><b>Use of INDIRV or INDIRP. </b>
+            INDIRV or INDIRP has the same meaning with a three-surface
+            startup as with a two-surface startup. It is used only to
+            establish a general looking direction and does not necessarily
+            define the actual tool movement (see <a href="startup.html#figure90" title="Figure 5.23. Three-Surface Startup with INDIRV">Figure 5.23</a>).
+          </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure90"></a><p class="title"><b>Figure 5.23. Three-Surface Startup with INDIRV</b></p><div class="mediaobject"><img src="images/figure90.png" alt="Three-Surface Startup with INDIRV"></div></div><pre class="programlisting">
+INDIRV/ V3
+GO/ TO, SURF1, TO, SURF2, TO, SURF3</pre></blockquote></div></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="offset_kw"></a>5.3.3. The OFFSET/ Statement</h3></div></div></div><p>
+        The OFFSET/ statement is used to provide additional means of
+        controlling the final cutter position in a startup situation. The
+        format of the OFFSET/ statement is as follows:
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig5-03-03-1.png"></div></blockquote></div><p>Note the following items concerning the OFFSET/ statement.</p><div class="itemizedlist"><ul type="disc"><li><p>
+            The first surface to the right of the slash is the DS.
+          </p></li><li><p>
+            The second surface to the right of the slash, if specified, is the
+            PS.
+          </p></li><li><p>
+            If the second surface is not specified, the previously defined PS
+            is used, unless NOPS has bee given.
+          </p></li><li><p>
+            The OFFSET/ statement must be preceded by an INDIRV or
+            INDIRP statement.
+          </p></li><li><p>
+            The specified direction from the INDIR statement must be such
+            that a vector in that direction from the current cutter location
+            intersects the DS specified in the OFFSET/ statement.
+          </p></li></ul></div><p>
+        The APT processor performs the following operations for the OFFSET/
+        statement:
+      </p><div class="orderedlist"><ol type="1"><li><p>
+            The vector defined by the INDIRV/ or INDIRP/ statement is used
+            to intersect the drive surface.
+          </p></li><li><p>
+            At the point of intersection, the normal to the drive surface is
+            found.
+          </p></li><li><p>
+            The cutter is moved along the surface normal until it is in valid
+            position (TO, ON, or PAST).
+          </p></li><li><p>
+            If NOPS was specified, the resultant point from step 3 is the
+            final output point.
+          </p></li><li><p>
+            When a part surface is in effect, either implicitly or explicitly,
+            the cutter is moved (from the resultant location of step 3)
+            directly along its axis until the proper position (TO, ON, or
+            PAST) is reached with respect to the part surface. Only the
+            final point is output for later processing.
+          </p></li></ol></div><p>
+        <a href="startup.html#figure91" title="Figure 5.24. One-Surface OFFSET">Figure 5.24</a> and <a href="startup.html#figure92" title="Figure 5.25. Two-Surface OFFSET">Figure 5.25</a> illustrate
+        the usage of OFFSET/.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure91"></a><p class="title"><b>Figure 5.24. One-Surface OFFSET</b></p><div class="mediaobject"><img src="images/figure91.png" alt="One-Surface OFFSET"></div></div><pre class="programlisting">
+FROM/ PTA
+INDIRV/ VECA
+OFFSET/ TO, SURF1</pre></blockquote></div><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure92"></a><p class="title"><b>Figure 5.25. Two-Surface OFFSET</b></p><div class="mediaobject"><img src="images/figure92.png" alt="Two-Surface OFFSET"></div></div><pre class="programlisting">
+FROM/ PTA
+INDIRV/ V1
+OFFSET/ PAST, CYL, TO, PS</pre></blockquote></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="cut_surf_relate.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"><a accesskey="u" href="prog_toolpath.html"><img src="images/up.gif" alt="Up"></a></td><td width="40%" align="right"> <a accesskey="n" href="motion_cmds.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">5.2. CUTTER to Surface Relationships </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> 5.4. Motion Commands</td></tr></table></div></body></html>

@@ -1,0 +1,24 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>5.5. Expanded Tolerance Statement</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="prog_toolpath.html" title="Chapter 5. Programming a Tool Path"><link rel="prev" href="motion_cmds.html" title="5.4. Motion Commands"><link rel="next" href="multiple_intersections.html" title="5.6. Multiple Intersections"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">5.5. Expanded Tolerance Statement</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="motion_cmds.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center">Chapter 5. Programming a Tool Path</th><td width="20%" align="right"> <a accesskey="n" href="multiple_intersections.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="expanded_tol_stmnt"></a>5.5. Expanded Tolerance Statement</h2></div></div></div><p>
+      There are situations where tolerance on the surfaces being machined is
+      not the same for each surface. The amount of tolerance for each surface
+      can be specified using an expanded tolerance statement, as indicated
+      below:
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          OUTTOL/ <span class="emphasis"><em>tolps</em></span> [, <span class="emphasis"><em>tolds</em></span>]
+          [, <span class="emphasis"><em>tolcs</em></span>] [, <span class="emphasis"><em>tolcs1</em></span>]
+        </p></li><li><p>
+          INTOL/ <span class="emphasis"><em>tolps</em></span> [, <span class="emphasis"><em>tolds</em></span>]
+          [, <span class="emphasis"><em>tolcs</em></span>] [, <span class="emphasis"><em>tolcs1</em></span>]
+        </p></li><li><p>
+          TOLER/ <span class="emphasis"><em>tolps</em></span> [, <span class="emphasis"><em>tolds</em></span>]
+          [, <span class="emphasis"><em>tolcs</em></span>] [, <span class="emphasis"><em>tolcs1</em></span>]
+        </p></li></ul></div><p>
+      In each instance the four parameters indicated to the right of the slash
+      have the following meaning:
+    </p><div class="itemizedlist"><ul type="disc"><li><p><span class="emphasis"><em>tolps</em></span></p><p>tolerance to the part surface</p></li><li><p><span class="emphasis"><em>tolds</em></span></p><p>tolerance to the drive surface</p></li><li><p><span class="emphasis"><em>tolcs</em></span></p><p>tolerance to the check surface</p></li><li><p><span class="emphasis"><em>tolcs1</em></span></p><p>tolerance to the second check surface (if any)</p></li></ul></div><p>
+      If fewer than four tolerances are specified, the processor takes the
+      last specified tolerance and applies it to the remaining fields. For
+      example OUTTOL/ .005 would result in the same tolerance as
+      OUTTOL/ .005, .005, .005, .005; and INTOL/ .1, .2, .3 would be the same
+      as INTOL/ .1, .2, .3, .3 and so on.
+    </p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="motion_cmds.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"><a accesskey="u" href="prog_toolpath.html"><img src="images/up.gif" alt="Up"></a></td><td width="40%" align="right"> <a accesskey="n" href="multiple_intersections.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">5.4. Motion Commands </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> 5.6. Multiple Intersections</td></tr></table></div></body></html>

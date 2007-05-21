@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>3.17. The Reference System (REFSYS) Statement</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="geometry.html" title="Chapter 3. Geometric Statements in APT"><link rel="prev" href="qadric_kw.html" title="3.16. The Quadric (QADRIC) Definitions"><link rel="next" href="tabcyl_kw.html" title="3.18. The Tabulated Cylinder (TABCYL) Definition"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.17. The Reference System (REFSYS) Statement</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="qadric_kw.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center">Chapter 3. Geometric Statements in APT</th><td width="20%" align="right"> <a accesskey="n" href="tabcyl_kw.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="refsys"></a>3.17. The Reference System (REFSYS) Statement</h2></div></div></div><p>
+      The REFSYS statement is used to describe a surface or surfaces in one
+      coordinate system (such as an auxiliary view on a blueprint) and to
+      machine this surface or surfaces in another coordinate system.
+    </p><div class="blockquote"><blockquote class="blockquote"><div class="literallayout"><p>REFSYS/ smatrix<br>
+<br>
+REFSYS/ NOMORE</p></div></blockquote></div><p>
+      The REFSYS statement specifies a matrix that will be used to transform
+      the geometric surface or surfaces to any other coordinate system.
+      smatrix expresses the origin and coordinate planes of the new system in
+      terms of the old system (or base system). A particular reference system
+      is in effect until it is either replaced by a new reference system
+      (REFSYS/ smatrix) or terminated by a REFSYS/ NOMORE, which causes a
+      return to the base or original coordinate system. All of the geometric
+      types listed in <a href="point_kw.html" title="3.3. The Point (POINT) Definitions">Section 3.3</a> through <a href="qadric_kw.html" title="3.16. The Quadric (QADRIC) Definitions">Section 3.16</a>, except the MATRIX definition itself, can be
+      transformed by using the REFSYS statement. No other APT surface can be
+      transformed. If a nested definition is used in the REFSYS statement, the
+      MATRIX must be given a name.
+    </p><p>
+      A geometric definition defined in a particular reference system will not
+      be transformed until it is used in a reference system different (by
+      name) from the system in which it was defined. Example:
+    </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">REFSYS/ (MAT1 = MATRIX/ TRANSL, 5, 5, 0)
+P1 = POINT/ 2, 4, 0
+REFSYS/ NOMORE
+A) GOTO/ P1</pre></blockquote></div><p>
+      The point P1 will be defined with the coordinate values X = 2, Y = 4, Z
+      = 0. At statement labeled A, the point P1 will be used to define the
+      output point -- by applying the translation matrix MAT1, the output
+      point will have the coordinate values X = 7, Y = 9, Z = 0; P1 will still
+      be defined as X = 2, Y = 4, Z = 0 in reference system MAT1. To rephrase,
+      a geometric definition when used in another system will be dynamically
+      redefined as often as it is used while preserving its static definition
+      in its own system.
+    </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>
+        When both rotation and translation are specified, the translation is
+        made first, then the rotation.
+      </p></td></tr></table></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="qadric_kw.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"><a accesskey="u" href="geometry.html"><img src="images/up.gif" alt="Up"></a></td><td width="40%" align="right"> <a accesskey="n" href="tabcyl_kw.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">3.16. The Quadric (QADRIC) Definitions </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> 3.18. The Tabulated Cylinder (TABCYL) Definition</td></tr></table></div></body></html>

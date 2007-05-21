@@ -1,0 +1,69 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>4.6. Point-Point Motion Commands</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="p2p_programming.html" title="Chapter 4. Point-To-Point Programming"><link rel="prev" href="patern_kw.html" title="4.5. Pattern Definition Statement"><link rel="next" href="pnt_pnt_prog_consid.html" title="4.7. Point-Point Programming Considerations"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">4.6. Point-Point Motion Commands</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="patern_kw.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center">Chapter 4. Point-To-Point Programming</th><td width="20%" align="right"> <a accesskey="n" href="pnt_pnt_prog_consid.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="pnt_pnt_motion_cmds"></a>4.6. Point-Point Motion Commands</h2></div></div></div><p>
+      A cutter movement to a. series of locations may be specified as follows:
+      </p><div class="blockquote"><blockquote class="blockquote"><p>GOTO/ spat</p></blockquote></div><p>
+      where spat is a previously defined pattern.
+    </p><p>
+      The resulting output will be a series of GOTO commands specifying
+      movement of the cutter to each point location defined in the pattern.
+    </p><p>
+      The motion between points will be the minimum possible move between
+      points and will be parallel to the XY plane unless the z-component of
+      the adjacent points differs.
+    </p><p>
+      To increase the flexibility of this command the modifiers, OMIT, CONST,
+      INVERS, RETAIN, AVOID, and THRU are allowed. Their usage is described in
+      <a href="pnt_pnt_motion_cmds.html#invers_kw" title="4.6.1. INVERS Modifier">Section 4.6.1</a> through <a href="pnt_pnt_motion_cmds.html#const_kw" title="4.6.6. CONST Modifier">Section 4.6.6</a>.
+    </p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="invers_kw"></a>4.6.1. INVERS Modifier</h3></div></div></div><p>
+        This modifier specifies that motion should occur to the point
+        locations in a pattern in the reverse order of their definition.
+        That is, for a pattern containing N points motion would occur to the N,
+        N-1, ..., 1 points.
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="omit_kw"></a>4.6.2. OMIT Modifier</h3></div></div></div><p>
+        Points in a pattern may be omitted by specifying OMIT, N1, N2, N3,
+        ..., N, where N1, N2, N3, ..., N correspond to the points in the
+        pattern according to their output order (affected by INVERS or CONST).
+        This modifier allows the specification of pattern elements which
+        are not to be included in a specific point-point motion sequence.
+      </p><p>
+        For example, GOTO/ PAT1, OMIT, 2, 3, 7, where PAT1 is illustrated in
+        <a href="pnt_pnt_motion_cmds.html#figure68g" title="Figure 4.7. Sample Pattern 2">Figure 4.7</a>, would cause the cutter to move to points
+        1, 4, 5, 6 and 8.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure68g"></a><p class="title"><b>Figure 4.7. Sample Pattern 2</b></p><div class="mediaobject"><img src="images/figure68g.png" alt="Sample Pattern 2"></div></div></blockquote></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="retain_kw"></a>4.6.3. RETAIN Modifier</h3></div></div></div><p>
+        This modifier allows the specification of certain elements of a
+        pattern to be included in a point-point motion sequence by specifying
+        RETAIN, N1,.N2,N3, ..., N, where N1, N2, N3, ..., N refer to the output
+        order of the referenced pattern (affected by CONST or INVERS). For
+        example, GOTO/ PAT1, RETAIN, 4, 6, 7, where PAT1 is illustrated in
+        <a href="pnt_pnt_motion_cmds.html#figure68g" title="Figure 4.7. Sample Pattern 2">Figure 4.7</a>, would cause the cutter to move to points
+        4, 6, and 7.
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="avoid_kw"></a>4.6.4. AVOID Modifier</h3></div></div></div><p>
+        A vertical displacement (n) from the normal path between points may be
+        maintained While moving the cutter from Nth point to the (N1 + 1}th
+        point in the referenced pattern, from the Nth point to the (N2 +
+        1)th point, by specifying AVOID n, N1, N2, ..., N. The point references
+        refer to the output order of the pattern (affected by INVERS and
+        CONST). For example, GOTO/ PAT1, AVOID, 3, 2, 4, would result in the
+        cutter movement illustrated in Figure68h. (This figure is missing
+        in the original manual -- SED)
+        
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="thru_kw"></a>4.6.5. THRU Modifier</h3></div></div></div><p>
+        This modifier is used to specify a range of points for the OMIT,
+        RETAIN, and AVOID modifiers.
+      </p><p>
+        For example, GOTO/ PAT1, RETAIN, 2, THRU, 6 would cause the cutter to
+        move to the 2, 3, 4, 5, and 6 points of PAT1.
+      </p><p>
+        When using the THRU modifier, the range does not have to be specified
+        in the order of movement. For example, GOTO/ PAT1, RETAIN, 6, THRU,
+        2 would also cause the cutter to move to the 2, 3, 4, 5 and 6 points
+        of PAT1.
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="const_kw"></a>4.6.6. CONST Modifier</h3></div></div></div><p>
+        The CONST modifier allows the programmer to specify the point numbers
+        for the OMIT, RETAIN, or AVOID modifiers according to the definition
+        order instead of according to the output order.
+      </p><p>
+        The example in <a href="pnt_pnt_motion_cmds.html#figure68i" title="Figure 4.8. Sample Pattern 1">Figure 4.8</a> illustrates the use of this
+        modifier. GOTO/ PAT1, INVERS, RETAIN, 2, THRU, 4, 6, 8 and GOTO/ PAT1,
+        INVERS, CONST, RETAIN, 11, THRU, 9, 7, 5 will both cause the cutter
+        to move to the points numbered 11, 10, 9, 7, 5.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure68i"></a><p class="title"><b>Figure 4.8. Sample Pattern 1</b></p><div class="mediaobject"><img src="images/figure68i.png" alt="Sample Pattern 1"></div></div></blockquote></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="patern_kw.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"><a accesskey="u" href="p2p_programming.html"><img src="images/up.gif" alt="Up"></a></td><td width="40%" align="right"> <a accesskey="n" href="pnt_pnt_prog_consid.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">4.5. Pattern Definition Statement </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> 4.7. Point-Point Programming Considerations</td></tr></table></div></body></html>

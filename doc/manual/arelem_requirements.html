@@ -1,0 +1,95 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>14.5. Arithmetic Element Requirements</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="spec_tech.html" title="Chapter 14. Special Techniques"><link rel="prev" href="multiaxis_prog.html" title="14.4. Multiaxis Programming"><link rel="next" href="rldsrf_implications.html" title="14.6. Implications of Ruled Surface (RLDSRF)"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">14.5. Arithmetic Element Requirements</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="multiaxis_prog.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center">Chapter 14. Special Techniques</th><td width="20%" align="right"> <a accesskey="n" href="rldsrf_implications.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="arelem_requirements"></a>14.5. Arithmetic Element Requirements</h2></div></div></div><p>
+      The arithmetic element is the portion of the APT processor that computes
+      the required cutter locations necessary to execute any given motion or
+      startup commands.  The basic concept of how a cut vector, and later a
+      cut sequence, is computed was introduced earlier.  Because of the nature
+      of the calculations performed by the arithmetic element (denoted as
+      ARELEM), certain relationships between the surfaces involved and the
+      defined cutter geometry will result in error conditions and will
+      terminate further processing.  Whenever possible, the arithmetic element
+      attempts to continue processing so that further errors which may occur
+      can be located during the same computer run.  This section is designed
+      to discuss those situations which will cause the part program to fail in
+      the arithmetic element portion of the processor.
+    </p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="cutter_arelem_calc"></a>14.5.1. Definition of Cutter Used in ARELEM Calculations</h3></div></div></div><p>
+        The cutter definition used in ARELEM to be located to a specific
+        surface is not a completely closed curve; that is, the top of the
+        cutter is not used in any of the calculations.  This is necessary
+        because the top of the cutter is usually the portion that is inserted
+        in the spindle of the machine tool, and therefore unable to be used in
+        removing any material from the workpiece.  <a href="arelem_requirements.html#figure136" title="Figure 14.32. ARELEM Usage of CUTTER ">Figure 14.32</a>
+        shows a sample
+        cutter.  In this instance, ARELEM will use the portions of the tool
+        from A to B, B to C, C to D, D to E, and E to F.  The portion from A
+        to F will not be used in locating the cutter in space.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure136"></a><p class="title"><b>Figure 14.32. ARELEM Usage of CUTTER </b></p><div class="mediaobject"><img src="images/figure136.png" alt="ARELEM Usage of CUTTER"></div></div></blockquote></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="cut2surf_calc"></a>14.5.2. Cutter-to-Surface Calculation</h3></div></div></div><p>
+        The basis for most of the ARELEM calculations is that it must be
+        possible to locate a point on the cutter and a point on the surface
+        such that a vector between these two points is both normal to the
+        surface and normal to the cutter.  <a href="arelem_requirements.html#figure137" title="Figure 14.33. ARELEM, Cutter/Surface Calc 1">Figure 14.33</a> gives
+        an example of this
+        situation.  The point PT1 is on the cutter, and the vector VA is
+        normal to the cutter at PT1.  The point PT2 is on the surface, and the
+        vector VA is normal to the surface at PT2.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure137"></a><p class="title"><b>Figure 14.33. ARELEM, Cutter/Surface Calc 1</b></p><div class="mediaobject"><img src="images/figure137.png" alt="ARELEM, Cutter/Surface Calc 1"></div></div></blockquote></div><p>
+        In addition to the above, one more constraint must be satisfied.
+        Assume that the vector through the point on the tool is called VT, and
+        that the vector through the point on the surface is called VS.
+        As stated previously, both VT and VS must pass through the points PT1
+        and PT2 (within acceptable tolerances).  The direction of each of
+        these vectors is assigned as follows:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>VT</p><p>
+            The vector passes through PT1 and points away from the cutter.
+          </p></li><li><p>VS</p><p>
+            The normal to the surface passes through PT2 and points toward the
+            cutter.
+          </p></li></ul></div><p>
+        The additional constraint is that these vectors must point in the
+        opposite direction.  <a href="arelem_requirements.html#figure138" title="Figure 14.34. ARELEM, Cutter/Surface Calc 2">Figure 14.34</a> shows the same
+        situation as <a href="arelem_requirements.html#figure137" title="Figure 14.33. ARELEM, Cutter/Surface Calc 1">Figure 14.33</a>, but expands the diagram to
+        show both vectors.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure138"></a><p class="title"><b>Figure 14.34. ARELEM, Cutter/Surface Calc 2</b></p><div class="mediaobject"><img src="images/figure137.png" alt="ARELEM, Cutter/Surface Calc 2"></div></div></blockquote></div><p>
+        Because of this requirement, it may be possible that the
+        cutter-to-surface relationship does not allow a proper position to be
+        calculated.  <a href="arelem_requirements.html#figure139" title="Figure 14.35. ARELEM, Invalid Cutter/Surface">Figure 14.35</a> shows an instance where the
+        final result of the calculations yields the vectors pointing in the
+        same direction; hence, this is an invalid solution.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure139"></a><p class="title"><b>Figure 14.35. ARELEM, Invalid Cutter/Surface</b></p><div class="mediaobject"><img src="images/figure139.png" alt="ARELEM, Invalid Cutter/Surface"></div></div></blockquote></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="improp_cut2surf"></a>14.5.3. Improper Cutter-to-Surface Relationships</h3></div></div></div><p>
+        It is possible to describe a cutter-to-surface relationship such that
+        none of the surface normals will intersect the cutter.  This usually
+        occurs when using one of the following three APT surfaces:  POLCON,
+        TABCYL, RLDSRF.  All of these surfaces have discontinuities; that is,
+        there exists some point beyond which the curve does not exist (see
+        <a href="arelem_requirements.html#figure140" title="Figure 14.36. ARELEM, Improper Cutter/Surface 1">Figure 14.36</a>). As discussed before, it must always be
+        possible to
+        compute a vector that is normal to the surface and normal to the
+        cutter, and that passes through a point on the surface and a point on
+        the cutter.  <a href="arelem_requirements.html#figure141" title="Figure 14.37. ARELEM, Improper Cutter/Surface 2">Figure 14.37</a> shows the curve in
+        <a href="arelem_requirements.html#figure140" title="Figure 14.36. ARELEM, Improper Cutter/Surface 1">Figure 14.36</a> with a cutter
+        for which a valid calculation can be made.  <a href="arelem_requirements.html#figure142" title="Figure 14.38. ARELEM, Improper Cutter/Surface 3">Figure 14.38</a>
+        shows a cutter position from which the proper information cannot be
+        computed.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure140"></a><p class="title"><b>Figure 14.36. ARELEM, Improper Cutter/Surface 1</b></p><div class="mediaobject"><img src="images/figure140.png" alt="ARELEM, Improper Cutter/Surface 1"></div></div><div class="figure"><a name="figure141"></a><p class="title"><b>Figure 14.37. ARELEM, Improper Cutter/Surface 2</b></p><div class="mediaobject"><img src="images/figure141.png" alt="ARELEM, Improper Cutter/Surface 2"></div></div><div class="figure"><a name="figure142"></a><p class="title"><b>Figure 14.38. ARELEM, Improper Cutter/Surface 3</b></p><div class="mediaobject"><img src="images/figure142.png" alt="ARELEM, Improper Cutter/Surface 3"></div></div></blockquote></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="toolpos_mod_change"></a>14.5.4. Change in Tool Position Modifier</h3></div></div></div><p>
+        A motion sequence can sometimes cause the cutter to change from left
+        to the right side of a drive surface without actually crossing the
+        surface (see <a href="arelem_requirements.html#figure143" title="Figure 14.39. ARELEM, Cutter Switching DS Side">Figure 14.39</a>.  The cutter moves along the
+        cylinder DS in a TLRGT condition.  The motion sequence causes it to
+        cross over the cylinder.  After the cutter passes over the top of the
+        cylinder, it is in a TLLFT condition.  If further motion is programmed
+        along the cylinder without changing the specification to TLLFT, a
+        warning message will be output by the processor.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure143"></a><p class="title"><b>Figure 14.39. ARELEM, Cutter Switching DS Side</b></p><div class="mediaobject"><img src="images/figure143.png" alt="ARELEM, Cutter Switching DS Side"></div></div></blockquote></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="arelem_impossble_spec"></a>14.5.5. Impossible Specification</h3></div></div></div><p>
+        When the cutter is to offset to the surface, a part surface and a
+        drive surface may never be enclosed within the cutter.  The example
+        shown in <a href="arelem_requirements.html#figure144" title="Figure 14.40. ARELEM, Invalid Check Surface">Figure 14.40</a> shows the use of SURF1 as a check
+        surface.  This is valid.  However, a motion sequence attempting to use
+        it as a drive surface would fail.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure144"></a><p class="title"><b>Figure 14.40. ARELEM, Invalid Check Surface</b></p><div class="mediaobject"><img src="images/figure144.png" alt="ARELEM, Invalid Check Surface"></div></div><pre class="programlisting">
+$$ OK
+GORGT/ DS, TANTO, SURF1
+
+$$ Fails
+GOFWD/ SURF1, ON, SURF2 </pre></blockquote></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>
+          If the cutter were ON SURF1, it could be used as either a drive
+          surface or a part surface as well as a check surface.
+        </p></td></tr></table></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="multiaxis_prog.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"><a accesskey="u" href="spec_tech.html"><img src="images/up.gif" alt="Up"></a></td><td width="40%" align="right"> <a accesskey="n" href="rldsrf_implications.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">14.4. Multiaxis Programming </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> 14.6. Implications of Ruled Surface (RLDSRF)</td></tr></table></div></body></html>

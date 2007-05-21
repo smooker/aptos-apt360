@@ -1,0 +1,58 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>3.21. Nested Definitions</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="geometry.html" title="Chapter 3. Geometric Statements in APT"><link rel="prev" href="rldsrf_kw.html" title="3.20. The Ruled Surface (RLDSRF) Definitions"><link rel="next" href="canon_kw.html" title="3.22. The Canonical Form (CANON) Statement"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.21. Nested Definitions</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="rldsrf_kw.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center">Chapter 3. Geometric Statements in APT</th><td width="20%" align="right"> <a accesskey="n" href="canon_kw.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="nested_defs"></a>3.21. Nested Definitions</h2></div></div></div><p>
+      The nested definition permits defining a geometric quantity (except a
+      scalar variable) in the APT statements that refer symbolically to these
+      quantities. All of the geometric types can be nested except TABCYL,
+      POLCON and RLDSRF. The following examples illustrate some of the
+      applications of nested definitions.
+    </p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="nested_geom_defs"></a>3.21.1. Nested Geometric Definitions Instead of Symbols</h3></div></div></div><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">
+SP3 = SPHERE/ CENTER, (POINT/ INTOF L1, L2), TANTO, (PLANE/ $
+              PTA, PERPTO, (VECTOR/ PTB, PTC))</pre></blockquote></div><p>
+        In this example, the SP3 is defined by its center and a plane to which
+        it is tangent. However, the center of the sphere is defined by a
+        nested definition of a point that is the intersection of two lines.
+        Similarly, the plane is defined by a nested definition as passing
+        through a point and perpendicular to a vector that, in turn, is
+        defined as a nested definition.
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="nested_geom_def_with_sym"></a>3.21.2. Nested Geometric Definitions with Symbols Attached</h3></div></div></div><p>
+        It is possible to nest the name a geometric type simultaneously. For
+        example:
+      </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">
+SP4 = SPHERE/ CENTER, (PT2 = POINT/ INTOF, L1, L2), $
+              TANTO, PLANEA</pre></blockquote></div><p>
+        The center of the sphere is defined as a nested point definition and
+        has been assigned the symbol PT2.
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="nested_geom_nongeom_stmnt"></a>3.21.3. Nested Geometric Definitions in Non-Geometric Definition
+        Statements</h3></div></div></div><p>
+        A nested definition can be used in any APT statement where a surface
+        type is referenced.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="literallayout"><p><br>
+REFSYS/ (SMATA = MATRIX/ definition)<br>
+ZSURF/ (SPLANA = PLANE/ definition)<br>
+<br>
+FROM/ (SPTA = POINT/ definition)<br>
+GOTO/ (POINT/ definition)<br>
+<br>
+GOLFT/ (SLA = LINE/ definition)<br>
+GOFWD/ (CIRCLE/ definition), PAST, (SLB = LINE/ definition)<br>
+      </p></div></blockquote></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="nested_def_spec_case"></a>3.21.4. Special Case of Nested Definition</h3></div></div></div><p>
+        Because of the high incident of POINT in other geometric definition
+        formats, a special nesting capability is provided for points.
+      </p><p>
+        In any part of a geometric definition where it would be valid to
+        write:
+        </p><div class="blockquote"><blockquote class="blockquote"><p>(POINT/ a, b)</p></blockquote></div><p>
+        or
+        </p><div class="blockquote"><blockquote class="blockquote"><p>(POINT/ a, b, c)</p></blockquote></div><p>
+        that is, to use a nested point definition without a symbol attached,
+        it would also be valid to write:
+        </p><div class="blockquote"><blockquote class="blockquote"><p>(a, b)</p></blockquote></div><p>
+        or
+        </p><div class="blockquote"><blockquote class="blockquote"><p>(a, b, c)</p></blockquote></div><p>
+      </p><p>
+        The POINT/ is not required in this case. For example:
+        </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">
+C1 = CIRCLE/ P1, P2, (POINT/ 1, 4, 8)</pre></blockquote></div><p>
+        can be written:
+        </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">
+C1 = CIRCLE/ P1, P2, (1, 4, 8)</pre></blockquote></div><p>
+      </p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="rldsrf_kw.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"><a accesskey="u" href="geometry.html"><img src="images/up.gif" alt="Up"></a></td><td width="40%" align="right"> <a accesskey="n" href="canon_kw.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">3.20. The Ruled Surface (RLDSRF) Definitions </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> 3.22. The Canonical Form (CANON) Statement</td></tr></table></div></body></html>

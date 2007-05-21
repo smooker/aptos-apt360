@@ -1,0 +1,183 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>14.2. Startup Commands</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="spec_tech.html" title="Chapter 14. Special Techniques"><link rel="prev" href="spec_tech.html" title="Chapter 14. Special Techniques"><link rel="next" href="to_on_past_tanto_pstan_impl.html" title="14.3. Implications of TO, ON, PAST, TANTO, and PSTAN"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">14.2. Startup Commands</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="spec_tech.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center">Chapter 14. Special Techniques</th><td width="20%" align="right"> <a accesskey="n" href="to_on_past_tanto_pstan_impl.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="startup_cmds"></a>14.2. Startup Commands</h2></div></div></div><p>
+      Startup commands were introduced in <a href="startup.html" title="5.3. Startup Procedures">Section 5.3</a> and are
+      used to
+      position the cutter properly in one, two, or three surfaces.  The
+      problem breaks up into two basic areas:
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          Determining the side of the surface on which the cutter is to be
+        </p></li><li><p>
+          Determining which of several possible final positions is to be
+          selected when more than one exists
+        </p></li></ul></div><p>
+      In <a href="startup.html" title="5.3. Startup Procedures">Section 5.3</a> it was pointed out that an undirected GO/
+      statement
+      would move the cutter to about the closest of all possible valid
+      positions.  In <a href="spec_tech.html#spec_feats" title="14.1. Special Features">Section 14.1</a> an example was given in which
+      the
+      DNTCUT-CUT feature was used to make an interim move that positioned the
+      cutter closer to the desired stopping position than to any other
+      possible stopping place.  This can also be accomplished with an expanded
+      form of INDIRV of INDIRP statements, in which more than one vector can
+      be defined.  The format of these statements is:
+    </p><div class="blockquote"><blockquote class="blockquote"><div class="literallayout"><p>INDIRV/ [VDS] [, VPS] [, VCS]<br>
+<br>
+INDIRV/ [PDS] [, PPS] [, PCS]</p></div></blockquote></div><p>
+      The vectors resulting from either of these statements are associated
+      with the surfaces in the GO/ statement.  The first vector indicated is
+      used with regard to the first surface in the startup command, the second
+      is used for the second surface, etc.  There can be no more vectors
+      specified in the INDIRV/ and (implicitly) in the INDIRP/ statements than
+      there are surfaces in the associated startup command.
+    </p><p>
+      Any two of the three points or vectors may be omitted if commas are
+      inserted to indicate the position where necessary.  For example:
+    </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">INDIRV/ V1, , V2
+INDIRV/ , , V1
+INDIRV/ V1</pre></blockquote></div><p>
+      In the first example, V1 is used with the first surface, and V2 is used
+      with the third surface specified in the startup command.  In the second
+      example, V1 is used with the third surface, and in the last example, V1
+      is used with the first surface.
+    </p><p>
+      The vectors or points may be specified explicitly by using the x,y, and
+      z values, or may be represented by either a symbolic name or a nested
+      definition.
+    </p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="indir_effect"></a>14.2.1. The Effect of INDIR Vectors</h3></div></div></div><p>
+        When more than on INDIR vector is specified, the processor makes one
+        intermediate movement of the cutter for each vector specified.  The
+        intermediate movements are used only to position the tool locally for
+        the next step and are not output(similar to a DNTCUT-CUT option).  The
+        INDIR vector associated with the drive surface is used to pierce that
+        surface, and the cutter is moved to the surface as follows:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            If the cutter is to be ON the surface, the cutter is moved
+            directly to the pierce point.
+          </p></li><li><p>
+            If the cutter is to offset, the pierce point is adjusted by the
+            cutter radius in the direction of the INDIR vector.
+          </p></li></ul></div><p>
+        From the resultant point (pierce point for drive surface INDIR), the
+        vector associated with the part surface is used to pierce that
+        surface.  The point is adjusted, as noted above, for the drive surface
+        to account for the offset condition, if appropriate.  If more than two
+        INDIR vectors are specified, the process is repeated: from the pierce
+        point on the part surface, the third INDIR vector is used to pierce
+        the check surface, and the point is adjusted.  From the final adjusted
+        pierce point, after all INDIR vectors have been processed, the
+        processor executes an undirected startup to the surfaces involved.
+      </p><p>
+        If the INDIR vector does not pierce the associated surfaces, the
+        processor proceeds as follows:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            The processor computes the minimum distance to all the surfaces
+            from the current tool location.
+          </p></li><li><p>
+            The processor moves the INDIR vector along an amount equal to the
+            greatest of these distances.
+          </p></li></ul></div><p>
+        The exception to the above procedure occurs when a one-surface startup
+        is used with a single INDIR vector.  If the vector does not pierce the
+        surface, a plane parallel to the INDIR vector is established, and a
+        two-surface startup is made to get the final position.
+      </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>
+          If the vector does not pierce the surface, the only possible
+          stopping locations are TO and PAST; it is not possible to achieve
+          the ON position.
+        </p></td></tr></table></div><p>
+        Should the INDIR vector miss the surface by a sufficient amount (that
+        is, the closest distance it comes to the surface is greater than the
+        cutter radius), an error condition exists. <a href="startup_cmds.html#figure118" title="Figure 14.12. INDIRV Usage">Figure 14.12</a>
+        shows two
+        usages of a one-surface startup with an INDIR vector.  An INDIR vector
+        VA results in final cutter position PTC (the center of the cutter is
+        on the given INDIR, and the required position of TO is satisfied).  A
+        specification of VB for an INDIR gives PTB, even though the INDIR
+        vector does not pierce the surface.  The same constraints have been
+        satisfied; that is, the center of the cutter is on the given INDIR
+        vector, and the positional modifier TO has been satisfied.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure118"></a><p class="title"><b>Figure 14.12. INDIRV Usage</b></p><div class="mediaobject"><img src="images/figure118.png" alt="INDIRV Usage"></div></div><pre class="programlisting">
+NOPS
+FROM/ PTA
+INDIRV/ VB
+GO/ TO, S1
+
+$$ or
+
+NOPS
+FROM/ PTA
+INDIRV/ VA
+GO/ TO, S1</pre></blockquote></div><p>
+        <a href="startup_cmds.html#figure119" title="Figure 14.13. INDIRV Two Vector Form">Figure 14.13</a> shows a situation where two INDIR vectors
+        are required to
+        select the proper final position.  Note that the final position could
+        have been achieved with a DNTCUT-CUT sequence, but the two INDIR
+        vectors remove the necessity to use this method.  From the starting
+        point PTA, the vector V1 is used to pierce the DS.  From the resulting
+        location, the vector V2 is used to pierce the PS (resulting in the
+        point P1).  From this last pierce point, a two-surface undirected
+        startup is made, and the result is PTB.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure119"></a><p class="title"><b>Figure 14.13. INDIRV Two Vector Form</b></p><div class="mediaobject"><img src="images/figure119.png" alt="INDIRV Two Vector Form"></div></div><pre class="programlisting">
+FROM/ PTA
+INDIRV/ V1, V2
+GO/ ON, DS, ON, PS</pre></blockquote></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="special_go_stmnts"></a>14.2.2. Special Case GO/ Statements</h3></div></div></div><p>
+        The GO/ statement is processed using an analytical method when certain
+        conditions are met (as outlined in <a href="spec_tech.html#spec_feats" title="14.1. Special Features">Section 14.1</a>).
+        Some special considerations apply to these cases, as follows:
+      </p><div class="blockquote"><blockquote class="blockquote"><p>
+          The motion to the drive surface is usually exactly a minimum
+          possible movement if the GO/ is undirected.  If the part surface is
+          not a horizontal plane, the resulting motion to the part surface
+          will probably not be the minimum possible movement.  The motion to
+          the drive surface is always exactly along a projection of the INDIR
+          vector on the part surface if the GO/ is directed.  (This means that
+          the cutter must be able to be positioned properly to the DS when
+          moving along the INDIR vector; the motion is always forward along
+          the INDIR vector.)
+        </p></blockquote></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="offset_error"></a>14.2.3. Possible Startup Error Using OFFSET</h3></div></div></div><p>
+        <a href="startup_cmds.html#figure120" title="Figure 14.14. INDIRV Error Condition">Figure 14.14</a> shows a situation where the OFFSET/
+        statement results in a final position in which the cutter is not
+        positioned properly with regard to the 
+        drive surface at the conclusion of the startup.  A height is always
+        associated with the cutter, and , in the referenced figure, if the
+        cutter is tall enough, it will still be in contact with the drive
+        surface when movement along the tool axis to the part surface is
+        complete.  However, if the height specified is not large enough, the
+        final position may not be in contact with the drive surface.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure120"></a><p class="title"><b>Figure 14.14. INDIRV Error Condition</b></p><div class="mediaobject"><img src="images/figure120.png" alt="INDIRV Error Condition"></div></div><pre class="programlisting">
+FROM/ PTA
+INDIRV/ V1
+OFFSET/ DS, PS</pre></blockquote></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="srfvct_kw"></a>14.2.4. The SRFVCT Statement</h3></div></div></div><p>
+        The positional modifiers TO and PAST have significance with regard to
+        the current cutter-surface relationship (as pointed out before, TO
+        indicates cutter side of the surface, and PAST indicates the opposite
+        side).  There are instances where the cutter center may be ON the
+        surface at the start of a set startup commands.  In this regard, TO
+        and PAST are not defined, and the SRFVCT statement is required to
+        define the desired final point properly.  The SRFVCT statement format
+        is as follows:
+      </p><div class="blockquote"><blockquote class="blockquote"><p>SRFVCT/ [VDS,] [VPS,] [VCS]</p></blockquote></div><p>
+        The vectors given in the SRFVCT/ statement refer to the associated
+        surfaces in the startup command (that is, the first vector is used
+        with the drive (first specified) surface, the second with the part
+        surface, and the third with the check surface).  References to SRFVCT
+        vectors may be omitted if commas are included to indicate position.
+        No more vectors may be given than surfaces in the GO/ command.  The
+        meaning of the SRFVCT is that the specified vector points from the
+        acceptable TO position to the acceptable PAST position.
+      </p><p>
+        <a href="startup_cmds.html#figure121" title="Figure 14.15. SRFVCT Usage">Figure 14.15</a> shows the situation where the cutter is
+        initially on PL1;
+        therefore, the vector V1 is used to indicate that the TO position
+        would be to the left of PL1 and PAST position to the right.
+        <a href="startup_cmds.html#figure122" title="Figure 14.16. SRFVCT Two Vector Form">Figure 14.16</a> shows a situation where two SRFVCT vectors
+        are required, since the cutter is initially ON both of the specified
+        surfaces.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure121"></a><p class="title"><b>Figure 14.15. SRFVCT Usage</b></p><div class="mediaobject"><img src="images/figure121.png" alt="SRFVCT Usage"></div></div><pre class="programlisting">
+FROM/ PTA
+SRFVCT/ V1
+GO/ TO, PL1, TO, PS
+$$ Result is PTB</pre><div class="figure"><a name="figure122"></a><p class="title"><b>Figure 14.16. SRFVCT Two Vector Form</b></p><div class="mediaobject"><img src="images/figure122.png" alt="SRFVCT Two Vector Form"></div></div><pre class="programlisting">
+FROM/ PTA
+SRFVCT/ V1, V2
+GO/ PAST, PL1, TO, PS
+$$ Result is PTB</pre></blockquote></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="spec_tech.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"><a accesskey="u" href="spec_tech.html"><img src="images/up.gif" alt="Up"></a></td><td width="40%" align="right"> <a accesskey="n" href="to_on_past_tanto_pstan_impl.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 14. Special Techniques </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> 14.3. Implications of TO, ON, PAST, TANTO, and PSTAN</td></tr></table></div></body></html>

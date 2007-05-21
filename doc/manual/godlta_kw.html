@@ -1,0 +1,22 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>4.3. The Incremental Movement (GODLTA) Statement</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="p2p_programming.html" title="Chapter 4. Point-To-Point Programming"><link rel="prev" href="goto_kw.html" title="4.2. The Absolute Movement (GOTO) Statement"><link rel="next" href="zsurf_implication.html" title="4.4. Implication of the ZSURF Statement"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">4.3. The Incremental Movement (GODLTA) Statement</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="goto_kw.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center">Chapter 4. Point-To-Point Programming</th><td width="20%" align="right"> <a accesskey="n" href="zsurf_implication.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="godlta_kw"></a>4.3. The Incremental Movement (GODLTA) Statement</h2></div></div></div><p>
+      The GODLTA statement specifies an incremental
+      value that is to be added to each of the coordinates
+      of the current tool position. This statement, then,
+      defines the amount of movement of the tool in each
+      axis direction, rather than the specific point to
+      Which the tool is to move (as did the GOTO statement).
+      The general form of the GODLTA statement is as follows:
+    </p><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig4-03-1.png"></div></blockquote></div><p>
+      The amount to be added to each coordinate can be
+      specified by listing the values (<span class="emphasis"><em>dx, dy, dz</em></span>) or by
+      referencing the components of a symbolic vector
+      (done by specifying svector). The third option (specifying a single
+      scalar value) indicates the tool is to
+      be moved by that amount directly along the tool
+      axis. (A positive value for <span class="emphasis"><em>delta</em></span> generates a
+      movement similar to
+      "withdrawing" the tool; a negative
+      value defines a movement comparable to a plunge
+      operation.) The optional feed rate field has the
+      same meaning as indicated in the FROM statement,
+    </p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="goto_kw.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"><a accesskey="u" href="p2p_programming.html"><img src="images/up.gif" alt="Up"></a></td><td width="40%" align="right"> <a accesskey="n" href="zsurf_implication.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">4.2. The Absolute Movement (GOTO) Statement </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> 4.4. Implication of the ZSURF Statement</td></tr></table></div></body></html>

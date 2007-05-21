@@ -1,0 +1,187 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Chapter 1. Language and Syntax</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="index.html" title="APT360 Programmers Manual"><link rel="prev" href="manual_format.html" title="Part Programming Manual Format"><link rel="next" href="syn_kw.html" title="1.2. The Vocabulary Synonym (SYN) Statement"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 1. Language and Syntax</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="manual_format.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="syn_kw.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="language_and_syntax"></a>Chapter 1. Language and Syntax</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="sect1"><a href="language_and_syntax.html#lang_elements">1.1. Elements of the APT Language</a></span></dt><dd><dl><dt><span class="sect2"><a href="language_and_syntax.html#punctuation">1.1.1. Punctuation</a></span></dt><dt><span class="sect2"><a href="language_and_syntax.html#vocab_words">1.1.2. Vocabulary Words</a></span></dt><dt><span class="sect2"><a href="language_and_syntax.html#numbers">1.1.3. Numbers</a></span></dt><dt><span class="sect2"><a href="language_and_syntax.html#symbols">1.1.4. Symbols</a></span></dt><dt><span class="sect2"><a href="language_and_syntax.html#labels">1.1.5. Statement Labels</a></span></dt><dt><span class="sect2"><a href="language_and_syntax.html#statement_size_limit">1.1.6. Statement Size Limitation</a></span></dt></dl></dd><dt><span class="sect1"><a href="syn_kw.html">1.2. The Vocabulary Synonym (SYN) Statement</a></span></dt><dt><span class="sect1"><a href="word_conventions.html">1.3. Word Conventions</a></span></dt></dl></div><p>
+    The input to the APT processor is a part program that is a collection of
+    APT statements set forth in an ordered fashion. APT statements are used
+    for the following purposes:
+  </p><div class="itemizedlist"><ul type="disc"><li><p>To define a scalar or geometric quantity.</p></li><li><p>To describe a cutter path.</p></li><li><p>To describe auxiliary machine tool functions.</p></li><li><p>To define machining parameters.</p></li></ul></div><p>
+    These statements are typed into an editor and saved as a plain-text ASCII
+    file, which is the
+    input to the APT processor. Columns 1 through 72, inclusively, contain
+    information pertinent to the part programming text, while columns 73 to 80
+    are reserved for sequence and/or identification purposes. Blank columns
+    are ignored by the processor, so blanks can be used to make the text more
+    readable.
+  </p><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="lang_elements"></a>1.1. Elements of the APT Language</h2></div></div></div><p>
+      Each statement is made up of one or more of the following elements
+      (expressed according to set rules of syntax):
+    </p><div class="itemizedlist"><ul type="disc"><li><p><a href="language_and_syntax.html#punctuation" title="1.1.1. Punctuation">Punctuation</a></p></li><li><p><a href="language_and_syntax.html#vocab_words" title="1.1.2. Vocabulary Words">Vocabulary Words</a></p></li><li><p><a href="language_and_syntax.html#numbers" title="1.1.3. Numbers">Numbers</a></p></li><li><p>
+          <a href="language_and_syntax.html#symbols" title="1.1.4. Symbols">Symbols</a>, including
+          <a href="language_and_syntax.html#labels" title="1.1.5. Statement Labels">Labels</a>
+        </p></li></ul></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="punctuation"></a>1.1.1. Punctuation</h3></div></div></div><p>
+        Punctuation for the APT language includes the <a href="language_and_syntax.html#comma_punc">comma</a>,
+        <a href="language_and_syntax.html#slash_punc">slash</a>, <a href="language_and_syntax.html#asterisk_punc">asterisk</a>,
+        <a href="language_and_syntax.html#double_asterisk_punc">double asterisk</a>, <a href="language_and_syntax.html#plus_punc">plus</a>, 
+        <a href="language_and_syntax.html#minus_punc">minus</a>, <a href="language_and_syntax.html#single_dollar_punc">single dollar</a>,
+        <a href="language_and_syntax.html#double_dollar_punc">double dollar</a>, <a href="language_and_syntax.html#equal_punc">equal</a>,
+        <a href="language_and_syntax.html#period_punc">period</a> and <a href="language_and_syntax.html#parentheses_punc">parentheses</a>
+        [, / * ** + - $ $$ = . ( )]. This punctuation is used to separate
+        individual words and elements of the source statements used in the APT
+        language and to indicate arithmetic operations. The APT processor will
+        automatically accept either BCD or EBCDIC characters. (ASCII for
+        apt360)
+      </p><div class="itemizedlist"><ul type="disc"><li><p><a name="comma_punc"></a>The Comma (,)</p><p>
+            Used to separate elements of a statement where no other
+            punctuation is appropriate.
+            </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">MACHIN/ BENDIX, 2, CURCUL
+TLLFT, GOLFT/ L1, TO, l2</pre></blockquote></div><p>
+          </p></li><li><p><a name="slash_punc"></a>The Slash (/)</p><p>
+            Used either to separate major elements of a statement or as the
+            arithmetic operator, divide, in a compute statement.
+            </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">GOLFT/ L1, PAST, C3
+A = B / D</pre></blockquote></div><p>
+          </p></li><li><p><a name="asterisk_punc"></a>The Asterisk (*)</p><p>
+            Used as the arithmetic operator multiply.
+            </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">A = B * C</pre></blockquote></div><p>
+          </p></li><li><p><a name="double_asterisk_punc"></a>The Double Asterisk (**)</p><p>
+            Used as the arithmetic operator exponentiation. The example below
+            means A=B<sup>C</sup>.
+            </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">A = B ** C</pre></blockquote></div><p>
+          </p></li><li><p><a name="plus_punc"></a>The Plus Sign (+)</p><p>
+            Used either to indicate arithmetic addition or to specify a signed
+            number. In specifying signed numbers, plus is assumed if no sign
+            appears.
+            </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">A = B + C
+D = E + F * (+2) * G
+P = POINT/ +1, +2, +3</pre></blockquote></div><p>
+          </p></li><li><p><a name="minus_punc"></a>The Minus Sign (-)</p><p>
+            Used either to indicate arithmetic subtraction or to specify a
+            signed number.
+            </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">A = B - C
+D = E + F * (-2) * G
+P = POINT/ -1, -2, -3</pre></blockquote></div><p>
+          </p></li><li><p><a name="single_dollar_punc"></a>The Single Dollar Sign ($)</p><p>
+            Used to indicate the end of a line and to indicate to the
+            processor that the APT statement is continued on the next line.
+            Any information appearing to the right of the dollar sign is
+            treated as commentary; that is, the full line is printed out as
+            input translation time, but the information to the right of the
+            dollar sign is ignored by the rest of the processor.
+            </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">P1 = PLANE/ PARLEL, PL1, $ clearance
+      XLARGE, 6.9
+A = B * C $ continued on the next line
+      - D + G</pre></blockquote></div><p>
+          </p></li><li><p><a name="double_dollar_punc"></a>The Double Dollar Sign ($$)</p><p>
+            This sign is optional; it's use indicates the end of a part
+            program statement before the end of the 72 column data field. The
+            information to the right of the double dollar sign is to be
+            treated as commentary. Absence of either a single or double dollar
+            sign causes a part program statement to be discontinued at the end
+            of the 72-column data field.
+            </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">
+CUTTER/ 1, .25 $$ Filleted end mill</pre></blockquote></div><p>
+          </p></li><li><p><a name="equal_punc"></a>The Equal Sign (=)</p><p>
+            This sign is used as follows:
+            </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">$$ To assign a name to a geometric surface or macro.
+$$ (This name could be used as a variable later in the source program.)
+PT1 = POINT/ X, Y, Z
+MAC1 = MACRO/ A, B, C
+
+$$ To assign a value to a scalar variable.
+A = B + C
+
+$$ To assign a variable to a macro variable.
+CALL/ MAC1, ALPHA1 = 4., ALPHA2 = B
+MAC1 = MACRO/ A1 = B, C, D</pre></blockquote></div><p>
+          </p></li><li><p><a name="period_punc"></a>The Period (Decimal Point) (.)</p><p>
+            Used to separate the integral from the fractional part of a
+            number.
+            </p><div class="blockquote"><blockquote class="blockquote"><pre class="screen">4.62
+2.
+1.23
+ .005</pre></blockquote></div><p>
+          </p></li><li><p><a name="parentheses_punc"></a>The Left and Right Parentheses [()]</p><p>
+            Used as follows:
+            </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">$$ To enclose the arguments of an arithmetic function
+A = COSF(B)
+ 
+$$ To enclose subscripts of a variable
+A(J) = B(2) + G
+
+$$ To enclose the arithmetic argument of the arithmetic IF statement
+IF(A - B * C) 12, 13, 14
+
+$$ To enclose nested definitions
+GO/ (L1 = LINE/ X1, Y1, X2, Y2), L3
+
+$$ To enclose any parenthetical expression or related list of objects
+A = B * (-3) + c
+
+$$ Right parenthesis -- to separate statement label from the statement
+A4) K = 1</pre></blockquote></div><p>
+          </p></li></ul></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="vocab_words"></a>1.1.2. Vocabulary Words</h3></div></div></div><p>
+        The APT processor recognizes a set of vocabulary words that are
+        assigned to the following classes of activity:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            Types of geometric quantities and surfaces; POINT, PLANE, SPHERE,
+            etc.
+          </p></li><li><p>
+            Computing operators and functions; IF, SINF, COSF, etc.
+          </p></li><li><p>
+            Postprocessor instructions; STOP, END, SPINDL, etc.
+          </p></li><li><p>
+            Modifiers, designators and selectors; XLARGE, POSY, LEFT, etc.
+          </p></li><li><p>
+            Action verbs; GO, GODLTA, etc.
+          </p></li><li><p>
+            Modes of operation; NOPOST, CLPRNT, PTONLY, etc.
+          </p></li></ul></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="numbers"></a>1.1.3. Numbers</h3></div></div></div><p>
+        All numbers used in a part program are treated by the APT processor as
+        floating-point quantities. Integers are not treated as a separate
+        class of numbers. The number one (1) may be expressed in the following
+        ways:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>1</p></li><li><p>1.</p></li><li><p>1.0</p></li><li><p>.01e2</p></li><li><p>10.0e-1</p></li><li><p>1000.e-3</p></li><li><p>.001e+3</p></li><li><p>+1</p></li><li><p>+10.e-1</p></li></ul></div><p>
+        When writing a number in the exponential format (using an e followed
+        by an exponent), a decimal point must be given in the number preceding
+        the e. If no decimal point appears, the presence of the alpha
+        character e will cause the number to be interpreted as a variable
+        symbol.
+      </p><p>
+        The maximum number of significant digits allowed is 16, with a range
+        of about 10<sup>-75</sup> to
+        10<sup>75</sup>.
+      </p><p>
+        Whenever a number is used as an index of a subscript only, its
+        integral part is used; for example, if I = 2.4, the index or subscript
+        value of I is 2.
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="symbols"></a>1.1.4. Symbols</h3></div></div></div><p>
+        A symbol is used to define an entity in a part program statement that
+        is to be referenced in later statements. For example, the statement
+        </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">CIRC1 = CIRCLE/ 1, 2, 3, 8</pre></blockquote></div><p>
+        defines a circle whose center is at X = 1, Y = 2 and Z = 3, and whose
+        radius is 8. Later part program statements can now refer to this
+        circle by referencing the symbol CIRC1.
+      </p><p>
+        A symbol is made up of from one to six alphanumeric characters, at
+        least one of which must be a letter. (Punctuation characters cannot be
+        used in a variable symbol.) A symbol, sometimes noted as "variable
+        symbol", cannot be the same as a vocabulary word. Further, a symbol
+        must be defined before a reference to that symbol in another part
+        program statement. Because of the dynamic environment of the APT
+        language, new vocabulary words are frequently required. The use of at
+        least one numeric character in a symbol is recommended to protect
+        against subsequent changes.
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="labels"></a>1.1.5. Statement Labels</h3></div></div></div><p>
+        A statement may have a label (or "ID") so that other part program
+        statements can reference it. A statement label must be from on the six
+        alphanumeric characters (all of which can be numeric) and must occur
+        to the extreme left of the statement. A statement label must be
+        terminated by a right parentheses.
+        </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">IF (I + 2) JOE, 123, 41E
+JOE) I = 1
+123) J = 3
+41E) K = 1</pre></blockquote></div><p>
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="statement_size_limit"></a>1.1.6. Statement Size Limitation</h3></div></div></div><p>
+        The maximum number of elements that may be included in a single APT
+        statement is 600. For example, this statement:
+        </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">ID6) CIRC1 = CIRCLE/ 1, 2, 3, 8</pre></blockquote></div><p>
+        contains the 13 elements listed in <a href="language_and_syntax.html#elements_table" title="Table 1.1. Statement Elements">Table 1.1</a>.
+      </p><div class="table"><a name="elements_table"></a><p class="title"><b>Table 1.1. Statement Elements</b></p><table summary="Statement Elements" cellpadding="3" border="1"><colgroup><col><col><col><col><col><col></colgroup><thead><tr><th align="left">Count</th><th align="left">Symbol</th><th align="left">Type</th><th align="left">Count</th><th align="left">Symbol</th><th align="left">Type</th></tr></thead><tbody><tr><td align="left">1</td><td align="left">ID6</td><td align="left">Statement Label</td><td align="left">8</td><td align="left">,</td><td align="left">Punctuation</td></tr><tr><td align="left">2</td><td align="left">)</td><td align="left">Punctuation</td><td align="left">9</td><td align="left">2</td><td align="left">Number</td></tr><tr><td align="left">3</td><td align="left">CIRC1</td><td align="left">Symbol</td><td align="left">10</td><td align="left">,</td><td align="left">Punctuation</td></tr><tr><td align="left">4</td><td align="left">=</td><td align="left">Punctuation</td><td align="left">11</td><td align="left">3</td><td align="left">Number</td></tr><tr><td align="left">5</td><td align="left">CIRCLE</td><td align="left">Vocabulary Word</td><td align="left">12</td><td align="left">,</td><td align="left">Punctuation</td></tr><tr><td align="left">6</td><td align="left">/</td><td align="left">Punctuation</td><td align="left">13</td><td align="left">8</td><td align="left">Number</td></tr><tr><td align="left">7</td><td align="left">1</td><td align="left">Number</td><td class="auto-generated"> </td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr></tbody></table></div></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="manual_format.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="syn_kw.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">Part Programming Manual Format </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> 1.2. The Vocabulary Synonym (SYN) Statement</td></tr></table></div></body></html>

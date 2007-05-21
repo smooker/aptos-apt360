@@ -1,0 +1,114 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>7.3. APT Processor Control Words</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="special_words.html" title="Chapter 7. Special Words in the APT Language"><link rel="prev" href="aux_symbol_def.html" title="7.2. The Auxiliary Symbol Definition (OBTAIN) Statement"><link rel="next" href="loops_macros.html" title="Chapter 8. Loops and Macros in the APT Language"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">7.3. APT Processor Control Words</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="aux_symbol_def.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center">Chapter 7. Special Words in the APT Language</th><td width="20%" align="right"> <a accesskey="n" href="loops_macros.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="apt_control_words"></a>7.3. APT Processor Control Words</h2></div></div></div><p>
+      Certain APT vocabulary words are used to define and/or alter the way the
+      apt processor executes a particular part program. These words include
+      NOPLOT, MACHIN, NOPOST, CLPRINT, CLTV, PTONLY and FINI.
+    </p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="noplot_kw"></a>7.3.1. The NOPLOT Statement</h3></div></div></div><p>
+        The NOPLOT statement suppresses execution of all the PLOT/ ...
+        statements in the part program. The NOPLOT statement can appear
+        anywhere in the part program. The NOPLOT statement can be specified on
+        a card by itself of in conjunction with another APT statement; for
+        example:
+        </p><div class="blockquote"><blockquote class="blockquote"><p>NOPLOT</p></blockquote></div><p>
+        or
+        </p><div class="blockquote"><blockquote class="blockquote"><p>NOPLOT, CUTTER/ <span class="emphasis"><em>d</em></span>,
+            <span class="emphasis"><em>r</em></span> ... etc.</p></blockquote></div><p>
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="machin_kw"></a>7.3.2. The MACHIN Statement</h3></div></div></div><p>
+        The MACHIN statement in the APT part program specifies the postprocessor
+        that is to be executed. The MACHIN statements should appear at the
+        beginning of the part program to use the APT processor most efficiently.
+        The MACHINE statement is specified as follows:
+        </p><div class="blockquote"><blockquote class="blockquote"><p>MACHIN/ NAME, par2, par3, par4</p></blockquote></div><p>
+        The first parameter (to the right of the slash), NAME, is the
+        alphanumeric name of the postprocessor to be executed. The other
+        parameters are defined (as to type and number) by the individual
+        postprocessors.
+      </p><p>
+        A part programmer can specify up to nine postprocessors for multiple
+        postprocessing in one part program. if no MACHIN statement appears in
+        the part program, the APT processor assumes that no postprocessor is to
+        be executed.
+      </p><p>
+        The following is a list of the postprocessor names available in the APT
+        vocabulary:
+        </p><div class="blockquote"><blockquote class="blockquote"><p>EMC</p></blockquote></div><p>
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="nopost_kw"></a>7.3.3. The NOPOST Statement</h3></div></div></div><p>
+        The NOPOST statement suppresses execution of all postprocessors
+        specified or implied anywhere in the part program. The NOPOST
+        statement may appear anywhere in the part program. The NOPOST
+        statement can be specified on a line by itself or in conjunction with
+        another APT statement; for example:
+        </p><div class="blockquote"><blockquote class="blockquote"><p>NOPOST</p></blockquote></div><p>
+        or
+        </p><div class="blockquote"><blockquote class="blockquote"><p>NOPOST/ <span class="emphasis"><em>d</em></span>,
+            <span class="emphasis"><em>r</em></span> ... etc.</p></blockquote></div><p>
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="clprnt_kw"></a>7.3.4. The CLPRNT Statement</h3></div></div></div><p>
+        The CLPRNT statement causes the input to the postprocessor to be
+        printed out in the edit phase of the APT processor, immediately
+        preceding the postprocessor phase. The CLPRNT statement must be
+        specified on a line by itself. The allowable forms of the CLPRNT
+        statement are as follows:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>CLPRNT</p><p>
+            Specifies that the entire input to the postprocessor is to be
+            printed. The statement takes precedence over any of the other
+            CLPRNT forms, if more than one should occur in a given part
+            program.
+          </p></li><li><p>CLPRNT/ ON</p><p>
+            Specifies that printing of the information is to begin at the
+            location in the part program where the statement occurs.
+          </p></li><li><p>CLPRNT/ OFF</p><p>
+            Indicates that printing of the information is to cease from this
+            point on in the part program.
+          </p></li><li><p>CLPRNT/ OPTION</p><p>
+            The CLPRNT/ OPTION is used in conjunction with the cutter
+            transformation feature (TRACUT) of the APT processor (see <a href="cutpath_xform.html" title="Chapter 13. Cutter Path Transformation Statements">Chapter 13</a> for a discussion of TRACUT). Normally,
+            the information is printed out after the transformation has
+            occurred. However, the CLPRINT/ OPTION statement causes the
+            information to be printed out
+            before transformation. The CLPRNT/ OPTION statement in every other
+            regard is identical to the CLPRNT/ ON statement; that is, the
+            printing of the information begins at the spot in the part program
+            where the statement appears.
+          </p></li></ul></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="cltv_kw"></a>7.3.5. The CLTV Statement</h3></div></div></div><p>
+        The CLTV statement is used to specify the conditions by which the APT
+        processor is to use an alternate arithmetic element. This alternate
+        arithmetic element would be part of the APT system, although it is to
+        be provided by the user's installation. The format of the CLTV
+        statement is as follows:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>CLTV</p><p>
+            Specifies that the auxiliary arithmetic element is to be used in
+            place of the standard program. This form of the statement takes
+            precedence over the alternate format.
+          </p></li><li><p>CLTV/ OPTION</p><p>
+            Specifies that the auxiliary arithmetic element is to be used only
+            if difficulty is encountered in the standard version.
+          </p></li></ul></div><p>The CLTV statement must appear on a line by itself.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ptonly_kw"></a>7.3.6. The PTONLY Statement</h3></div></div></div><p>
+        The PTONLY statement can be specified in the following three ways.
+        Each variation has a different effect on the APT processing.
+      </p><div class="itemizedlist"><ul type="disc"><li><p>PTONLY/ 1</p><p>
+            Causes the omission of the arithmetic element phase of the APT
+            processor; that is, the APT processor bypasses the arithmetic
+            element phase and goes directly from the compiler phase to the
+            edit or postprocessor phase of the APT processor. It is assumed
+            that the tool positioning data is defined enough so that
+            arithmetic calculations are minor and can be handled by the edit
+            or postprocessor phases.
+          </p></li><li><p>PTONLY/ 2</p><p>
+            Causes the arithmetic element phase of the APT processor to be
+            omitted -- the cutter location data (CLTAPE) from a previous
+            computer run is available to the APT processor for later phases of
+            the APT system.
+          </p></li><li><p>PTONLY/ 3, <span class="emphasis"><em>n</em></span></p><p>
+            Informs the arithmetic element phase of the APT processor to use a
+            previously calculated cutter location data set, up to logical
+            record <span class="emphasis"><em>n</em></span>, as a starting basis for a new
+            cutter location data set. The remainder of the cutter location
+            data set is to be generated by the arithmetic element as defined
+            in the part program.
+          </p></li></ul></div><p>
+        The PTONLY statement should appear on a line by itself or as the
+        last item of another APT statement.
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="fini_kw"></a>7.3.7. The FINI Statement</h3></div></div></div><p>
+          The FINI statement defines the end of the part program; it should be
+          the only statement on a line and must be the last line in
+          the part program.
+        </p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="aux_symbol_def.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"><a accesskey="u" href="special_words.html"><img src="images/up.gif" alt="Up"></a></td><td width="40%" align="right"> <a accesskey="n" href="loops_macros.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">7.2. The Auxiliary Symbol Definition (OBTAIN) Statement </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> Chapter 8. Loops and Macros in the APT Language</td></tr></table></div></body></html>

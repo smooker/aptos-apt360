@@ -1,0 +1,13 @@
+span.inlinemediaobject img {
+    vertical-align: middle;
+}
+
+div.itemizedlist img {
+    vertical-align: middle;
+}
+
+pre.programlisting {
+  background-color: #fefedd;
+  padding: 5px 5px 5px 5px;
+  border: 1px solid black;
+}

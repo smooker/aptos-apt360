@@ -1,0 +1,165 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>4.5. Pattern Definition Statement</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="p2p_programming.html" title="Chapter 4. Point-To-Point Programming"><link rel="prev" href="zsurf_implication.html" title="4.4. Implication of the ZSURF Statement"><link rel="next" href="pnt_pnt_motion_cmds.html" title="4.6. Point-Point Motion Commands"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">4.5. Pattern Definition Statement</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="zsurf_implication.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center">Chapter 4. Point-To-Point Programming</th><td width="20%" align="right"> <a accesskey="n" href="pnt_pnt_motion_cmds.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="patern_kw"></a>4.5. Pattern Definition Statement</h2></div></div></div><p>
+      A pattern is a set of one or more points. The
+      maximum number of points that can be included in
+      a pattern is 330. Pattern definition statements
+      may be constructed in such a way that a pattern
+      containing the full 330 points cannot be defined.
+      In this case a diagnostic is issued. If this occurs,
+      the desired pattern can always be defined by breaking the definition
+      statement up into two patterns
+      and adding them together. Even the very worst
+      case pattern definition statement can always define
+      at least 230 points. It is very unusual to encounter
+      a pattern definition that cannot define a full 330
+      points. Patterns may be defined using the formats
+      listed below. Pattern definitions may not be nested.
+    </p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="linear_kw"></a>4.5.1. Linear (LINEAR) Patterns</h3></div></div></div><p>
+        A linear pattern is a set of point locations, all of which lie on a
+        straight line.
+      </p><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="patern_def_lin_2pt"></a>4.5.1.1. 
+          Start Point, End Point and Number of Equally Spaced Points
+        </h4></div></div></div><p>
+          The start and end points are included in
+          <span class="emphasis"><em>npoints</em></span>.
+        </p><div class="blockquote"><blockquote class="blockquote"><p>SPAT = PATERN/ LINEAR, spoint1, spoint2,
+            <span class="emphasis"><em>npoints</em></span>
+          </p></blockquote></div><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure68a"></a><p class="title"><b>Figure 4.1. LINEAR PATERN 1</b></p><div class="mediaobject"><img src="images/figure68a.png" alt="LINEAR PATERN 1"></div></div><pre class="programlisting">
+PAT1 = PATERN/ LINEAR, PT1, PT2, 9
+$$ or
+PAT1 = PATERN/ LINEAR, PT1, VEC1, 9
+$$ or
+PAT1 = PATERN/ LINEAR, PT1, VEC1, INCR, 8, AT, 1</pre></blockquote></div></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="patern_def_lin_pnt_vect"></a>4.5.1.2. 
+          Start Point, a Vector, and Number of Equally Spaced Points
+        </h4></div></div></div><p>
+          The start point is included in <span class="emphasis"><em>npoints</em></span>. The
+          distance between the points is equal to the vector magnitude.
+          (See <a href="patern_kw.html#figure68a" title="Figure 4.1. LINEAR PATERN 1">Figure 4.1</a>)
+        </p><div class="blockquote"><blockquote class="blockquote"><p>SPAT = PATERN/ LINEAR, spoint, svector,
+            <span class="emphasis"><em>npoints</em></span>
+          </p></blockquote></div></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="patern_def_lin_pnt_vect_incr"></a>4.5.1.3. 
+          Start Point, a Vector, and an Incremental Spacing
+        </h4></div></div></div><p>
+          The start point is not included in <span class="emphasis"><em>npoints</em></span>. The
+          distance between the points is equal to <span class="emphasis"><em>i</em></span>.
+          (See <a href="patern_kw.html#figure68a" title="Figure 4.1. LINEAR PATERN 1">Figure 4.1</a>)
+        </p><div class="blockquote"><blockquote class="blockquote"><p>SPAT = PATERN/ LINEAR, spoint, svector, INCR,
+            <span class="emphasis"><em>npoints</em></span>, AT, <span class="emphasis"><em>i</em></span>
+          </p></blockquote></div></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="patern_def_lin_pnt_vec_incr2"></a>4.5.1.4. Starting Point, a Vector and Successive Increments</h4></div></div></div><div class="blockquote"><blockquote class="blockquote"><p>
+            SPAT = PATERN/ LINEAR, spoint, svector, INCR,
+            <span class="emphasis"><em>i</em></span><sub>1</sub>,
+            <span class="emphasis"><em>i</em></span><sub>2</sub>, ...
+            <span class="emphasis"><em>i</em></span><sub>n</sub>
+          </p></blockquote></div><p>
+          Where 
+          <span class="emphasis"><em>i</em></span><sub>1</sub>,
+          <span class="emphasis"><em>i</em></span><sub>2</sub>, ...
+          <span class="emphasis"><em>i</em></span><sub>n</sub>, are the successive
+          increments along the vector.
+        </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure68b"></a><p class="title"><b>Figure 4.2. LINEAR PATERN 2</b></p><div class="mediaobject"><img src="images/figure68b.png" alt="LINEAR PATERN 2"></div></div><pre class="programlisting">
+PAT2 = PATERN/ LINEAR, PT2, VEC2, INCR, 2, 1, 1, 3</pre></blockquote></div></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="arc_kw"></a>4.5.2. Arc (ARC) Patterns</h3></div></div></div><p>
+        An ARC pattern is a set of point locations, all of
+        which lie on a single circle.
+        The points may be defined in the counterclockwise or clockwise
+        direction by specifying the appropriate modifier as follows:
+        </p><div class="blockquote"><blockquote class="blockquote"><div class="literallayout"><p>CLW     Clockwise<br>
+<br>
+CCLW    Counterclockwise</p></div></blockquote></div><p>
+      </p><p>
+        The angles used in arc PATERN definitions are
+        specified in degrees measured counterclockwise
+        from the positive X axis.
+      </p><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="arc_def_cir_sa_ea"></a>4.5.2.1. 
+          A Circle, Start and End Angles and the Number of
+          Points
+        </h4></div></div></div><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig4-05-02-01-1.png"></div></blockquote></div><p>
+          Where <span class="emphasis"><em>sa</em></span> and <span class="emphasis"><em>ea</em></span>
+          specify the starting and ending angles, respectively. The number
+          of points includes the starting and ending points in the pattern.
+        </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure68c"></a><p class="title"><b>Figure 4.3. ARC PATERN</b></p><div class="mediaobject"><img src="images/figure68c.png" alt="ARC PATERN"></div></div><pre class="programlisting">
+PAT1 = PATERN/ ARC, C1, 70, 230, CCLW, 5
+$$ or
+PAT2 = PATERN/ ARC, C1, -130, 70, CLW, 5
+$$ or
+PAT3 = PATERN/ ARC, C1, 70, CLW, INCR, 200, 40, 40, 40
+$$ or
+PAT4 = PATERN/ ARC, C1, 70, CCLW, INCR, 4, AT, 40</pre></blockquote></div></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="arc_def_cir_sa_anginc"></a>4.5.2.2. A Circle, Starting Angle, and Angular Increments</h4></div></div></div><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig4-05-02-02-1.png"></div></blockquote></div><p>
+          Where <span class="emphasis"><em>sa</em></span> is the starting angle and
+          <span class="emphasis"><em>a</em></span><sub>1</sub>,
+          <span class="emphasis"><em>a</em></span><sub>2</sub>, ...
+          <span class="emphasis"><em>a</em></span><sub>n</sub> define the angular
+          displacements between successive points on the circle in
+          the direction specified by CLW or CCLW.
+          (See <a href="patern_kw.html#figure68c" title="Figure 4.3. ARC PATERN">Figure 4.3</a>)
+        </p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="arc_def_cir_sa_incang"></a>4.5.2.3. 
+          A Circle, Starting Angle, and Number of Increments at an Angular
+          Spacing
+        </h4></div></div></div><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig4-05-02-03-1.png"></div></blockquote></div><p>
+          Where <span class="emphasis"><em>sa</em></span> defines the starting angle, and
+          <span class="emphasis"><em>npoints</em></span> is the number of points (one less than
+          the resultant total number of points) to be generated at an angular
+          displacement specified by <span class="emphasis"><em>angle</em></span> in the direction
+          indicated by CLW or CCLW. (See <a href="patern_kw.html#figure68c" title="Figure 4.3. ARC PATERN">Figure 4.3</a>)
+        </p></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="parlel_kw"></a>4.5.3. Parallelogram (PARLEL) Patterns</h3></div></div></div><p>
+        A parallelogram pattern is a grid of point locations
+        defined by establishing lines parallel to a specified
+        linear pattern and projecting the points from the
+        original pattern onto those lines. The definition order for the points
+        in a parallelogram pattern will be governed by the following rules:
+      </p><div class="orderedlist"><ol type="1"><li><p>
+            The first linear pattern in the list defines a "column", the order
+            of which is that of the linear pattern.
+          </p></li><li><p>
+            A parallelogram pattern will consist of at least one other column
+            parallel to the first column. The points in the second, fourth,
+            and all even-numbered columns will be ordered in the opposite
+            direction from those in odd-numbered columns.
+          </p></li></ol></div><p>
+        For example, in <a href="patern_kw.html#figure68e" title="Figure 4.4. PARLEL PATERN 1">Figure 4.4</a> PAT5 contains points
+        1-7. Points 8-14 in the next row are ordered in the opposite direction;
+        points 15-21 are ordered in the same direction as points 1-7, etc. In
+        this example the first column consists of points 1-7, the second column
+        consists of points 8-14, etc.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure68e"></a><p class="title"><b>Figure 4.4. PARLEL PATERN 1</b></p><div class="mediaobject"><img src="images/figure68e.png" alt="PARLEL PATERN 1"></div></div><pre class="programlisting">
+PAT6 = PATERN/ PARLEL, PAT5, VEC2, INCR, 2.5, 1.5, 1, 2</pre></blockquote></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="parlel_def_2linear_pats"></a>4.5.3.1. Two Previously Defined Linear Patterns</h4></div></div></div><div class="blockquote"><blockquote class="blockquote"><p>SPAT = PATERN/ PARLEL, spat1, spat2</p></blockquote></div><p>
+          spat1 and spat2 must contain a common point as either their first or
+          last point for this definition.
+        </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure68d"></a><p class="title"><b>Figure 4.5. PARLEL PATERN 2</b></p><div class="mediaobject"><img src="images/figure68d.png" alt="PARLEL PATERN 2"></div></div><pre class="programlisting">
+PAT4 = PATERN/ PARLEL, PAT1, PAT2
+$$ or
+PAT4 = PATERN/ PARLEL, PAT1, VEC1, 5
+$$ or
+PAT4 = PATERN/ PARLEL, PAT1, VEC1, INCR, 5, AT, 4</pre></blockquote></div></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="parlel_def_linpat_vect_cols"></a>4.5.3.2. A Linear Pattern, Vector and Number of Columns</h4></div></div></div><div class="blockquote"><blockquote class="blockquote"><p>
+            SPAT = PATERN/ PARLEL, spat, svect, <span class="emphasis"><em>n</em></span>
+          </p></blockquote></div><p>
+          spat1 and spat2 must contain a common point as either their first or
+          last point for this definition. (See <a href="patern_kw.html#figure68d" title="Figure 4.5. PARLEL PATERN 2">Figure 4.5</a>)
+        </p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="parlel_def_linpat_vect_cols"></a>4.5.3.3. 
+          A Linear Pattern, Vector, Increment, and Number of Columns
+        </h4></div></div></div><div class="blockquote"><blockquote class="blockquote"><p>
+            SPAT = PATERN/ PARLEL, spat, svect, INCR, <span class="emphasis"><em>i</em></span>,
+            AT, <span class="emphasis"><em>n</em></span>
+          </p></blockquote></div><p>
+          Where <span class="emphasis"><em>i</em></span> specifies the increment in units and
+          <span class="emphasis"><em>n</em></span> specifies the number of times spat is to be
+          repeated at the specified interval and direction, not including the
+          original pattern. (See <a href="patern_kw.html#figure68d" title="Figure 4.5. PARLEL PATERN 2">Figure 4.5</a>)
+        </p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="parlel_def_linpat_vect_incs"></a>4.5.3.4. A Linear Pattern, Vector, and Increments</h4></div></div></div><div class="blockquote"><blockquote class="blockquote"><p>
+            SPAT = PATERN/ PARLEL, spat, svect, INCR,
+            <span class="emphasis"><em>i</em></span><sub>1</sub>,
+            <span class="emphasis"><em>i</em></span><sub>2</sub>, ...
+            <span class="emphasis"><em>i</em></span><sub>n</sub>
+          </p></blockquote></div><p>
+          Where <span class="emphasis"><em>i</em></span><sub>1</sub>,
+          <span class="emphasis"><em>i</em></span><sub>2</sub>, ...
+          <span class="emphasis"><em>i</em></span><sub>n</sub>
+          will be increments (in units) between columns along the direction
+          specified by svect. (See <a href="patern_kw.html#figure68e" title="Figure 4.4. PARLEL PATERN 1">Figure 4.4</a>)
+        </p></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="random_kw"></a>4.5.4. Random (RANDOM) Patterns</h3></div></div></div><p>
+        A random pattern is a collection of point locations not necessarily
+        contained on a line or an arc.
+      </p><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="random_def_prev_pts_pats"></a>4.5.4.1. Previously Defined Points and Patterns</h4></div></div></div><div class="blockquote"><blockquote class="blockquote"><p>
+            SPAT = PATERN/ RANDOM, spat1, spoint1, spoint2, spat2, spoint3,
+            ...
+          </p></blockquote></div><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure68f"></a><p class="title"><b>Figure 4.6. RANDOM PATERN</b></p><div class="mediaobject"><img src="images/figure68f.png" alt="RANDOM PATERN"></div></div><pre class="programlisting">
+PAT10 = PATERN/ RANDOM, PAT1, PT8, PT7, PT6, PT5, PT4, PT3$
+                              PT2, PT1</pre></blockquote></div></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="zsurf_implication.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"><a accesskey="u" href="p2p_programming.html"><img src="images/up.gif" alt="Up"></a></td><td width="40%" align="right"> <a accesskey="n" href="pnt_pnt_motion_cmds.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">4.4. Implication of the ZSURF Statement </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> 4.6. Point-Point Motion Commands</td></tr></table></div></body></html>

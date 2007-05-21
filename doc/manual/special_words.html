@@ -1,0 +1,55 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Chapter 7. Special Words in the APT Language</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="index.html" title="APT360 Programmers Manual"><link rel="prev" href="spec_fedrat_opt.html" title="6.4. Special Feedrate Option"><link rel="next" href="aux_symbol_def.html" title="7.2. The Auxiliary Symbol Definition (OBTAIN) Statement"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 7. Special Words in the APT Language</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="spec_fedrat_opt.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="aux_symbol_def.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="special_words"></a>Chapter 7. Special Words in the APT Language</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="sect1"><a href="special_words.html#fixed_field_words">7.1. Fixed-Field Words</a></span></dt><dd><dl><dt><span class="sect2"><a href="special_words.html#remark_kw">7.1.1. The REMARK Statement</a></span></dt><dt><span class="sect2"><a href="special_words.html#partno_kw">7.1.2. The PARTNO Statement</a></span></dt><dt><span class="sect2"><a href="special_words.html#pprint_kw">7.1.3. The PPRINT Statement</a></span></dt><dt><span class="sect2"><a href="special_words.html#insert_kw">7.1.4. The INSERT Statement</a></span></dt><dt><span class="sect2"><a href="special_words.html#titles_kw">7.1.5. The TITLES Statement</a></span></dt></dl></dd><dt><span class="sect1"><a href="aux_symbol_def.html">7.2. The Auxiliary Symbol Definition (OBTAIN) Statement</a></span></dt><dt><span class="sect1"><a href="apt_control_words.html">7.3. APT Processor Control Words</a></span></dt><dd><dl><dt><span class="sect2"><a href="apt_control_words.html#noplot_kw">7.3.1. The NOPLOT Statement</a></span></dt><dt><span class="sect2"><a href="apt_control_words.html#machin_kw">7.3.2. The MACHIN Statement</a></span></dt><dt><span class="sect2"><a href="apt_control_words.html#nopost_kw">7.3.3. The NOPOST Statement</a></span></dt><dt><span class="sect2"><a href="apt_control_words.html#clprnt_kw">7.3.4. The CLPRNT Statement</a></span></dt><dt><span class="sect2"><a href="apt_control_words.html#cltv_kw">7.3.5. The CLTV Statement</a></span></dt><dt><span class="sect2"><a href="apt_control_words.html#ptonly_kw">7.3.6. The PTONLY Statement</a></span></dt><dt><span class="sect2"><a href="apt_control_words.html#fini_kw">7.3.7. The FINI Statement</a></span></dt></dl></dd></dl></div><p>
+    The APT vocabulary words discussed in this chapter either have special
+    effect on the APT processor or require certain precautions to be exercised
+    in their use, or both.
+  </p><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="fixed_field_words"></a>7.1. Fixed-Field Words</h2></div></div></div><p>
+      The APT words covered in this section are the only vocabulary words in
+      the APT language that are required to be in specific card columns. Each
+      of these words is six characters in length and must appear in columns 1
+      through 6. Columns 7 through 72 are used to define an alphanumeric
+      string of characters. These vocabulary words are REMARK, PARTNO, PPRINT,
+      INSERT and TITLES.
+    </p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="remark_kw"></a>7.1.1. The REMARK Statement</h3></div></div></div><p>
+        The REMARK statement is used only to indicate part program commentary.
+        A string of any alphanumeric characters is permitted in columns 7
+        through 71. The REMARK statement is printed out with the other APT
+        statements that comprise the part program; from then on it has no
+        other effect on the APT processor or the part program. This feature
+        allows inclusion of explanatory information at key locations in the
+        part program.
+      </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>
+          See <a href="language_and_syntax.html#double_dollar_punc">double dollar</a> and <a href="language_and_syntax.html#single_dollar_punc">single dollar</a> for more on program commentary.
+        </p></td></tr></table></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="partno_kw"></a>7.1.2. The PARTNO Statement</h3></div></div></div><p>
+        The string of alphanumeric characters that appear in columns 7 through
+        72 of the PARTNO statement is passed on to later phases of the APT
+        processor for labeling and identification purposes. The postprocessor
+        phase of the APT processor generally uses this information to identify
+        the punch output resulting from the postprocessor.
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="pprint_kw"></a>7.1.3. The PPRINT Statement</h3></div></div></div><p>
+        The string of alphanumeric characters that appear in columns 7 through
+        72 of the PPRINT statement is passed on to later phases of the APT
+        processor for purposes of part programmer commentary. The
+        postprocessor phase usually makes use of this APT feature. The PPRINT
+        statement has no other effect in the phases of the APT processor
+        where it is used.
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="insert_kw"></a>7.1.4. The INSERT Statement</h3></div></div></div><p>
+        The string of alphanumeric characters that appear in columns 7 through
+        72 of the INSERT statement us used in the postprocessor phase of the
+        APT processor as direct output to the machine tool. Thus, the INSERT
+        statement provides a means for inserting manually coded commands in
+        the midst of the automatic calculations provided by the postprocessor.
+        In this context, care must be exercised when using the INSERT
+        statement. Some postprocessor use this information to energize a
+        display device on the machine tool which provides machine tool
+        operator guidance on the procedures to be followed during the
+        machining of the part.
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="titles_kw"></a>7.1.5. The TITLES Statement</h3></div></div></div><p>
+        The TITLES statement us used exclusively during the compiler phase of
+        the APT processor. The alphanumeric information is to be used by the
+        part programmer to serve as a heading for the tabular information that
+        is to be generated by later PRINT statements in the part program. The
+        TITLES statement must be followed by a PRINT statement; otherwise it
+        will have no effect on the output of the APT system. For a full
+        discussion of the use of TITLES and PRINT in the APT program, see
+        <a href="io_stmnts.html#print_kw" title="11.1. The PRINT Statement">Section 11.1</a>.
+      </p></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="spec_fedrat_opt.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="aux_symbol_def.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">6.4. Special Feedrate Option </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> 7.2. The Auxiliary Symbol Definition (OBTAIN) Statement</td></tr></table></div></body></html>

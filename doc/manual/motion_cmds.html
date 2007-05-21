@@ -1,0 +1,219 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>5.4. Motion Commands</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="prog_toolpath.html" title="Chapter 5. Programming a Tool Path"><link rel="prev" href="startup.html" title="5.3. Startup Procedures"><link rel="next" href="expanded_tol_stmnt.html" title="5.5. Expanded Tolerance Statement"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">5.4. Motion Commands</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="startup.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center">Chapter 5. Programming a Tool Path</th><td width="20%" align="right"> <a accesskey="n" href="expanded_tol_stmnt.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="motion_cmds"></a>5.4. Motion Commands</h2></div></div></div><p>
+      A general motion command is used to describe the relationship of the
+      cutter and the surfaces, once the proper initial conditions have been
+      attained. A general motion command differs from a positioning command
+      (that is, GOTO, GODLTA, GO, OFFSET) in that an entire cutting
+      sequence is generated, rather than a single cutter movement. Further,
+      material is generally being removed with a set of MOTION commands --
+      usually this is not so with a positioning command. 
+    </p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="gen_motion_stmnt"></a>5.4.1. General Form</h3></div></div></div><p>
+        The basic general from of a motion command is as follows:
+        </p><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig5-04-01-1.png"></div></blockquote></div><p>
+        where:
+      </p><p>
+        TLLFT, TLRGT, TLON, and TLNDON are positional modifiers
+        that describe the relationship between the tool and the drive
+        surface. When one of these modifiers is used, it remains in effect
+        with later motion statements until a new modifier is encountered.
+        The meaning of each modifier is given in <a href="cut_surf_relate.html#drive_surf2" title="5.2.2. Drive Surface">Section 5.2.2</a>.
+      </p><p>
+        TLONPS and TLOFPS are positional modifiers that describe the
+        relationship between the tool and the part surface. When specified,
+        they remain in effect until a new modifier is found. When neither has
+        been specified, TLOFPS is assumed (see <a href="cut_surf_relate.html#part_surf2" title="5.2.1. Part Surface">Section 5.2.1</a>).
+      </p><p>
+        GOLFT, GORGT, GOUP, GODOWN, GOFWD and GOBACK are
+        directional modifiers that select the proper path of travel. These
+        modifiers, one of which must be present on any motion statement, are
+        described in <a href="motion_cmds.html#dir_modifiers" title="5.4.2. Directional Modifiers">Section 5.4.2</a>.
+      </p><p>
+        SURF1 is the drive surface for this motion command. The concept of a
+        drive surface was explained in <a href="prog_toolpath.html#drive_surface" title="5.1.3.2. Drive Surface">Section 5.1.3.2</a>.
+        TO, ON, PAST, and TANTO define the relationship of the final cutter
+        position with regard to the surface that follows in the motion
+        statement. If none is used, TO is assumed. These modifiers are as
+        defined in <a href="cut_surf_relate.html#check_surf2" title="5.2.3. Check Surface">Section 5.2.3</a>.
+      </p><p>
+        SURF2 is the check surface for this motion command. The concept of a
+        check surface was explained in <a href="prog_toolpath.html#check_surface" title="5.1.3.3. Check Surface">Section 5.1.3.3</a>. 
+      </p><p>
+        The reset of the general statement contains information regarding
+        multiple check surfaces. This concept is introduced in
+        <a href="motion_cmds.html#mult_check_surf" title="5.4.3.4. Multiple Check Surfaces">Section 5.4.3.4</a>.
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="dir_modifiers"></a>5.4.2. Directional Modifiers</h3></div></div></div><p>
+        At the completion of an elementary cut sequence, a new sequence can be
+        started immediately, provided an indication of the direction (or
+        branch) the tool is to select has been defined. For instance, in
+        <a href="motion_cmds.html#figure93" title="Figure 5.26. Directional Modifiers">Figure 5.26</a> a startup sequence resulted in locating the
+        cutter at PTB. The cutter is to be moved along CIRC1 (within tolerance)
+        until the cutter center is on CIRC2. There are two possible routes:
+        move clockwise around CIRC1 to PTC, or move counter-clockwise
+        around CIRC1 to PTD. Both choices satisfy the given requirements.
+        Therefore, a direction modifier is needed to delineate the specified
+        motion. Three pairs of such modifiers are available in the APT
+        language: GOLFT, GORGT, GOFWD, GOBACK, and GOUP, GODOWN.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure93"></a><p class="title"><b>Figure 5.26. Directional Modifiers</b></p><div class="mediaobject"><img src="images/figure93.png" alt="Directional Modifiers"></div></div></blockquote></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="golft_glrgt_kw"></a>5.4.2.1. GOLFT, GORGT</h4></div></div></div><p>
+          The modifiers GOLFT and GORGT indicate the cutter is to turn
+          left or right, respectively, at the designated intersection. The
+          meaning of left and right is determined by viewing the cutter path
+          from the current reference point. <a href="motion_cmds.html#figure94" title="Figure 5.27. GOLFT, GORGT Nomenclature">Figure 5.27</a>
+          indicates the implication of left and right in this sense. GORGT
+          would cause the movement along S1 toward PL2, while GOLFT would
+          cause the cutter to move toward PL1.
+        </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure94"></a><p class="title"><b>Figure 5.27. GOLFT, GORGT Nomenclature</b></p><div class="mediaobject"><img src="images/figure94.png" alt="GOLFT, GORGT Nomenclature"></div></div><pre class="programlisting">
+FROM/ PTA
+GO/ ON, S1
+TLON, GORGT/ S1
+$$ or
+FROM/ PTA
+GO/ ON, S1
+TLON, GOLFT/ S1</pre></blockquote></div><p>
+          In <a href="motion_cmds.html#figure93" title="Figure 5.26. Directional Modifiers">Figure 5.26</a> the instructions:
+          </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">FROM/ PTA
+GO/ ON, CIR1
+TLON, GOLFT/ CIRC1, ON, CIRC2</pre></blockquote></div><p>
+          would result in motion being terminated at PTC, while GORGT in
+          the last statement would yield PTD. The results are shown in
+          <a href="motion_cmds.html#figure95" title="Figure 5.28. GOLFT, GORGT Example">Figure 5.28</a>.
+        </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure95"></a><p class="title"><b>Figure 5.28. GOLFT, GORGT Example</b></p><div class="mediaobject"><img src="images/figure95.png" alt="GOLFT, GORGT Example"></div></div></blockquote></div></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="gofwd_goback_kw"></a>5.4.2.2. GOFWD, GOBACK</h4></div></div></div><p>
+          <a href="motion_cmds.html#example_gofwd" title="Example 5.1. GOFWD Usage">Example 5.1</a> shows where neither GOLFT nor
+          GORGT could be used. Making the transition between LINEA and
+          CURVA does not involve either a left or a right turn with regard
+          to the current direction of travel. However, it does consist of a
+          continuation of the current forward movement of the cutter. Hence,
+          GOFWD is the proper modifier.
+
+          </p><div class="blockquote"><blockquote class="blockquote"><div class="example"><a name="example_gofwd"></a><p class="title"><b>Example 5.1. GOFWD Usage</b></p><div class="mediaobject"><img src="images/figure96.png"></div><pre class="programlisting">FROM/ PTA
+GO/ ON, LINEA
+TLON, GOLFT/ LINEA, TANTO, CURVA
+GOFWD/ CURVA, TO, LINEB</pre></div></blockquote></div><p>
+        </p><p>
+          The general concept of the modifiers GOFWD and GOBACK is shown in
+          <a href="motion_cmds.html#figure97" title="Figure 5.29. GOFWD, GOBACK General Concept">Figure 5.29</a>. GOFWD would cause movement along S1
+          toward PL1; GOBACK would cause the cutter to be directed toward PL2.
+        </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure97"></a><p class="title"><b>Figure 5.29. GOFWD, GOBACK General Concept</b></p><div class="mediaobject"><img src="images/figure97.png" alt="GOFWD, GOBACK General Concept"></div></div><pre class="programlisting">
+FROM/ PTA
+GO/ ON, PL5
+TLON, GOLFT/ PL5, TANTO, S1
+GOFWD/ S1
+$$ or
+FROM/ PTA
+GO/ ON, PL5
+TLON, GOLFT/ PL5, TANTO, S1
+GOBACK/ S1</pre></blockquote></div></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="goup_godown_kw"></a>5.4.2.3. GOUP, GODOWN</h4></div></div></div><p>
+          In isolated circumstances, neither GORGT, GOLFT nor
+          GOFWD, GOBACK describe the desired motion adequately. Then, and
+          only then should GOUP or GODOWN be used.
+        </p><p>
+          The previous directional modifiers were applied with regard to the
+          current sense of direction of the cutter motion GOUP and
+          GODOWN, however, are applied with regard to the tool axis. GOUP
+          specifies that the motion is to be in a direction similar to
+          withdrawing the tool (that is, move up the tool axis). GODOWN
+          specifies that the motion is to be in a direction similar to
+          plunging the tool (that is, move down the tool axis). The use of
+          GOUP and GODOWN does not replace the current sense of direction
+          if the movement resulting from the GOUP or GODOWN is directly
+          along the tool axis. The sense of direction for later motion
+          commands will be taken as that of the last motion command which did
+          not result in a motion directly along the tool axis.
+          <a href="motion_cmds.html#figure98" title="Figure 5.30. GOUP, GODOWN Usage">Figure 5.30</a> shows the use of GOUP and GODOWN.
+        </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure98"></a><p class="title"><b>Figure 5.30. GOUP, GODOWN Usage</b></p><div class="mediaobject"><img src="images/figure98.png" alt="GOUP, GODOWN Usage"></div></div><pre class="programlisting">
+FROM/ P1
+GO/ PLB, ON, PL, PLA
+TLONPS, GODOWN/ PLB, PLC
+GOFWD/ PLC, PLD</pre></blockquote></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>
+            When using GOUP and GODOWN, an implicit check surface (see
+            <a href="motion_cmds.html#check_surf_motion" title="5.4.3.3. Check Surface (CS)">Section 5.4.3.3</a>) is not allowed. Where the
+            GOUP, GODOWN directional modifier appears must be designated
+            explicitly in the motion command.
+          </p></td></tr></table></div></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="surf_specification"></a>5.4.3. Surface Specification</h3></div></div></div><p>
+        The surfaces involved in the execution of a motion command most be
+        properly designated as to which is the part surface (PS), drive
+        surface (DS), and the check surface (CS). The alternatives available
+        to identify the surfaces properly are discussed in the following
+        sections.
+      </p><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="part_surf_motion"></a>5.4.3.1. Part Surface (PS)</h4></div></div></div><p>
+          The part surface must be defined before any motion statements. The
+          XY-Plane is used as the part surface if one has not been defined
+          explicitly. The part surface designation is in effect until a new
+          surface is so designated. There are three ways to define a part
+          surface explicitly -- with a PSIS statement, with an AUTOPS
+          statement, or with a two- or three-surface startup/command.
+        </p><div class="orderedlist"><ol type="1"><li><p><a name="psis_kw"></a>PSIS</p><p>
+              The format of a PSIS statement is as follows:
+              </p><div class="blockquote"><blockquote class="blockquote"><p>PSIS/ SURF1</p></blockquote></div><p>
+              This statement indicates that SURF1 is the part surface that
+              is to be in effect until a new one is defined.
+            </p></li><li><p><a name="autops_kw"></a>AUTOPS</p><p>
+              The vocabulary word AUTOPS, appearing by itself as a complete
+              APT statement, causes the processor to define a plane parallel
+              to the XY-Plane at the current Z-height of the tool. This plane
+              becomes the part surface and is in effect until a new one is
+              defined (see <a href="motion_cmds.html#figure99" title="Figure 5.31. AUTOPS Usage">Figure 5.31</a> for an example).
+            </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure99"></a><p class="title"><b>Figure 5.31. AUTOPS Usage</b></p><div class="mediaobject"><img src="images/figure99.png" alt="AUTOPS Usage"></div></div><pre class="programlisting">
+FROM/ PTA
+INDIRV/ VECA
+NOPS
+GO/ S1
+AUTOPS</pre></blockquote></div></li><li><p>Multisurface GO/ command</p><p>
+              The second surface indicated in a multisurface GO/ statement
+              is defined as the part surface (see
+              <a href="cut_surf_relate.html" title="5.2. CUTTER to Surface Relationships">Section 5.2</a>). This surface is in effect as
+              a part surface until a new one is defined.
+            </p></li></ol></div></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="drive_surf_motion"></a>5.4.3.2. Drive Surface (DS)</h4></div></div></div><p>
+          The drive surface must be defined explicitly in each motion command.
+          It is the first surface specified to the right of the slash in the
+          motion statement. It cannot be defined implicitly, and is not modal. 
+        </p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="check_surf_motion"></a>5.4.3.3. Check Surface (CS)</h4></div></div></div><p>
+          Check surfaces can be defined either explicitly or implicitly. If
+          more than one surface is given in a motion command, the second and
+          later surfaces are defined as check surfaces. If only one surface
+          was specified, the first surface in the following motion command is
+          used as the check surface for the current movement.
+          <a href="motion_cmds.html#figure100" title="Figure 5.32. Check Surface in Motion Command">Figure 5.32</a> shows a desired series of cutter
+          movements, together with two sets of motion commands that would work
+          properly.
+          In the first set, each motion command has two surfaces associated
+          with it. The second surface is then the check surface in each
+          instance. However, in the second set, statements labeled C and D
+          have only one surface specified. Therefore, the first surface in the
+          following statements, D and E, respectively are used as check
+          surfaces. This results in the same movement as was obtained with the
+          first set of instructions.
+        </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure100"></a><p class="title"><b>Figure 5.32. Check Surface in Motion Command</b></p><div class="mediaobject"><img src="images/figure100.png" alt="Check Surface in Motion Command"></div></div><pre class="programlisting">
+A) FROM/ PTA
+B) GO/ PLANEA, PL3
+C) TLLFT, GOLFT/ PLANEA, TO, CURVEB
+D) GOLFT/ CURVEB, TO, PLANEC
+E) GOLFT/ PLANEC, TO, PLANED
+
+$$ OR
+
+A) FROM/ PTA
+B) GO/ PLANEA, PL3
+C) TLLFT, GOLFT/ PLANEA
+D) GOLFT/ CURVEB
+E) GOLFT/ PLANEC, TO, PLANED</pre></blockquote></div></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="mult_check_surf"></a>5.4.3.4. Multiple Check Surfaces</h4></div></div></div><p><a name="intof_kw"></a>
+          There are instances when the exact check surface designation is not
+          precisely known. The APT processor can determine which of several
+          possible check surfaces is encountered first. On the basis of the
+          results, the processor will transfer to the location in the program
+          defined by the statement identification following the check surface
+          in the given motion command. For example, if the motion command was
+          GOLFT/ S1, TO, S2, ID1, ON, S3, ID2, the processor would GO left
+          along the surface S1 until it was "TO" the surface S2 or
+          "ON" the surface S3, whichever occurred first. If "TO"
+          S2 occurred first, the processor would transfer to the part
+          program statement with the label "ID1" If, however, "ON"
+          S3 happened first, the transfer would be to the statement labeled
+          "ID2"
+        </p><p>
+          <a href="motion_cmds.html#figure101a" title="Figure 5.33. Check Surface with Small Cutter">Figure 5.33</a> and 
+          <a href="motion_cmds.html#figure101b" title="Figure 5.34. Check Surface with Large Cutter">Figure 5.34</a> show a situation whereby the
+          selection of the proper check surface depends on the size of the
+          cutter used. In the first instance, a small tool results in PL2
+          being the first surface reached. The second case shows that a larger
+          tool would meet PL3 first. (See <a href="spec_tech.html#tranto_kw" title="14.1.7. The Transfer statement (TRANTO) Statements">Section 14.1.7</a> for
+          further usage.)
+        </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure101a"></a><p class="title"><b>Figure 5.33. Check Surface with Small Cutter</b></p><div class="mediaobject"><img src="images/figure101a.png" alt="Check Surface with Small Cutter"></div></div></blockquote></div><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure101b"></a><p class="title"><b>Figure 5.34. Check Surface with Large Cutter</b></p><div class="mediaobject"><img src="images/figure101b.png" alt="Check Surface with Large Cutter"></div></div></blockquote></div></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="startup.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"><a accesskey="u" href="prog_toolpath.html"><img src="images/up.gif" alt="Up"></a></td><td width="40%" align="right"> <a accesskey="n" href="expanded_tol_stmnt.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">5.3. Startup Procedures </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> 5.5. Expanded Tolerance Statement</td></tr></table></div></body></html>

@@ -1,0 +1,62 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Chapter 13. Cutter Path Transformation Statements</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="index.html" title="APT360 Programmers Manual"><link rel="prev" href="use_of_spec_prog.html" title="12.3. Use of Special Program"><link rel="next" href="copy_index.html" title="13.2. The Transform and COPY (COPY-INDEX) Statements"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 13. Cutter Path Transformation Statements</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="use_of_spec_prog.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="copy_index.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="cutpath_xform"></a>Chapter 13. Cutter Path Transformation Statements</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="sect1"><a href="cutpath_xform.html#tracut_kw">13.1. The Transform only (TRACUT) Statement</a></span></dt><dd><dl><dt><span class="sect2"><a href="cutpath_xform.html#sample_tracut">13.1.1. Sample TRACUT Usage</a></span></dt></dl></dd><dt><span class="sect1"><a href="copy_index.html">13.2. The Transform and COPY (COPY-INDEX) Statements</a></span></dt><dd><dl><dt><span class="sect2"><a href="copy_index.html#index_kw">13.2.1. The INDEX Statement</a></span></dt><dt><span class="sect2"><a href="copy_index.html#copy_kw">13.2.2. The COPY Statement</a></span></dt><dt><span class="sect2"><a href="copy_index.html#copy_usage">13.2.3. Usage of the COPY Feature</a></span></dt><dt><span class="sect2"><a href="copy_index.html#nesting_copy">13.2.4. Nesting of COPY Loops</a></span></dt></dl></dd><dt><span class="sect1"><a href="tracut_copy_usage.html">13.3. Combined Use of TRACUT and COPY</a></span></dt><dt><span class="sect1"><a href="spec_trans_stmnt.html">13.4. Special Transformation Statements (VTLAXS, WCORN)</a></span></dt><dd><dl><dt><span class="sect2"><a href="spec_trans_stmnt.html#vtlaxs_kw">13.4.1. The VTLAXS Statement</a></span></dt><dt><span class="sect2"><a href="spec_trans_stmnt.html#wcorn_kw">13.4.2. The WCORN Statement</a></span></dt></dl></dd></dl></div><p>
+    Under certain conditions it is useful to perform on or more of the
+    following operations.
+  </p><div class="itemizedlist"><ul type="disc" compact><li><p>
+        Transform the cutter points to a different reference system before the
+        postprocessor phase.
+      </p></li><li><p>
+        Copy a given set of cutter points a specified number of times.
+      </p></li><li><p>
+        Copy and transform a given set of cutter points a specified number of
+        times.
+      </p></li></ul></div><p>The TRACUT and COPY statements provide these capabilities.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>These statements will not be executed if there was an error in the
+      cutter path generation phase of the processor.</p></td></tr></table></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="tracut_kw"></a>13.1. The Transform only (TRACUT) Statement</h2></div></div></div><p>
+      The cutter center points can be transformed from one reference system to
+      another by a TRACUT statement.  The format of this statement is:
+    </p><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig12-01-1.png"></div></blockquote></div><p>where the usage is as follows:</p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">
+    $$
+    $$ Other APT Statements
+    $$
+A)  TRACUT/ MATRX1
+    FROM/ 0, 0, 0
+    GOTO/ PTA
+    GODLTA/ .5, .1, 0
+    GODLTA/ .5, .2, 0
+    GODLTA/ .5, .3, 0
+
+B)  TRACUT/ NOMORE
+    $$
+    $$ Other APT Statements
+    $$</pre></blockquote></div><p>
+      Statement labeled A indicates the following points are to be transformed
+      by the matrix MATRX1.  The transformation will continue to be in effect
+      until a TRACUT/ NOMORE statement is encountered.  Statement labeled B,
+      then, signals that no more transformations are to occur.
+    </p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="sample_tracut"></a>13.1.1. Sample TRACUT Usage</h3></div></div></div><p>
+        Usually a part to be machined is originally defined in a reference
+        system different from that of the machine tool.  The TRACUT feature
+        can be used to effect the required transformation.  In
+        <a href="cutpath_xform.html#tracut_pat" title="Figure 13.1. TRACUT Programmed Pattern">Figure 13.1</a>, the X<sub>p</sub>,
+        Y<sub>p</sub> system
+        represents a "part" system in which the shape to be cut was
+        geometrically defined.  The X<sub>m</sub>,
+        Y<sub>m</sub> system in <a href="cutpath_xform.html#tracut_xform_pat" title="Figure 13.2. TRACUT Transformed Pattern">Figure 13.2</a>
+        represents the reference system in
+        which the machining is to be accomplished.  The geometry statements
+        define L1, L2, L3, L4, and C1 in the "part" system. Then a TRACUT
+        command is given specifying the appropriate matrix needed to establish
+        the relationship between the two reference systems. All of the
+        resultant cutter end points between the TRACUT/ M2 and TRACUT/ NOMORE
+        commands will be transformed into the "machine" system.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="tracut_pat"></a><p class="title"><b>Figure 13.1. TRACUT Programmed Pattern</b></p><div class="mediaobject"><img src="images/figure12-01-01-1.png" alt="TRACUT Programmed Pattern"></div><pre class="programlisting">
+L1 = LINE/ 0, 0, 2, 0
+L2 = LINE/ 0, 0, 0, 2
+L3 = LINE/ PARLEL, L1, YLARGE, 3
+L4 = LINE/ PARLEL, L2, XLARGE, 2.5
+C1 = CIRCLE/ 2.5, 1.5, .75</pre></div></blockquote></div><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="tracut_xform_pat"></a><p class="title"><b>Figure 13.2. TRACUT Transformed Pattern</b></p><div class="mediaobject"><img src="images/figure12-01-01-2.png" alt="TRACUT Transformed Pattern"></div><pre class="programlisting">
+M2 = MATRIX/ XYROT, 45, TRANSL, 3, 1.5, 0
+TRACUT/ M2
+$$
+$$ Appropriate Motion Commands
+$$
+TRACUT/ NOMORE</pre></div></blockquote></div></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="use_of_spec_prog.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="copy_index.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">12.3. Use of Special Program </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> 13.2. The Transform and COPY (COPY-INDEX) Statements</td></tr></table></div></body></html>

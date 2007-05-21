@@ -1,0 +1,98 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>3.4. The Line (LINE) Definitions</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="geometry.html" title="Chapter 3. Geometric Statements in APT"><link rel="prev" href="point_kw.html" title="3.3. The Point (POINT) Definitions"><link rel="next" href="plane_kw.html" title="3.5. The Plane (PLANE) Definitions"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.4. The Line (LINE) Definitions</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="point_kw.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center">Chapter 3. Geometric Statements in APT</th><td width="20%" align="right"> <a accesskey="n" href="plane_kw.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="line_kw"></a>3.4. The Line (LINE) Definitions</h2></div></div></div><p>
+      A line is the intersection of two planes and is treated by the APT
+      processor as a vertical plane surface (that is, perpendicular to the XY
+      plane).
+    </p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="line_by_two_points"></a>3.4.1. Through Two Points</h3></div></div></div><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig3-04-1.png"></div></blockquote></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>The two points must not be coincidental</p></td></tr></table></div><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure16"></a><p class="title"><b>Figure 3.12. LINE by Two Points</b></p><div class="mediaobject"><img src="images/figure16.png" alt="LINE by Two Points"></div></div><pre class="programlisting">
+LN1 = LINE/ -3, -3.5, 4, 3.5
+LN2 = LINE/ 7, 2, 3, 1
+$$ or
+PT1 = POINT/ -3, -3.5
+PT2 = POINT/ 4, 3.5
+PT3 = POINT/ 7, 2
+PT4 = POINT/ 3, 1
+LN1 = LINE/ PT1, PT2
+LN2 = LINE/ PT3, PT4</pre></blockquote></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="line_by_pnt_tan_circle"></a>3.4.2. Through a Point and Tangent to a Circle</h3></div></div></div><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig3-04-02-1.png"></div></blockquote></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>The modifiers RIGHT and LEFT are applied looking from the
+          point toward the circle.</p></td></tr></table></div><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure17"></a><p class="title"><b>Figure 3.13. LINE by Point and Tangent Circle</b></p><div class="mediaobject"><img src="images/figure17.png" alt="LINE by Point and Tangent Circle"></div></div><pre class="programlisting">
+LN1 = LINE/ PT1, LEFT, TANTO, C1
+LN2 = LINE/ PT1, RIGHT, TANTO, C1
+LN3 = LINE/ PT2, RIGHT, TANTO, C1</pre></blockquote></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="line_by_tan_circles"></a>3.4.3. Tangent to Two Circles</h3></div></div></div><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig3-04-03-1.png"></div></blockquote></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>The modifiers RIGHT and LEFT are applied looking from the
+          first referenced circle toward the second.</p></td></tr></table></div><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure18"></a><p class="title"><b>Figure 3.14. LINE by Tangent Circles</b></p><div class="mediaobject"><img src="images/figure18.png" alt="LINE by Tangent Circles"></div></div><pre class="programlisting">
+L1 = LINE/ RIGHT, TANTO, C1, RIGHT, TANTO, C2
+L2 = LINE/ LEFT, TANTO, C1, LEFT, TANTO, C2
+L3 = LINE/ RIGHT, TANTO, C1, LEFT, TANTO, C2
+L4 = LINE/ LEFT, TANTO, C1, RIGHT, TANTO, C2</pre></blockquote></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="line_by_point_angle"></a>3.4.4. Through a Point and at an Angle with the X or Y Axis</h3></div></div></div><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig3-04-04-1.png"></div></blockquote></div><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure19"></a><p class="title"><b>Figure 3.15. LINE by Point Angle</b></p><div class="mediaobject"><img src="images/figure19.png" alt="LINE by Point Angle"></div></div><pre class="programlisting">
+LN1 = LINE/ PT1, ATANGL, 45, XAXIS
+LN2 = LINE/ PT2, ATANGL, 22.5
+LN3 = LINE/ PT3, ATANGL, 60, YAXIS</pre></blockquote></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="line_by_point_slope"></a>3.4.5. 
+        Through a Point and Having a Slope with Respect to the X or Y Axis
+      </h3></div></div></div><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig3-04-05-1.png"></div></blockquote></div><p>
+        The three lines illustrated in <a href="line_kw.html#figure19" title="Figure 3.15. LINE by Point Angle">Figure 3.15</a> could be
+        defined as follows:
+        </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">
+LN1 = LINE/ PT1, SLOPE, 1, XAXIS
+LN2 = LINE/ PT2, SLOPE, .4142
+LN3 = LINE/ PT3, SLOPE, 1.7321, YAXIS</pre></blockquote></div><p>
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="line_by_xyaxis"></a>3.4.6. The X or Y Axis</h3></div></div></div><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig3-04-06-1.png"></div></blockquote></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="line_by_point_slope2"></a>3.4.7. 
+        Through a Point and Having a Slope with Respect to Another Line
+      </h3></div></div></div><div class="blockquote"><blockquote class="blockquote"><p>
+          SLN = LINE/ spoint, SLOPE, <span class="emphasis"><em>slope</em></span>, sline
+        </p></blockquote></div><p>
+        The lines L1 and L3 illustrated in <a href="line_kw.html#figure20" title="Figure 3.16. LINE by Point, Angle to Line">Figure 3.16</a> could be
+        defined as follows:
+        </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">
+LN1 = LINE/ PT2, SLOPE, .26759, L2
+LN3 = LINE/ PT3, SLOPE, -1, L1</pre></blockquote></div><p>
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="line_by_point_angle2"></a>3.4.8. 
+        Through a Point at an Angle with a Line
+      </h3></div></div></div><div class="blockquote"><blockquote class="blockquote"><p>
+          SLN = LINE/ spoint, ATANGL, <span class="emphasis"><em>degrees</em></span>, sline
+        </p></blockquote></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>
+          A positive angle is measured counter clockwise from the given line.
+          A negative angle is measured clockwise.
+        </p></td></tr></table></div><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure20"></a><p class="title"><b>Figure 3.16. LINE by Point, Angle to Line</b></p><div class="mediaobject"><img src="images/figure20.png" alt="LINE by Point, Angle to Line"></div></div><pre class="programlisting">
+L1 = LINE/ PT2, ATANGL, 15, L2
+L3 = LINE/ PT3, ATANGL, 135, L1</pre></blockquote></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="line_by_pnt_parl_line"></a>3.4.9. 
+        Through a Point and Parallel to a Line
+      </h3></div></div></div><div class="blockquote"><blockquote class="blockquote"><p>SLN = LINE/ spoint, PARLEL, sline</p></blockquote></div><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure21"></a><p class="title"><b>Figure 3.17. LINE by Point, Parallel Line</b></p><div class="mediaobject"><img src="images/figure21.png" alt="LINE by Point, Parallel Line"></div></div><pre class="programlisting">
+L1 = LINE/ PT1, PARLEL, LX</pre></blockquote></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="line_by_pnt_perp_line"></a>3.4.10. 
+        Through a Point and Perpendicular to a Line
+      </h3></div></div></div><div class="blockquote"><blockquote class="blockquote"><p>SLN = LINE/ spoint, PERPTO, sline</p></blockquote></div><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure22"></a><p class="title"><b>Figure 3.18. LINE by Point, Perpendicular Line</b></p><div class="mediaobject"><img src="images/figure22.png" alt="LINE by Point, Perpendicular Line"></div></div><pre class="programlisting">
+LN1 = LINE/ PT1, PERPTO, LNX</pre></blockquote></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="line_by_point_angle"></a>3.4.11. Parallel to a Line at a Distance</h3></div></div></div><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig3-04-11-1.png"></div></blockquote></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>
+          The modifiers denote the direction in which the line is offset
+        </p></td></tr></table></div><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure23"></a><p class="title"><b>Figure 3.19. LINE by Distance from Parallel Line</b></p><div class="mediaobject"><img src="images/figure23.png" alt="LINE by Distance from Parallel Line"></div></div><pre class="programlisting">
+L1 = LINE/ PARLEL, LX, XSMALL, 2
+$$ or
+L1 = LINE/ PARLEL, LX, YLARGE, 2.0
+
+L2 = LINE/ PARLEL, LX, XLARGE, 2
+$$ or
+L2 = LINE/ PARLEL, LX, YSMALL, 2.0</pre></blockquote></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="line_by_plane_xsect"></a>3.4.12. 
+        Intersection of Two Planes
+      </h3></div></div></div><div class="blockquote"><blockquote class="blockquote"><p>SLN = LINE/ INTOF, splane, splane</p></blockquote></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>
+          The planes cannot be coplanar, parallel to one another, or both
+          vertical (perpendicular to the XY plane).
+        </p></td></tr></table></div><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure24"></a><p class="title"><b>Figure 3.20. LINE by Plane Intersection</b></p><div class="mediaobject"><img src="images/figure24.png" alt="LINE by Plane Intersection"></div></div><pre class="programlisting">
+L1 = LINE/ INTOF, PLN1, PLN2</pre></blockquote></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="line_by_slope_interc"></a>3.4.13. Slope Intercept Form</h3></div></div></div><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig3-04-13-1.png"></div></blockquote></div><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure25"></a><p class="title"><b>Figure 3.21. LINE by Slope Intercept Form</b></p><div class="mediaobject"><img src="images/figure25.png" alt="LINE by Slope Intercept Form"></div></div><pre class="programlisting">
+L1 = LINE/ SLOPE, .40403, INTERC, 3
+L2 = LINE/ SLOPE, -.40403, INTERC, 3
+$$ or
+L1 = LINE/ SLOPE, .40403, INTERC, YAXIS, 3
+L2 = LINE/ SLOPE, -.40403, INTERC, XAXIS, 7.425
+$$ or
+L1 = LINE/ ATANGL, 22, INTERC, 3
+L2 = LINE/ ATANGL, -22, INTERC, 3
+$$ or
+L1 = LINE/ ATANGL, 22, INTERC, YAXIS, 3
+L2 = LINE/ ATANGL, -22, INTERC, XAXIS, 7.425</pre></blockquote></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="line_by_ang_axis_interc"></a>3.4.14. Angle and Axis Intercept</h3></div></div></div><p>
+        </p><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig3-04-14-1.png"></div></blockquote></div><p>
+        See <a href="line_kw.html#figure25" title="Figure 3.21. LINE by Slope Intercept Form">Figure 3.21</a>
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="line_by_point_tan_tabcyl"></a>3.4.15. Through a Point and Tangent to a Tabulated Cylinder</h3></div></div></div><div class="blockquote"><blockquote class="blockquote"><p>SLN = LINE/ spoint, TANTO, stabcyl, spoint</p></blockquote></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>
+          A point on the TABCYL near the point of tangency  is included to
+          specify the desired point of tangency. (This point may be omitted if
+          it is the same as the spoint specified immediately after the slash.)
+        </p></td></tr></table></div><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure26"></a><p class="title"><b>Figure 3.22. LINE by Point, Tangent Tabulated Cylinder</b></p><div class="mediaobject"><img src="images/figure26.png" alt="LINE by Point, Tangent Tabulated Cylinder"></div></div><pre class="programlisting">
+L3 = LINE/ P3, TANTO, TABC, P4</pre></blockquote></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="line_by_point_perpto_tabcyl"></a>3.4.16. Through a Point and Perpendicular to a Tabulated Cylinder</h3></div></div></div><div class="blockquote"><blockquote class="blockquote"><p>SLN = LINE/ spoint, PERPTO, stabcyl, spoint</p></blockquote></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>
+          A point on the TABCYL near the normal is included to specify the
+          desired normal.
+        </p></td></tr></table></div><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure27"></a><p class="title"><b>Figure 3.23. LINE by Point, Tangent Tabulated Cylinder</b></p><div class="mediaobject"><img src="images/figure27.png" alt="LINE by Point, Tangent Tabulated Cylinder"></div></div><pre class="programlisting">
+L2 = LINE/ P1, PERPTO, TABC, P2</pre></blockquote></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="point_kw.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"><a accesskey="u" href="geometry.html"><img src="images/up.gif" alt="Up"></a></td><td width="40%" align="right"> <a accesskey="n" href="plane_kw.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">3.3. The Point (POINT) Definitions </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> 3.5. The Plane (PLANE) Definitions</td></tr></table></div></body></html>

@@ -1,0 +1,129 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>14.3. Implications of TO, ON, PAST, TANTO, and PSTAN</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="spec_tech.html" title="Chapter 14. Special Techniques"><link rel="prev" href="startup_cmds.html" title="14.2. Startup Commands"><link rel="next" href="multiaxis_prog.html" title="14.4. Multiaxis Programming"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">14.3. Implications of TO, ON, PAST, TANTO, and PSTAN</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="startup_cmds.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center">Chapter 14. Special Techniques</th><td width="20%" align="right"> <a accesskey="n" href="multiaxis_prog.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="to_on_past_tanto_pstan_impl"></a>14.3. Implications of TO, ON, PAST, TANTO, and PSTAN</h2></div></div></div><p>
+      The tool position modifiers with regard to the check surface
+      (TO, ON, PAST, TANTO, and PSTAN) were initially defined in
+      <a href="cut_surf_relate.html" title="5.2. CUTTER to Surface Relationships">Section 5.2</a>  In all the examples so far, the
+      cutter was shown to be "remote"
+      from the check surface at the beginning of the motion command; that is,
+      no point on the cutter was within the tolerance band of the surface.
+      Situations may arise, however where the cutter is said to be "in
+      violation" of the check surface at the beginning of a cut sequence.
+      This occurs when the cutter gouges the surface by an amount greater than
+      the allowed tolerance.  When this happens, the tool position modifiers
+      take on special meanings.  Two definitions are now given which are
+      necessary so that an expanded discussion can be made with regard to
+      these modifiers:
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          Properly positioned offset (either TO or PAST).  A cutter is
+          properly positioned offset from a surface when it is neither in
+          violation of nor remote from the surface. (At least one point on the
+          cutter is within the tolerance band, but no point on the cutter
+          gouges the surface by more than the allowed tolerance.)
+        </p></li><li><p>
+          Properly positioned ON.  A cutter is properly positioned ON a
+          surface when the bottom center of the cutter is within the tolerance
+          band of the surface.
+        </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>
+            Other points on the cutter may be violating the surface.
+          </p></td></tr></table></div></li></ul></div><p>
+      The exact meanings of TO, ON, PAST, TANTO, and PSTAN are now given
+      with regard to the initial cutter location.
+    </p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="to_past"></a>14.3.1. TO and PAST</h3></div></div></div><p>
+        If the cutter is initially remote from the check surface, the first
+        properly positioned offset position encountered is a TO condition.  As
+        it continues to move along the part and drive surfaces, the second
+        properly positioned offset location is a PAST condition.  The next
+        properly positioned offset location is TO second intersection, then
+        PAST second intersection, etc.  <a href="to_on_past_tanto_pstan_impl.html#figure123" title="Figure 14.17. TO, ON, PAST Usage">Figure 14.17</a> shows three
+        different
+        situations with regard to the cutter and a check surface, each with a
+        remote cutter at the beginning of the cut sequence.  In the first
+        example, the cutter encounters three possible stopping positions at
+        the first intersection, and three more at the second intersection.  In
+        the second example, however, after the first properly positioned
+        offset condition is found (that is, TO), the cutter continues to be in
+        violation of the surface until it reaches the other side of the check
+        surface.  Hence, this location becomes the second properly positioned
+        offset condition, and it is therefore PAST.  The last example given
+        indicates where a TO and PAST can be defined, even though a properly
+        positioned ON location does not exist.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure123"></a><p class="title"><b>Figure 14.17. TO, ON, PAST Usage</b></p><div class="mediaobject"><img src="images/figure123.png" alt="TO, ON, PAST Usage"></div></div></blockquote></div><p>
+        If the cutter is initially in violation of, or properly positioned
+        offset to, the check surface, then, the first properly positioned
+        offset location encountered as movement is made along the part and
+        drive surfaces is a PAST first intersection condition.  The next
+        properly positioned offset condition is TO first intersection
+        (although this is the second intersection of the cutter and the check
+        surface, it is the first intersection for which TO has meaning).  The
+        subsequent offset conditions would be PAST second intersection, then
+        TO second intersection, etc.  <a href="to_on_past_tanto_pstan_impl.html#figure124" title="Figure 14.18. TO, ON, PAST Usage">Figure 14.18</a> shows three
+        more examples,
+        this time with the cutter in violation of the check surface at the
+        initial location.  In the first example, the first properly positioned
+        offset location (PAST) is shown.  Then the cutter proceeds to the
+        other side of the part where a TO and PAST 2nd INTOF are indicated.
+        The second example shows that the only allowable offset condition
+        would be PAST, as is also the case with the third example.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure124"></a><p class="title"><b>Figure 14.18. TO, ON, PAST Usage</b></p><div class="mediaobject"><img src="images/figure124.png" alt="TO, ON, PAST Usage"></div></div></blockquote></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="on"></a>14.3.2. ON</h3></div></div></div><p>
+        ON simply means that the cutter is to move in the forward direction
+        along the part and drive surfaces until it is properly positioned ON
+        the check surface. <a href="to_on_past_tanto_pstan_impl.html#figure123" title="Figure 14.17. TO, ON, PAST Usage">Figure 14.17</a> and <a href="to_on_past_tanto_pstan_impl.html#figure124" title="Figure 14.18. TO, ON, PAST Usage">Figure 14.18</a> show the proper ON locations,
+        in addition to the offset stopping points.  (Note: If the cutter is
+        located at an acceptable ON position at the start of the sequence, the
+        first valid ON location will be the next acceptable ON position.)
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="tanto_pstan"></a>14.3.3. TANTO and PSTAN</h3></div></div></div><p>
+        As indicated earlier, these instructions are used to denote tangency
+        conditions with regard to the surfaces.  If TANTO is specified, the
+        drive and check surfaces are assumed to be tangent, and the cutter is
+        to stop at the tangency point.  Similarly, PSTAN indicates that the
+        part and check surfaces are tangent, and the cutter is to stop at that
+        location.  When the cutter is ON the respective surface that is to be
+        tangent to the check surface, it will stop ON the check surface.
+        Similarly, if it is offset from the respective surface, it will be
+        offset from the check surface at the point of tangency.  <a href="to_on_past_tanto_pstan_impl.html#figure125" title="Figure 14.19. TANTO when ON DS">Figure 14.19</a>
+        shows the ON relationship; <a href="to_on_past_tanto_pstan_impl.html#figure126" title="Figure 14.20. TANTO when Offset from DS">Figure 14.20</a> shows the
+        offset situation.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure125"></a><p class="title"><b>Figure 14.19. TANTO when ON DS</b></p><div class="mediaobject"><img src="images/figure125.png" alt="TANTO when ON DS"></div></div><pre class="programlisting">
+GOLFT/ L1, TANTO, C1
+GOFWD/ C1, ON, L2</pre><div class="figure"><a name="figure126"></a><p class="title"><b>Figure 14.20. TANTO when Offset from DS</b></p><div class="mediaobject"><img src="images/figure126.png" alt="TANTO when Offset from DS"></div></div><pre class="programlisting">
+GOLFT/ L2, TANTO, C1
+GOBACK/ C1, PAST, L3</pre></blockquote></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="implicit_chk_surf"></a>14.3.4. Implicit Check Surface</h3></div></div></div><p>
+        When the implicit check surface feature is used, certain assumptions
+        are made by the APT processor.  These are with regard to the
+        directional and tool position modifiers.  There is no restriction in
+        the use of an implicit check surface with a GORGT or GOLFT.  However,
+        if GOFWD and/or GOBACK are specified, the processor assumes an implied
+        tangency condition (just as if TANTO were specified, and the check
+        surface defined explicitly).  Therefore, the two sets of commands
+        shown below are equivalent:
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="informaltable"><table border="0"><colgroup><col><col><col></colgroup><tbody><tr><td align="left">...</td><td align="left"> </td><td align="left">...</td></tr><tr><td align="left">...</td><td align="left"> </td><td align="left">...</td></tr><tr><td align="left">...</td><td align="left"> </td><td align="left">...</td></tr><tr><td align="left">GOFWD/ S1</td><td align="left"> </td><td align="left">GOFWD/ S1, TANTO, S2</td></tr><tr><td align="left">GOFWD/ S2</td><td align="left"> </td><td align="left">GOFWD/ S2</td></tr><tr><td align="left">...</td><td align="left"> </td><td align="left">...</td></tr><tr><td align="left">...</td><td align="left"> </td><td align="left">...</td></tr><tr><td align="left">...</td><td align="left"> </td><td align="left">...</td></tr></tbody></table></div></blockquote></div><p>
+        Implicit check surfaces are not allowed if the directional modifiers
+        GOUP and GODOWN are used.  The check surface must be defined
+        explicitly in the statement where the modifier appears.
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="limiting_conditions"></a>14.3.5. Some Limiting Conditions</h3></div></div></div><p>
+        There are some geometric conditions which are mathematically valid but
+        which cannot be properly processed by the APT system.
+      </p><p>
+        Consider the situation shown in <a href="to_on_past_tanto_pstan_impl.html#figure126a" title="Figure 14.21. Pseudo Check Surface">Figure 14.21</a> The
+        cutter location
+        shown as Position A is, according to the rules stated previously, both
+        PAST first intersection and TO intersection.  (Note that it does not
+        qualify for tangency.)
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure126a"></a><p class="title"><b>Figure 14.21. Pseudo Check Surface</b></p><div class="mediaobject"><img src="images/figure126a.png" alt="Pseudo Check Surface"></div></div></blockquote></div><p>
+        However, because of the iterative nature of the calculations in the
+        arithmetic element, it is possible that the processor will be unable
+        to properly position the cutter.  The proper solution is to use a
+        pseudo check surface to stop the cutter at the desired point. 
+      </p><p>
+        <a href="to_on_past_tanto_pstan_impl.html#figure126b" title="Figure 14.22. TANTO Usage vs PAST, TO">Figure 14.22</a> shows a somewhat comparable situation. 
+        In this case, TANTO is a valid modifier and could be used to select
+        Position B.  The use of PAST or TO second intersection is still likely
+        to fail.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure126b"></a><p class="title"><b>Figure 14.22. TANTO Usage vs PAST, TO</b></p><div class="mediaobject"><img src="images/figure126b.png" alt="TANTO Usage vs PAST, TO"></div></div></blockquote></div><p>
+        Even if the surfaces are nearly, but not exactly, tangent, the use of
+        TO and PAST is not recommended for the nearly tangent surfaces.  The
+        conditions under which failures will occur are not clearly definable;
+        they are a function of the cutter geometry, tolerance, the degree of
+        tangency of the surface, and the radii of curvature of the surfaces
+        near the tangency point.  In this case either the ON modifier or a
+        pseudo check surface is recommended.
+      </p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="startup_cmds.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"><a accesskey="u" href="spec_tech.html"><img src="images/up.gif" alt="Up"></a></td><td width="40%" align="right"> <a accesskey="n" href="multiaxis_prog.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">14.2. Startup Commands </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> 14.4. Multiaxis Programming</td></tr></table></div></body></html>

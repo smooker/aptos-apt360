@@ -1,0 +1,36 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>1.2. The Vocabulary Synonym (SYN) Statement</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="language_and_syntax.html" title="Chapter 1. Language and Syntax"><link rel="prev" href="language_and_syntax.html" title="Chapter 1. Language and Syntax"><link rel="next" href="word_conventions.html" title="1.3. Word Conventions"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">1.2. The Vocabulary Synonym (SYN) Statement</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="language_and_syntax.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center">Chapter 1. Language and Syntax</th><td width="20%" align="right"> <a accesskey="n" href="word_conventions.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="syn_kw"></a>1.2. The Vocabulary Synonym (SYN) Statement</h2></div></div></div><p>
+      The vocabulary word SYN is used to rename other vocabulary words. Any
+      vocabulary word except the word SYN may be renamed. The general form of
+      SYN is:
+        </p><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig1-02-1.png"></div></blockquote></div><p>
+      For example:
+      </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">
+SYN/ PT, POINT, L, LINE
+$$ or
+SYN/ POINT, PT, LINE, L</pre></blockquote></div><p>
+    </p><p>
+      Hereafter, in the part program, either the word POINT or the word PT
+      could be used to designate the vocabulary word POINT. Similarly, either
+      LINE or L could be used to designate the vocabulary word LINE.
+    </p><p>
+      The following rules must be observed when using the SYN statement:
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          The renaming of a word must occur before the use of the new word in
+          the part program.
+        </p></li><li><p>
+          Only vocabulary words man be renamed.
+        </p></li><li><p>
+          Any symbol used in the SYN statement cannot also be used as a macro
+          variable.
+        </p></li><li><p>
+          Any symbol used in the SYN statement cannot be used as a symbol
+          elsewhere -- it can be used only as the vocabulary word to which it
+          was equated.
+        </p></li><li><p>
+          A maximum of 50 vocabulary words can be renamed in any given part
+          program.
+        </p></li><li><p>
+          The list order is established with the first pair (vocabulary word,
+          new word, or new word, vocabulary word). Once established, it must
+          be followed for additional pairs.
+        </p></li></ul></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="language_and_syntax.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"><a accesskey="u" href="language_and_syntax.html"><img src="images/up.gif" alt="Up"></a></td><td width="40%" align="right"> <a accesskey="n" href="word_conventions.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 1. Language and Syntax </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> 1.3. Word Conventions</td></tr></table></div></body></html>

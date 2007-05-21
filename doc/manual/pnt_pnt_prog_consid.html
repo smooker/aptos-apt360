@@ -1,0 +1,26 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>4.7. Point-Point Programming Considerations</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="p2p_programming.html" title="Chapter 4. Point-To-Point Programming"><link rel="prev" href="pnt_pnt_motion_cmds.html" title="4.6. Point-Point Motion Commands"><link rel="next" href="prog_toolpath.html" title="Chapter 5. Programming a Tool Path"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">4.7. Point-Point Programming Considerations</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="pnt_pnt_motion_cmds.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center">Chapter 4. Point-To-Point Programming</th><td width="20%" align="right"> <a accesskey="n" href="prog_toolpath.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="pnt_pnt_prog_consid"></a>4.7. Point-Point Programming Considerations</h2></div></div></div><p>
+      INVERS, AVOID, and either RETAIN or OMIT may be combined in a single
+      GOTO/ SPAT statement. The following considerations further explain the
+      effect of combining these modifiers.
+    </p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="patern_op_order"></a>4.7.1. Ordering of the Operations Performed on a Pattern</h3></div></div></div><p>
+        The order of operations (OMIT/RETAIN or AVOID) must be specified in
+        the output sequence of the points.  For example, an AVOID is to occur
+        between the fourth and fifth points of a pattern, the seventh point
+        is to be omitted, and another AVOID is to occur between the tenth and
+        eleventh points. The modifiers may be stated as follows:
+      </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">
+GOTO/ SPAT, AVOID, 3, 4, OMIT, 7, AVOID, 3, 10</pre></blockquote></div><p>
+        It is permissible to overlap a range of operations of one type with a
+        single operation of another type. For example, if the fourth through
+        the tenth points and the twelfth through the fifteenth points were to
+        be retained and AVOID was to occur between the thirteenth and
+        fourteenth points, the following statement would be permissible:
+      </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">
+GOTO/ SPAT, AVOID, 2, 13, RETAIN, 4, THRU, $
+      10, 12, THRU, 15</pre></blockquote></div><p>
+        If an AVOID was to occur between the sixth and seventh points and the
+        eighth and ninth points, however, the following statement would be
+        used:
+      </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">
+GOTO/ SPAT, RETAIN, 4, THRU, 10, AVOID, 2. 5, $
+      6, 8, RETAIN, 12, THRU, 15</pre></blockquote></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="pnt_pnt_motion_cmds.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"><a accesskey="u" href="p2p_programming.html"><img src="images/up.gif" alt="Up"></a></td><td width="40%" align="right"> <a accesskey="n" href="prog_toolpath.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">4.6. Point-Point Motion Commands </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> Chapter 5. Programming a Tool Path</td></tr></table></div></body></html>

@@ -1,0 +1,89 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Chapter 2. Computing and Subscripted Variables</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="index.html" title="APT360 Programmers Manual"><link rel="prev" href="word_conventions.html" title="1.3. Word Conventions"><link rel="next" href="subscr_vars.html" title="2.2. Subscripted Variables in the APT Language"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 2. Computing and Subscripted Variables</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="word_conventions.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="subscr_vars.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="comp_subscr_vars"></a>Chapter 2. Computing and Subscripted Variables</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="sect1"><a href="comp_subscr_vars.html#computing">2.1. Computing in the APT Language</a></span></dt><dd><dl><dt><span class="sect2"><a href="comp_subscr_vars.html#scalars">2.1.1. Scalars</a></span></dt><dt><span class="sect2"><a href="comp_subscr_vars.html#operators">2.1.2. Arithmetic Operators</a></span></dt><dt><span class="sect2"><a href="comp_subscr_vars.html#expressions">2.1.3. Arithmetic Expressions</a></span></dt><dt><span class="sect2"><a href="comp_subscr_vars.html#functions">2.1.4. Arithmetic Functions</a></span></dt></dl></dd><dt><span class="sect1"><a href="subscr_vars.html">2.2. Subscripted Variables in the APT Language</a></span></dt><dd><dl><dt><span class="sect2"><a href="subscr_vars.html#reserv_kw">2.2.1. The Reserve (RESERV) Statement</a></span></dt><dt><span class="sect2"><a href="subscr_vars.html#inclus_subscr">2.2.2. Inclusive Subscripts</a></span></dt></dl></dd></dl></div><p>
+    The ability to perform a variety of computing operations and the concept
+    of subscripted variables have been included to provide additional
+    capability in the APT language.
+  </p><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="computing"></a>2.1. Computing in the APT Language</h2></div></div></div><p>
+      The computing feature allows a given quantity to be expressed as the
+      result of one or more arithmetic operations. For example, the statement:
+      </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">A = 2 + 6 * SQRTF(4)</pre></blockquote></div><p>
+      specifies that the symbol A is to be assigned the value 14 (the result
+      of multiplying 6 times the square root of 4 and adding 2). A computing
+      statement may be made up of some combination of the following:
+    </p><div class="itemizedlist"><ul type="disc"><li><p><a href="comp_subscr_vars.html#scalars">Scalars</a></p></li><li><p><a href="comp_subscr_vars.html#operators">Arithmetic Operators</a></p></li><li><p><a href="comp_subscr_vars.html#expressions">Arithmetic Expression</a></p></li><li><p><a href="comp_subscr_vars.html#functions">Arithmetic Functions</a></p></li></ul></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="scalars"></a>2.1.1. Scalars</h3></div></div></div><p>
+        Scalars are one-dimensional quantities that can be operated on as is
+        or combined to define a geometric quantity. Scalars, sometimes noted
+        as "scalar variables", can be multiply-defined, that is, the value of
+        the scalar can be reassigned by a new computing statement.
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="operators"></a>2.1.2. Arithmetic Operators</h3></div></div></div><div class="table"><a name="operators_table"></a><p class="title"><b>Table 2.1. Operators</b></p><table summary="Operators" cellpadding="3" border="1"><colgroup><col><col></colgroup><thead><tr><th align="left">Operator</th><th align="left">Description</th></tr></thead><tbody><tr><td align="left">+</td><td align="left">Addition</td></tr><tr><td align="left">-</td><td align="left">Subtraction</td></tr><tr><td align="left">*</td><td align="left">Multiplication</td></tr><tr><td align="left">/</td><td align="left">Division</td></tr><tr><td align="left">**</td><td align="left">Exponentiation</td></tr></tbody></table></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="expressions"></a>2.1.3. Arithmetic Expressions</h3></div></div></div><p>
+        Scalar symbols, numbers and arithmetic operators may be combined to
+        form an arithmetic expression.
+        </p><div class="itemizedlist"><ul type="disc"><li><p>2 * A + B</p></li><li><p>3. * A + B/ (4. * C)</p></li><li><p>A + B ** 2 + 3 * C</p></li></ul></div><p>
+      </p><p>
+        In the APT language, an arithmetic expression may replace a scalar or
+        a subscript. A scalar symbol or a variable my be assigned a value by
+        an arithmetic expression.
+        </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">F = 2 * A + B
+C = 3 * A + B / (4. * C)
+H = 3.14159</pre></blockquote></div><p>
+      </p><p>
+        Parentheses may be used in arithmetic expressions to indicate the
+        order of the operations. Within parentheses, or where parentheses are
+        omitted, the order of operations is as follows:
+
+        </p><div class="table"><a name="operators_prec_table"></a><p class="title"><b>Table 2.2. Operator Precedence</b></p><table summary="Operator Precedence" cellpadding="3" border="1"><colgroup><col><col></colgroup><thead><tr><th align="left">Operator</th><th align="left">Precedence</th></tr></thead><tbody><tr><td align="left">Evaluation of Functions</td><td align="left">1 (highest)</td></tr><tr><td align="left">**</td><td align="left">2</td></tr><tr><td align="left">* /</td><td align="left">3</td></tr><tr><td align="left">+ -</td><td align="left">4 (lowest)</td></tr></tbody></table></div><p>
+      </p><p>
+        Among operations of the same priority, processing is done from left to
+        right.
+        </p><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig2-01-02-1.png"></div></blockquote></div><p>
+      </p><p>
+        For example the following expressions are equivalent:
+        </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">F = A * B + C / D * A ** 2
+F = (A * B) + (C / D) * (A ** 2)</pre></blockquote></div><p>
+      </p><p>
+        An arithmetic expression enclosed in parentheses can be
+        substituted for a scalar value (where a scalar value is appropriate)
+        in and APT statement except RESERV/.
+        </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">
+P1 = POINT/ (A + 2. * B), Y, (-3 + E)</pre></blockquote></div><p>
+      </p><p>
+        However, an arithmetic expression can never appear to the left of an
+        equal sign, except when used to denote a subscript value.
+        </p><div class="informaltable"><table cellpadding="3" border="1"><colgroup><col><col></colgroup><thead><tr><th align="left">Legal</th><th align="left">Not Legal</th></tr></thead><tbody><tr><td align="left">A(I + 2) = D * C</td><td align="left">I + 2 = D * C</td></tr><tr><td align="left">D = A(I + K + 1)</td><td align="left">CALL/ MAC1, B + C = A, D = E / 2, F = G + H</td></tr><tr><td align="left"> </td><td align="left">CALL/ MAC2, B = A(I + K * 2)</td></tr></tbody></table></div><p>
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="functions"></a>2.1.4. Arithmetic Functions</h3></div></div></div><p>
+        The following functions are available in the APT language:
+        </p><div class="table"><a name="function_table"></a><p class="title"><b>Table 2.3. Arithmetic Functions</b></p><table summary="Arithmetic Functions" cellpadding="3" border="1"><colgroup><col><col><col></colgroup><thead><tr><th align="left">Name</th><th align="left">Function</th><th align="left">Example Usage</th></tr></thead><tbody><tr><td align="left"><a name="absf_kw"></a>ABSF(<span class="emphasis"><em>x</em></span>)</td><td align="left">Absolute Value of <span class="emphasis"><em>x</em></span></td><td align="left">X = ABSF(-22.5)</td></tr><tr><td align="left"><a name="atanf_kw"></a>ATANF(<span class="emphasis"><em>x</em></span>)</td><td align="left">Arctangent of <span class="emphasis"><em>x</em></span></td><td align="left">X = ATANF(.577350)</td></tr><tr><td align="left"><a name="expf_kw"></a>EXPF(<span class="emphasis"><em>x</em></span>)</td><td align="left">e<sup><span class="emphasis"><em>x</em></span>
+                </sup></td><td align="left">X = EXPF(2)</td></tr><tr><td align="left"><a name="sinf_kw"></a>SINF(<span class="emphasis"><em>x</em></span>)</td><td align="left">Sine of <span class="emphasis"><em>x</em></span></td><td align="left">X = SINF(45)</td></tr><tr><td align="left"><a name="cosf_kw"></a>COSF(<span class="emphasis"><em>x</em></span>)</td><td align="left">Cosine of <span class="emphasis"><em>x</em></span></td><td align="left">X = COSF(45)</td></tr><tr><td align="left"><a name="dotf_kw"></a>DOTF(svector, svector)</td><td align="left">Dot Product of Vectors</td><td align="left">DP = DOTF(V1, V2)</td></tr><tr><td align="left"><a name="lnthf_kw"></a>LNTHF(svector)</td><td align="left">Vector Magnitude</td><td align="left">LEN = LNTHF(V)</td></tr><tr><td align="left"><a name="logf_kw"></a>LOGF(<span class="emphasis"><em>x</em></span>)</td><td align="left">
+                  log<sub>e</sub><span class="emphasis"><em>x</em></span>
+                </td><td align="left">LOG = LOGF(2)</td></tr><tr><td align="left"><a name="sqrtf_kw"></a>SQRTF(<span class="emphasis"><em>x</em></span>)</td><td align="left">Square Root of <span class="emphasis"><em>x</em></span></td><td align="left">SQR = SQRTF(4)</td></tr><tr><td align="left"><a name="anglf_kw"></a>ANGLF(scircle, spoint)</td><td align="left">
+                  <div class="literallayout"><p>Angle between the positive X axis<br>
+and a line joining the center of<br>
+a circle and a point.</p></div>
+                </td><td align="left">A = ANGLF(C1, (POINT/ 2, -3))</td></tr><tr><td align="left"><a name="numf_kw"></a>NUMF(SPAT)</td><td align="left">
+                  The number of points in a pattern.
+                </td><td align="left">N = NUMF(PAT1)</td></tr><tr><td align="left"><a name="distf_kw"></a>
+                  <div class="literallayout"><p>DISTF(splane, splane)<br>
+    or<br>
+DISTF(sline, sline)</p></div>
+                </td><td align="left">
+                  <div class="literallayout"><p>Distance between parallel lines<br>
+or parallel planes. (Mixing<br>
+surfaces types is not allowed.)</p></div>
+                </td><td align="left">D = DISTF(L1, L2)</td></tr><tr><td align="left"><a name="log10f_kw"></a>LOG10F(<span class="emphasis"><em>x</em></span>)</td><td align="left">
+                  Log<sub>10</sub><span class="emphasis"><em>x</em></span>
+                </td><td align="left">LG = LOG10F(2)</td></tr><tr><td align="left"><a name="tanf_kw"></a>TANF(<span class="emphasis"><em>x</em></span>)</td><td align="left">
+                  Tangent of <span class="emphasis"><em>x</em></span>
+                </td><td align="left">T = TANF(30.)</td></tr><tr><td align="left"><a name="atan2f_kw"></a>
+                  ATAN2F(<span class="emphasis"><em>x</em></span>, <span class="emphasis"><em>y</em></span>)
+                </td><td align="left">
+                  Arctangent of <span class="emphasis"><em>x</em></span>/<span class="emphasis"><em>y</em></span>
+                </td><td align="left">A = ATAN2F(2, .5)</td></tr></tbody></table></div><p>
+        </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>
+            The arguments to SINF, COSF and TANF are in degrees. ANGLF, ATANF
+            and ATANF2F return degrees.
+          </p></td></tr></table></div><p>
+      </p><p>
+        The output of each of these functions is single-valued; hence, these
+        functions can be used to define an arithmetic expression.
+        </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">
+R = A * SQRTF(C ** 2 + D ** 2) / E</pre></blockquote></div><p>
+      </p></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="word_conventions.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="subscr_vars.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">1.3. Word Conventions </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> 2.2. Subscripted Variables in the APT Language</td></tr></table></div></body></html>

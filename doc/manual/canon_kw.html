@@ -1,0 +1,71 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>3.22. The Canonical Form (CANON) Statement</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="geometry.html" title="Chapter 3. Geometric Statements in APT"><link rel="prev" href="nested_defs.html" title="3.21. Nested Definitions"><link rel="next" href="additional_geom_words.html" title="3.23. Additional Geometric Words"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.22. The Canonical Form (CANON) Statement</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="nested_defs.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center">Chapter 3. Geometric Statements in APT</th><td width="20%" align="right"> <a accesskey="n" href="additional_geom_words.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="canon_kw"></a>3.22. The Canonical Form (CANON) Statement</h2></div></div></div><p>
+      There are two additional methods by which a surface can be defined. Both
+      involve use of the vocabulary word CANON.
+    </p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="canon_form"></a>3.22.1. Canonical Form Input</h3></div></div></div><p>
+        The actual geometric canonical form (see <a href="canon_forms.html" title="Chapter 16. Canonical Forms">Chapter 16</a>)
+        for a given
+        surface can be input directly to the APT processor as follows:
+        </p><div class="blockquote"><blockquote class="blockquote"><p>SURF = surface type/ CANON, parameters</p></blockquote></div><p>
+        where "parameters" represents a complete list of the values
+        representing the geometric canonical form. For example:
+        </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">
+S1 = CIRCLE/ CANON, 2, 3, 4, 0, 0, 1, 6</pre></blockquote></div><p>
+        would define S1 as a circle with center at X=2, Y=3, Z=4, axis vector
+        (a circle is a cylinder normal to the XY plane) of X=0, Y=0, Z=1, and
+        a radius=6.
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="canon_ref_to_prev_form"></a>3.22.2. Reference to Previous Canonical Form</h3></div></div></div><p>
+        A geometric type can be defined with reference to the geometric
+        canonical form of a previously defined surface of the same type.
+        Further, the canonical form for a given surface can be altered by
+        replacing one or more items in that canonical form. Both of these are
+        accomplished by using the CANON statement.
+      </p><p>
+        The general form of the CANON statement is as follows:
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig3-22-02-1.png"></div></blockquote></div><p>
+        SNAME1 is the name of the surface being defined, Surface type is the
+        APT vocabulary word for the surface being defined. SNAME1 or SNAME2 is
+        the symbolic name of the surface being referenced. The rest of the
+        statement is used to reference particular items in the geometric
+        canonical form. The entire statement is interpreted as follows:
+        </p><div class="blockquote"><blockquote class="blockquote"><p>
+            The geometric surface SNAME1 is to be defined as equivalent to the
+            canonical form of the referenced surface, except that the third
+            item is the geometric canonical form is to be replaced by the
+            scalar value <span class="emphasis"><em>a</em></span>, the fifth item is to be
+            replaced by the scalar value <span class="emphasis"><em>b</em></span>, and the sixth
+            item is to be replaced by the scalar value <span class="emphasis"><em>c</em></span>.
+          </p></blockquote></div><p>
+      </p><p>
+        the following shows a sample use of the CANON statement:
+        </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">
+C1 = CIRCLE/ PTA, PTB, PTC
+C1 = CIRCLE/ C1, CANON, , , , , , , .25</pre></blockquote></div><p>
+      </p><p>
+        The first statement defines a circle, C1, as passing through the three
+        points PTA, PTB and PTC. The second statement defines a circle, C2,
+        that has the same geometric canonical form as C1, except that the
+        seventh parameter is to be replaced by .25. <a href="circle_canon.html" title="16.4. CIRCLE">Section 16.4</a> indicates
+        that the seventh parameter of the canonical form of a circle is the
+        radius. Therefore, the resultant circle C2 has a radius of .25 and is
+        concentric to the original circle C1 (since the other parameters were
+        not changed).
+      </p><p>
+        Certain rules must be observed when using the CANON statement:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            The surface type attached to the symbol being defined must be the
+            same as the surface being referenced.
+          </p></li><li><p>
+            Commas to the right of the APT vocabulary word CANON denote
+            position (they represent a count of the items in the canonical
+            form). Hence, care must be exercised such that the number of
+            positions indicated does not exceed the number of items in the
+            geometric canonical form. (see <a href="canon_forms.html" title="Chapter 16. Canonical Forms">Chapter 16</a> for
+            a list of the
+            geometric canonical forms for the allowable APT surface types.)
+          </p></li><li><p>
+            Any non-empty field to the right of the word CANON may contain a
+            scalar variable, a number, or an expression.
+          </p></li></ul></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>
+          The inclusive subscript notation described in <a href="subscr_vars.html#inclus_subscr" title="2.2.2. Inclusive Subscripts">Section 2.2.2</a> may not be used with this type of
+          geometric definitions.
+        </p></td></tr></table></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="nested_defs.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"><a accesskey="u" href="geometry.html"><img src="images/up.gif" alt="Up"></a></td><td width="40%" align="right"> <a accesskey="n" href="additional_geom_words.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">3.21. Nested Definitions </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> 3.23. Additional Geometric Words</td></tr></table></div></body></html>

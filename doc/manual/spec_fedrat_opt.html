@@ -1,0 +1,68 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>6.4. Special Feedrate Option</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="pp_statement.html" title="Chapter 6. Postprocessor Statements"><link rel="prev" href="pp_fixed_field_words.html" title="6.3. Fixed-Field Words"><link rel="next" href="special_words.html" title="Chapter 7. Special Words in the APT Language"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">6.4. Special Feedrate Option</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="pp_fixed_field_words.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center">Chapter 6. Postprocessor Statements</th><td width="20%" align="right"> <a accesskey="n" href="special_words.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="spec_fedrat_opt"></a>6.4. Special Feedrate Option</h2></div></div></div><p>
+      The majority of the postprocessor words discussed in this section have
+      no effect on the operation of the basic processor.  They are simply
+      transmitted to the postprocessor, which performs the necessary
+      calculations to achieve the desired results.
+    </p><p>
+      The one major exception to the above general rule is a special feed rate
+      option.
+    </p><p>
+      The general format used to exercise this option is:
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig6-04-1.png"></div></blockquote></div><p>
+    </p><p>
+      The significance of each of these three statement formats is:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>FEDRAT/ <span class="emphasis"><em>fb</em></span></p><p>
+            The desired feed rate is <span class="emphasis"><em>fb</em></span>, and it should be
+            maintained constant at <span class="emphasis"><em>fb</em></span> until respecified.
+            This is a normal feed rate condition.
+          </p></li><li><p>FEDRAT/ <span class="emphasis"><em>fb</em></span>,
+            <span class="emphasis"><em>dm</em></span>, <span class="emphasis"><em>fm</em></span></p><p>
+            The basic feed rate is to be <span class="emphasis"><em>fb</em></span>.  However, at
+            a distance <span class="emphasis"><em>dm</em></span> from each check, surface, the
+            feed rate is to be changed to <span class="emphasis"><em>fm</em></span>.  After the
+            check surface is reached, the feed rate reverts to
+            <span class="emphasis"><em>fb</em></span>.  This is a modal override condition.
+          </p></li><li><p>FEDRAT/ <span class="emphasis"><em>d1</em></span>,
+            <span class="emphasis"><em>f1</em></span></p><p>
+            The previously specified basic feed rate is to be used until
+            distance <span class="emphasis"><em>d1</em></span> from the check surface, at which
+            time the feed rate is changed to <span class="emphasis"><em>f1</em></span>.  The basic
+            feed rate is to be restored after the CS is reached.  This is a
+            one-shot override.  That is, the feed rate change is to take place
+            only for the next check surface approach.  Thereafter, the
+            processor reverts to whatever mode was previously in effect,
+            either basic only or modal override.
+          </p></li></ul></div><p>
+    </p><p>
+      The following rules apply to the special feed rate option.
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            Feedrate overrides occur only as check surfaces are approached,
+            that is, as the result of GOLFT/, GORGT/, GOFWD/, GOBACK/, GOUP/
+            or GODOWN/ commands.  GO/, GOTO/, GODLTA/ ,OFFSET, and POCKET/
+            motions will not be affected by the feed rate overrides.
+          </p></li><li><p>
+            The distance from the check surface (<span class="emphasis"><em>dm</em></span> or <span class="emphasis"><em>d1</em></span>) at which the
+            feed rate change is to occur may in some cases be greater than the
+            total distance to the check surface for a given cut sequence.  (A
+            cut sequence is defined as the resultant motion from a single
+            GOXXX command.)  If this occurs, the processor will change the
+            feed rate before the entire cut sequence, and the total motion for
+            that sequence will be at the appropriate <span class="emphasis"><em>fm</em></span> or <span class="emphasis"><em>f1</em></span> value.  No
+            diagnostic message is issued.
+          </p></li><li><p>
+            The basic feed rate <span class="emphasis"><em>fb</em></span> may be established either with the FEDRAT/
+            statement or by tagging the motion commands FROM/, GOT, GODLTA, or
+            GOXXX as described in <a href="p2p_programming.html#from_kw" title="4.1. The Initialization (FROM) Statement">Section 4.1</a>,
+            <a href="goto_kw.html" title="4.2. The Absolute Movement (GOTO) Statement">Section 4.2</a>, <a href="godlta_kw.html" title="4.3. The Incremental Movement (GODLTA) Statement">Section 4.3</a>,
+            and <a href="opt_feedrate.html" title="5.7. Optional Feed Rate Specification">Section 5.7</a>.  Any
+            such basic feed rate specification destroys a modal override
+            condition, and restores a normal condition.
+          </p></li><li><p>
+            The distance from the check surface at which the feed rate is to be
+            changed must be short enough that no more than 70 cut vectors (35
+            if MULTAX is in effect) are required to reach the check surface
+            after the feed rate change occurs.  If this condition is not met,
+            the feed rate change will occur closer to the check surface than
+            specified.  No diagnostic message is given.
+          </p></li></ul></div><p>
+    </p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="pp_fixed_field_words.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"><a accesskey="u" href="pp_statement.html"><img src="images/up.gif" alt="Up"></a></td><td width="40%" align="right"> <a accesskey="n" href="special_words.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">6.3. Fixed-Field Words </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> Chapter 7. Special Words in the APT Language</td></tr></table></div></body></html>

@@ -1,0 +1,176 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>3.14. The Matrix (MATRIX) Definitions</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="geometry.html" title="Chapter 3. Geometric Statements in APT"><link rel="prev" href="vector_kw.html" title="3.13. The Vector (VECTOR) Definitions"><link rel="next" href="sphere_kw.html" title="3.15. The Sphere (SPHERE) Definitions"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.14. The Matrix (MATRIX) Definitions</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="vector_kw.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center">Chapter 3. Geometric Statements in APT</th><td width="20%" align="right"> <a accesskey="n" href="sphere_kw.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="matrix_kw"></a>3.14. The Matrix (MATRIX) Definitions</h2></div></div></div><p>
+      A matrix is a rectangular array of numbers defining the three
+      simultaneous equations that represent the relationship between two
+      coordinate systems.
+    </p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="matrix_by_coeff"></a>3.14.1. The Equation Coefficients (Canonical Form)</h3></div></div></div><div class="blockquote"><blockquote class="blockquote"><p>SMAT1 = MATRIX/
+          a<sub>1</sub>,
+          b<sub>1</sub>,
+          c<sub>1</sub>,
+          d<sub>1</sub>,
+          a<sub>2</sub>,
+          b<sub>2</sub>,
+          c<sub>2</sub>,
+          d<sub>2</sub>,
+          a<sub>3</sub>,
+          b<sub>3</sub>,
+          c<sub>3</sub>,
+          d<sub>3</sub>
+        </p></blockquote></div><p>
+        where a<sub>1</sub>,
+        b<sub>1</sub>, etc. are the coefficients of the equations:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            a<sub>1</sub>x +
+            b<sub>1</sub>y +
+            c<sub>1</sub>z -
+            d<sub>1</sub> = 0
+          </p></li><li><p>
+            a<sub>2</sub>x +
+            b<sub>2</sub>y +
+            c<sub>2</sub>z -
+            d<sub>2</sub> = 0
+          </p></li><li><p>
+            a<sub>3</sub>x +
+            b<sub>3</sub>y +
+            c<sub>3</sub>z -
+            d<sub>3</sub> = 0
+          </p></li></ul></div><p>
+        which define three mutually perpendicular planes of the new coordinate
+        system.
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="matrix_by_translation"></a>3.14.2. A Translation of Axis</h3></div></div></div><div class="blockquote"><blockquote class="blockquote"><p>
+          SMAT2 = MATRIX/ TRANSL, d<sub>1</sub>,
+          d<sub>2</sub>, d<sub>3</sub>
+        </p></blockquote></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>
+          d<sub>3</sub> may be omitted. If it is omitted, the APT
+          processor assumes d<sub>3</sub> = 0.
+        </p></td></tr></table></div><p>
+        The parameters d<sub>1</sub>, d<sub>2</sub>
+        and d<sub>3</sub> are the coordinates of the origin of the
+        new coordinate system expressed in terms of the old system.
+      </p><p>
+        The format will generate the following canonical form:
+      </p><div class="blockquote"><blockquote class="blockquote"><p>
+          1, 0, 0, d<sub>1</sub>, 0, 1, 0,
+          d<sub>2</sub>, 0, 0, 1, d<sub>3</sub>
+        </p></blockquote></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="matrix_by_axis_rot"></a>3.14.3. A Rotation of Axis</h3></div></div></div><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig3-14-03-1.png"></div></blockquote></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p><span class="emphasis"><em>angle</em></span> is in degrees</p></td></tr></table></div><div class="orderedlist"><ol type="a"><li><p>Rotation in the XY plane, where positive rotation is from the
+            X axis to the Y axis (counter clockwise)
+          </p><p>
+            </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">M1 = MATRIX/ XYROT, A</pre></blockquote></div><p>
+            The canonical form generally will be:
+            </p><div class="blockquote"><blockquote class="blockquote"><p>COS A, -SIN A, 0, 0, SIN A, COS A, 0, 0, 0, 0, 1, 0</p></blockquote></div><p>
+          </p></li><li><p>Rotation in the YZ plane, where positive rotation is from the
+            Y axis to the Z axis (counter clockwise)
+          </p><p>
+            </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">M2 = MATRIX/ YZROT, B</pre></blockquote></div><p>
+            The canonical form generally will be:
+            </p><div class="blockquote"><blockquote class="blockquote"><p>1, 0, 0, 0, 0, COS B, -SIN B, 0, 0, SIN B, COS B, 0</p></blockquote></div><p>
+          </p></li><li><p>Rotation in the ZX plane, where positive rotation is from the
+            Z axis to the X axis (counter clockwise)
+          </p><p>
+            </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">M3 = MATRIX/ ZXROT, C</pre></blockquote></div><p>
+            The canonical form generally will be:
+            </p><div class="blockquote"><blockquote class="blockquote"><p>COS C, 0, SIN C, 0, 0, 1, 0, 0, -SIN C, 0, COS C, 0</p></blockquote></div><p>
+          </p></li></ol></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="matrix_combos"></a>3.14.4. Matrix Combinations</h3></div></div></div><p>
+        As shown in <a href="matrix_kw.html#matrix_by_mat_x_mat" title="3.14.5. The Product of Two Matrices">Section 3.14.5</a> a MATRIX can be
+        defined as a combination
+        (Multiplication) of matrices. Because matrix operations of this type
+        are not commutative, the order of the operation becomes quite
+        important. That is, if M and N are matrices, in general:
+      </p><div class="blockquote"><blockquote class="blockquote"><p>M x N &#8800; N x M</p></blockquote></div><p>
+        To illustrate, compare the result of performing a rotation followed by
+        a translation with the result obtained by first performing the
+        translation and then the rotation.
+      </p><p>
+        If matrix A is multiplied into matrix B, the resultant matrix C will
+        have the effect of first performing the B operations and then
+        performing the A operations. For example, let A be a translation
+        matrix and B be a rotation matrix. Then:
+      </p><div class="blockquote"><blockquote class="blockquote"><p>
+          A<sub>translation</sub> x
+          B<sub>rotation</sub> = C
+        </p></blockquote></div><p>
+        Matrix C will have the effect of first a rotation and then a
+        translation. On the other hand, if the matrix multiplication is
+        reversed:
+      </p><div class="blockquote"><blockquote class="blockquote"><p>
+          A<sub>rotation</sub> x
+          B<sub>translation</sub> = C
+        </p></blockquote></div><p>
+        C will first translate and then rotate. Notice that the effect of a
+        matrix multiplication can be thought of as being the opposite of the
+        order of multiplication.
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="matrix_by_mat_x_mat"></a>3.14.5. The Product of Two Matrices</h3></div></div></div><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig3-14-05-1.png"></div></blockquote></div><p>
+        The order of matrix multiplication for most of the combinations above
+        is left to right. For example:
+        </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">M1 = MATRIX/ MATR, MATT</pre></blockquote></div><p>
+        where MATR is a rotation matrix and MATT is a translation matrix will
+        yield:
+        </p><div class="blockquote"><blockquote class="blockquote"><p>M1 = MATR x MATT</p></blockquote></div><p>
+      </p><p>
+        There are exceptions to this general rule. The formats given below
+        define the cases in which the order of matrix multiplication is right
+        to left rather than left to right.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig3-14-05-2.png"></div></blockquote></div><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig3-14-05-3.png"></div></blockquote></div><p>
+        All other formats result in a matrix multiplication order of left to
+        right.
+      </p><p>
+        Assume matrix <span class="inlinemediaobject"><img src="images/fig3-14-05-4.png"></span>
+        is multiplied into matrix <span class="inlinemediaobject"><img src="images/fig3-14-05-5.png"></span>,
+        where:
+        </p><div class="blockquote"><blockquote class="blockquote"><div class="literallayout"><p>a<sub>41</sub> = b<sub>41</sub> = 0<br>
+a<sub>42</sub> = b<sub>42</sub> = 0<br>
+a<sub>43</sub> = b<sub>43</sub> = 0<br>
+a<sub>44</sub> = b<sub>44</sub> = 1</p></div></blockquote></div><p>
+      </p><p>
+        The canonical form generated will be:
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig3-14-05-6.png"></div></blockquote></div><p>
+        Obviously, the order of the matrices given in this format is quite
+        important.
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="matrix_by_inv_matrix"></a>3.14.6. The Inverse of a Matrix</h3></div></div></div><div class="blockquote"><blockquote class="blockquote"><p>SMAT6 = MATRIX/ INVERS, smatrix</p></blockquote></div><p>
+        If the input matrix is defined as:
+        </p><div class="blockquote"><blockquote class="blockquote"><p>
+            a<sub>1</sub>,
+            b<sub>1</sub>,
+            c<sub>1</sub>,
+            d<sub>1</sub>,
+            a<sub>2</sub>,
+            b<sub>2</sub>,
+            c<sub>2</sub>,
+            d<sub>2</sub>,
+            a<sub>3</sub>,
+            b<sub>3</sub>,
+            c<sub>3</sub>,
+            d<sub>3</sub>,
+          </p></blockquote></div><p>
+        
+        the canonical form generated will be:
+        </p><div class="blockquote"><blockquote class="blockquote"><div class="literallayout"><p>A1 = a<sub>1</sub><br>
+B1 = a<sub>2</sub><br>
+C1 = a<sub>3</sub><br>
+D1 = -(a<sub>1</sub>d<sub>1</sub> + a<sub>2</sub>d<sub>2</sub> + a<sub>3</sub>d<sub>3</sub>)<br>
+A2 = b<sub>1</sub><br>
+B2 = b<sub>2</sub><br>
+C2 = b<sub>3</sub><br>
+D2 = -(b<sub>1</sub>d<sub>1</sub> + b<sub>2</sub>d<sub>2</sub> + b<sub>3</sub>d<sub>3</sub>)<br>
+A3 = c<sub>1</sub><br>
+B3 = c<sub>2</sub><br>
+C3 = c<sub>3</sub><br>
+D3 = -(c<sub>1</sub>d<sub>1</sub> + c<sub>2</sub>d<sub>2</sub> + c<sub>3</sub>d<sub>3</sub>)</p></div></blockquote></div><p>
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="matrix_by_3planes"></a>3.14.7. Three Mutually Perpendicular Planes</h3></div></div></div><div class="blockquote"><blockquote class="blockquote"><p>SMAT7 = MATRIX/ splane, splane, splane</p></blockquote></div><p>
+        If the canonical forms of the three planes are:
+        </p><div class="blockquote"><blockquote class="blockquote"><div class="literallayout"><p>PLAN1: A1, B1, C1, D1<br>
+PLAN2: A2, B2, C2, D2<br>
+PLAN3: A3, B3, C3, D3</p></div></blockquote></div><p>
+        the canonical form generated will be:
+        </p><div class="blockquote"><blockquote class="blockquote"><div class="literallayout"><p>A1, A2, A3, -(A1D1 = A2D2 + A3D3),<br>
+B1, B2, B3, -(B1D1 = B2D2 + B3D3),<br>
+C1, C2, C3, -(C1D1 = C2D2 + C3D3)</p></div></blockquote></div><p>
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="matrix_by_scale_factor"></a>3.14.8. Scale Factor</h3></div></div></div><div class="blockquote"><blockquote class="blockquote"><p>SMAT8 = MATRIX/ SCALE, <span class="emphasis"><em>s</em></span></p></blockquote></div><p>The canonical form generated will be:</p><div class="blockquote"><blockquote class="blockquote"><p>
+          <span class="emphasis"><em>s</em></span>, 0, 0, 0, 0,
+          <span class="emphasis"><em>s</em></span>, 0, 0, 0, 0,
+          <span class="emphasis"><em>s</em></span>, 0
+        </p></blockquote></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="matrix_by_org_xvector_vector"></a>3.14.9. 
+        Origin, X Axis Vector and a Vector in the 1st or 2nd Quadrant
+      </h3></div></div></div><div class="blockquote"><blockquote class="blockquote"><p>SMAT = MATRIX/ spoint, svector1, svector2</p></blockquote></div><p>
+        Where svector1 represents the new X axis and svector2 is in the first
+        or second quadrant.
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="matrix_by_mirror_planes"></a>3.14.10. A Mirror Matrix about One or More Planes</h3></div></div></div><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig3-14-10-1.png"></div></blockquote></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="matrix_by_mirror_line_plane"></a>3.14.11. A Mirror Matrix about a Line or Plane</h3></div></div></div><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig3-14-11-1.png"></div></blockquote></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="vector_kw.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"><a accesskey="u" href="geometry.html"><img src="images/up.gif" alt="Up"></a></td><td width="40%" align="right"> <a accesskey="n" href="sphere_kw.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">3.13. The Vector (VECTOR) Definitions </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> 3.15. The Sphere (SPHERE) Definitions</td></tr></table></div></body></html>

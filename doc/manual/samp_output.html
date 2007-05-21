@@ -1,0 +1,136 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Chapter 10. Sample Part Program Output</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="index.html" title="APT360 Programmers Manual"><link rel="prev" href="pocketing.html" title="Chapter 9. Pocketing"><link rel="next" href="io_stmnts.html" title="Chapter 11. Input/Output Statements in the APT Language"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 10. Sample Part Program Output</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="pocketing.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="io_stmnts.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="samp_output"></a>Chapter 10. Sample Part Program Output</h2></div></div></div><p>
+    The part programming language required to define the program for the
+    sample part shown in the introduction has been discussed in the preceding
+    chapters. The following pages show the output for that part program (See
+    <a href="samp_part_prog.html" title="Sample Part Program">Sample Part Program</a>). A listing of the input program is given
+    followed by a printout of the cutter location. Two more statements have
+    been included in addition to those shown in the introduction. These are
+    the CLPRNT command (which results in the printout of the cutter location
+    data) and the NOPOST command (which specifies that there is to be no
+    postprocessing).
+  </p><div class="example"><a name="ex2"></a><p class="title"><b>Example 10.1. Sample Part Program Manuscript (Version 2)</b></p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">
+PARTNO N/C 360 APT SAMPLE PART PROGRAM                                  010
+CLPRNT                                                                  012
+NOPOST                                                                  014
+SP = POINT/ 0, 0, 0                                                     020
+L1 = LINE/ 4, 0, 0, 4, 8, 0                                             030
+PT = POINT/ 4.0, 8.0, 0                                                 040
+L2 = LINE/ PT, ATANGL, 45                                               050
+L3 = LINE/ 8, 12, 0, 12, 12, 0                                          060
+L4 = LINE/ 14, 5, 0, 14, 10, 0                                          070
+L5 = LINE/ 0, 2, 0, 10, 2, 0                                            080
+C1 = CIRCLE/ 12, 10, 0, 2.0                                             090
+C2 = CIRCLE/ 14, 2, 0, 3.0                                              100
+INTOL/ 0                                                                110
+OUTTOL/ .005                                                            120
+CUTTER/ .25                                                             130
+SPINDL/ 2000, CLW                                                       140
+COOLNT/ ON                                                              150
+FEDRAT/ 20.0                                                            160
+FROM/ SP                                                                170
+GO/ TO, L1                                                              180
+TLLFT, GOLFT/ L1, PAST, L2                                              190
+GORGT/ L2, PAST, L3                                                     200
+GORGT/ L3, TANTO, C1                                                    210
+GOFWD/ C1, TANTO, L4                                                    220
+GOFWD/ L4, PAST, C2                                                     230
+GORGT/ C2, PAST, L5                                                     240
+GORGT/ L5, PAST, L1                                                     250
+GOTO/ SP                                                                260
+COOLNT/ OFF                                                             270
+SPINDL/ OFF                                                             280
+END                                                                     290
+FINI</pre></blockquote></div></div><div class="blockquote"><blockquote class="blockquote"><pre class="screen">
+1.....SECTION 3....
+                                                                                    RECNO     1 CARD 010      ISN     1
+  PARTNO   N/C 360 APT SAMPLE PART PROGRAM
+                                                                                    RECNO     3 CARD 110      ISN    13
+               INTOL/     .000000   .000000   .000000   .000000
+                                                                                    RECNO     5 CARD 120      ISN    14
+               OUTTOL/    .005000   .005000   .005000   .005000
+                                                                                    RECNO     7 CARD 130      ISN    15
+               CUTTER/    .250000
+                                                                                    RECNO     9 CARD 140      ISN    16
+     SPINDL/ 2000.0000,   CLW
+                                                                                    RECNO    11 CARD 150      ISN    17
+     COOLNT/  ON
+                                                                                    RECNO    13 CARD 160      ISN    18
+     FEDRAT/   20.0000
+                                                                                    RECNO    15 CARD 170      ISN    19
+               *** FROM/       SP  (    0)
+                                             .0000000       .0000000       .0000000
+                                                                                    RECNO    17 CARD 180      ISN    20
+               *** GO---/      L1  (    0)
+                                            3.8750000       .0000000       .0000000
+                                                                                    RECNO    19 CARD 190      ISN    21
+               *** GO---/      L1  (    0)
+                                            3.8750000      8.0517767       .0000000
+                                                                                    RECNO    21 CARD 200      ISN    22
+               *** GO---/      L2  (    0)
+                                            7.9482234     12.1250000       .0000000
+                                                                                    RECNO    23 CARD 210      ISN    23
+               *** GO---/      L3  (    0)
+                                           12.0000000     12.1250000       .0000000
+                                                                                    RECNO    25 CARD 220      ISN    24
+               SURFACE DATA -  CIRCLE (  DS  ) **     C1  (    0) **      )IM **
+                      CANON FORM IS    12.0000000,   10.0000000,     .0000000,     .0000000,     .0000000,    1.0000000,
+                                        2.0000000,
+               *** GO---/      C1  (    0)
+                                           12.1393087     12.1254395       .0000000
+                                           12.4155424     12.0890726       .0000000
+                                           12.6846661     12.0169612       .0000000
+                                           12.9420749     11.9103389       .0000000
+                                           13.1833646     11.7710303       .0000000
+                                           13.4044066     11.6014188       .0000000
+                                           13.6014188     11.4044066       .0000000
+                                           13.7710303     11.1833646       .0000000
+                                           13.9103389     10.9420749       .0000000
+                                           14.0169612     10.6846661       .0000000
+                                           14.0890726     10.4155424       .0000000
+                                           14.1254395     10.1393087       .0000000
+                                           14.1250000     10.0000000       .0000000
+                                                                                    RECNO    28 CARD 230      ISN    25
+               *** GO---/      L4  (    0)
+                                           14.1250000      4.8722813       .0000000
+                                                                                    RECNO    30 CARD 240      ISN    26
+               SURFACE DATA -  CIRCLE (  DS  ) **     C2  (    0) **      )IM **
+                      CANON FORM IS    14.0000000,    2.0000000,     .0000000,     .0000000,     .0000000,    1.0000000,
+                                        3.0000000,
+               *** GO---/      C2  (    0)
+                                           13.9548233      4.8746450       .0000000
+                                           13.6155407      4.8491781       .0000000
+                                           13.2816425      4.7838081       .0000000
+                                           12.9578049      4.6794504       .0000000
+                                           12.6485635      4.5375666       .0000000
+                                           12.3582491      4.3601439       .0000000
+                                           12.0909277      4.1496670       .0000000
+                                           11.8503432      3.9090837       .0000000
+                                           11.6398648      3.6417634       .0000000
+                                           11.4624405      3.3514500       .0000000
+                                           11.3205551      3.0422093       .0000000
+                                           11.2161957      2.7183723       .0000000
+                                           11.1508239      2.3844744       .0000000
+                                           11.1253552      2.0451919       .0000000
+                                           11.1277187      1.8750000       .0000000
+                                                                                    RECNO    33 CARD 250      ISN    27
+               *** GO---/      L5  (    0)
+                                            3.8750000      1.8750000       .0000000
+                                                                                    RECNO    35 CARD 260      ISN    28
+               *** GO---/      SP  (    0)
+                                             .0000000       .0000000       .0000000
+                                                                                    RECNO    37 CARD 270      ISN    29
+     COOLNT/ OFF
+                                                                                    RECNO    39 CARD 280      ISN    30
+     SPINDL/ OFF
+                                                                                    RECNO    41 CARD 290      ISN    31
+     END
+                                                                                    RECNO    43 CARD          ISN    32
+  ** FINI **
+-END OF SECTN3
+
+
+
+
+                                          ELAPSED TIME IS       .00000 MINUTES
+0
+  </pre></blockquote></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="pocketing.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="io_stmnts.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 9. Pocketing </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> Chapter 11. Input/Output Statements in the APT Language</td></tr></table></div></body></html>

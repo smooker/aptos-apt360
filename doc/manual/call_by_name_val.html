@@ -1,0 +1,17 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>12.2. Call by Parameter Name and Value</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="special_prog_call.html" title="Chapter 12. Special Programs in APT -- CALL"><link rel="prev" href="special_prog_call.html" title="Chapter 12. Special Programs in APT -- CALL"><link rel="next" href="use_of_spec_prog.html" title="12.3. Use of Special Program"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">12.2. Call by Parameter Name and Value</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="special_prog_call.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center">Chapter 12. Special Programs in APT -- CALL</th><td width="20%" align="right"> <a accesskey="n" href="use_of_spec_prog.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="call_by_name_val"></a>12.2. Call by Parameter Name and Value</h2></div></div></div><p>
+      A special program in APT can also be called by the following APT 
+      statement:
+    </p><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig13-02-1.png"></div><p>where: 1 <span class="markup">&#8804;</span> n <span class="markup">&#8804;</span> 25</p></blockquote></div><p>
+      The words CALL, NAME, SEC1, and SEC2 have the same meaning as assigned
+      in <a href="special_prog_call.html#call_by_value" title="12.1. Call by Value">Section 12.1</a>. The labels
+      (up to six characters) NAME1, NAME2, etc., are the 
+      alphanumeric identifiers expected by the special program for each
+      parameter. The parameter names NAME1, NAME2, etc., are assigned the
+      parameter values
+      <span class="inlinemediaobject"><img src="images/fig13-02-2.png"></span>
+      , etc., respectively, by the CALL statement. In addition, the parameter
+      names NAME1, NAME2, etc., and their associated parameter values can be
+      in any order--it is expected that the special program can differentiate
+      between the arguments, since they are labeled. A maximum of 25 parameter
+      names and values is allowed.
+    </p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="special_prog_call.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"><a accesskey="u" href="special_prog_call.html"><img src="images/up.gif" alt="Up"></a></td><td width="40%" align="right"> <a accesskey="n" href="use_of_spec_prog.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 12. Special Programs in APT -- CALL </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> 12.3. Use of Special Program</td></tr></table></div></body></html>

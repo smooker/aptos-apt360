@@ -1,0 +1,55 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>14.6. Implications of Ruled Surface (RLDSRF)</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="spec_tech.html" title="Chapter 14. Special Techniques"><link rel="prev" href="arelem_requirements.html" title="14.5. Arithmetic Element Requirements"><link rel="next" href="plane_limitations.html" title="14.7. Limitations on Usage of Planes"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">14.6. Implications of Ruled Surface (RLDSRF)</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="arelem_requirements.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center">Chapter 14. Special Techniques</th><td width="20%" align="right"> <a accesskey="n" href="plane_limitations.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="rldsrf_implications"></a>14.6. Implications of Ruled Surface (RLDSRF)</h2></div></div></div><p>
+      The canonical form of a ruled surface may be either of two forms:
+    </p><div class="orderedlist"><ol type="1"><li><p>A subsurface</p></li><li><p>Two points and a vector associated with the subsurface</p></li><li><p>A second subsurface</p></li><li><p>
+          Two points and a vector associated with the second subsurface
+        </p></li></ol></div><p>or</p><div class="orderedlist"><ol type="1"><li><p>A subsurface</p></li><li><p>Two points and a vector associated with the subsurface</p></li><li><p>A point</p></li></ol></div><p>
+      The actual surface defined depends on the specific implementation of the
+      ruled surface directed distance and unit normal routines in the
+      arithmetic element.
+    </p><p>
+      Very briefly, the two points and vector define a plane which intersects
+      the given subsurface in a space curve.  In the case where two
+      sub-surfaces are given, the space curves at either end are connected by
+      straight-line rulings, thus generating the ruled surface.  In the case
+      where only one subsurface is given, the rulings from the space curve all
+      pass through the given point.  <a href="rldsrf_implications.html#figure144a" title="Figure 14.41. Possible RLDSRF">Figure 14.41</a> illustrates
+      a possible ruled surface.
+    </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure144a"></a><p class="title"><b>Figure 14.41. Possible RLDSRF</b></p><div class="mediaobject"><img src="images/figure144a.png" alt="Possible RLDSRF"></div></div></blockquote></div><p>
+      Care should be exercised in selecting the parameters which define the
+      ruled surface.  As an example, <a href="rldsrf_implications.html#figure145" title="Figure 14.42. Poor RLDSRF Definition">Figure 14.42</a> shows a ruled
+      surface which could be defined by a selection of points and sub-surfaces.
+      There are,
+      in this case, three separate pieces of the ruled surface.  This would be
+      a very poor choice of defining parameters, as such a surface would
+      almost certainly cause the arithmetic element to generate errors.  If,
+      for example, the part programmer intended to use segment A of the ruled
+      surface defined in Figure 145, the points given should be moved closer
+      together to eliminate segments B and C.
+    </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure145"></a><p class="title"><b>Figure 14.42. Poor RLDSRF Definition</b></p><div class="mediaobject"><img src="images/figure145.png" alt="Poor RLDSRF Definition"></div></div></blockquote></div><p>
+      The following facts should be considered when using ruled surfaces:
+    </p><div class="orderedlist"><ol type="1"><li><p>
+          The rulings are theoretically infinite in length.  However, the
+          processor uses an iterative mathematical procedure internally, and
+          efforts to use portions of the ruled surface far beyond the limits
+          of the defining space curves have high probability of failure.
+          "Far" in this context should be interpreted as a function of the
+          distance between the defining space curves.  If the distance between
+          the curves is d, it is reasonable to use portions of the rulings
+          within d of either space curve.  The probability of failure
+          increases rapidly above 2d.
+        </p></li><li><p>
+          The direction in which the vectors point can be critical in some
+          cases.  The processor will always try first to find the subsurface
+          in the direction of the vector.  Only if that fails will it try in
+          the opposite direction.  If the subsurface exists on both sides of
+          the chord line, obviously two different ruled surfaces can be
+          defined by the two different vector directions, as illustrated in
+          <a href="rldsrf_implications.html#figure146" title="Figure 14.43. RLDSRF Ambiguity">Figure 14.43</a>
+        </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure146"></a><p class="title"><b>Figure 14.43. RLDSRF Ambiguity</b></p><div class="mediaobject"><img src="images/figure146.png" alt="RLDSRF Ambiguity"></div></div></blockquote></div></li><li><p>
+          As a consequence of the above two facts, care must be exercised when
+          defining ruled surfaces by giving three points associated with a
+          subsurface, rather than two points and a vector.  The processor
+          generates a vector from the three points given, with direction
+          determined as illustrated in Figure 147.  Use of two points and a
+          vector is preferred.
+        </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure147"></a><p class="title"><b>Figure 14.44. RLDSRF, 3 Point vs 2 Point</b></p><div class="mediaobject"><img src="images/figure147.png" alt="RLDSRF, 3 Point vs 2 Point"></div></div></blockquote></div></li></ol></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="arelem_requirements.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"><a accesskey="u" href="spec_tech.html"><img src="images/up.gif" alt="Up"></a></td><td width="40%" align="right"> <a accesskey="n" href="plane_limitations.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">14.5. Arithmetic Element Requirements </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> 14.7. Limitations on Usage of Planes</td></tr></table></div></body></html>

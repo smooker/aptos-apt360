@@ -1,0 +1,200 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>13.2. The Transform and COPY (COPY-INDEX) Statements</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="cutpath_xform.html" title="Chapter 13. Cutter Path Transformation Statements"><link rel="prev" href="cutpath_xform.html" title="Chapter 13. Cutter Path Transformation Statements"><link rel="next" href="tracut_copy_usage.html" title="13.3. Combined Use of TRACUT and COPY"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">13.2. The Transform and COPY (COPY-INDEX) Statements</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="cutpath_xform.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center">Chapter 13. Cutter Path Transformation Statements</th><td width="20%" align="right"> <a accesskey="n" href="tracut_copy_usage.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="copy_index"></a>13.2. The Transform and COPY (COPY-INDEX) Statements</h2></div></div></div><p>
+      A given set of cutter points can be repeated in the part program output
+      by using COPY and INDEX statements.  Also, the information can be
+      transformed as it is copied.
+    </p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="index_kw"></a>13.2.1. The INDEX Statement</h3></div></div></div><p>
+        he INDEX statement is used to establish a reference point to be  used
+        in a copy operation.  The two forms of this statement are as follows:
+      </p><div class="orderedlist"><ol type="1"><li><p>INDEX/ <span class="emphasis"><em>i</em></span></p><p>
+            This specifies the location at which the copying operation is to
+            begin.
+          </p></li><li><p>INDEX/ <span class="emphasis"><em>i</em></span>, NOMORE</p><p>
+            This specifies the location at which the copying operation is to
+            terminate.  The integer <span class="emphasis"><em>i</em></span> is used to match
+            the INDEX statement with the associated COPY statement.
+          </p></li></ol></div><p>
+        This specifies the location at which the copying operation is to
+        terminate.  The integer <span class="emphasis"><em>i</em></span> is used to match the
+        INDEX statement with the associated COPY statement.
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="copy_kw"></a>13.2.2. The COPY Statement</h3></div></div></div><p>
+        The COPY statement is used to indicate the location in the part
+        program where the copying operation is to take place.  The COPY
+        statement also contains information regarding any transformations that
+        are to occur during the copying process.  Further, if an INDEX/
+        <span class="emphasis"><em>i</em></span>, NOMORE statement is not present, the COPY
+        statement indicates the location at which the copying operation is to
+        terminate.  The general format of the COPY statement is:
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig12-02-02-1.png"></div></blockquote></div><p>The general meaning of the COPY statement is:</p><div class="blockquote"><blockquote class="blockquote"><p>
+          Generate n copies of the cutter points resulting from the statements
+          in the part program between the INDEX/ <span class="emphasis"><em>i</em></span>
+          statement and either the INDEX/ <span class="emphasis"><em>i</em></span>, NOMORE
+          statements or the COPY/ <span class="emphasis"><em>i</em></span> ... statement.
+        </p></blockquote></div><p>
+        The following restrictions apply to the index value
+        <span class="emphasis"><em>i</em></span>:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>It must be an integer.</p></li><li><p>
+            It must be the same number in associated INDEX and COPY
+            statements.
+          </p></li><li><p>
+            It must not be used in more than one set of copy instructions in
+            the same part program.
+          </p></li></ul></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="same_kw"></a>13.2.2.1. The SAME Option</h4></div></div></div><p>
+          The SAME option specifies that the information is to be copied only,
+          and no transformation takes place.  The formant of the statement is:
+        </p><div class="blockquote"><blockquote class="blockquote"><p>
+            COPY/ <span class="emphasis"><em>i,</em></span> SAME, <span class="emphasis"><em>n</em></span>
+          </p></blockquote></div></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="transl_kw"></a>13.2.2.2. The TRANSL Option</h4></div></div></div><p>
+          The TRANSL option specifies that the information is to be translated
+          as it is copied. The format of the statement is:
+          </p><div class="blockquote"><blockquote class="blockquote"><p>COPY/ <span class="emphasis"><em>i</em></span>, TRANSL,
+              <span class="emphasis"><em>x, y, z</em></span>
+            </p></blockquote></div><p>
+        </p><p>
+          The cutter center points between the INDEX and COPY statements are
+          translated to a coordinate system whose origin is defined by the
+          coordinates <span class="emphasis"><em>x, y, z</em></span>.  Translations are
+          accumulative in the copying process; that is, the original data is
+          not translated, the first copy is translated by
+          <span class="emphasis"><em>x, y, z</em></span>, the second copy is translated by
+          2<span class="emphasis"><em>x</em></span>, 2<span class="emphasis"><em>y</em></span>,
+          2<span class="emphasis"><em>z</em></span>, and the nth copy is translated by
+          <span class="emphasis"><em>nx, ny, nz</em></span>.
+        </p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="xyrot_kw"></a>13.2.2.3. The XYROT Option</h4></div></div></div><p>
+          The XYROT option specifies that the information is to be rotated as
+          it is copied. The format of the statement is:
+        </p><div class="blockquote"><blockquote class="blockquote"><p>
+            COPY/ <span class="emphasis"><em>i</em></span>, XYROT, <span class="emphasis"><em>theta</em></span>,
+            <span class="emphasis"><em>n</em></span>
+          </p></blockquote></div><p>
+          The appropriate cutter center points are rotated through an angle
+          <span class="emphasis"><em>theta</em></span> in the XY-plane as they are copied.
+          The rotation is accumulative; that is, the original data is not
+          rotated, the first copy is rotated by <span class="emphasis"><em>theta</em></span>
+          degrees, the second copy is rotated by 2 *
+          <span class="emphasis"><em>theta</em></span>, etc.
+        </p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="modify_kw"></a>13.2.2.4. The MODIFY Option</h4></div></div></div><p>
+          The MODIFY option specifies that a given matrix is to be used to
+          transform the information as it is copied.  The format of this
+          statement is:
+          </p><div class="blockquote"><blockquote class="blockquote"><p>COPY/ <span class="emphasis"><em>i</em></span>, MODIFY, SMAT,
+              <span class="emphasis"><em>n</em></span>
+            </p></blockquote></div><p>
+          where SMAT is the symbolic name of the matrix.  The transformations
+          are accumulative; that is, the original data is not transformed by
+          the matrix SMAT, the first copy is the result of transforming the
+          original data by the matrix SMAT, the second copy is transformed by
+          the matrix, that is the product of SMAT with itself, the third copy
+          is transformed by the matrix, that is the product of the matrix
+          resulting from the last copy operation and SMAT, etc.
+        </p></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="copy_usage"></a>13.2.3. Usage of the COPY Feature</h3></div></div></div><p>
+        There are two basic forms of the COPY feature. The most basic form is
+        as follows:
+        </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">
+1)  INDEX/ K
+    $$
+    $$ Other APT Statements
+    $$
+2)  COPY/ K, SAME, 2</pre></blockquote></div><p>
+      </p><p>
+        When the statement labeled 2 is encountered, all of the statements
+        between 1 and 2 are copied twice with no modifications.  The following
+        example indicates a situation where a transformations is required:
+        </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">
+3)  INDEX/ L
+    $$
+    $$ Other APT Statements
+    $$
+4)  COPY/ L, MODIFY, MAT1, 1</pre></blockquote></div><p>
+      </p><p>
+        In this instance, all of the information between statements 3 and 4 is
+        copied once; also, all of the cutter location information is
+        transformed by the symbolic matrix MAT1.
+      </p><p>
+        The alternate form of the copy feature is as follows:
+        </p><div class="blockquote"><blockquote class="blockquote"><pre class="programlisting">
+a)  INDEX/ J
+    $$
+    $$ Other APT Statements
+    $$
+b)  INDEX/ J, NOMORE
+    $$
+    $$ Other APT Statements
+    $$
+c)  COPY/ J, SAME, 3</pre></blockquote></div><p>
+      </p><p>
+        In this case, where statement c is encountered, all of the information
+        between statements a and b is copied three times (with no
+        transformation).  Any transformation can also be made with the
+        alternate form by including the information in the COPY statement.
+      </p><p>
+        Two major rules must be observed when using the copy feature:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            Copy loops are not permitted to overlap. The following set of 
+            statements is not permitted.
+            </p><div class="blockquote"><blockquote class="blockquote"><pre class="screen">
+   &#9581;&#9472;&#9472; INDEX/ J
+   &#9474;   ...
+   &#9474;   ...
+   &#9474;   ...
+&#9581;&#9472;&#9472;&#9472;&#9472;&#9472; INDEX/ K
+&#9474;  &#9474;   ...
+&#9474;  &#9474;   ...
+&#9474;  &#9474;   ...
+&#9474;  &#9584;&#9472;&#9472; COPY/ J, SAME, 1
+&#9474;      ...
+&#9474;      ...
+&#9474;      ...
+&#9584;&#9472;&#9472;&#9472;&#9472;&#9472; COPY/ K, SAME, 2</pre></blockquote></div><p>
+          </p></li><li><p>
+            The same index value cannot be used in more than one set of copy
+            instructions. The following set of statements is not permitted.
+            </p><div class="blockquote"><blockquote class="blockquote"><pre class="screen">
+&#9581;&#9472;&#9472; INDEX/ I
+&#9474;   ...
+&#9474;   ...
+&#9474;   ...
+&#9584;&#9472;&#9472; COPY/ I, SAME, N
+    ...
+    ...
+    ...
+&#9581;&#9472;&#9472; INDEX/ I
+&#9474;   ...
+&#9474;   ...
+&#9474;   ...
+&#9584;&#9472;&#9472; COPY/ I, SAME, M</pre></blockquote></div><p>
+          </p></li></ul></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="nesting_copy"></a>13.2.4. Nesting of COPY Loops</h3></div></div></div><p>
+        The INDEX and COPY statements can be nested within another set of
+        INDEX and COPY statements to a level of three.  The following example
+        illustrates the nesting of COPY loops to a level of three:
+        </p><div class="blockquote"><blockquote class="blockquote"><pre class="screen">
+&#9581;&#9472;&#9472;&#9517;&#9472;&#9472;&#9517;&#9472;&#9472; INDEX/ J
+&#9474;  &#9474;  &#9474;   ...
+&#9474;  &#9474;  &#9474;   GOTO/ x, y, z
+&#9474;  &#9474;  &#9474;   ...
+&#9474;  &#9474;  &#9584;&#9472;&#9472; COPY/ J, SAME, n
+&#9474;  &#9584;&#9472;&#9472;&#9472;&#9472;&#9472; COPY/ J, TRANSL, A, B, C, n1
+&#9474;         ...
+&#9474;  &#9581;&#9472;&#9472;&#9472;&#9472;&#9472; INDEX/ K
+&#9474;  &#9474;      ...
+&#9474;  &#9474;  &#9581;&#9472;&#9472; INDEX/ L
+&#9474;  &#9474;  &#9474;   ...
+&#9474;  &#9474;  &#9584;&#9472;&#9472; COPY/ L, MODIFY, SMAT, n2
+&#9474;  &#9474;      ...
+&#9474;  &#9584;&#9472;&#9472;&#9472;&#9472;&#9472; COPY/ K, MODIFIER, SMAT, n3
+&#9474;         ...
+&#9474;     &#9581;&#9472;&#9472; INDEX/ I
+&#9474;     &#9474;   ...
+&#9474;     &#9584;&#9472;&#9472; COPY/ I, XYROT, &#920;, n4
+&#9474;         ...
+&#9584;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472; COPY/ J, SAME, n5
+        </pre></blockquote></div><p>
+      </p><p>From the example, it is evident that:</p><div class="itemizedlist"><ul type="disc"><li><p>
+          Up to three COPY statements can reference the same INDEX
+          statement.
+        </p></li><li><p>
+          A unique INDEX statement can be used for each COPY statement.
+        </p></li><li><p>
+          Different INDEX statements must contain different index numbers.
+        </p></li><li><p>
+          COPY loops can be nested to a level of three.
+        </p></li></ul></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="cutpath_xform.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"><a accesskey="u" href="cutpath_xform.html"><img src="images/up.gif" alt="Up"></a></td><td width="40%" align="right"> <a accesskey="n" href="tracut_copy_usage.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 13. Cutter Path Transformation Statements </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> 13.3. Combined Use of TRACUT and COPY</td></tr></table></div></body></html>

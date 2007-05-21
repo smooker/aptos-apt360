@@ -1,0 +1,113 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Chapter 5. Programming a Tool Path</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="index.html" title="APT360 Programmers Manual"><link rel="prev" href="pnt_pnt_prog_consid.html" title="4.7. Point-Point Programming Considerations"><link rel="next" href="cut_surf_relate.html" title="5.2. CUTTER to Surface Relationships"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 5. Programming a Tool Path</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="pnt_pnt_prog_consid.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="cut_surf_relate.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="prog_toolpath"></a>Chapter 5. Programming a Tool Path</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="sect1"><a href="prog_toolpath.html#prog_intro">5.1. Introduction</a></span></dt><dd><dl><dt><span class="sect2"><a href="prog_toolpath.html#cutter_kw">5.1.1. Description of Cutter</a></span></dt><dt><span class="sect2"><a href="prog_toolpath.html#tol_spec">5.1.2. Tolerance Specification</a></span></dt><dt><span class="sect2"><a href="prog_toolpath.html#surf_nomen">5.1.3. Surface Nomenclature</a></span></dt></dl></dd><dt><span class="sect1"><a href="cut_surf_relate.html">5.2. CUTTER to Surface Relationships</a></span></dt><dd><dl><dt><span class="sect2"><a href="cut_surf_relate.html#part_surf2">5.2.1. Part Surface</a></span></dt><dt><span class="sect2"><a href="cut_surf_relate.html#drive_surf2">5.2.2. Drive Surface</a></span></dt><dt><span class="sect2"><a href="cut_surf_relate.html#check_surf2">5.2.3. Check Surface</a></span></dt></dl></dd><dt><span class="sect1"><a href="startup.html">5.3. Startup Procedures</a></span></dt><dd><dl><dt><span class="sect2"><a href="startup.html#strtup_init">5.3.1. Initialization</a></span></dt><dt><span class="sect2"><a href="startup.html#go_kw">5.3.2. GO Surface Command</a></span></dt><dt><span class="sect2"><a href="startup.html#offset_kw">5.3.3. The OFFSET/ Statement</a></span></dt></dl></dd><dt><span class="sect1"><a href="motion_cmds.html">5.4. Motion Commands</a></span></dt><dd><dl><dt><span class="sect2"><a href="motion_cmds.html#gen_motion_stmnt">5.4.1. General Form</a></span></dt><dt><span class="sect2"><a href="motion_cmds.html#dir_modifiers">5.4.2. Directional Modifiers</a></span></dt><dt><span class="sect2"><a href="motion_cmds.html#surf_specification">5.4.3. Surface Specification</a></span></dt></dl></dd><dt><span class="sect1"><a href="expanded_tol_stmnt.html">5.5. Expanded Tolerance Statement</a></span></dt><dt><span class="sect1"><a href="multiple_intersections.html">5.6. Multiple Intersections</a></span></dt><dt><span class="sect1"><a href="opt_feedrate.html">5.7. Optional Feed Rate Specification</a></span></dt></dl></div><p>
+    The APT language can be used to direct a cutter along a predetermined
+    path. This chapter introduces the fundamental language concepts required
+    to accomplish this task. Expansion of some of the more complex concepts
+    and definition of additional language features are made in
+    <a href="spec_tech.html" title="Chapter 14. Special Techniques">Chapter 14</a>. Guidelines and suggested procedures
+    are stated only in general, since experience is the only way good
+    techniques and reliable methods are formulated. 
+  </p><p>
+    Experience in the numerical control industry has shown that the geometric
+    problems involved in APT must be solved using iterative techniques. Other
+    mathematical approaches are specific in nature and fail to achieve the
+    necessary degree of generality. Even the more desirable iterative approach
+    used in this processor may fail in unforeseeable situations. In such
+    circumstances minor part program modifications can be made to achieve the
+    required results. 
+  </p><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="prog_intro"></a>5.1. Introduction</h2></div></div></div><p>
+      Even a brief description of how the tool motion is controlled depends
+      upon an understanding of several concepts. The individual notations are
+      discussed in <a href="prog_toolpath.html#cutter_kw" title="5.1.1. Description of Cutter">Section 5.1.1</a> through
+      <a href="prog_toolpath.html#surf_nomen" title="5.1.3. Surface Nomenclature">Section 5.1.3</a>, and there relationships are
+      discussed in <a href="prog_toolpath.html#basic_problem" title="5.1.3.4. Basic Problem Description">Section 5.1.3.4</a>.
+    </p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="cutter_kw"></a>5.1.1. Description of Cutter</h3></div></div></div><p>
+        The cutter shape must be defined before any cutter motion can be
+        specified. The format of the statement that defines the cutter is:
+      </p><div class="blockquote"><blockquote class="blockquote"><p>
+          CUTTER/ <span class="emphasis"><em>d</em></span>, <span class="emphasis"><em>r</em></span>,
+          <span class="emphasis"><em>e</em></span>, <span class="emphasis"><em>f</em></span>,
+          <span class="emphasis"><em>&#945;</em></span>, <span class="emphasis"><em>&#946;</em></span>,
+          <span class="emphasis"><em>h</em></span>
+        </p></blockquote></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>
+          The parameters are as shown in <a href="prog_toolpath.html#figure69" title="Figure 5.1. CUTTER Parameters">Figure 5.1</a>. The
+          parameters must all be positive and &#945; and &#946; must be
+          between 0 and 90 (degrees).
+        </p></td></tr></table></div><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure69"></a><p class="title"><b>Figure 5.1. CUTTER Parameters</b></p><div class="mediaobject"><img src="images/figure69.png" alt="CUTTER Parameters"></div></div></blockquote></div><p>
+        Two alternative forms of the CUTTER statement can be used for simple
+        cutters. These are:
+        </p><div class="blockquote"><blockquote class="blockquote"><div class="literallayout"><p>CUTTER/ <span class="emphasis"><em>d</em></span><br>
+CUTTER/ <span class="emphasis"><em>d</em></span>, <span class="emphasis"><em>r</em></span></p></div></blockquote></div><p>
+      </p><p>
+        The first alternate form defines either a ball or a filleted-end mill;
+        the second specifies a flat-end mill (see <a href="prog_toolpath.html#figure70" title="Figure 5.2. Simple CUTTER Examples">Figure 5.2</a>
+        for examples). When these forms are used, the following assumptions
+        are made by the APT processor:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            &#945; and &#946; are set equal to zero
+          </p></li><li><p>
+            <span class="emphasis"><em>f</em></span> is set equal to <span class="emphasis"><em>r</em></span>
+            (in the second form, both are zero)
+          </p></li><li><p>
+            <span class="emphasis"><em>e</em></span> is set equal to <span class="emphasis"><em>d</em></span>
+            / 2 - <span class="emphasis"><em>r</em></span>
+          </p></li><li><p>
+            <span class="emphasis"><em>h</em></span> (the tool height) is set to 5 (if
+            <span class="emphasis"><em>r</em></span> is less or equal to 5 or not given) or to
+            <span class="emphasis"><em>r</em></span> (if <span class="emphasis"><em>r</em></span> is greater than
+            5)
+          </p></li></ul></div><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure70"></a><p class="title"><b>Figure 5.2. Simple CUTTER Examples</b></p><div class="mediaobject"><img src="images/figure70.png" alt="Simple CUTTER Examples"></div></div></blockquote></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="tol_spec"></a>5.1.2. Tolerance Specification</h3></div></div></div><p>
+        The APT language requires that the accuracy to which the part is to be
+        machined must be defined. This is done with the following statements:
+      </p><div class="itemizedlist"><ul type="disc"><li><p><a name="intol_kw"></a>INTOL/ <span class="emphasis"><em>t</em></span><sub>1</sub></p></li><li><p><a name="outtol_kw"></a>OUTTOL/ <span class="emphasis"><em>t</em></span><sub>2</sub></p></li><li><p><a name="toler_kw"></a>TOLER/ <span class="emphasis"><em>t</em></span><sub>3</sub></p></li></ul></div><p>
+        INTOL is defined as the amount by which the cutter can violate
+        (gouge) the surface. OUTTOL is the amount of excess stock that is
+        permissible. Either OUTTOL or INTOL may be zero, but not
+        simultaneously. If neither is specified, OUTTOL is set to .0005, and
+        INTOL is set to zero, unless TOLER was specified. Then, OUTTOL
+        is set equal to TOLER and INTOL is set to zero.
+      </p><p>
+        The Tolerance commands are modal; that is, they remain in effect for
+        all subsequent motion statements until another tolerance specification
+        is given. <a href="prog_toolpath.html#figure71" title="Figure 5.3. CUTTER Tolerance">Figure 5.3</a> depicts various tolerance
+        specifications. <a href="expanded_tol_stmnt.html" title="5.5. Expanded Tolerance Statement">Section 5.5</a> discusses
+        an expanded tolerance statement.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure71"></a><p class="title"><b>Figure 5.3. CUTTER Tolerance</b></p><div class="mediaobject"><img src="images/figure71.png" alt="CUTTER Tolerance"></div></div></blockquote></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="surf_nomen"></a>5.1.3. Surface Nomenclature</h3></div></div></div><p>
+        More than one geometric surface is usually involved in positioning a
+        cutter in space. Therefore, the following nomenclature is used to
+        distinguish between surfaces that are simultaneously related to the
+        cutter.
+      </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure72"></a><p class="title"><b>Figure 5.4. Surface Nomenclature</b></p><div class="mediaobject"><img src="images/figure72.png" alt="Surface Nomenclature"></div></div></blockquote></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="part_surface"></a>5.1.3.1. Part Surface</h4></div></div></div><p>
+          The part surface (PS) is one of two surfaces with which the cutter
+          is in continual contact (within tolerance) during a given machining
+          motion. The PS is usually the surface that controls the depth of the
+          cut (see <a href="prog_toolpath.html#figure72" title="Figure 5.4. Surface Nomenclature">Figure 5.4</a>).
+        </p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="drive_surface"></a>5.1.3.2. Drive Surface</h4></div></div></div><p>
+          The drive surface (DS) is the second surface with which the cutter is
+          in continual contact (within tolerance) during a given machining
+          motion. The DS guides the cutter through space, while a given
+          relationship is maintained between the cutter and the PS (see
+          <a href="prog_toolpath.html#figure72" title="Figure 5.4. Surface Nomenclature">Figure 5.4</a>).
+        </p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="check_surface"></a>5.1.3.3. Check Surface</h4></div></div></div><p>
+          The check surface (CS) is the limiting surface for a given motion
+          statement. The cutter maintains a specified relationship with the PS
+          and DS until it reaches a given condition with regard to the check
+          surface. When this occurs, a new motion statement can be specified
+          (see <a href="prog_toolpath.html#figure72" title="Figure 5.4. Surface Nomenclature">Figure 5.4</a>).
+        </p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="basic_problem"></a>5.1.3.4. Basic Problem Description</h4></div></div></div><p>
+          The surfaces to be machined are defined exactly by the processor.
+          However, most N/C machines are capable of moving only in a straight
+          line. Therefore, a series of straight lines that approximate the
+          desired contour within tolerance must be generated. Each individual
+          straight-line movement is called an "elementary cut vector" A
+          string of these movements that complete the motion defined by a
+          given PS, DS and CS combination is called an "elementary cut
+          sequence"
+        </p><p>
+          For example, the cutter is located initially in space
+          with regard to a PS and a DS. A given relationship is described with
+          regard to the PS. Then, the cutter is guided through space by the
+          DS, maintaining the defined relationship with the PS until a
+          specific condition is reached with regard to the CS. As many
+          elementary cut vectors as required will be generated to maintain the
+          specified tolerance.
+        </p></div></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="pnt_pnt_prog_consid.html"><img src="images/prev.gif" alt="Prev"></a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="cut_surf_relate.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top">4.7. Point-Point Programming Considerations </td><td width="20%" align="center"><a accesskey="h" href="index.html"><img src="images/home.gif" alt="Home"></a></td><td width="40%" align="right" valign="top"> 5.2. CUTTER to Surface Relationships</td></tr></table></div></body></html>
