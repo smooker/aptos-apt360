@@ -1,2 +1,6 @@
 version 1.0.0 (31Mar07):
 	* Initial release
+
+version 1.0.1 (20May07):
+	* Added the html version of the original IBM manual
+	to the docs

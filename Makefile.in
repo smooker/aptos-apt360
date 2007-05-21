@@ -154,7 +154,7 @@ sharedstatedir = @sharedstatedir@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 SUBDIRS = src doc maclib orig_source examples vim 
-DIST_SUBDIRS = src doc maclib orig_source examples vim 
+DIST_SUBDIRS = src doc maclib orig_source examples vim
 bin_SCRIPTS = apt callpost
 EXTRA_DIST = apt callpost
 all: config.h

@@ -1,6 +1,6 @@
 dnl  Process this file with autoconf to produce a  configure script.
-AC_INIT([Apt360], [1.0.0], [crotchet@sourceforge.net])
-AM_INIT_AUTOMAKE([apt360], [1.0.0], [crotchet@sourceforge.net])
+AC_INIT([Apt360], [1.0.1], [crotchet@sourceforge.net])
+AM_INIT_AUTOMAKE([apt360], [1.0.1], [crotchet@sourceforge.net])
 AC_CONFIG_HEADER(config.h)
 
 dnl  Checks for programs.
@@ -85,6 +85,7 @@ done
 AC_SUBST(absolute_build_dir,[$PWD])
 
 AC_OUTPUT(Makefile src/Makefile doc/Makefile maclib/Makefile orig_source/Makefile \
-		examples/Makefile vim/Makefile vim/syntax/Makefile )
+	  examples/Makefile vim/Makefile vim/syntax/Makefile doc/manual/Makefile \
+  doc/manual/images/Makefile)
 	
 
