@@ -16,7 +16,8 @@ If not, you can get the f2c library at:
 
 http://www.netlib.org/f2c/libf2c.zip
 
-It is probably available from your distro's website also.
+It is probably available from your distro's website also. See the note below 
+for installation hints.
 
 Also used for the some math issues in the TABCYL command is the Gnu 
 scientific library gsl. The program will compile without it, and the TABCYL
@@ -41,3 +42,57 @@ https://sourceforge.net/projects/vapt/
  
 I've also included a vim syntax file in the /vim directory.  If you use vim, 
 you may want to install these files in your ~/.vim directory.
+
+Installing f2c:
+
+The f2c lib has been an awkward problem for new users to apt360.  It assumes 
+you know quite a bit about compiling and installing libraries, and it differs 
+quite a bit from the common standards in Linux.
+
+Here are some things to try- I don't know where you are at in your experience 
+with Linux, so some of these things might seem obvious to you, or might not:
+
+Many distributions have a "package manager" or something similar that helps 
+you install files.  You might look for f2c on your distribution if it has 
+something like this.  
+
+If you try installing f2c libs from source, remember extraction is just the first 
+step to installing the f2c libs.  You must also compile the libraries, and 
+then install them in a system library directory. The netlib sources also include 
+the f2c conversion program, which is different from the lib and not needed to 
+install apt360. 
+
+Here are the steps I did in test installing the "libf2c.zip" package on my Suse system:
+
+extract the files:
+
+->unzip libf2c.zip
+
+change to the root directory of the f2c lib package:
+
+-> cd libf2c
+
+->mv makefile.u makefile
+
+->make
+
+this should give you a file "libf2c.a"
+
+->make hadd
+
+this should give you a file "f2c.h"
+
+set an environment variable for where to install the lib:
+
+->export LIBDIR=/usr/local/lib 
+
+->sudo make install
+
+this will ask for a password and install libf2c.a in your LIBDIR you just 
+defined.
+
+You will also need to install the header file:
+
+->sudo cp f2c.h /usr/local/include/
+
+Try running the apt360 configure script again.  It should hopefully be ok now.

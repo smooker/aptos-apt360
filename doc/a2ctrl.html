@@ -8,12 +8,10 @@
 <body alink="#ff00ff" link="#0000ff" vlink="#ff0000"
  style="background-image: url(yelgridl.jpg); height: 100%; width: 100%; background-repeat: repeat; background-color: rgb(51, 51, 51);">
 <span style="font-weight: bold;"></span><br>
-<span style="font-weight: bold;"><br>
-<span style="font-weight: bold;">A2CTRL  
-- (section 2)  motion, cut vectors </span><br>
-    calls: <br>
+<h3>A2CTRL  - (section 2)  motion, cut vectors </h3><br>
+calls: <br>
 <br>
-    </span>ASEC2    calls various sec 2
+ASEC2    calls various sec 2
 routines:<br>
 <br>
     calls: <br>
@@ -25,161 +23,92 @@ type 5000 records (startup,from, goto)<br>
 type records TLLFT,TLRGT,etc., 7000 records<br>
         ASEC2D 3000 type records (surface
 info, store canon forms)<br>
-        <br>
-<br>
-    <br>
 <br>
 <br>
 all call
 ARPDIS dispatch to  ARELEM3 or ARELEM2 (via AREPRE - arelem pre?)<br>
     ASTRUP - startup (go/to...)call <br>
 <br>
-        ARLM2  2d ARELEM  <br>
-        ARLM3  3d ARELEM<br>
+ARLM2  2d ARELEM  <br>
+ARLM3  3d ARELEM<br>
 <br>
 section 2 common structure:<br>
 <a href="#a2cmmn_">a2cmmn_</a><br>
 <br>
 <br>
 <br>
-2d routines ARLM2 : <br>
+<h4>2d routines ARLM2 : <br></h4>
     calls: <br>
-        ADSCF - 2d  DS 
-canonical form - determine canon values , circle or line<br>
-        ACSCF - 2d  CS 
-canonical form - determine canon values , circle or line<br>
+ADSCF - 2d  DS canonical form - determine canon values , circle or line<br>
 <br>
-        AZCOR   z correction -
-"CORRECTS COMPUTED CUTTER LOCATION FOR Z VALUE<br>
-             MORE
-ACCURATELY8 MOVES CUTTER UP OR DOWN ALONG ITS AXIS<br>
-             
-UNTIL THE CUTTER END POINT IS IN A PLANE PARALLEL TO<br>
-             
-THE PART SURVACE PLANE, AND WHICH PLANE ALSO CONTAINS THE<br>
-             
-ORIGINAL CUTTER END POINT TE , WHERE THE CUTTER WAS AT THE<br>
-             START OF
-I-D PROCESSING"1<br>
+ACSCF - 2d  CS canonical form - determine canon values , circle or line<br>
 <br>
+AZCOR   z correction - "corrects computed cutter location for z value<br>
+more accurately moves cutter up or down along its axis<br>
+until the cutter end point is in a plane parallel to<br>
+the part survace plane, and which plane also contains the<br>
+original cutter end point te , where the cutter was at the<br>
+start of i-d processing"1<br>
 <br>
-        ASEGMT    
-"SEGMENTS A CIRCULAR DRIVE SURFACE<br>
-            GENERAL
-CALCULATION PROCEESS IS AS FOLLOWS...<br>
-            INITIALLY, SET
-UP SOME VALUES TO BE USED LATER<br>
-            RBIG IS LARGE
-RADIUS RSMAL IS SMALL RADIUS OF TOLERANCE BAND<br>
-            RTE IS VECTOR
-FROM CENTER OF CIRCLE TO TE POSITION<br>
-            F  
-RFP IS VECTOR FROM CENTER TO FINAL POINT FPNT<br>
-            SET UP SENSE =
-+ OR - 1. FOR CLOCKWISE OR COUNTERCLOCKWISE<br>
-            MOTION
-REQUIRED.      THEN COMPUTE THE ANGULAR
-DIFFERENCE<br>
-            BETWEEN THE
-POINTS  DELTAN<br>
-            WHICH HAS BEEN
-CORRECTED FOR MULTIPLE REVOLUTIONS<br>
-            ALSO COMPUTE
-THE MAXIMUM ALLOWABLE ANCLE  DECIDE WOW MANY<br>
-            STEPS ARE
-REQUIRED, AND SEGMENT<br>
-            DO NOT OUPUT
-THE LAST POINT, AS THAT IS DONE BY ARLMI"<br>
+ASEGMT    segments a circular drive surface<br> <br>
+
+AORDP    order points in direction of travel<br>
 <br>
-        AORDP    order
-points in direction of travel<br>
+ADYNDP,BDYNDP - debug dump?<br>
 <br>
-        ADYNDP,BDYNDP - debug dump?<br>
-        ASELP    select
-final point based on TO, ON, PAST, TANTO<br>
+ASELP    select final point based on TO, ON, PAST, TANTO<br>
 <br>
 <br>
 <br>
-3d routines ARLM3 : <br>
+<h4>3d routines ARLM3 :</h4> <br>
     calls: <br>
-        ACENTR  -  3d TO
-ITERATE THE CUTTER INTO A POSITION WITHIN THE SPECIFIED TOLERANCE OF
-TWO OR THREE SURFACES.<br>
+        ACENTR  -  3d to
+iterate the cutter into a position within the specified tolerance of
+two or three surfaces.<br>
             calls ACNTR2 -
 a continuation    <br>
 <br>
-        APLANE - references TLON, TANTO,
-etc.<br>
+APLANE - references TLON, TANTO, etc.<br>
 <br>
-        ADYNDP,BDYNDP - dynamic dump -
-debugging info -<br>
-        <br>
-        ACHECK - check surface <br>
-        <br>
-        ADELTA - step vector calc for
-calculating if the cut vector satisfies INTOL/OUTOL<br>
+ADYNDP,BDYNDP - dynamic dump - debugging info -<br>
 <br>
-        AMIND -  minimum distance to
-a surface<br>
+ACHECK - check surface <br>
+<br>
+ADELTA - step vector calc for calculating if the cut vector satisfies INTOL/OUTOL<br>
+<br>
+AMIND -  minimum distance to a surface<br>
     <br>
-        ATLNRM -  tool normal - only
-calls vector subroutines - consider shape of tool <br>
-               
-              
-   examine segments, get tool normal , tool point<br>
+ATLNRM -  tool normal - only calls vector subroutines - consider shape of tool <br>
+examine segments, get tool normal , tool point<br>
 <br>
-        ATAPE - write data to tape<br>
+ATAPE - write data to tape<br>
 <br>
-    routines in ACENTR, ACNTR2:<br>
-    calls: <br>
-            AMIND -
-minimum distance <br>
-           
-    calls AJUNDD <br>
-           
-        calls ADDST and ARADAR (calls
-ANRMAL)<br>
-           
-           
-    <br>
-            <br>
-           
+routines in ACENTR, ACNTR2:<br>
+calls: <br>
+AMIND - minimum distance <br>
+calls AJUNDD <br>
+calls ADDST and ARADAR (calls ANRMAL)<br>
+<br>
 ADYNDP-assembler; calls BDYNDP dynamic dump - for debugging<br>
-            <br>
-            ADDST -
-directed distance DDPLAN, DDCYLN, DDQUAD, DDCONE, DDSPHR<br>
 <br>
-            ATLTST -
+ADDST - directed distance DDPLAN, DDCYLN, DDQUAD, DDCONE, DDSPHR<br>
+<br>
+ATLTST -
 tolerance test<br>
 <br>
-            ATINKR - multi
-axis processing<br>
+ATINKR - multi axis processing<br>
 <br>
-            APLNEX - TO
-CALCULATE A VECTOR, CMOVE, WHICH, IF APPLIED AT TE POSITION,<br>
-           
-    WILL MOVE THE CUTTER TO SIMULTANEOUS CONTACT WITH
-THREE PLANES.<br>
-           
-    RETURN VARIALBE    JPXR = 0 
-CMOVE CALCULATION OK<br>
-           
-    JPXR = 1  UNABLE TO CALCULATE CMOVE<br>
-           
-    <br>
+APLNEX - to calculate a vector, cmove, which, if applied at the position,<br>
+will move the cutter to simultaneous contact with three planes.<br>
 <br>
+ACPLAN - check surface plane <br>
 <br>
-            <br>
-            ACPLAN - check
-surface plane <br>
+routines in APLANE:<br>
+calls: <br>
 <br>
-    routines in APLANE:<br>
-    calls: <br>
+ACHECK - see above<br>
 <br>
-            ACHECK - see
-above<br>
-<br>
-            ACENTR - ditto<br>
+ACENTR - ditto<br>
 <br>
 <br>
 <br>
@@ -227,8 +156,8 @@ Protap entries:<br>
     1 CUT/DNTCUT<br>
     2<br>
     3<br>
-    4 tolerances<br>
-    5<br>
+    4 INTOL<br>
+    5 OUTTOL<br>
     6 cutter definition<br>
     7<br>
     8<br>
@@ -247,6 +176,11 @@ Protap entries:<br>
     9<br>
     <br>
 8000: end of movement command? ASEC2B<br>
+instr1:<br>
+<li>1:
+<li>2:
+<li>3:
+<li>4:
 <br>
 9000 - ASEC2B<br>
 <br>
