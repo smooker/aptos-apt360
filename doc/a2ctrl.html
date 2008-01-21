@@ -118,19 +118,36 @@ ACENTR - ditto<br>
 <br>
 <br>
 ***********************************************************<br>
-Protap entries:<br>
+<h3>Protap entries:<br></h3>
 <br>
--Instruction 1:record -<br>
+<pre>
+struct TapeHdr{
+	integer irecn;//record number
+	integer recordLength;
+	integer hdr1,hdr2;
+};
+</pre>
+hdr1= 1000,2000,etc-record type
+hdr2=subtype- 1,2,3 etc.
+record of length "recordLength" follows- doubles or long long ints<br>
+or strings
+<br>
+<br>
+
 1000: record id<br>
     <br>
 2000: post processor params<br>
     copied to cl tape <br>
     <br>
-3000: surface info, store canon forms, etc. -ASEC2D<br>
+3000: surface info  -ASEC2D<br>
     instr. 2:<br>
     1   part surface<br>
     2  drive surface<br>
     3 check surface<br>
+    surface name, subscript
+    canon values
+<br>
+<br>
 <br>
 4000:  Tool position  ASEC2C<br>
     instr. 2:<br>
@@ -141,6 +158,7 @@ Protap entries:<br>
     5 TLONPS<br>
     6 TLOFPS<br>
 <br>
+<br>
 5000: startup commands,from, goto, - ASEC2A<br>
     instr. 2:<br>
     1 INDIRP<br>
@@ -148,45 +166,55 @@ Protap entries:<br>
     3 FROM point<br>
     4 GODLTA<br>
     5 GOTO<br>
-    6<br>
-    7<br>
-    8<br>
+    6 error<br>
+
+<br>
+<br>
 6000: cutter def, tolerances, flags -ASEC2B<br>
     instr. 2:<br>
-    1 CUT/DNTCUT<br>
-    2<br>
-    3<br>
-    4 INTOL<br>
-    5 OUTTOL<br>
-    6 cutter definition<br>
-    7<br>
-    8<br>
-    9<br>
+    1 CUT/DNTCUT long long int 1 or 0 following<br>
+    2 I3DCALC/I2DCALC long long int 1 or 0 following<br>
+    3 INTOF followed by double intof value<br>
+    4 INTOL followed by 4 tolerance values<br>
+    5 OUTTOL followed by 4 tolerance values<br>
+    6 cutter definition 1 2, or 7 values<br>
+    7 TRANTO followed by long long int and string label<br>
+    8 multi CS followed by long long int and string label<br>
+   <br>
 <br>
 7000: movement commands ASEC2C<br>
     instr. 2:<br>
-    1 startup<br>
-    2 <br>
-    3<br>
-    4<br>
-    5<br>
-    6<br>
-    7<br>
-    8<br>
-    9<br>
+    1 startup followed by long long int -# of start surfaces<br>
+    2?    <br>
     <br>
-8000: end of movement command? ASEC2B<br>
+    <br>
+
+8000: movement directions ASEC2B<br>
 instr1:<br>
-<li>1:
-<li>2:
-<li>3:
-<li>4:
+<li>1:GOLFT
+<li>2:GORGT
+<li>3:GOFWD
+<li>4:GOBACK
+<li>5:GOUP
+<li>6:GODOWN
 <br>
-9000 - ASEC2B<br>
+<br>
+<br>
+9000 - ASEC2C<br>
+<li>1:TLAXIS
+<li>2:MULTAX
+<li>3:MAXDP
+<li>4:NUMPTS
+<li>5:THICK
+<li>6:NOPS
+<li>7:AUTOPS
+<li>8:GOUGCK
+<br>
 <br>
 10000 - ASEC2C<br>
 <br>
 11000 - ASEC2C<br>
+pocketing<br>
 <br>
 12000 -  user supplied routines ASEC2C<br>
 <br>
@@ -195,6 +223,8 @@ instr1:<br>
 14000 FINI  -ASEC2C         <br>
 <br>
 ***********************************************************<br>
+<br>
+<br>
 <a name="a2cmmn_"></a>
 section 2 common:<br>
 <br>

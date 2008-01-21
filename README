@@ -14,3 +14,12 @@ As far as I know, the original source code in Fortran that is included in
 this package was made public domain by IBM many years ago.  As such, that 
 portion of the present package is available for any purpose whatsoever.  
 The c code however, is made available with the GNU GPL.  
+
+Known Issues:
+
+*The TRANTO command currently does not work.
+
+*The SYN command is not implemented.
+
+*Large Macros cannot yet be stored to tape as in the original.
+
