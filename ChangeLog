@@ -5,6 +5,9 @@ version 1.0.1 (20May07):
 	* Added the html version of the original IBM manual
 	to the docs
 
-version 1.0.x (07):
+version 1.0.x (08):
 	* Added more comprehensive directions for installing the
 	f2c libs in the INSTALL file.
+
+	* Added Sean Dolan's unsyn.pl perl program for handling
+	the SYN statement.
