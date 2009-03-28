@@ -19,7 +19,9 @@ Known Issues:
 
 *The TRANTO command currently does not work.
 
-*The SYN command is not implemented.
+*The SYN command is not implemented. However, the perl script unsyn.pl is 
+ included to help somewhat.  This will probably be eventually incorporated
+ into the 'apt' script.
 
 *Large Macros cannot yet be stored to tape as in the original.
 

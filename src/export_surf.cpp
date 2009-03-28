@@ -1,6 +1,7 @@
 #include "config.h"
 #include "export_surf.h"
 #include <fstream>
+#include <cstring>
 using namespace std;
 std::ofstream printFile;
 void export_surf(int* idfsto, double* canon ,double* name, int* sub,int* canonLength)
