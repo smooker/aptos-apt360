@@ -1,13 +1,15 @@
 ## Process this file with automake to produce Makefile.in
 
 
-#ASFLAGS= -a #generate listings for assembler
-AM_CPPFLAGS = -DTOP_BLD_DIR="$(absolute_build_dir)" \
-	-DBINDIR="$(bindir)" 
-LDADD= -lf2c 
+LDADD= ../libf2c/libf2c.a
 
 bin_PROGRAMS=apt360 
 
+AM_CFLAGS = -DTOP_BLD_DIR="$(absolute_build_dir)" \
+	-DBINDIR="$(bindir)" -I../libf2c/
+
+AM_CXXFLAGS = -DTOP_BLD_DIR="$(absolute_build_dir)" \
+	-DBINDIR="$(bindir)" 
 
 apt360_SOURCES = A2CTRL.c \
 	ABKKPR.c \
@@ -319,5 +321,5 @@ apt360_SOURCES = A2CTRL.c \
 	ASM.h \
 	AXTABL.ASM.h \
 	export_surf.cpp \
-	export_surf.h
+	export_surf.h 
 	
