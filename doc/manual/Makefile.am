@@ -1,8 +1,7 @@
 
 DIST_SUBDIRS=images
 
-EXTRA_DIST= 
-additional_geom_words.html\
+EXTRA_DIST= additional_geom_words.html\
 apt360.css\
 apt_control_words.html\
 arelem_requirements.html\

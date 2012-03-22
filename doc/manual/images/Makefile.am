@@ -1,6 +1,5 @@
 
-EXTRA_DIST= 
-blank.png\
+EXTRA_DIST= blank.png\
 caution.gif\
 caution.png\
 draft.png\
