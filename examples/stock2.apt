@@ -1,0 +1,112 @@
+partno surface of rear of mz stock
+$$ part much like ruled surface on pg 379 of Kral
+$$ endpoint 1 = pt1, endpoint 2 = pt3  left arc
+$$ endpoint 1 = pt2, endpoint 2 = pt2  right arc
+$$ baselines are: l1 and l2 respectivly.
+machin/dmb
+machin/emc
+clprnt
+print/on
+
+$$**********part defs************
+print/3,all
+pl20=plane/0,0,1,.1 $$ clearance plane
+v1=vector/0,0,1 $$defining vectors of ruled surf
+v2=vector/0,0,1 $$ both point straight up
+
+$$ translating to the origin and then back is probably more 
+$$ work than necessary, but it works.
+mat4=matrix/transl,1.5,-2.7357,7.488,zxrot,90 $$ translate to origin, 
+						$$then rotate
+mat5=matrix/transl,-1.5,2.7357,-7.488,mat4 $$ then translate back
+$$ mat8 is the refsys matrix for c1
+mat6=matrix/transl,-9.0,-6.044,2.293,zxrot,90$$ditto for c2
+mat7=matrix/transl,9.0,6.044,-2.293,mat6
+$$ mat7 is the refsys matrix for c2
+
+$$---- Here is where we create the geometry used in ruled surf 
+$$     definitions 
+refsys/mat5
+	l1=line/-1.5,-2,-0.5474,-1.5,6,-0.5474  $$ baseline for c1
+	c1=circle/canon,-1.5,2.7357,-7.488,0,0,1,7.438  $$ declare in cannonical form
+	pt1=point/ysmall,intof,l1,c1
+	pt3=point/ylarge,intof,l1,c1
+refsys/nomore
+
+refsys/mat7
+	l2=line/9,0,-1.104,9,7,-1.104		$$ baseline for c2
+	c2=circle/canon,9.0,6.044,-2.293,0,0,1,2.043	$$	   "
+	pt2=point/ysmall,intof,l2,c2
+	pt4=point/ylarge,intof,l2,c2
+refsys/nomore
+
+lchk= line/parlel,(line/xaxis),ylarge,15.
+lchkb= line/parlel,(line/xaxis),ysmall,20.
+
+rsf=rldsrf/c1,pt1,pt3,v1,c2,pt2,pt4,v2
+intol/0.000
+outtol/0.005
+seqno/1,incr,1
+spindl/1500,clw,high
+setpt=point/-11,-20,3.
+clrsrf/pl20,.5
+
+
+$$ Starting with a cutter defined as zero width will cause
+$$ less tool drive errors when first implementing code. 
+$$cutter/0
+cutdia=.5
+cutter/cutdia,.25,0,0.25,0,0,0
+clearp/pl20,0.5
+coolnt/flood
+fedrat/100,ipm
+loadtl/5 
+toolno/5
+rapid
+from/setpt
+
+var=-7. $$ x location start
+incre=cutdia/2 $$ This is the tool stepover amount
+
+
+
+maxx=9. $$ x location stop
+pl1=plane/0,0,1,-4.5 $$base plane
+
+$$ some other variable that give a slightly different result
+
+$$maxx=12. $$ x location stop
+$$pl1=plane/0,0,1,-1.5 $$base plane
+
+ldrv=line/canon,1,0,0,var$$must be defined canonical to use reassignment
+			$$in a loop
+go/on,ldrv,to,pl1,on,lchkb
+$$--------------------------------------------
+str)loopst
+	golft/ldrv,to,rsf
+	psis/rsf
+	gofwd/ldrv,to,pl1
+	psis/pl1
+	gofwd/ldrv,on,lchk
+	var=var+incre
+	ldrv=line/canon,1,0,0,var
+	gorgt/lchk,on,ldrv
+	gorgt/ldrv,to,rsf
+	psis/rsf
+	gofwd/ldrv,to,pl1
+	psis/pl1
+	gofwd/ldrv,on,lchkb
+	var=var+incre
+	ldrv=line/canon,1,0,0,var
+	golft/lchkb,on,ldrv
+	if(maxx-var)nd,nd,str
+nd)loopnd
+$$--------------------------------------------
+
+rapid
+coolnt/off
+seqno/off
+clrsrf/now
+retrct
+rapid,goto/setpt
+fini

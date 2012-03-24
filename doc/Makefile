@@ -95,14 +95,14 @@ OBJEXT = o
 PACKAGE = apt360
 PACKAGE_BUGREPORT = crotchet@sourceforge.net
 PACKAGE_NAME = Apt360
-PACKAGE_STRING = Apt360 1.0.1
+PACKAGE_STRING = Apt360 1.0.2
 PACKAGE_TARNAME = apt360
-PACKAGE_VERSION = 1.0.1
+PACKAGE_VERSION = 1.0.2
 PATH_SEPARATOR = :
 SET_MAKE = 
 SHELL = /bin/sh
 STRIP = 
-VERSION = 1.0.1
+VERSION = 1.0.2
 abs_builddir = /home/brent/apt360/doc
 abs_srcdir = /home/brent/apt360/doc
 abs_top_builddir = /home/brent/apt360
@@ -152,8 +152,8 @@ EXTRA_DIST = a2ctrl.html acntrl.html apt360document.webprj aptos4.ims \
 aptpos.html ascntl.html index.html notes.txt obj10geo13shd5pg1p4.png \
 obj3pg1geo8p4.png obj5pg1geo5p4.png obj84geo121shd1pg1p4.png \
 obj89geo128shd3pg1p4.png sectn3.html surface_defs.html yelgridl.jpg \
-adfpre.html file_desc.html notes.txt program_notes.html samplePart.apt \
-samplePart.apt.html samplePart.tap.html Section1ErrorCodes.html sectn3.html \
+adfpre.html notes.txt program_notes.html samplePart.apt \
+samplePart.apt.html Section1ErrorCodes.html sectn3.html \
 tutorial1.html tutorial2.html tutorial.html
 
 all: all-recursive

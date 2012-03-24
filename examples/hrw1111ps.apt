@@ -1,0 +1,48 @@
+partno/ hrw1111ps
+print/on
+clprnt
+machin/dmb
+d1=2.00$$dist to flange
+d2=.190$$spline width
+d3=36.$$angle between splines
+d4=1.063 $$minor dia of splines
+
+lx=line/xaxis
+ly=line/yaxis
+l1=line/parlel,ly,xlarge,d1
+l2=line/parlel,lx,ylarge,(d2/2)$$top of spline
+l3=line/parlel,lx,ylarge,(-d2/2)$$bot of spline
+pl1=plane/0,1,0,(d2/2)
+cyl1=cylndr/0,0,0,(vector/-1,0,0),(d4/2)
+pl4=plane/0,0,1,0
+
+mat1=matrix/yzrot,-d3
+
+refsys/mat1
+	pl2=plane/0,1,0,(d2/2)
+	pl3=plane/0,1,0,(-d2/2)
+
+refsys/nomore
+
+cutter/.125
+
+
+
+multax
+index/1
+pprint**start pass**	
+	from/-.2,.3,(d4/2+.1)
+	go/to,pl1,on,cyl1
+	tllft,golft/pl1,to,l1
+
+	tlaxis/normps
+	golft/l1,to,pl3
+	tlaxis/(vector/0,(sinf(d3)),(cosf(d3)))
+	go/to,pl3,on,cyl1
+	tllft,gorgt/pl3,past,ly
+index/1,nomore
+
+copy/1,modify,mat1,10
+
+fini
+

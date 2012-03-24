@@ -1,0 +1,38 @@
+partno oring groove
+$$dovetail oring groove in wrapped 
+$$around a cylinder
+machin/dmb,1
+print/on
+clprnt
+
+d1=1.252 $$cylinder dia
+d2=.070 $$depth of oring groove
+d3=0.645 $$minor dia of oring groove
+d4=.6+.240 $$x position of groove
+d5=.07 $$oring width
+
+cyl1=cylndr/(point/0,0,0),(vector/1,0,0),(d1/2-d2)
+cyl2=cylndr/(point/-d4,0,0),(vector/0,0,1),(d3/2)$$inner cyl
+cyl3=cylndr/(point/-d4,0,0),(vector/0,0,1),(d3/2+d5)$$outer cyl
+pln1=plane/(point/0,0,0),perpto,(vector/0,1,0)
+
+CUTTER/ 0.062, 0, 0.031, 0, 0, 0, 0.5
+
+spt=point/-(d4+d3/2+d5/2),0.,(1.252/2+.1)
+
+multax/on
+from/spt
+tlaxis/normps
+go/to,cyl2,on,cyl1
+golft/cyl2,on,2,intof,pln1
+$$other side of groove now.
+$$golft/pln1,to,cyl3
+go/to,cyl3,on,cyl1,on,pln1
+cutter/option,2,.031,0
+gorgt/cyl3,on,2,intof,pln1
+goto/spt
+
+fini
+
+
+

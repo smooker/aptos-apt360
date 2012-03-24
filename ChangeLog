@@ -11,3 +11,11 @@ version 1.0.x (08):
 
 	* Added Sean Dolan's unsyn.pl perl program for handling
 	the SYN statement.
+
+version 1.0.2 (21Mar12):
+	* Added Dave Caroline's (archivist) doc patches
+
+	* f2c library is now part of the source, and builds 
+	with the main program
+
+	* Added more example programs

@@ -1,0 +1,78 @@
+partno
+machin/emc,1
+
+clprnt
+print/on
+$$geometry defs:
+d1=(3.05+2.89)/2$$average case diameter
+d2=-6 $$first angle
+d3=.2 $$window radius
+d4=.1 $$x position of windows
+d5=1 $$width of windows
+d6=-87 $$next angle
+vec1=vector/-1,0,0
+cyl1=cylndr/(point/0,0,0),vec1,(d1/2)
+
+ly=line/yaxis
+l1=line/parlel,ly,xlarge,d4
+l2=line/parlel,l1,xlarge,d5
+
+$$clearance plane
+$$clpln=plane/0,0,1,(d1/2+.1)
+
+$$clearance cylinder
+cylcl=cylndr/(point/0,0,0),vec1,(d1/2+.1)
+$$first window
+mat1=matrix/yzrot,d2
+refsys/mat1
+	lx1=line/xaxis
+	c1=circle/xlarge,l1,ylarge,lx1,radius,d3
+	c2=circle/xsmall,l2,ylarge,lx1,radius,d3
+	p1=point/center,c1
+	p2=point/center,c2
+	lk1=line/p1,p2
+	obtain,point,p1,p1x,p1y
+	spt1=point/p1x,p1y,(d1/2+.1)
+	lchkv1=line/p1,parlel,ly
+refsys/nomore
+
+mat2=matrix/yzrot,d6
+refsys/mat2
+	lx2=line/xaxis
+	c3=circle/xlarge,l1,ysmall,lx2,radius,d3
+	c4=circle/xsmall,l2,ysmall,lx2,radius,d3
+	p3=point/center,c3
+	p4=point/center,c4
+	lk2=line/p3,p4
+	lchkv2=line/p4,parlel,ly
+	dvec1=vector/-1,0,0
+refsys/nomore
+intol/.0001
+outtol/.0001
+cutdia=.218
+multax
+cutter/cutdia,0,0,0,0,0,.25
+
+tlaxis/normps
+from/spt1
+dntcut
+tlonps,go/on,lk1,on,cyl1,on,lchkv2
+cutter/option,2,(cutdia/2),0
+tlon,goback/lk1,to,c2
+cut
+go/to,c2
+tllft,golft/c2,on,lchkv2
+gofwd/c2,on,lk1
+gofwd/l2,on,lk2
+gofwd/c4,on,lchkv2
+gofwd/lx2,on,lchkv1
+gofwd/c3,on,lk2
+gofwd/l1,on,lk1
+gofwd/c1,on,lchkv1
+gofwd/lx1,on,lchkv2
+gofwd/c2,on,lk1
+gofwd/c2,on,lchkv2
+go/to,lk1,to,cylcl
+
+
+fini

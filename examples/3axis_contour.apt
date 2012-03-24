@@ -1,0 +1,122 @@
+partno /'3 axis contouring  -adapted from "Numerical Control Programming '
+remarkin APT" by Kral
+remark pg 444
+$$machin/dmb,1
+$$machin/emc,1,2
+print/on
+clprnt                                                               
+fedrat/100
+$$******canted plane definition************
+
+va = vector/length,1,atangl,-(90+8.5),zxplan                      
+vb = vector/length,1,atangl,(180+16),yzplan
+vpn = vector/va,cross,vb
+ptop = point/0,0,2
+$$print/off
+pltop=plane/ptop,perpto,vpn
+print/on
+
+$$********sphere definition****************
+
+pts = point/-1,-1,1.25
+ptl = point/-3,-1.5,.25
+sps = sphere/center,pts,radius,.625
+spl = sphere/center,ptl,radius,1
+
+$$********cone tangent to spheres**********
+
+csm = circle/center,pts,radius,.625
+clg = circle/center,ptl,radius,1
+lcir = line/right,tanto,clg,right,tanto,csm
+obtain,line/lcir,a,b,c,d
+$$print/off
+plcir = plane/a,b,c,d
+print/on
+vcon = vector/pts,ptl
+$$ptcon = point/intof,plcir,vcon,pts - not defined in apt360
+lcncir=line/pts,ptl
+obtain,line/lcncir,aa,bb,cc,dd
+$$print/off
+plcen = plane/aa,bb,cc,dd
+
+plz= plane/perpto,plcen,pts,ptl
+print/on
+ptcon=point/intof,plcir,plcen,plz
+
+$$theta = (atanf((1-.625))/(distf(pts,ptl))) -no distf for points in apt360
+$$workaround:
+obtain,point/pts,ptsx,ptsy,ptsz
+obtain,point/ptl,ptlx,ptly,ptlz
+
+distx=ptsx-ptlx
+disty=ptsy-ptly
+distz=ptsz-ptlz
+
+dist1=sqrtf(distx*distx+disty*disty+distz*distz)
+
+theta = atanf((1-.625)/dist1)
+con = cone/ptcon,vcon,theta
+print/3,all
+$$ *** *** ***
+$$cutter/.25
+intol/.0002
+outtol/.0002
+cutter/0
+lxm1 = line/xaxis
+lxm = line/parlel,lxm1,ysmall,1.5
+loopst
+setpt = point/-5,-3,3
+$$jumpto/skip1
+	from/setpt
+	go/on,lxm,on,pltop
+	tlon,gorgt/lxm,on,spl
+	gorgt/spl,on,con
+	gofwd/con,on,sps
+	gofwd/sps,on,lxm
+	gofwd/sps,on,con
+	gofwd/con,on,spl
+	gofwd/spl,on,lxm
+	goto/setpt
+
+
+jumpto/end1
+skip1) l1=line/0,-1,-3,-1
+l2=line/-4,0,-5,-1
+ly=line/yaxis
+$$outline of cone piercing plane
+	dntcut
+	from/setpt
+	go/on,lxm,on,pltop
+	tlon,gorgt/lxm,on,con
+	cut
+	gorgt/con,on,lxm
+	gofwd/con,on,lxm
+	goto/setpt
+
+$$outline of large sphere piercing plane
+	dntcut
+	from/setpt
+	go/on,lxm,on,pltop
+	tlon,gorgt/lxm,to,spl
+	cut
+	tlrgt,gorgt/spl,to,2,intof,lxm
+
+$$outline of small sphere piercing plane
+
+	dntcut
+	from/setpt
+	go/on,lxm,on,pltop
+	tlon,gorgt/lxm,to,sps
+	cut
+	tlrgt,gorgt/sps,to,2,intof,lxm
+end1) loopnd
+ fini
+
+
+
+
+
+
+
+
+

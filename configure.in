@@ -1,6 +1,6 @@
 dnl  Process this file with autoconf to produce a  configure script.
-AC_INIT([Apt360], [1.0.1], [crotchet@sourceforge.net])
-AM_INIT_AUTOMAKE([apt360], [1.0.1], [crotchet@sourceforge.net])
+AC_INIT([Apt360], [1.0.2], [crotchet@sourceforge.net])
+AM_INIT_AUTOMAKE([apt360], [1.0.2], [crotchet@sourceforge.net])
 AC_CONFIG_HEADER(config.h)
 
 dnl  Checks for programs.

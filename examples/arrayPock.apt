@@ -1,0 +1,61 @@
+partno  arrayed pocket with multiple z passes
+
+REMARK  021507 bytecolor
+
+        print / on
+        clprnt
+        MACHIN/EMC,1
+outrad  = 8     $$ outer pocket radius
+inrrad  = 4     $$ inner pocket radius
+npokts  = 8     $$ number of pockets
+ribthk  = .25   $$ rib thickness between each pocket
+pockdp  = 1.    $$ pocket depth
+tldia   = 1.25  $$ tool dia 
+roghfd  = 12    $$ rough feed
+finsfd  = 4     $$ finish feed
+rghdoc  = .125   $$ rough depth of cut
+
+orig    = point / 0, 0, 0
+strtpt  = point / 0, 0, 1
+etrypt  = point / (inrrad + (outrad - inrrad) * .5), 0, .1
+lx      = line / xaxis
+ly      = line / yaxis
+curzpl  = plane / 0, 0, 1, -rghdoc
+outcir  = circle / 0, 0, 0, outrad
+inrcir  = circle / 0, 0, 0, inrrad
+lftlcl  = line / orig, atangl, (180 / npokts)
+rgtlcl  = line / orig, atangl, -(180 / npokts)
+        $$ find the pocket profile
+        zsurf / curzpl
+p1      = point / xlarge, intof, (line / parlel, lftlcl, ysmall,$
+                                         (ribthk / 2)), inrcir
+p2      = point / xlarge, intof, (line / parlel, lftlcl, ysmall,$
+                                         (ribthk / 2)), outcir
+p3      = point / xlarge, intof, lx, outcir
+p4      = point / xlarge, intof, (line / parlel, rgtlcl, ylarge,$
+                                         (ribthk / 2)), outcir
+p5      = point / xlarge, intof, (line / parlel, rgtlcl, ylarge,$
+                                         (ribthk / 2)), inrcir
+        $ pocket parameters
+re      = tldia / 2
+c       = re * 1.7
+f       = c
+f1      = roghfd / 2
+f2      = roghfd
+f3      = finsfd
+of      = 1
+p       = 1
+        cutter / tldia
+rapid
+        from / strtpt
+        index / 1
+        index / 2
+        rapid,goto / etrypt
+        pocket / re, c, f, f1, f2, f3, of, p, p1, p2, p3, p4, p5
+        rapid,goto / etrypt
+        copy / 2, transl, 0, 0, -rghdoc, (pockdp / rghdoc)
+	rapid,goto / etrypt
+        copy / 1, xyrot, (360 / npokts), npokts
+        goto / strtpt
+
+        fini

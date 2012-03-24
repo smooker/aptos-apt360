@@ -1,0 +1,46 @@
+partno canted plane test - from "Numerical Control Programming in APT" 
+remark by Kral pg 269
+print/on
+machin/pmill,1
+clprnt
+d=.25
+cutter/d,(d/2)
+v0=.01 $$cusp height
+ts1=2*sqrtf(v0*(d-v0))
+
+pl1=plane/(cosf(60)),0,(cosf(30)),(.5*cosf(30))
+lx=line/xaxis
+ly=line/yaxis
+l1=line/parlel,lx,ylarge,1.125
+l2=line/parlel,ly,xsmall,(2*cosf(30))
+
+
+setpt=point/3,-1,3
+
+from/setpt
+go/on,ly,to,pl1
+tlon,tlofps,gorgt/ly,on,lx
+golft/lx,on,l2
+
+loopst
+	dsp=0
+cal1)	dsp = dsp +ts1	
+	if(dsp-1.125)cal2,cal4,cal4
+cal2)	ltemp=line/canon,0,1,0,dsp
+	gorgt/l2,on,ltemp
+	gorgt/ltemp,on,ly
+	dsp = dsp +ts1	
+	if(dsp-1.125)cal3,cal5,cal5
+cal3)	ltemp=line/canon,0,1,0,dsp
+	golft/ly,on,ltemp
+	golft/ltemp,on,l2
+	jumpto/cal1
+cal4)	gorgt/l2,on,l1
+	gorgt/l1,on,ly
+	jumpto/cal6
+cal5)	golft/ly,on,l1
+	golft/l1,on,l2
+cal6)	loopnd
+
+goto/setpt
+fini

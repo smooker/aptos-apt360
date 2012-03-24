@@ -1,0 +1,28 @@
+partno sphere
+print/on
+clprnt
+d1=1$$sphere radius
+d2=.25 $$cutter step-down
+d3=0$$starting z level
+sph1=sphere/0,0,0,d1
+pl1=plane/0,0,1,0
+pl2=plane/0,1,0,0
+multax
+cutter/0,0,0,0,0,0,.1
+intol/.01
+outtol/.01
+from/2,-1,2
+go/to,pl2,on,pl1
+tllft,tlonps,golft/pl2,to,sph1
+st)loopst
+if(d1-d3)lend,lend,cont
+cont)	golft/sph1,past,2,intof,pl2
+	d3=d3+d2
+	pl1=plane/(plane/0,0,1,d3)canon
+	psis/sph1
+	goup/pl2,past,pl1
+	psis/pl1
+jumpto/st
+lend)loopnd
+
+fini

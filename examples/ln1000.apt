@@ -1,0 +1,108 @@
+partno ln1000
+$$machin/e4axvt
+print/on
+clprnt
+
+$$cv=25.4$$metric conversion
+cv=1
+cutr=.125
+d0=1.025 $$cyl id
+d1=2.85 $$oal
+d2=1.13 $$large cutaway radius
+d3=.11 $$small radius
+d4=.8000 $$large radius y position
+d5=99.03 $$included angle,length cut
+d6=.2 $$nose to first window
+d7=1.25 $$first window hgt
+d8=142.52 $$included angle,front window
+d9=.07 $$fillet radii
+
+
+cutter/cutr
+
+
+mat1=matrix/scale,cv
+L0=line/xaxis
+L1=line/yaxis
+cyl1=cylndr/0,0,0,1,0,0,(d0/2)
+
+
+P0=point/0,d4
+C0=circle/center,P0,radius,d2
+L2=line/parlel,L0,ylarge,(d0/2)
+L4=line/parlel,L0,ysmall,(d0/2)
+
+C1 = CIRCLE/ XLARGE, L1, ySMALL, OUT, C0, RADIUS, d3
+
+P2=point/center,C1
+L3=line/P2,parlel,L4
+L5=line/P2,parlel,L1
+L7=line/P0,P2
+print/off
+pl1=plane/0,0,1,1
+print/on
+L6=line/parlel,L0,ylarge,(  (d0/2)*sinf((180-d5)/2)  )
+$$c2=circle/ysmall,l6,xlarge,out,c0,radius,d9
+c2=circle/ysmall,l6,xlarge,out,c0,radius,d9
+P3=point/center,C2
+L8=line/P0,P3
+L9=line/parlel,L1,xlarge,(d1-d6-d7)
+C5=circle/ysmall,L6,xsmall,L9,radius,d9
+L10=line/parlel,L1,xlarge,(d1-d6)
+L12=line/P3,parlel,L1
+L14=line/parlel,L0,ylarge,( (d0/2)*sinf((180-d8)/2) )
+c6=circle/ylarge,l14,xlarge,out,c5,radius,(cutr+.01)
+P6=point/center,C6
+L15=line/P6,parlel,L1
+C4=circle/ylarge,L14,xsmall,L10,radius,(cutr+.01)
+P4=point/center,C5
+P5=point/center,C4
+L11=line/P4,P6
+L16=line/P4,perpto,L6
+L13=line/P5,parlel,L1
+L17=line/P5,parlel,L0
+
+P1=point/-0.383,-0.835,-1.
+v1=vector/0,-1,0
+
+
+fedrat/4000
+
+multax/on
+intol/.0005
+
+outtol/.0005
+tracut/mat1
+from/p1,v1
+go/to,l1,on,l4
+tlaxis/normps
+tllft,tlonps,golft/l1,pstan,cyl1
+psis/cyl1
+tllft,tlonps,gofwd/l1,on,l3
+cutter/option,2,(cutr/2),0
+gofwd/c1,on,l7
+
+Gofwd/c0,On,l8
+$$go/to,c2
+$$golft/c2,on,l12
+Gofwd/c2,On,L12
+Gofwd/L6,On,L16
+Gofwd/c5,On,L11
+Gofwd/c6,On,L15
+Gofwd/L14,On,L13
+Gofwd/c4,On,L17
+Gofwd/L10,On,L17
+Gofwd/c4,On,L13
+Gofwd/L14,On,L15
+Gofwd/c6,On,L11
+Gofwd/c5,On,L16
+Gofwd/L6,On,L12
+Gofwd/c2,On,L8
+Gofwd/c0,On,L7
+
+gofwd/c1,on,l3
+gofwd/l1,pstan,l4
+psis/l4
+gofwd/l1,to,pl1
+tracut/nomore
+fini

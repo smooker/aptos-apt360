@@ -1,0 +1,68 @@
+partno vcase
+machin/emc020,1
+clprnt
+d0=12.2 $$xcenter of r12
+d1=2.2 $$ycenterof r12
+d2=12. $$ radius of spoke
+d3=.580 $$ radius of inner hub
+d4=1.24 $$od of window
+d5=2.85 $$ x center of wing
+d6=1.18 $$ y center of wing
+d7=.5 $$ radius of wing to od
+d8=.1 $$ radius of corner
+d9=.125 $$ radius at hub
+d10=2. $$ radius of wing 
+
+clrsrf/(plane/0,0,1,.1)
+print/on
+c1=circle/0,0,0,d3$$inner hub
+c2=circle/d0,d1,0,d2$$spoke
+c3=circle/0,0,0,d4 $$ outer profile of window
+c4=circle/d5,d6,0,d10 $$wing
+c5=circle/ylarge,out,c4,in,c3,radius,d7
+c6=circle/ysmall,out,c4,in,c3,radius,d7
+c7=circle/ylarge,in,c2,in,c3,radius,d8
+c8=circle/ysmall,in,c2,in,c3,radius,d8
+c9=circle/ylarge,out,c1,in,c2,radius,d9
+c10=circle/ysmall,out,c1,in,c2,radius,d9
+print/off
+con1=cone/(point/0,0,0),(vector/0,0,-1),88
+$$seqno/10,incr,10
+
+pt1=point/center,c10
+obtain,point/pt1,x,y,z
+spt1=point/x,y,(z+.1)
+ln=line/spt1,atangl,0
+$$multax
+cutt=.03
+fedrat/100
+cutter/0.03
+index/1
+from/pt1
+indirv/1,1,0
+rapid
+goto/spt1
+go/to,c10,on,con1
+tllft,tlonps,golft/c10,tanto,c2
+cut
+gofwd/c2,tanto,c8
+gofwd/c8,tanto,c3
+gofwd/c3,tanto,c6
+gofwd/c6,tanto,c4
+gofwd/c4,tanto,c5
+gofwd/c5,tanto,c3
+gofwd/c3,tanto,c7
+gofwd/c7,tanto,c2
+gofwd/c2,tanto,c9
+gofwd/c9,tanto,c1
+gofwd/c1,tanto,c10
+gofwd/c10,tanto,c2
+dntcut
+gofwd/c10,to,ln
+rapid
+clrsrf/now
+index/1,nomore
+mat1=matrix/mirror,yzplan
+copy/1,modify,mat1,1
+rewind
+fini

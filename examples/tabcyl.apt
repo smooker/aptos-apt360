@@ -1,0 +1,58 @@
+partno from the book "Numerical Control Programming in APT"  Kral pg182 
+remark a part with a free-form curve and an involute curve
+machin/dxf
+print/on
+clprnt
+print/on
+setpt=point/-1,-1
+l1=line/xaxis
+lyaxis=line/yaxis
+lt=line/parlel,lyaxis,xlarge,5
+curv1=tabcyl/noz,spline,5,0,slope,0,6,.2,7,.85, $
+	7.32,1.5,7.3,2.3,6.9,3,6.1,3.5,	$
+	4.5,4.1,2.7,4.5,1.2,4.85,.5,5,  $
+	-.2,5.3,-.8,5.7
+reserv/pt,15
+	loopst
+	i=1
+	theta=0
+	radus=1.1
+	dtheta=15
+	phi=-20
+	sinph=sinf(phi)
+	cosph=cosf(phi)
+la1)	sinth=sinf(theta)
+	costh=cosf(theta)
+	thetr=theta/57.2957795
+	xp=radus*(costh + thetr*sinth)
+	yp=radus*(sinth - thetr*costh)
+	xi=xp*cosph - yp*sinph
+	yi=xp*sinph + yp*cosph
+	pt(i)=point/xi,yi
+	i=i+1
+	theta=theta + dtheta
+	if(i-16) la1,la2,la2
+la2)	loopnd
+
+invol=tabcyl/noz,spline,pt(all)
+
+l4= line/pt(14),atangl,75
+	
+cutter/0.1
+from/setpt
+go/to,l1
+tlrgt,gorgt/l1,on,lt
+gofwd/curv1,past,l4
+golft/l4,past,invol
+golft/invol,past,l1
+goto/setpt
+
+
+fini
+
+
+
+
+
+
+

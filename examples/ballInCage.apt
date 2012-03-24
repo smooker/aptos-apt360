@@ -1,0 +1,72 @@
+partno  ball in cage
+print/on
+REMARK  052407 bytecolor
+
+	$$ show the toolpath
+        clprnt
+
+boxsiz	= 1.25		$$ box size
+bsdiv2	= boxsiz / 2	$$ box size / 2
+cutrad	= .0625		$$ cutter radius (ball mill)
+barsiz	= .125		$$ finished frame rails width
+stpovr	= .03		$$ tool step-over
+
+	$$ show the sphere
+	print/ on
+sph     = sphere / bsdiv2, -bsdiv2, -bsdiv2, bsdiv2
+$$	print/ off
+clrpln  = plane/ 0, 0, 1, .1
+p1 	= point/ bsdiv2, -bsdiv2
+lx      = line/ p1, atangl, 0
+ly      = line/ p1, atangl, 90
+ll	= line/ parlel, ly, xsmall, (stpovr + cutrad)
+lr	= line/ parlel, ly, xlarge, (stpovr + cutrad)
+lt	= line/ parlel, lx, ylarge, (stpovr + cutrad)
+lb	= line/ parlel, lx, ysmall, (stpovr + cutrad)
+
+strtp   = point/ bsdiv2, -bsdiv2, .1
+
+	cutter / (cutrad * 2), cutrad
+        from / strtp
+        tlofps, go/ to, sph, on, lx
+	psis/ sph
+
+	loopst
+rghpas)	tlofps, tlon, gofwd/ lx, to, lr
+	tllft, golft/ lr, to, lt
+	golft/ lt, to, ll
+	golft/ ll, to, lb
+	golft/ lb, to, lr
+	golft/ lr, on, lx
+	obtain, LINE/ lr, , , , lrd
+	obtain, LINE/ ll, , , , lld
+	obtain, LINE/ lt, , , , ltd
+	obtain, LINE/ lb, , , , lbd
+	indirv/ (vector/ 1, 0, 0)
+l	= absf(lld) - stpovr
+r	= absf(lrd) + stpovr
+t	= absf(ltd) - stpovr
+b	= absf(lbd) + stpovr
+ll	= line/ ll, canon, 1, 0, 0, l
+lr	= line/ lr, canon, 1, 0, 0, r
+lt	= line/ lt, canon, 0, -1, 0, t
+lb	= line/ lb, canon, 0, -1, 0, b
+n	= (boxsiz - barsiz) - r
+print/ 3, n, r
+	if (n) finpas, rghpas, rghpas
+
+$$ is there any material left on the walls (n < 0)?
+finpas) if (n) here, done, done
+here)   ll = line/ ll, canon, 1, 0, 0, barsiz
+	lr = line/ lr, canon, 1, 0, 0, (boxsiz-barsiz)
+	lt = line/ lt, canon, 0, -1, 0, barsiz
+	lb = line/ lb, canon, 0, -1, 0, (boxsiz-barsiz)
+	tlofps, tlon, gofwd/ lx, to, lr
+	tllft, golft/ lr, to, lt
+	golft/ lt, to, ll
+	golft/ ll, to, lb
+	golft/ lb, to, lr
+	golft/ lr, on, lx
+
+done)	loopnd
+	fini

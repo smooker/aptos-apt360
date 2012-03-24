@@ -1,0 +1,80 @@
+partno pocketing-adapted from "Numerical Control Programming APT" - Kral
+remark page 358
+$$machin/dxf
+machin/emc
+clprnt
+print/on
+
+d=.5
+cutter/d
+
+setpt=point/-.5,-2,2
+lx=line/xaxis
+l1=line/parlel,lx,ysmall,1.25
+l2=line/parlel,lx,ysmall,1
+l3=line/parlel,lx,ylarge,1
+l4=line/parlel,lx,ylarge,1.25
+ly=line/yaxis
+cp=point/2.75,0
+l5=line/cp,atangl,90
+c1=circle/center,cp,radius,1.
+c2=circle/center,cp,radius,1.25
+pl1=plane/0,0,1,0
+pl2=plane/0,0,1,.25
+zsurf/pl2
+p1=point/.25,-1
+p2=point/intof,l2,l5
+p3=point/3.5,0
+p4=point/intof,l3,l5
+p5=point/.25,1
+psis/pl1
+from/setpt
+go/to,l1,to,pl1,to,ly
+indirv/1,0,0
+tlrgt
+$$index/7
+	gofwd/l1,tanto,c2
+	gofwd/c2,tanto,l4
+	gofwd/l4,on,ly
+$$copy/7,xyrot,180,1
+goto/0,-1.5,1.25
+c=1.7
+f=c
+re=c*(d/2)/2
+print/3,re
+$$index/9
+	godlta/2,1.25,0
+pprint***************pocket*************************
+	pocket/re,c,f,35,30,20,0,1,p2,p3,p4,p5,p1
+	dntcut
+	godlta/-.25,.25,0
+pprint*********finish inside************************
+	psis/pl2
+	go/to,l2,to,pl2,to,l5
+	tllft,gofwd/l2,tanto,c1	
+	cut
+	gofwd/c1,past,2,intof,l5
+	godlta/0,-.25,1
+$$copy/9,xyrot,180,1
+goto/setpt
+
+
+
+fini
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

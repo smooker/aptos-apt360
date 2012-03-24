@@ -8,22 +8,15 @@ make install
 if you are not familiar with the GNU autotools, be aware that many more
 options exist. 
 
-You will need the libraries for f2c to compile.  F2c is a C program that was
-used to convert the Fortran H code to C.  The resulting C code makes calls to 
-the f2c library.  You don't need to use f2c the program, but you will need 
-the library.  Your distribution may include it or it may be an option.  
-If not, you can get the f2c library at: 
-
-http://www.netlib.org/f2c/libf2c.zip
-
-It is probably available from your distro's website also. See the note below 
-for installation hints.
-
 Also used for the some math issues in the TABCYL command is the Gnu 
 scientific library gsl. The program will compile without it, and the TABCYL
 command will often work ok, but be aware of the problem. The command will
 fail with an error message if the gsl library is required for a TABCYL 
 definition.
+
+There is currently no support for 64 bit machines.  Until I get a 64 bit 
+machine, or someone offers to patch the code, you may have issues running
+it.
 
 If you are compiling on a bigendian machine (e.g., Mac OSX, Solaris sparc,etc.)
 the code will not work. Since the code was originally for the bigendian 
@@ -33,66 +26,21 @@ there, I will try to work on this.
 
 To generate the final post from the cl-file that apt creates, you will
 need a post-processor. Postp, from the same site as this package, is being 
-developed for this purpose.  
+developed for this purpose.  It works hand-in-hand with the apt360 package,
+and generates the final g-code.  You will definitely need this package to
+use it in your machine. 
 
 You will want some way of viewing your geometry. Sean Dolan's vapt project
 has been developed for this purpose.  Get it at:
 
 https://sourceforge.net/projects/vapt/
+
+I also have a copy at the aptos site for convenience.
  
 I've also included a vim syntax file in the /vim directory.  If you use vim, 
 you may want to install these files in your ~/.vim directory.
 
 Installing f2c:
 
-The f2c lib has been an awkward problem for new users to apt360.  It assumes 
-you know quite a bit about compiling and installing libraries, and it differs 
-quite a bit from the common standards in Linux.
-
-Here are some things to try- I don't know where you are at in your experience 
-with Linux, so some of these things might seem obvious to you, or might not:
-
-Many distributions have a "package manager" or something similar that helps 
-you install files.  You might look for f2c on your distribution if it has 
-something like this.  
-
-If you try installing f2c libs from source, remember extraction is just the first 
-step to installing the f2c libs.  You must also compile the libraries, and 
-then install them in a system library directory. The netlib sources also include 
-the f2c conversion program, which is different from the lib and not needed to 
-install apt360. 
-
-Here are the steps I did in test installing the "libf2c.zip" package on my Suse system:
-
-extract the files:
-
-->unzip libf2c.zip
-
-change to the root directory of the f2c lib package:
-
--> cd libf2c
-
-->mv makefile.u makefile
-
-->make
-
-this should give you a file "libf2c.a"
-
-->make hadd
-
-this should give you a file "f2c.h"
-
-set an environment variable for where to install the lib:
-
-->export LIBDIR=/usr/local/lib 
-
-->sudo make install
-
-this will ask for a password and install libf2c.a in your LIBDIR you just 
-defined.
-
-You will also need to install the header file:
-
-->sudo cp f2c.h /usr/local/include/
-
-Try running the apt360 configure script again.  It should hopefully be ok now.
+f2c is now part of the distribution and should compile and link while building
+the rest of the program.
