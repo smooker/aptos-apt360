@@ -9,6 +9,8 @@ CFLAGS='-g -O0' dnl optimizing causes problems
 AC_PROG_CC
 AC_PROG_CPP
 AM_PROG_AS
+AC_PROG_RANLIB
+AM_PROG_CC_C_O
 dnl  Checks for libraries.
 
 AC_CHECK_LIB([m], [fabs],,[AC_MSG_ERROR([could not find math libraries])])
@@ -16,33 +18,10 @@ AC_CHECK_LIB([gslcblas],[main])
 AC_CHECK_LIB([gsl], [gsl_poly_solve_cubic],,
 	[AC_MSG_WARN([no gsl library- you will not be able to use the TABCYL command])])
 
-#AM_PROG_CC_C_O
-
-#dnl f2c uses it's own "MAIN__" function, so AC_CHECK_LIB does not work
-#savelibs=$LIBS
-#LIBS="-lf2c  $LIBS"
-#AC_MSG_CHECKING(for f2c library)
-#AC_LINK_IFELSE([AC_LANG_PROGRAM(
-#		
-#		#ifdef __cplusplus
-#		extern "C"
-#		#endif
-#		char do_fio ();
-#		MAIN__ (){
-#			do_fio(); }
-#		
-#)],[ AC_MSG_RESULT([yes])
-#	LIBS=$savelibs
-#],[ AC_MSG_RESULT([no])
-#	AC_MSG_ERROR([could not find f2c libraries])
-#])
-
 dnl  Checks for header files.
 AC_HEADER_STDC
 AC_HEADER_SYS_WAIT
 AC_CHECK_HEADERS([errno.h float.h limits.h stdlib.h string.h unistd.h])
-#AC_CHECK_HEADERS([f2c.h],,
-#	[AC_MSG_ERROR([could not find f2c headers])])
 AC_LANG([C++])
 
 AC_CHECK_HEADERS([gsl/gsl_poly.h])
