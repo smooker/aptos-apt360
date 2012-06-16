@@ -9,7 +9,13 @@
       converted by the APT processor into an intermediate format, and then
       converted to instructions that can be read by the machine tool
       controller.
-    "><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="next" href="intro.html" title="Introduction"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">APT360 Programmers Manual</th></tr><tr><td width="20%" align="left"> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="intro.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="book" lang="en"><div class="titlepage"><div><div><h1 class="title"><a name="apt_360"></a>APT360 Programmers Manual</h1></div><div><div class="authorgroup"><div class="author"><h3 class="author"><span class="firstname">International Business Machine</span></h3></div><div class="author"><h3 class="author"><span class="firstname">Illinois Institute of Technology Research</span></h3></div></div></div><div><p class="othercredit"><span class="contrib">Translation to DocBook</span>: <span class="firstname">Sean</span> <span class="surname">Dolan</span>, <span class="firstname">Daniel</span> <span class="surname">Falck</span>, <span class="firstname">Simon</span> <span class="surname">Lundell</span>, <span class="firstname">Thomas</span> <span class="surname">Powderly</span></p></div><div></div><div></div><div></div><div><p class="copyright">Copyright © 1967, 1968, 1969 International Business Machines Corporation</p></div><div><div class="abstract"><p class="title"><b>Abstract</b></p><p>
+    "><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="next" href="intro.html" title="Introduction"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">APT360 Programmers Manual</th></tr>
+<tr><td width="20%" align="left"> </td><th width="60%" align="center"> </th>
+<td width="20%" align="right"> <a accesskey="n" href="intro.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="book" lang="en"><div class="titlepage"><div><div><h1 class="title"><a name="apt_360"></a>APT360 Programmers Manual</h1></div>
+<div><div class="authorgroup"><div class="author"><h3 class="author"><span class="firstname">International Business Machine</span></h3></div><div class="author"><h3 class="author"><span class="firstname">Illinois Institute of Technology Research</span></h3></div></div></div>
+<div><p class="othercredit"><span class="contrib">Translation to DocBook</span>: <span class="firstname">Sean</span> <span class="surname">Dolan</span>, <span class="firstname">Daniel</span> <span class="surname">Falck</span>, <span class="firstname">Simon</span> <span class="surname">Lundell</span>, <span class="firstname">Thomas</span> <span class="surname">Powderly</span></p></div>
+<div></div><div></div><div></div>
+<div><p class="copyright">Copyright © 1967, 1968, 1969 International Business Machines Corporation</p></div><div><div class="abstract"><p class="title"><b>Abstract</b></p><p>
       This program has been developed to span the gap between the engineering
       drawing and the machine tool control system.
     </p><p>
@@ -20,28 +26,547 @@
       converted by the APT processor into an intermediate format, and then
       converted to instructions that can be read by the machine tool
       controller.
-    </p></div></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="preface"><a href="intro.html">Introduction</a></span></dt><dt><span class="preface"><a href="prog_manuscript.html">Program Manuscript</a></span></dt><dt><span class="preface"><a href="samp_part_prog.html">Sample Part Program</a></span></dt><dt><span class="preface"><a href="manual_format.html">Part Programming Manual Format</a></span></dt><dt><span class="chapter"><a href="language_and_syntax.html">1. Language and Syntax</a></span></dt><dd><dl><dt><span class="sect1"><a href="language_and_syntax.html#lang_elements">1.1. Elements of the APT Language</a></span></dt><dd><dl><dt><span class="sect2"><a href="language_and_syntax.html#punctuation">1.1.1. Punctuation</a></span></dt><dt><span class="sect2"><a href="language_and_syntax.html#vocab_words">1.1.2. Vocabulary Words</a></span></dt><dt><span class="sect2"><a href="language_and_syntax.html#numbers">1.1.3. Numbers</a></span></dt><dt><span class="sect2"><a href="language_and_syntax.html#symbols">1.1.4. Symbols</a></span></dt><dt><span class="sect2"><a href="language_and_syntax.html#labels">1.1.5. Statement Labels</a></span></dt><dt><span class="sect2"><a href="language_and_syntax.html#statement_size_limit">1.1.6. Statement Size Limitation</a></span></dt></dl></dd><dt><span class="sect1"><a href="syn_kw.html">1.2. The Vocabulary Synonym (SYN) Statement</a></span></dt><dt><span class="sect1"><a href="word_conventions.html">1.3. Word Conventions</a></span></dt></dl></dd><dt><span class="chapter"><a href="comp_subscr_vars.html">2. Computing and Subscripted Variables</a></span></dt><dd><dl><dt><span class="sect1"><a href="comp_subscr_vars.html#computing">2.1. Computing in the APT Language</a></span></dt><dd><dl><dt><span class="sect2"><a href="comp_subscr_vars.html#scalars">2.1.1. Scalars</a></span></dt><dt><span class="sect2"><a href="comp_subscr_vars.html#operators">2.1.2. Arithmetic Operators</a></span></dt><dt><span class="sect2"><a href="comp_subscr_vars.html#expressions">2.1.3. Arithmetic Expressions</a></span></dt><dt><span class="sect2"><a href="comp_subscr_vars.html#functions">2.1.4. Arithmetic Functions</a></span></dt></dl></dd><dt><span class="sect1"><a href="subscr_vars.html">2.2. Subscripted Variables in the APT Language</a></span></dt><dd><dl><dt><span class="sect2"><a href="subscr_vars.html#reserv_kw">2.2.1. The Reserve (RESERV) Statement</a></span></dt><dt><span class="sect2"><a href="subscr_vars.html#inclus_subscr">2.2.2. Inclusive Subscripts</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="geometry.html">3. Geometric Statements in APT</a></span></dt><dd><dl><dt><span class="sect1"><a href="geometry.html#geom_format">3.1. Format</a></span></dt><dd><dl><dt><span class="sect2"><a href="geometry.html#geom_modifiers">3.1.1. Modifiers</a></span></dt><dt><span class="sect2"><a href="geometry.html#geom_canonical_form">3.1.2. Canonical Form</a></span></dt></dl></dd><dt><span class="sect1"><a href="zsurf_kw.html">3.2. The ZSURF Definition</a></span></dt><dt><span class="sect1"><a href="point_kw.html">3.3. The Point (POINT) Definitions</a></span></dt><dd><dl><dt><span class="sect2"><a href="point_kw.html#point_by_rect_coords">3.3.1. Rectangular Coordinates</a></span></dt><dt><span class="sect2"><a href="point_kw.html#point_by_line_line_xsect">3.3.2. Intersection of Two Lines</a></span></dt><dt><span class="sect2"><a href="point_kw.html#point_by_line_cir_xsect">3.3.3. Intersection of a Line and a Circle</a></span></dt><dt><span class="sect2"><a href="point_kw.html#point_by_cir_cir_xsect">3.3.4. Intersection of Two Circles</a></span></dt><dt><span class="sect2"><a href="point_kw.html#point_by_cir_angle">3.3.5. On a Circle at an Angle with the X Axis</a></span></dt><dt><span class="sect2"><a href="point_kw.html#point_by_cir_center">3.3.6. Center of a Circle</a></span></dt><dt><span class="sect2"><a href="point_kw.html#point_by_line_conic_xsect">3.3.7. Intersection of a Line and a Conic</a></span></dt><dt><span class="sect2"><a href="point_kw.html#point_by_3plane_xsect">3.3.8. Intersection of Three Planes</a></span></dt><dt><span class="sect2"><a href="point_kw.html#point_by_polar_coords">3.3.9. Polar Coordinates</a></span></dt><dt><span class="sect2"><a href="point_kw.html#point_by_line_tabcly_xsect">3.3.10. Intersection of a Line and a Tabulated Cylinder</a></span></dt><dt><span class="sect2"><a href="point_kw.html#point_by_patern_pos">3.3.11. The Location in a PATERN</a></span></dt></dl></dd><dt><span class="sect1"><a href="line_kw.html">3.4. The Line (LINE) Definitions</a></span></dt><dd><dl><dt><span class="sect2"><a href="line_kw.html#line_by_two_points">3.4.1. Through Two Points</a></span></dt><dt><span class="sect2"><a href="line_kw.html#line_by_pnt_tan_circle">3.4.2. Through a Point and Tangent to a Circle</a></span></dt><dt><span class="sect2"><a href="line_kw.html#line_by_tan_circles">3.4.3. Tangent to Two Circles</a></span></dt><dt><span class="sect2"><a href="line_kw.html#line_by_point_angle">3.4.4. Through a Point and at an Angle with the X or Y Axis</a></span></dt><dt><span class="sect2"><a href="line_kw.html#line_by_point_slope">3.4.5. 
+    </p></div></div></div><hr></div>
+<div class="toc"><p><b>Table of Contents</b></p><dl>
+<dt><span class="preface"><a href="intro.html">Introduction</a></span></dt>
+<dt><span class="preface"><a href="prog_manuscript.html">Program Manuscript</a></span></dt>
+<dt><span class="preface"><a href="samp_part_prog.html">Sample Part Program</a></span></dt>
+<dt><span class="preface"><a href="manual_format.html">Part Programming Manual Format</a></span></dt>
+<dt><span class="chapter"><a href="language_and_syntax.html">1. Language and Syntax</a></span></dt><dd><dl>
+<dt><span class="sect1"><a href="language_and_syntax.html#lang_elements">1.1. Elements of the APT Language</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="language_and_syntax.html#punctuation">1.1.1. Punctuation</a></span></dt>
+<dt><span class="sect2"><a href="language_and_syntax.html#vocab_words">1.1.2. Vocabulary Words</a></span></dt>
+<dt><span class="sect2"><a href="language_and_syntax.html#numbers">1.1.3. Numbers</a></span></dt>
+<dt><span class="sect2"><a href="language_and_syntax.html#symbols">1.1.4. Symbols</a></span></dt>
+<dt><span class="sect2"><a href="language_and_syntax.html#labels">1.1.5. Statement Labels</a></span></dt>
+<dt><span class="sect2"><a href="language_and_syntax.html#statement_size_limit">1.1.6. Statement Size Limitation</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="syn_kw.html">1.2. The Vocabulary Synonym (SYN) Statement</a></span></dt>
+<dt><span class="sect1"><a href="word_conventions.html">1.3. Word Conventions</a></span></dt></dl></dd>
+<dt><span class="chapter"><a href="comp_subscr_vars.html">2. Computing and Subscripted Variables</a></span></dt><dd><dl>
+<dt><span class="sect1"><a href="comp_subscr_vars.html#computing">2.1. Computing in the APT Language</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="comp_subscr_vars.html#scalars">2.1.1. Scalars</a></span></dt>
+<dt><span class="sect2"><a href="comp_subscr_vars.html#operators">2.1.2. Arithmetic Operators</a></span></dt>
+<dt><span class="sect2"><a href="comp_subscr_vars.html#expressions">2.1.3. Arithmetic Expressions</a></span></dt>
+<dt><span class="sect2"><a href="comp_subscr_vars.html#functions">2.1.4. Arithmetic Functions</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="subscr_vars.html">2.2. Subscripted Variables in the APT Language</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="subscr_vars.html#reserv_kw">2.2.1. The Reserve (RESERV) Statement</a></span></dt>
+<dt><span class="sect2"><a href="subscr_vars.html#inclus_subscr">2.2.2. Inclusive Subscripts</a></span></dt></dl></dd></dl></dd>
+<dt><span class="chapter"><a href="geometry.html">3. Geometric Statements in APT</a></span></dt><dd><dl>
+<dt><span class="sect1"><a href="geometry.html#geom_format">3.1. Format</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="geometry.html#geom_modifiers">3.1.1. Modifiers</a></span></dt>
+<dt><span class="sect2"><a href="geometry.html#geom_canonical_form">3.1.2. Canonical Form</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="zsurf_kw.html">3.2. The ZSURF Definition</a></span></dt>
+<dt><span class="sect1"><a href="point_kw.html">3.3. The Point (POINT) Definitions</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="point_kw.html#point_by_rect_coords">3.3.1. Rectangular Coordinates</a></span></dt>
+<dt><span class="sect2"><a href="point_kw.html#point_by_line_line_xsect">3.3.2. Intersection of Two Lines</a></span></dt>
+<dt><span class="sect2"><a href="point_kw.html#point_by_line_cir_xsect">3.3.3. Intersection of a Line and a Circle</a></span></dt>
+<dt><span class="sect2"><a href="point_kw.html#point_by_cir_cir_xsect">3.3.4. Intersection of Two Circles</a></span></dt>
+<dt><span class="sect2"><a href="point_kw.html#point_by_cir_angle">3.3.5. On a Circle at an Angle with the X Axis</a></span></dt>
+<dt><span class="sect2"><a href="point_kw.html#point_by_cir_center">3.3.6. Center of a Circle</a></span></dt>
+<dt><span class="sect2"><a href="point_kw.html#point_by_line_conic_xsect">3.3.7. Intersection of a Line and a Conic</a></span></dt>
+<dt><span class="sect2"><a href="point_kw.html#point_by_3plane_xsect">3.3.8. Intersection of Three Planes</a></span></dt>
+<dt><span class="sect2"><a href="point_kw.html#point_by_polar_coords">3.3.9. Polar Coordinates</a></span></dt>
+<dt><span class="sect2"><a href="point_kw.html#point_by_line_tabcly_xsect">3.3.10. Intersection of a Line and a Tabulated Cylinder</a></span></dt>
+<dt><span class="sect2"><a href="point_kw.html#point_by_patern_pos">3.3.11. The Location in a PATERN</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="line_kw.html">3.4. The Line (LINE) Definitions</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="line_kw.html#line_by_two_points">3.4.1. Through Two Points</a></span></dt>
+<dt><span class="sect2"><a href="line_kw.html#line_by_pnt_tan_circle">3.4.2. Through a Point and Tangent to a Circle</a></span></dt>
+<dt><span class="sect2"><a href="line_kw.html#line_by_tan_circles">3.4.3. Tangent to Two Circles</a></span></dt>
+<dt><span class="sect2"><a href="line_kw.html#line_by_point_angle">3.4.4. Through a Point and at an Angle with the X or Y Axis</a></span></dt>
+<dt><span class="sect2"><a href="line_kw.html#line_by_point_slope">3.4.5. 
         Through a Point and Having a Slope with Respect to the X or Y Axis
-      </a></span></dt><dt><span class="sect2"><a href="line_kw.html#line_by_xyaxis">3.4.6. The X or Y Axis</a></span></dt><dt><span class="sect2"><a href="line_kw.html#line_by_point_slope2">3.4.7. 
+      </a></span></dt>
+<dt><span class="sect2"><a href="line_kw.html#line_by_xyaxis">3.4.6. The X or Y Axis</a></span></dt>
+<dt><span class="sect2"><a href="line_kw.html#line_by_point_slope2">3.4.7. 
         Through a Point and Having a Slope with Respect to Another Line
-      </a></span></dt><dt><span class="sect2"><a href="line_kw.html#line_by_point_angle2">3.4.8. 
+      </a></span></dt>
+<dt><span class="sect2"><a href="line_kw.html#line_by_point_angle2">3.4.8. 
         Through a Point at an Angle with a Line
-      </a></span></dt><dt><span class="sect2"><a href="line_kw.html#line_by_pnt_parl_line">3.4.9. 
+      </a></span></dt>
+<dt><span class="sect2"><a href="line_kw.html#line_by_pnt_parl_line">3.4.9. 
         Through a Point and Parallel to a Line
-      </a></span></dt><dt><span class="sect2"><a href="line_kw.html#line_by_pnt_perp_line">3.4.10. 
+      </a></span></dt>
+<dt><span class="sect2"><a href="line_kw.html#line_by_pnt_perp_line">3.4.10. 
         Through a Point and Perpendicular to a Line
-      </a></span></dt><dt><span class="sect2"><a href="line_kw.html#line_by_point_angle">3.4.11. Parallel to a Line at a Distance</a></span></dt><dt><span class="sect2"><a href="line_kw.html#line_by_plane_xsect">3.4.12. 
+      </a></span></dt>
+<dt><span class="sect2"><a href="line_kw.html#line_by_point_angle">3.4.11. Parallel to a Line at a Distance</a></span></dt>
+<dt><span class="sect2"><a href="line_kw.html#line_by_plane_xsect">3.4.12. 
         Intersection of Two Planes
-      </a></span></dt><dt><span class="sect2"><a href="line_kw.html#line_by_slope_interc">3.4.13. Slope Intercept Form</a></span></dt><dt><span class="sect2"><a href="line_kw.html#line_by_ang_axis_interc">3.4.14. Angle and Axis Intercept</a></span></dt><dt><span class="sect2"><a href="line_kw.html#line_by_point_tan_tabcyl">3.4.15. Through a Point and Tangent to a Tabulated Cylinder</a></span></dt><dt><span class="sect2"><a href="line_kw.html#line_by_point_perpto_tabcyl">3.4.16. Through a Point and Perpendicular to a Tabulated Cylinder</a></span></dt></dl></dd><dt><span class="sect1"><a href="plane_kw.html">3.5. The Plane (PLANE) Definitions</a></span></dt><dd><dl><dt><span class="sect2"><a href="plane_kw.html#plane_by_coeff">3.5.1. Coefficients of the Plane Equation</a></span></dt><dt><span class="sect2"><a href="plane_kw.html#plane_by_three_pts">3.5.2. Passing Through Three Nonlinear Points</a></span></dt><dt><span class="sect2"><a href="plane_kw.html#plane_by_pnt_parlel_plane">3.5.3. Through a Point and Parallel to a Plane</a></span></dt><dt><span class="sect2"><a href="plane_kw.html#plane_by_dist_parlel_plane">3.5.4. Parallel to a Plane at a Distance</a></span></dt><dt><span class="sect2"><a href="plane_kw.html#plane_by_pnt_vector">3.5.5. Through a Point and Perpendicular to a Vector</a></span></dt><dt><span class="sect2"><a href="plane_kw.html#plane_by_2pt_perpto_plane">3.5.6. Through Two Points and Perpendicular to a Plane</a></span></dt><dt><span class="sect2"><a href="plane_kw.html#plane_by_2plane_point">3.5.7. 
+      </a></span></dt>
+<dt><span class="sect2"><a href="line_kw.html#line_by_slope_interc">3.4.13. Slope Intercept Form</a></span></dt>
+<dt><span class="sect2"><a href="line_kw.html#line_by_ang_axis_interc">3.4.14. Angle and Axis Intercept</a></span></dt>
+<dt><span class="sect2"><a href="line_kw.html#line_by_point_tan_tabcyl">3.4.15. Through a Point and Tangent to a Tabulated Cylinder</a></span></dt>
+<dt><span class="sect2"><a href="line_kw.html#line_by_point_perpto_tabcyl">3.4.16. Through a Point and Perpendicular to a Tabulated Cylinder</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="plane_kw.html">3.5. The Plane (PLANE) Definitions</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="plane_kw.html#plane_by_coeff">3.5.1. Coefficients of the Plane Equation</a></span></dt>
+<dt><span class="sect2"><a href="plane_kw.html#plane_by_three_pts">3.5.2. Passing Through Three Nonlinear Points</a></span></dt>
+<dt><span class="sect2"><a href="plane_kw.html#plane_by_pnt_parlel_plane">3.5.3. Through a Point and Parallel to a Plane</a></span></dt>
+<dt><span class="sect2"><a href="plane_kw.html#plane_by_dist_parlel_plane">3.5.4. Parallel to a Plane at a Distance</a></span></dt>
+<dt><span class="sect2"><a href="plane_kw.html#plane_by_pnt_vector">3.5.5. Through a Point and Perpendicular to a Vector</a></span></dt>
+<dt><span class="sect2"><a href="plane_kw.html#plane_by_2pt_perpto_plane">3.5.6. Through Two Points and Perpendicular to a Plane</a></span></dt>
+<dt><span class="sect2"><a href="plane_kw.html#plane_by_2plane_point">3.5.7. 
         Perpendicular to Two Intersecting Planes and Passing Through a Point
-      </a></span></dt></dl></dd><dt><span class="sect1"><a href="circle_kw.html">3.6. The Circle (CIRCLE) Definitions</a></span></dt><dd><dl><dt><span class="sect2"><a href="circle_kw.html#cir_by_coords">3.6.1. Coordinates of the Center and the Radius</a></span></dt><dt><span class="sect2"><a href="circle_kw.html#cir_by_cntr_tan_line">3.6.2. Center and a Line to which it is Tangent</a></span></dt><dt><span class="sect2"><a href="circle_kw.html#cir_by_cntr_circum_point">3.6.3. Center and a Point on the Circumference</a></span></dt><dt><span class="sect2"><a href="circle_kw.html#cir_by_3point">3.6.4. Three Points on the Circumference</a></span></dt><dt><span class="sect2"><a href="circle_kw.html#cir_by_pnt_tan_cir">3.6.5. Center Point and Tangent to a Circle</a></span></dt><dt><span class="sect2"><a href="circle_kw.html#cir_by_rad_2tan_lines">3.6.6. Radius and Tangent to Two Intersecting Lines</a></span></dt><dt><span class="sect2"><a href="circle_kw.html#cir_by_rad_pt_tan_line">3.6.7. Radius and Tangent to a Line and Passing Through a Point</a></span></dt><dt><span class="sect2"><a href="circle_kw.html#cir_by_rad_tan_line_circ">3.6.8. Radius and Tangent to a Line and a Circle</a></span></dt><dt><span class="sect2"><a href="circle_kw.html#cir_by_rad_tan_2cirs">3.6.9. Radius and Tangent to Two Circles</a></span></dt><dt><span class="sect2"><a href="circle_kw.html#cir_by_rad_tan_line_tabcyl">3.6.10. Radius and Tangent to a Line and a Tabulated Cylinder</a></span></dt></dl></dd><dt><span class="sect1"><a href="cylndr_kw.html">3.7. The Cylinder (CYLNDR) Definitions</a></span></dt><dd><dl><dt><span class="sect2"><a href="cylndr_kw.html#cyl_by_point_vector">3.7.1. An Axis Point, an Axis Vector and a Radius</a></span></dt><dt><span class="sect2"><a href="cylndr_kw.html#cyl_by_canon_sub">3.7.2. Substitution of Symbols in the Canonical Form</a></span></dt></dl></dd><dt><span class="sect1"><a href="ellips_kw.html">3.8. The Ellipse (ELLIPS) Definition</a></span></dt><dd><dl><dt><span class="sect2"><a href="ellips_kw.html#ellips_by_pnt_semi_majmin_angle">3.8.1. 
+      </a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="circle_kw.html">3.6. The Circle (CIRCLE) Definitions</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="circle_kw.html#cir_by_coords">3.6.1. Coordinates of the Center and the Radius</a></span></dt>
+<dt><span class="sect2"><a href="circle_kw.html#cir_by_cntr_tan_line">3.6.2. Center and a Line to which it is Tangent</a></span></dt>
+<dt><span class="sect2"><a href="circle_kw.html#cir_by_cntr_circum_point">3.6.3. Center and a Point on the Circumference</a></span></dt>
+<dt><span class="sect2"><a href="circle_kw.html#cir_by_3point">3.6.4. Three Points on the Circumference</a></span></dt>
+<dt><span class="sect2"><a href="circle_kw.html#cir_by_pnt_tan_cir">3.6.5. Center Point and Tangent to a Circle</a></span></dt>
+<dt><span class="sect2"><a href="circle_kw.html#cir_by_rad_2tan_lines">3.6.6. Radius and Tangent to Two Intersecting Lines</a></span></dt>
+<dt><span class="sect2"><a href="circle_kw.html#cir_by_rad_pt_tan_line">3.6.7. Radius and Tangent to a Line and Passing Through a Point</a></span></dt>
+<dt><span class="sect2"><a href="circle_kw.html#cir_by_rad_tan_line_circ">3.6.8. Radius and Tangent to a Line and a Circle</a></span></dt>
+<dt><span class="sect2"><a href="circle_kw.html#cir_by_rad_tan_2cirs">3.6.9. Radius and Tangent to Two Circles</a></span></dt>
+<dt><span class="sect2"><a href="circle_kw.html#cir_by_rad_tan_line_tabcyl">3.6.10. Radius and Tangent to a Line and a Tabulated Cylinder</a></span></dt></dl></dd><dt><span class="sect1"><a href="cylndr_kw.html">3.7. The Cylinder (CYLNDR) Definitions</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="cylndr_kw.html#cyl_by_point_vector">3.7.1. An Axis Point, an Axis Vector and a Radius</a></span></dt>
+<dt><span class="sect2"><a href="cylndr_kw.html#cyl_by_canon_sub">3.7.2. Substitution of Symbols in the Canonical Form</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="ellips_kw.html">3.8. The Ellipse (ELLIPS) Definition</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="ellips_kw.html#ellips_by_pnt_semi_majmin_angle">3.8.1. 
         Center, Semi-Major and Semi-Minor Axes, and the Angle the Major
         Axis Makes with the X Axis.
       </a></span></dt></dl></dd><dt><span class="sect1"><a href="hyperb_kw.html">3.9. The Hyperbola (HYPERB) Definition</a></span></dt><dd><dl><dt><span class="sect2"><a href="hyperb_kw.html#hyperb_by_cntr_axes_angle">3.9.1. 
         Center, Half-Tranverse Axis, Half-Conjugate Axis and the Angle
         of the Transverse Axis to the X axis.
-      </a></span></dt></dl></dd><dt><span class="sect1"><a href="cone_kw.html">3.10. The Cone (CONE) Definitions</a></span></dt><dd><dl><dt><span class="sect2"><a href="cone_kw.html#cone_by_canon">3.10.1. Canonical Form</a></span></dt><dt><span class="sect2"><a href="cone_kw.html#cone_by_symbol">3.10.2. Expressing the Vertex and Axis Vector Symbolically</a></span></dt></dl></dd><dt><span class="sect1"><a href="gconic_kw.html">3.11. The General Conic (GCONIC) Definitions</a></span></dt><dd><dl><dt><span class="sect2"><a href="gconic_kw.html#gconic_by_gen_eqn_coeff">3.11.1. Coefficients of the General Equation</a></span></dt><dt><span class="sect2"><a href="gconic_kw.html#gconic_by_alt_eqn_coeff">3.11.2. Coefficients of the Alternate Equation</a></span></dt><dt><span class="sect2"><a href="gconic_kw.html#gconic_by_alt_inv_eqn_coeff">3.11.3. Coefficients of the Inverse of the Alternate Equation</a></span></dt></dl></dd><dt><span class="sect1"><a href="lconic_kw.html">3.12. The Loft Conic (LCONIC) Definitions</a></span></dt><dd><dl><dt><span class="sect2"><a href="lconic_kw.html#lconic_by_5points">3.12.1. Five Points</a></span></dt><dt><span class="sect2"><a href="lconic_kw.html#lconic_by_4pt1sl">3.12.2. Four Points and a Slope</a></span></dt><dt><span class="sect2"><a href="lconic_kw.html#lconic_by_3pt2sl">3.12.3. Three Points and a Two Slopes</a></span></dt></dl></dd><dt><span class="sect1"><a href="vector_kw.html">3.13. The Vector (VECTOR) Definitions</a></span></dt><dd><dl><dt><span class="sect2"><a href="vector_kw.html#vector_by_xyz">3.13.1. X, Y, Z Components</a></span></dt><dt><span class="sect2"><a href="vector_kw.html#vector_by_2pts">3.13.2. Two End Points</a></span></dt><dt><span class="sect2"><a href="vector_kw.html#vector_by_perp_plane">3.13.3. Perpendicular to a Plane</a></span></dt><dt><span class="sect2"><a href="vector_kw.html#vector_by_scaled_vector">3.13.4. A Scalar Times a Vector</a></span></dt><dt><span class="sect2"><a href="vector_kw.html#vector_by_cross_prod">3.13.5. The Cross Product of Two Vectors or Points</a></span></dt><dt><span class="sect2"><a href="vector_kw.html#vector_by_normalizing">3.13.6. Normalizing a Vector, Point or Components</a></span></dt><dt><span class="sect2"><a href="vector_kw.html#vector_by_mag_angle">3.13.7. A Length (Magnitude) and an Angle in a Plane</a></span></dt><dt><span class="sect2"><a href="vector_kw.html#vector_by_xsect_2planes">3.13.8. Parallel to the Intersection of Two Planes</a></span></dt><dt><span class="sect2"><a href="vector_kw.html#vector_by_addsub">3.13.9. The Addition or Subtraction of Two Vectors or Points</a></span></dt><dt><span class="sect2"><a href="vector_kw.html#vector_by_angle_line">3.13.10. In the XY Plane Having an Angle with a Line</a></span></dt></dl></dd><dt><span class="sect1"><a href="matrix_kw.html">3.14. The Matrix (MATRIX) Definitions</a></span></dt><dd><dl><dt><span class="sect2"><a href="matrix_kw.html#matrix_by_coeff">3.14.1. The Equation Coefficients (Canonical Form)</a></span></dt><dt><span class="sect2"><a href="matrix_kw.html#matrix_by_translation">3.14.2. A Translation of Axis</a></span></dt><dt><span class="sect2"><a href="matrix_kw.html#matrix_by_axis_rot">3.14.3. A Rotation of Axis</a></span></dt><dt><span class="sect2"><a href="matrix_kw.html#matrix_combos">3.14.4. Matrix Combinations</a></span></dt><dt><span class="sect2"><a href="matrix_kw.html#matrix_by_mat_x_mat">3.14.5. The Product of Two Matrices</a></span></dt><dt><span class="sect2"><a href="matrix_kw.html#matrix_by_inv_matrix">3.14.6. The Inverse of a Matrix</a></span></dt><dt><span class="sect2"><a href="matrix_kw.html#matrix_by_3planes">3.14.7. Three Mutually Perpendicular Planes</a></span></dt><dt><span class="sect2"><a href="matrix_kw.html#matrix_by_scale_factor">3.14.8. Scale Factor</a></span></dt><dt><span class="sect2"><a href="matrix_kw.html#matrix_by_org_xvector_vector">3.14.9. 
+      </a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="cone_kw.html">3.10. The Cone (CONE) Definitions</a></span></dt><dd><dl><dt><span class="sect2"><a href="cone_kw.html#cone_by_canon">3.10.1. Canonical Form</a></span></dt>
+<dt><span class="sect2"><a href="cone_kw.html#cone_by_symbol">3.10.2. Expressing the Vertex and Axis Vector Symbolically</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="gconic_kw.html">3.11. The General Conic (GCONIC) Definitions</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="gconic_kw.html#gconic_by_gen_eqn_coeff">3.11.1. Coefficients of the General Equation</a></span></dt>
+<dt><span class="sect2"><a href="gconic_kw.html#gconic_by_alt_eqn_coeff">3.11.2. Coefficients of the Alternate Equation</a></span></dt>
+<dt><span class="sect2"><a href="gconic_kw.html#gconic_by_alt_inv_eqn_coeff">3.11.3. Coefficients of the Inverse of the Alternate Equation</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="lconic_kw.html">3.12. The Loft Conic (LCONIC) Definitions</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="lconic_kw.html#lconic_by_5points">3.12.1. Five Points</a></span></dt>
+<dt><span class="sect2"><a href="lconic_kw.html#lconic_by_4pt1sl">3.12.2. Four Points and a Slope</a></span></dt>
+<dt><span class="sect2"><a href="lconic_kw.html#lconic_by_3pt2sl">3.12.3. Three Points and a Two Slopes</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="vector_kw.html">3.13. The Vector (VECTOR) Definitions</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="vector_kw.html#vector_by_xyz">3.13.1. X, Y, Z Components</a></span></dt>
+<dt><span class="sect2"><a href="vector_kw.html#vector_by_2pts">3.13.2. Two End Points</a></span></dt>
+<dt><span class="sect2"><a href="vector_kw.html#vector_by_perp_plane">3.13.3. Perpendicular to a Plane</a></span></dt>
+<dt><span class="sect2"><a href="vector_kw.html#vector_by_scaled_vector">3.13.4. A Scalar Times a Vector</a></span></dt>
+<dt><span class="sect2"><a href="vector_kw.html#vector_by_cross_prod">3.13.5. The Cross Product of Two Vectors or Points</a></span></dt>
+<dt><span class="sect2"><a href="vector_kw.html#vector_by_normalizing">3.13.6. Normalizing a Vector, Point or Components</a></span></dt>
+<dt><span class="sect2"><a href="vector_kw.html#vector_by_mag_angle">3.13.7. A Length (Magnitude) and an Angle in a Plane</a></span></dt>
+<dt><span class="sect2"><a href="vector_kw.html#vector_by_xsect_2planes">3.13.8. Parallel to the Intersection of Two Planes</a></span></dt>
+<dt><span class="sect2"><a href="vector_kw.html#vector_by_addsub">3.13.9. The Addition or Subtraction of Two Vectors or Points</a></span></dt>
+<dt><span class="sect2"><a href="vector_kw.html#vector_by_angle_line">3.13.10. In the XY Plane Having an Angle with a Line</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="matrix_kw.html">3.14. The Matrix (MATRIX) Definitions</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="matrix_kw.html#matrix_by_coeff">3.14.1. The Equation Coefficients (Canonical Form)</a></span></dt>
+<dt><span class="sect2"><a href="matrix_kw.html#matrix_by_translation">3.14.2. A Translation of Axis</a></span></dt>
+<dt><span class="sect2"><a href="matrix_kw.html#matrix_by_axis_rot">3.14.3. A Rotation of Axis</a></span></dt>
+<dt><span class="sect2"><a href="matrix_kw.html#matrix_combos">3.14.4. Matrix Combinations</a></span></dt>
+<dt><span class="sect2"><a href="matrix_kw.html#matrix_by_mat_x_mat">3.14.5. The Product of Two Matrices</a></span></dt>
+<dt><span class="sect2"><a href="matrix_kw.html#matrix_by_inv_matrix">3.14.6. The Inverse of a Matrix</a></span></dt>
+<dt><span class="sect2"><a href="matrix_kw.html#matrix_by_3planes">3.14.7. Three Mutually Perpendicular Planes</a></span></dt>
+<dt><span class="sect2"><a href="matrix_kw.html#matrix_by_scale_factor">3.14.8. Scale Factor</a></span></dt>
+<dt><span class="sect2"><a href="matrix_kw.html#matrix_by_org_xvector_vector">3.14.9. 
         Origin, X Axis Vector and a Vector in the 1st or 2nd Quadrant
-      </a></span></dt><dt><span class="sect2"><a href="matrix_kw.html#matrix_by_mirror_planes">3.14.10. A Mirror Matrix about One or More Planes</a></span></dt><dt><span class="sect2"><a href="matrix_kw.html#matrix_by_mirror_line_plane">3.14.11. A Mirror Matrix about a Line or Plane</a></span></dt></dl></dd><dt><span class="sect1"><a href="sphere_kw.html">3.15. The Sphere (SPHERE) Definitions</a></span></dt><dd><dl><dt><span class="sect2"><a href="sphere_kw.html#sphere_by_point_radius">3.15.1. Center Point and Radius</a></span></dt><dt><span class="sect2"><a href="sphere_kw.html#sphere_by_point_surfpnt">3.15.2. Center Point and a Point on the Surface</a></span></dt><dt><span class="sect2"><a href="sphere_kw.html#sphere_by_point_tan_plane">3.15.3. Center Point and a Plane to which it is Tangent</a></span></dt><dt><span class="sect2"><a href="sphere_kw.html#sphere_by_4pts">3.15.4. Passing Through Four Points</a></span></dt></dl></dd><dt><span class="sect1"><a href="qadric_kw.html">3.16. The Quadric (QADRIC) Definitions</a></span></dt><dd><dl><dt><span class="sect2"><a href="qadric_kw.html#permis_surfaces">3.16.1. Permissible Quadric Surfaces</a></span></dt><dt><span class="sect2"><a href="qadric_kw.html#qadric_spec_form">3.16.2. Quadratics as a Special Form of QADRIC</a></span></dt></dl></dd><dt><span class="sect1"><a href="refsys_kw.html">3.17. The Reference System (REFSYS) Statement</a></span></dt><dt><span class="sect1"><a href="tabcyl_kw.html">3.18. The Tabulated Cylinder (TABCYL) Definition</a></span></dt><dd><dl><dt><span class="sect2"><a href="tabcyl_kw.html#tabcyl_trform">3.18.1. Transformation (TRFORM)</a></span></dt><dt><span class="sect2"><a href="tabcyl_kw.html#tabcyl_canon_format">3.18.2. CANON Format</a></span></dt><dt><span class="sect2"><a href="tabcyl_kw.html#tabcyl_noz_rtheta_thetar">3.18.3. NOZ, RTHETA, THETAR Formats</a></span></dt><dt><span class="sect2"><a href="tabcyl_kw.html#tabcyl_nox_noy">3.18.4. NOX, NOY Formats</a></span></dt><dt><span class="sect2"><a href="tabcyl_kw.html#tabcyl_xyz">3.18.5. XYZ Format</a></span></dt></dl></dd><dt><span class="sect1"><a href="polcon_kw.html">3.19. The Polyconic (POLCON) Definition</a></span></dt><dd><dl><dt><span class="sect2"><a href="polcon_kw.html#polcon_meth_of_def">3.19.1. Method of Definition</a></span></dt></dl></dd><dt><span class="sect1"><a href="rldsrf_kw.html">3.20. The Ruled Surface (RLDSRF) Definitions</a></span></dt><dd><dl><dt><span class="sect2"><a href="rldsrf_kw.html#rldsrf_by_6pts_2srf">3.20.1. Six Points and Two Surfaces</a></span></dt><dt><span class="sect2"><a href="rldsrf_kw.html#rldsrf_by_2srf_4pt_2vect">3.20.2. Two Surfaces, Four Points and Two Vectors</a></span></dt><dt><span class="sect2"><a href="rldsrf_kw.html#rldsrf_by_2srf_5pt_vect">3.20.3. Two Surfaces, Five Points and a Vector</a></span></dt><dt><span class="sect2"><a href="rldsrf_kw.html#rldsrf_by_pt_for_curve">3.20.4. Replacing One of the Curves with a Point</a></span></dt></dl></dd><dt><span class="sect1"><a href="nested_defs.html">3.21. Nested Definitions</a></span></dt><dd><dl><dt><span class="sect2"><a href="nested_defs.html#nested_geom_defs">3.21.1. Nested Geometric Definitions Instead of Symbols</a></span></dt><dt><span class="sect2"><a href="nested_defs.html#nested_geom_def_with_sym">3.21.2. Nested Geometric Definitions with Symbols Attached</a></span></dt><dt><span class="sect2"><a href="nested_defs.html#nested_geom_nongeom_stmnt">3.21.3. Nested Geometric Definitions in Non-Geometric Definition
-        Statements</a></span></dt><dt><span class="sect2"><a href="nested_defs.html#nested_def_spec_case">3.21.4. Special Case of Nested Definition</a></span></dt></dl></dd><dt><span class="sect1"><a href="canon_kw.html">3.22. The Canonical Form (CANON) Statement</a></span></dt><dd><dl><dt><span class="sect2"><a href="canon_kw.html#canon_form">3.22.1. Canonical Form Input</a></span></dt><dt><span class="sect2"><a href="canon_kw.html#canon_ref_to_prev_form">3.22.2. Reference to Previous Canonical Form</a></span></dt></dl></dd><dt><span class="sect1"><a href="additional_geom_words.html">3.23. Additional Geometric Words</a></span></dt></dl></dd><dt><span class="chapter"><a href="p2p_programming.html">4. Point-To-Point Programming</a></span></dt><dd><dl><dt><span class="sect1"><a href="p2p_programming.html#from_kw">4.1. The Initialization (FROM) Statement</a></span></dt><dt><span class="sect1"><a href="goto_kw.html">4.2. The Absolute Movement (GOTO) Statement</a></span></dt><dt><span class="sect1"><a href="godlta_kw.html">4.3. The Incremental Movement (GODLTA) Statement</a></span></dt><dt><span class="sect1"><a href="zsurf_implication.html">4.4. Implication of the ZSURF Statement</a></span></dt><dt><span class="sect1"><a href="patern_kw.html">4.5. Pattern Definition Statement</a></span></dt><dd><dl><dt><span class="sect2"><a href="patern_kw.html#linear_kw">4.5.1. Linear (LINEAR) Patterns</a></span></dt><dt><span class="sect2"><a href="patern_kw.html#arc_kw">4.5.2. Arc (ARC) Patterns</a></span></dt><dt><span class="sect2"><a href="patern_kw.html#parlel_kw">4.5.3. Parallelogram (PARLEL) Patterns</a></span></dt><dt><span class="sect2"><a href="patern_kw.html#random_kw">4.5.4. Random (RANDOM) Patterns</a></span></dt></dl></dd><dt><span class="sect1"><a href="pnt_pnt_motion_cmds.html">4.6. Point-Point Motion Commands</a></span></dt><dd><dl><dt><span class="sect2"><a href="pnt_pnt_motion_cmds.html#invers_kw">4.6.1. INVERS Modifier</a></span></dt><dt><span class="sect2"><a href="pnt_pnt_motion_cmds.html#omit_kw">4.6.2. OMIT Modifier</a></span></dt><dt><span class="sect2"><a href="pnt_pnt_motion_cmds.html#retain_kw">4.6.3. RETAIN Modifier</a></span></dt><dt><span class="sect2"><a href="pnt_pnt_motion_cmds.html#avoid_kw">4.6.4. AVOID Modifier</a></span></dt><dt><span class="sect2"><a href="pnt_pnt_motion_cmds.html#thru_kw">4.6.5. THRU Modifier</a></span></dt><dt><span class="sect2"><a href="pnt_pnt_motion_cmds.html#const_kw">4.6.6. CONST Modifier</a></span></dt></dl></dd><dt><span class="sect1"><a href="pnt_pnt_prog_consid.html">4.7. Point-Point Programming Considerations</a></span></dt><dd><dl><dt><span class="sect2"><a href="pnt_pnt_prog_consid.html#patern_op_order">4.7.1. Ordering of the Operations Performed on a Pattern</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="prog_toolpath.html">5. Programming a Tool Path</a></span></dt><dd><dl><dt><span class="sect1"><a href="prog_toolpath.html#prog_intro">5.1. Introduction</a></span></dt><dd><dl><dt><span class="sect2"><a href="prog_toolpath.html#cutter_kw">5.1.1. Description of Cutter</a></span></dt><dt><span class="sect2"><a href="prog_toolpath.html#tol_spec">5.1.2. Tolerance Specification</a></span></dt><dt><span class="sect2"><a href="prog_toolpath.html#surf_nomen">5.1.3. Surface Nomenclature</a></span></dt></dl></dd><dt><span class="sect1"><a href="cut_surf_relate.html">5.2. CUTTER to Surface Relationships</a></span></dt><dd><dl><dt><span class="sect2"><a href="cut_surf_relate.html#part_surf2">5.2.1. Part Surface</a></span></dt><dt><span class="sect2"><a href="cut_surf_relate.html#drive_surf2">5.2.2. Drive Surface</a></span></dt><dt><span class="sect2"><a href="cut_surf_relate.html#check_surf2">5.2.3. Check Surface</a></span></dt></dl></dd><dt><span class="sect1"><a href="startup.html">5.3. Startup Procedures</a></span></dt><dd><dl><dt><span class="sect2"><a href="startup.html#strtup_init">5.3.1. Initialization</a></span></dt><dt><span class="sect2"><a href="startup.html#go_kw">5.3.2. GO Surface Command</a></span></dt><dt><span class="sect2"><a href="startup.html#offset_kw">5.3.3. The OFFSET/ Statement</a></span></dt></dl></dd><dt><span class="sect1"><a href="motion_cmds.html">5.4. Motion Commands</a></span></dt><dd><dl><dt><span class="sect2"><a href="motion_cmds.html#gen_motion_stmnt">5.4.1. General Form</a></span></dt><dt><span class="sect2"><a href="motion_cmds.html#dir_modifiers">5.4.2. Directional Modifiers</a></span></dt><dt><span class="sect2"><a href="motion_cmds.html#surf_specification">5.4.3. Surface Specification</a></span></dt></dl></dd><dt><span class="sect1"><a href="expanded_tol_stmnt.html">5.5. Expanded Tolerance Statement</a></span></dt><dt><span class="sect1"><a href="multiple_intersections.html">5.6. Multiple Intersections</a></span></dt><dt><span class="sect1"><a href="opt_feedrate.html">5.7. Optional Feed Rate Specification</a></span></dt></dl></dd><dt><span class="chapter"><a href="pp_statement.html">6. Postprocessor Statements</a></span></dt><dd><dl><dt><span class="sect1"><a href="pp_statement.html#pp_no_params">6.1. Postprocessor Commands without Parmeters</a></span></dt><dt><span class="sect1"><a href="pp_with_params.html">6.2. Postprocessor Commands with Parmeters</a></span></dt><dt><span class="sect1"><a href="pp_fixed_field_words.html">6.3. Fixed-Field Words</a></span></dt><dt><span class="sect1"><a href="spec_fedrat_opt.html">6.4. Special Feedrate Option</a></span></dt></dl></dd><dt><span class="chapter"><a href="special_words.html">7. Special Words in the APT Language</a></span></dt><dd><dl><dt><span class="sect1"><a href="special_words.html#fixed_field_words">7.1. Fixed-Field Words</a></span></dt><dd><dl><dt><span class="sect2"><a href="special_words.html#remark_kw">7.1.1. The REMARK Statement</a></span></dt><dt><span class="sect2"><a href="special_words.html#partno_kw">7.1.2. The PARTNO Statement</a></span></dt><dt><span class="sect2"><a href="special_words.html#pprint_kw">7.1.3. The PPRINT Statement</a></span></dt><dt><span class="sect2"><a href="special_words.html#insert_kw">7.1.4. The INSERT Statement</a></span></dt><dt><span class="sect2"><a href="special_words.html#titles_kw">7.1.5. The TITLES Statement</a></span></dt></dl></dd><dt><span class="sect1"><a href="aux_symbol_def.html">7.2. The Auxiliary Symbol Definition (OBTAIN) Statement</a></span></dt><dt><span class="sect1"><a href="apt_control_words.html">7.3. APT Processor Control Words</a></span></dt><dd><dl><dt><span class="sect2"><a href="apt_control_words.html#noplot_kw">7.3.1. The NOPLOT Statement</a></span></dt><dt><span class="sect2"><a href="apt_control_words.html#machin_kw">7.3.2. The MACHIN Statement</a></span></dt><dt><span class="sect2"><a href="apt_control_words.html#nopost_kw">7.3.3. The NOPOST Statement</a></span></dt><dt><span class="sect2"><a href="apt_control_words.html#clprnt_kw">7.3.4. The CLPRNT Statement</a></span></dt><dt><span class="sect2"><a href="apt_control_words.html#cltv_kw">7.3.5. The CLTV Statement</a></span></dt><dt><span class="sect2"><a href="apt_control_words.html#ptonly_kw">7.3.6. The PTONLY Statement</a></span></dt><dt><span class="sect2"><a href="apt_control_words.html#fini_kw">7.3.7. The FINI Statement</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="loops_macros.html">8. Loops and Macros in the APT Language</a></span></dt><dd><dl><dt><span class="sect1"><a href="loops_macros.html#loop_def">8.1. The Loop Definition</a></span></dt><dd><dl><dt><span class="sect2"><a href="loops_macros.html#loopst_kw">8.1.1. The Loop Start (LOOPST) Statement</a></span></dt><dt><span class="sect2"><a href="loops_macros.html#loopnd_kw">8.1.2. The Loop End (LOOPND) Statement</a></span></dt><dt><span class="sect2"><a href="loops_macros.html#if_kw">8.1.3. The Conditional Branching (IF) Statement</a></span></dt><dt><span class="sect2"><a href="loops_macros.html#jumpto_kw">8.1.4. The Unconditional Branching (JUMPTO) Statement</a></span></dt><dt><span class="sect2"><a href="loops_macros.html#loop_construction">8.1.5. Constructing a Loop</a></span></dt></dl></dd><dt><span class="sect1"><a href="macro_def.html">8.2. The Macro Definition</a></span></dt><dd><dl><dt><span class="sect2"><a href="macro_def.html#macro_kw">8.2.1. The Macro Definition Start (MACRO) Statement</a></span></dt><dt><span class="sect2"><a href="macro_def.html#termac_kw">8.2.2. The Macro Definition End (TERMAC) Statement</a></span></dt><dt><span class="sect2"><a href="macro_def.html#call_kw">8.2.3. The Macro Execution (CALL) Statement</a></span></dt><dt><span class="sect2"><a href="macro_def.html#macro_var_defs">8.2.4. Definition of Macro Variables</a></span></dt><dt><span class="sect2"><a href="macro_def.html#sample_macro_def">8.2.5. Sample Macro Definition and Execution</a></span></dt><dt><span class="sect2"><a href="macro_def.html#macro_rules">8.2.6. Rules Concerning the Macro Language</a></span></dt><dt><span class="sect2"><a href="macro_def.html#macro_loop_compute">8.2.7. Looping and Computing within a Macro</a></span></dt><dt><span class="sect2"><a href="macro_def.html#macro_nesting">8.2.8. Nesting of Macros</a></span></dt></dl></dd><dt><span class="sect1"><a href="system_macros.html">8.3. System Macros</a></span></dt><dd><dl><dt><span class="sect2"><a href="system_macros.html#libry_kw">8.3.1. The LIBRY Statement</a></span></dt><dt><span class="sect2"><a href="system_macros.html#execute_sys_macros">8.3.2. Executing System Macros</a></span></dt><dt><span class="sect2"><a href="system_macros.html#sys_macro">8.3.3. System Macro Example</a></span></dt></dl></dd><dt><span class="sect1"><a href="multiple_label_usage.html">8.4. Multiple Usage of Statement Labels</a></span></dt></dl></dd><dt><span class="chapter"><a href="pocketing.html">9. Pocketing</a></span></dt><dt><span class="chapter"><a href="samp_output.html">10. Sample Part Program Output</a></span></dt><dt><span class="chapter"><a href="io_stmnts.html">11. Input/Output Statements in the APT Language</a></span></dt><dd><dl><dt><span class="sect1"><a href="io_stmnts.html#print_kw">11.1. The PRINT Statement</a></span></dt><dd><dl><dt><span class="sect2"><a href="io_stmnts.html#titles_print">11.1.1. Use of TITLES with the PRINT Statement</a></span></dt><dt><span class="sect2"><a href="io_stmnts.html#print_loop_macro">11.1.2. Use of PRINT in a Loop or Macro</a></span></dt><dt><span class="sect2"><a href="io_stmnts.html#alt_print">11.1.3. Alternate Form of the PRINT Statement</a></span></dt></dl></dd><dt><span class="sect1"><a href="punch_kw.html">11.2. The PUNCH Statement</a></span></dt><dt><span class="sect1"><a href="read_kw.html">11.3. The READ Statement</a></span></dt></dl></dd><dt><span class="chapter"><a href="special_prog_call.html">12. Special Programs in APT -- CALL</a></span></dt><dd><dl><dt><span class="sect1"><a href="special_prog_call.html#call_by_value">12.1. Call by Value</a></span></dt><dt><span class="sect1"><a href="call_by_name_val.html">12.2. Call by Parameter Name and Value</a></span></dt><dt><span class="sect1"><a href="use_of_spec_prog.html">12.3. Use of Special Program</a></span></dt></dl></dd><dt><span class="chapter"><a href="cutpath_xform.html">13. Cutter Path Transformation Statements</a></span></dt><dd><dl><dt><span class="sect1"><a href="cutpath_xform.html#tracut_kw">13.1. The Transform only (TRACUT) Statement</a></span></dt><dd><dl><dt><span class="sect2"><a href="cutpath_xform.html#sample_tracut">13.1.1. Sample TRACUT Usage</a></span></dt></dl></dd><dt><span class="sect1"><a href="copy_index.html">13.2. The Transform and COPY (COPY-INDEX) Statements</a></span></dt><dd><dl><dt><span class="sect2"><a href="copy_index.html#index_kw">13.2.1. The INDEX Statement</a></span></dt><dt><span class="sect2"><a href="copy_index.html#copy_kw">13.2.2. The COPY Statement</a></span></dt><dt><span class="sect2"><a href="copy_index.html#copy_usage">13.2.3. Usage of the COPY Feature</a></span></dt><dt><span class="sect2"><a href="copy_index.html#nesting_copy">13.2.4. Nesting of COPY Loops</a></span></dt></dl></dd><dt><span class="sect1"><a href="tracut_copy_usage.html">13.3. Combined Use of TRACUT and COPY</a></span></dt><dt><span class="sect1"><a href="spec_trans_stmnt.html">13.4. Special Transformation Statements (VTLAXS, WCORN)</a></span></dt><dd><dl><dt><span class="sect2"><a href="spec_trans_stmnt.html#vtlaxs_kw">13.4.1. The VTLAXS Statement</a></span></dt><dt><span class="sect2"><a href="spec_trans_stmnt.html#wcorn_kw">13.4.2. The WCORN Statement</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="spec_tech.html">14. Special Techniques</a></span></dt><dd><dl><dt><span class="sect1"><a href="spec_tech.html#spec_feats">14.1. Special Features</a></span></dt><dd><dl><dt><span class="sect2"><a href="spec_tech.html#multax_kw">14.1.1. The Multiaxis Output (MULTAX) Statement</a></span></dt><dt><span class="sect2"><a href="spec_tech.html#2dcalc_3dcalc_ndtest_kw">14.1.2. The Processor Mode (2DCALC, 3DCALC, NDTEST) Statements</a></span></dt><dt><span class="sect2"><a href="spec_tech.html#numpts_kw">14.1.3. The Number of Points (NUMPTS) Statement </a></span></dt><dt><span class="sect2"><a href="spec_tech.html#maxdp_kw">14.1.4. The Maximum Step (MAXDP) Statement</a></span></dt><dt><span class="sect2"><a href="spec_tech.html#thick_kw">14.1.5. The Thickness (THICK) Statement</a></span></dt><dt><span class="sect2"><a href="spec_tech.html#dntcut_cut_kw">14.1.6. The Delete Output (DNTCUT, CUT) Statements</a></span></dt><dt><span class="sect2"><a href="spec_tech.html#tranto_kw">14.1.7. The Transfer statement (TRANTO) Statements</a></span></dt><dt><span class="sect2"><a href="spec_tech.html#spec_cutter_opt">14.1.8. The Special Cutter Option</a></span></dt><dt><span class="sect2"><a href="spec_tech.html#gougck_kw">14.1.9. The Special Calculation (GOUGCK) Statement</a></span></dt></dl></dd><dt><span class="sect1"><a href="startup_cmds.html">14.2. Startup Commands</a></span></dt><dd><dl><dt><span class="sect2"><a href="startup_cmds.html#indir_effect">14.2.1. The Effect of INDIR Vectors</a></span></dt><dt><span class="sect2"><a href="startup_cmds.html#special_go_stmnts">14.2.2. Special Case GO/ Statements</a></span></dt><dt><span class="sect2"><a href="startup_cmds.html#offset_error">14.2.3. Possible Startup Error Using OFFSET</a></span></dt><dt><span class="sect2"><a href="startup_cmds.html#srfvct_kw">14.2.4. The SRFVCT Statement</a></span></dt></dl></dd><dt><span class="sect1"><a href="to_on_past_tanto_pstan_impl.html">14.3. Implications of TO, ON, PAST, TANTO, and PSTAN</a></span></dt><dd><dl><dt><span class="sect2"><a href="to_on_past_tanto_pstan_impl.html#to_past">14.3.1. TO and PAST</a></span></dt><dt><span class="sect2"><a href="to_on_past_tanto_pstan_impl.html#on">14.3.2. ON</a></span></dt><dt><span class="sect2"><a href="to_on_past_tanto_pstan_impl.html#tanto_pstan">14.3.3. TANTO and PSTAN</a></span></dt><dt><span class="sect2"><a href="to_on_past_tanto_pstan_impl.html#implicit_chk_surf">14.3.4. Implicit Check Surface</a></span></dt><dt><span class="sect2"><a href="to_on_past_tanto_pstan_impl.html#limiting_conditions">14.3.5. Some Limiting Conditions</a></span></dt></dl></dd><dt><span class="sect1"><a href="multiaxis_prog.html">14.4. Multiaxis Programming</a></span></dt><dd><dl><dt><span class="sect2"><a href="multiaxis_prog.html#tlaxis_kw">14.4.1. The Tool Axis (TLAXIS) Specification Statement</a></span></dt><dt><span class="sect2"><a href="multiaxis_prog.html#4axis_case">14.4.2. The Four-Axis Case</a></span></dt><dt><span class="sect2"><a href="multiaxis_prog.html#5axis_case">14.4.3. The Five-Axis Case</a></span></dt><dt><span class="sect2"><a href="multiaxis_prog.html#impossible_spec">14.4.4. Impossible Specification</a></span></dt></dl></dd><dt><span class="sect1"><a href="arelem_requirements.html">14.5. Arithmetic Element Requirements</a></span></dt><dd><dl><dt><span class="sect2"><a href="arelem_requirements.html#cutter_arelem_calc">14.5.1. Definition of Cutter Used in ARELEM Calculations</a></span></dt><dt><span class="sect2"><a href="arelem_requirements.html#cut2surf_calc">14.5.2. Cutter-to-Surface Calculation</a></span></dt><dt><span class="sect2"><a href="arelem_requirements.html#improp_cut2surf">14.5.3. Improper Cutter-to-Surface Relationships</a></span></dt><dt><span class="sect2"><a href="arelem_requirements.html#toolpos_mod_change">14.5.4. Change in Tool Position Modifier</a></span></dt><dt><span class="sect2"><a href="arelem_requirements.html#arelem_impossble_spec">14.5.5. Impossible Specification</a></span></dt></dl></dd><dt><span class="sect1"><a href="rldsrf_implications.html">14.6. Implications of Ruled Surface (RLDSRF)</a></span></dt><dt><span class="sect1"><a href="plane_limitations.html">14.7. Limitations on Usage of Planes</a></span></dt><dt><span class="sect1"><a href="tan_surf_limitations.html">14.8. Tangent Surface Limitations</a></span></dt></dl></dd><dt><span class="chapter"><a href="diagnostic_procedures.html">15. Diagnostic Procedures</a></span></dt><dd><dl><dt><span class="sect1"><a href="diagnostic_procedures.html#error_messages">15.1. Error Messages</a></span></dt><dd><dl><dt><span class="sect2"><a href="diagnostic_procedures.html#control_errmsgs">15.1.1. Control Program Error Message</a></span></dt><dt><span class="sect2"><a href="diagnostic_procedures.html#translation_errmsgs">15.1.2. Translation Phase Error Messages</a></span></dt><dt><span class="sect2"><a href="diagnostic_procedures.html#arithmetic_errmsgs">15.1.3. Arithmetic Element Error Messages</a></span></dt><dt><span class="sect2"><a href="diagnostic_procedures.html#edit_phase_errmsgs">15.1.4. Edit Phase Error Messages</a></span></dt><dt><span class="sect2"><a href="diagnostic_procedures.html#prostproc_errmsgs">15.1.5. Postprocessor Error Messages</a></span></dt></dl></dd><dt><span class="sect1"><a href="diag_aids.html">15.2. Diagnostic Aids</a></span></dt><dd><dl><dt><span class="sect2"><a href="diag_aids.html#debug_kw">15.2.1. The DEBUG Statement</a></span></dt><dt><span class="sect2"><a href="diag_aids.html#dyndmp_kw">15.2.2. DYNDMP</a></span></dt><dt><span class="sect2"><a href="diag_aids.html#tuneup_kw">15.2.3. TUNEUP</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="canon_forms.html">16. Canonical Forms</a></span></dt><dd><dl><dt><span class="sect1"><a href="canon_forms.html#point_canon">16.1. POINT</a></span></dt><dt><span class="sect1"><a href="line_canon.html">16.2. LINE</a></span></dt><dt><span class="sect1"><a href="plane_canon.html">16.3. PLANE</a></span></dt><dt><span class="sect1"><a href="circle_canon.html">16.4. CIRCLE</a></span></dt><dt><span class="sect1"><a href="cylndr_canon.html">16.5. CYLNDR</a></span></dt><dt><span class="sect1"><a href="elipse_canon.html">16.6. ELIPSE</a></span></dt><dt><span class="sect1"><a href="hyperb_canon.html">16.7. HYPERB</a></span></dt><dt><span class="sect1"><a href="cone_canon.html">16.8. CONE</a></span></dt><dt><span class="sect1"><a href="gconic_canon.html">16.9. GCONIC</a></span></dt><dt><span class="sect1"><a href="lconic_canon.html">16.10. LCONIC</a></span></dt><dt><span class="sect1"><a href="vector_canon.html">16.11. VECTOR</a></span></dt><dt><span class="sect1"><a href="matrix_canon.html">16.12. MATRIX</a></span></dt><dt><span class="sect1"><a href="sphere_canon.html">16.13. SPHERE</a></span></dt><dt><span class="sect1"><a href="qadric_canon.html">16.14. QADRIC</a></span></dt><dt><span class="sect1"><a href="tabcyl_canon.html">16.15. TABCYL</a></span></dt><dt><span class="sect1"><a href="polcon_canon.html">16.16. POLCON</a></span></dt><dt><span class="sect1"><a href="rldsrf_canon.html">16.17. RLDSRF</a></span></dt></dl></dd></dl></div><div class="list-of-figures"><p><b>List of Figures</b></p><dl><dt>1. <a href="intro.html#fig1">APT System Flowchart</a></dt><dt>2. <a href="samp_part_prog.html#fig2">Sample Part Desciption</a></dt><dt>3. <a href="samp_part_prog.html#fig4">Sample Part Cutter Path</a></dt><dt>3.1. <a href="geometry.html#figure5">Geometry Modifier</a></dt><dt>3.2. <a href="point_kw.html#figure6">POINT by Rectangular Coordinates</a></dt><dt>3.3. <a href="point_kw.html#figure7">POINT by Line, Line Intersection</a></dt><dt>3.4. <a href="point_kw.html#figure8">POINT by Line, Circle Intersection</a></dt><dt>3.5. <a href="point_kw.html#figure9">POINT by Circle, Circle Intersection</a></dt><dt>3.6. <a href="point_kw.html#figure10">POINT by Circle, Angle</a></dt><dt>3.7. <a href="point_kw.html#figure11">POINT by Circle Center</a></dt><dt>3.8. <a href="point_kw.html#figure12">POINT by Line, Conic Intersection</a></dt><dt>3.9. <a href="point_kw.html#figure13">POINT by 3 Plane Intersection</a></dt><dt>3.10. <a href="point_kw.html#figure14">POINT by Polar Coordinates</a></dt><dt>3.11. <a href="point_kw.html#figure15">POINT by Line, Tabulated Cylinder Intersection</a></dt><dt>3.12. <a href="line_kw.html#figure16">LINE by Two Points</a></dt><dt>3.13. <a href="line_kw.html#figure17">LINE by Point and Tangent Circle</a></dt><dt>3.14. <a href="line_kw.html#figure18">LINE by Tangent Circles</a></dt><dt>3.15. <a href="line_kw.html#figure19">LINE by Point Angle</a></dt><dt>3.16. <a href="line_kw.html#figure20">LINE by Point, Angle to Line</a></dt><dt>3.17. <a href="line_kw.html#figure21">LINE by Point, Parallel Line</a></dt><dt>3.18. <a href="line_kw.html#figure22">LINE by Point, Perpendicular Line</a></dt><dt>3.19. <a href="line_kw.html#figure23">LINE by Distance from Parallel Line</a></dt><dt>3.20. <a href="line_kw.html#figure24">LINE by Plane Intersection</a></dt><dt>3.21. <a href="line_kw.html#figure25">LINE by Slope Intercept Form</a></dt><dt>3.22. <a href="line_kw.html#figure26">LINE by Point, Tangent Tabulated Cylinder</a></dt><dt>3.23. <a href="line_kw.html#figure27">LINE by Point, Tangent Tabulated Cylinder</a></dt><dt>3.24. <a href="plane_kw.html#figure28">PLANE by Coefficients</a></dt><dt>3.25. <a href="plane_kw.html#figure29">PLANE by Three Points</a></dt><dt>3.26. <a href="plane_kw.html#figure30">PLANE by Point, Parallel Plane</a></dt><dt>3.27. <a href="plane_kw.html#figure31">PLANE by Parallel Plane at Distance</a></dt><dt>3.28. <a href="plane_kw.html#figure32">PLANE by Point, Vector</a></dt><dt>3.29. <a href="plane_kw.html#figure33">PLANE by Two Points, Perpendicular Plane</a></dt><dt>3.30. <a href="circle_kw.html#figure34">CIRCLE by Coordinates, Radius</a></dt><dt>3.31. <a href="circle_kw.html#figure35">CIRCLE by Center Point, Tangent Line</a></dt><dt>3.32. <a href="circle_kw.html#figure36">CIRCLE by Center Point, Circumference Point</a></dt><dt>3.33. <a href="circle_kw.html#figure37">CIRCLE by Three Points</a></dt><dt>3.34. <a href="circle_kw.html#figure38">CIRCLE by Center Point, Tangent Circle</a></dt><dt>3.35. <a href="circle_kw.html#figure39">CIRCLE by Radius, Two Tangent Lines</a></dt><dt>3.36. <a href="circle_kw.html#figure40">CIRCLE by Radius, Point, Tangent Line</a></dt><dt>3.37. <a href="circle_kw.html#figure41">CIRCLE by Radius, Tangent Line, Tangent Circle</a></dt><dt>3.38. <a href="circle_kw.html#figure42">CIRCLE by Radius, Two Tangent Circles</a></dt><dt>3.39. <a href="circle_kw.html#figure43">CIRCLE by Radius, Tangent Line, Tangent TABCLY</a></dt><dt>3.40. <a href="cylndr_kw.html#figure44">CYLNDR by Point, Vector, Radius</a></dt><dt>3.41. <a href="ellips_kw.html#figure45">ELLIPS Example</a></dt><dt>3.42. <a href="hyperb_kw.html#figure46">HYPERB Example</a></dt><dt>3.43. <a href="cone_kw.html#figure47">CONE by Canonical Form</a></dt><dt>3.44. <a href="lconic_kw.html#figure48">LCONIC by Five Points</a></dt><dt>3.45. <a href="lconic_kw.html#figure49">LCONIC by Four Points, Slope</a></dt><dt>3.46. <a href="lconic_kw.html#figure50">LCONIC by Three Points, Two Slopes</a></dt><dt>3.47. <a href="vector_kw.html#figure51">VECTOR by X, Y, Z</a></dt><dt>3.48. <a href="vector_kw.html#figure52">VECTOR by Perpendicular Plane</a></dt><dt>3.49. <a href="vector_kw.html#figure53">VECTOR by Scaled Vector</a></dt><dt>3.50. <a href="vector_kw.html#figure54">VECTOR by Cross Product</a></dt><dt>3.51. <a href="vector_kw.html#figure55">VECTOR by Normal</a></dt><dt>3.52. <a href="vector_kw.html#figure56">VECTOR by Length, Angle</a></dt><dt>3.53. <a href="vector_kw.html#figure57">VECTOR by Intersecting Planes</a></dt><dt>3.54. <a href="vector_kw.html#figure58">VECTOR by Addition, Subtraction</a></dt><dt>3.55. <a href="vector_kw.html#figure58a">VECTOR by Angle, Line</a></dt><dt>3.56. <a href="sphere_kw.html#figure59">SPHERE by Center Point, Radius</a></dt><dt>3.57. <a href="sphere_kw.html#figure60">SPHERE by Center Point, Tangent Plane</a></dt><dt>3.58. <a href="sphere_kw.html#figure61">SPHERE by Four Points</a></dt><dt>3.59. <a href="qadric_kw.html#figure62a">Elliptic Cone</a></dt><dt>3.60. <a href="qadric_kw.html#figure62b">Elliptic Cylinder</a></dt><dt>3.61. <a href="qadric_kw.html#figure62c">Hyperbolic Cylinder</a></dt><dt>3.62. <a href="qadric_kw.html#figure62d">Parabolic Cylinder</a></dt><dt>3.63. <a href="qadric_kw.html#figure63a">Real Ellipsoid</a></dt><dt>3.64. <a href="qadric_kw.html#figure63b">Hyperboloid of One Sheet</a></dt><dt>3.65. <a href="qadric_kw.html#figure63c">Hyperboloid of Two Sheets</a></dt><dt>3.66. <a href="qadric_kw.html#figure63d">Elliptic Paraboloid</a></dt><dt>3.67. <a href="qadric_kw.html#figure63e">Hyperboloid Paraboloid</a></dt><dt>3.68. <a href="polcon_kw.html#figure64">POLCON Nomenclature</a></dt><dt>3.69. <a href="rldsrf_kw.html#figure65">RLDSRF by Six Points, Two Surfaces</a></dt><dt>3.70. <a href="rldsrf_kw.html#figure66">RLDSRF by Two Surfaces, Four Points, Two Vectors</a></dt><dt>3.71. <a href="rldsrf_kw.html#figure67">RLDSRF by Two Surfaces, Five Points, Vector</a></dt><dt>3.72. <a href="rldsrf_kw.html#figure68">RLDSRF by Replacing Curve with Point</a></dt><dt>4.1. <a href="patern_kw.html#figure68a">LINEAR PATERN 1</a></dt><dt>4.2. <a href="patern_kw.html#figure68b">LINEAR PATERN 2</a></dt><dt>4.3. <a href="patern_kw.html#figure68c">ARC PATERN</a></dt><dt>4.4. <a href="patern_kw.html#figure68e">PARLEL PATERN 1</a></dt><dt>4.5. <a href="patern_kw.html#figure68d">PARLEL PATERN 2</a></dt><dt>4.6. <a href="patern_kw.html#figure68f">RANDOM PATERN</a></dt><dt>4.7. <a href="pnt_pnt_motion_cmds.html#figure68g">Sample Pattern 2</a></dt><dt>4.8. <a href="pnt_pnt_motion_cmds.html#figure68i">Sample Pattern 1</a></dt><dt>5.1. <a href="prog_toolpath.html#figure69">CUTTER Parameters</a></dt><dt>5.2. <a href="prog_toolpath.html#figure70">Simple CUTTER Examples</a></dt><dt>5.3. <a href="prog_toolpath.html#figure71">CUTTER Tolerance</a></dt><dt>5.4. <a href="prog_toolpath.html#figure72">Surface Nomenclature</a></dt><dt>5.5. <a href="cut_surf_relate.html#figure73">TLONPS</a></dt><dt>5.6. <a href="cut_surf_relate.html#figure74">TLOFPS</a></dt><dt>5.7. <a href="cut_surf_relate.html#figure75">TLLFT, TLRGT</a></dt><dt>5.8. <a href="cut_surf_relate.html#figure76">TLON, TLNDON</a></dt><dt>5.9. <a href="cut_surf_relate.html#figure77">Check Surface to Cutter Relationships</a></dt><dt>5.10. <a href="cut_surf_relate.html#figure78">TANTO</a></dt><dt>5.11. <a href="cut_surf_relate.html#figure79">PSTAN</a></dt><dt>5.12. <a href="startup.html#figure80a">INDIRV</a></dt><dt>5.13. <a href="startup.html#figure80b">INDIRP</a></dt><dt>5.14. <a href="startup.html#figure81">Position Modifiers TO, ON, PAST</a></dt><dt>5.15. <a href="startup.html#figure82">TO, ON, PAST in One-Surface Startup</a></dt><dt>5.16. <a href="startup.html#figure83">NOPS in One-Surface Startup</a></dt><dt>5.17. <a href="startup.html#figure84">INDIRV or INDIRP with NOPS</a></dt><dt>5.18. <a href="startup.html#figure85">Impossible One-Surface Startup</a></dt><dt>5.19. <a href="startup.html#figure86">Actual INDIRV Move</a></dt><dt>5.20. <a href="startup.html#figure87">Possible Two-Surface Startup Positions</a></dt><dt>5.21. <a href="startup.html#figure88">Two-Surface Startup INDIRV</a></dt><dt>5.22. <a href="startup.html#figure89">Three-Surface Startup</a></dt><dt>5.23. <a href="startup.html#figure90">Three-Surface Startup with INDIRV</a></dt><dt>5.24. <a href="startup.html#figure91">One-Surface OFFSET</a></dt><dt>5.25. <a href="startup.html#figure92">Two-Surface OFFSET</a></dt><dt>5.26. <a href="motion_cmds.html#figure93">Directional Modifiers</a></dt><dt>5.27. <a href="motion_cmds.html#figure94">GOLFT, GORGT Nomenclature</a></dt><dt>5.28. <a href="motion_cmds.html#figure95">GOLFT, GORGT Example</a></dt><dt>5.29. <a href="motion_cmds.html#figure97">GOFWD, GOBACK General Concept</a></dt><dt>5.30. <a href="motion_cmds.html#figure98">GOUP, GODOWN Usage</a></dt><dt>5.31. <a href="motion_cmds.html#figure99">AUTOPS Usage</a></dt><dt>5.32. <a href="motion_cmds.html#figure100">Check Surface in Motion Command</a></dt><dt>5.33. <a href="motion_cmds.html#figure101a">Check Surface with Small Cutter</a></dt><dt>5.34. <a href="motion_cmds.html#figure101b">Check Surface with Large Cutter</a></dt><dt>5.35. <a href="multiple_intersections.html#figure102">Multiple Motion Intersections</a></dt><dt>9.1. <a href="pocketing.html#figure103">Plane for Pocket Bottom</a></dt><dt>9.2. <a href="pocketing.html#figure103a">Tool Axis Normal to Plane</a></dt><dt>9.3. <a href="pocketing.html#figure104">Tool Axis at Angle to Plane</a></dt><dt>9.4. <a href="pocketing.html#figure105">Material Left in Pocket</a></dt><dt>13.1. <a href="cutpath_xform.html#tracut_pat">TRACUT Programmed Pattern</a></dt><dt>13.2. <a href="cutpath_xform.html#tracut_xform_pat">TRACUT Transformed Pattern</a></dt><dt>13.3. <a href="spec_trans_stmnt.html#swarf_cut1">Swarf Cut Path 1</a></dt><dt>13.4. <a href="spec_trans_stmnt.html#swarf_cut2">Swarf Cut Path 2</a></dt><dt>13.5. <a href="spec_trans_stmnt.html#path_inflection">Path Inflection</a></dt><dt>13.6. <a href="spec_trans_stmnt.html#vtlaxs_tilt_dir">VTLAXS Tilt Direction</a></dt><dt>13.7. <a href="spec_trans_stmnt.html#vtlaxs_drvsrf_side">VTLAXS Drive Surface Side</a></dt><dt>13.8. <a href="spec_trans_stmnt.html#vtlaxs_partpent_1">VTLAXS Part Surface Penetration 1</a></dt><dt>13.9. <a href="spec_trans_stmnt.html#vtlaxs_partpent_2">VTLAXS Part Surface Penetration 2</a></dt><dt>13.10. <a href="spec_trans_stmnt.html#vtlaxs_partpent_3">VTLAXS Part Surface Penetration 3</a></dt><dt>13.11. <a href="spec_trans_stmnt.html#wcorn_cleanout">WCORN Clean Out</a></dt><dt>14.1. <a href="spec_tech.html#figure107">Improper Check Surface</a></dt><dt>14.2. <a href="spec_tech.html#figure108">THICK, Add Material</a></dt><dt>14.3. <a href="spec_tech.html#figure109">THICK, Remove Material</a></dt><dt>14.4. <a href="spec_tech.html#figure110">DNTCUT, CUT Usage</a></dt><dt>14.5. <a href="spec_tech.html#figure111">TRANTO Usage</a></dt><dt>14.6. <a href="spec_tech.html#figure112">Disk Cutter Definition</a></dt><dt>14.7. <a href="spec_tech.html#figure113">Special CUTTER Position Move</a></dt><dt>14.8. <a href="spec_tech.html#figure114">Special CUTTER Invalid Cut Move</a></dt><dt>14.9. <a href="spec_tech.html#figure115">Special CUTTER Valid Cut Move</a></dt><dt>14.10. <a href="spec_tech.html#figure116">GOUGCK Sample Surface</a></dt><dt>14.11. <a href="spec_tech.html#figure117">GOUGCK Bad Cut Vector</a></dt><dt>14.12. <a href="startup_cmds.html#figure118">INDIRV Usage</a></dt><dt>14.13. <a href="startup_cmds.html#figure119">INDIRV Two Vector Form</a></dt><dt>14.14. <a href="startup_cmds.html#figure120">INDIRV Error Condition</a></dt><dt>14.15. <a href="startup_cmds.html#figure121">SRFVCT Usage</a></dt><dt>14.16. <a href="startup_cmds.html#figure122">SRFVCT Two Vector Form</a></dt><dt>14.17. <a href="to_on_past_tanto_pstan_impl.html#figure123">TO, ON, PAST Usage</a></dt><dt>14.18. <a href="to_on_past_tanto_pstan_impl.html#figure124">TO, ON, PAST Usage</a></dt><dt>14.19. <a href="to_on_past_tanto_pstan_impl.html#figure125">TANTO when ON DS</a></dt><dt>14.20. <a href="to_on_past_tanto_pstan_impl.html#figure126">TANTO when Offset from DS</a></dt><dt>14.21. <a href="to_on_past_tanto_pstan_impl.html#figure126a">Pseudo Check Surface</a></dt><dt>14.22. <a href="to_on_past_tanto_pstan_impl.html#figure126b">TANTO Usage vs PAST, TO</a></dt><dt>14.23. <a href="multiaxis_prog.html#figure127">TLAXIS Lead Angle</a></dt><dt>14.24. <a href="multiaxis_prog.html#figure128">TLAXIS Lag Angle</a></dt><dt>14.25. <a href="multiaxis_prog.html#figure129">TLAXIS &#946; Angle Usage</a></dt><dt>14.26. <a href="multiaxis_prog.html#figure130">TLAXIS &#945; Angle Usage</a></dt><dt>14.27. <a href="multiaxis_prog.html#figure131">TLAXIS Cone Envelope</a></dt><dt>14.28. <a href="multiaxis_prog.html#figure132">TLAXIS &#945; Cone Envelope</a></dt><dt>14.29. <a href="multiaxis_prog.html#figure133">TLAXIS &#945; Reduced to &#946;
-            Behavior</a></dt><dt>14.30. <a href="multiaxis_prog.html#figure134">Five-Axis</a></dt><dt>14.31. <a href="multiaxis_prog.html#figure135">TLAXIS Invalid Usage</a></dt><dt>14.32. <a href="arelem_requirements.html#figure136">ARELEM Usage of CUTTER </a></dt><dt>14.33. <a href="arelem_requirements.html#figure137">ARELEM, Cutter/Surface Calc 1</a></dt><dt>14.34. <a href="arelem_requirements.html#figure138">ARELEM, Cutter/Surface Calc 2</a></dt><dt>14.35. <a href="arelem_requirements.html#figure139">ARELEM, Invalid Cutter/Surface</a></dt><dt>14.36. <a href="arelem_requirements.html#figure140">ARELEM, Improper Cutter/Surface 1</a></dt><dt>14.37. <a href="arelem_requirements.html#figure141">ARELEM, Improper Cutter/Surface 2</a></dt><dt>14.38. <a href="arelem_requirements.html#figure142">ARELEM, Improper Cutter/Surface 3</a></dt><dt>14.39. <a href="arelem_requirements.html#figure143">ARELEM, Cutter Switching DS Side</a></dt><dt>14.40. <a href="arelem_requirements.html#figure144">ARELEM, Invalid Check Surface</a></dt><dt>14.41. <a href="rldsrf_implications.html#figure144a">Possible RLDSRF</a></dt><dt>14.42. <a href="rldsrf_implications.html#figure145">Poor RLDSRF Definition</a></dt><dt>14.43. <a href="rldsrf_implications.html#figure146">RLDSRF Ambiguity</a></dt><dt>14.44. <a href="rldsrf_implications.html#figure147">RLDSRF, 3 Point vs 2 Point</a></dt><dt>14.45. <a href="plane_limitations.html#figure148">Pseudo CS with Shallow Plane</a></dt><dt>14.46. <a href="tan_surf_limitations.html#figure149">Tangent PS-DS Failure</a></dt><dt>15.1. <a href="diag_aids.html#figure150">DYNDMP Output Format</a></dt><dt>15.2. <a href="diag_aids.html#figure153a">DYNDMP Output (1 of 4)</a></dt><dt>15.3. <a href="diag_aids.html#figure153b">DYNDMP Output (2 of 4)</a></dt><dt>15.4. <a href="diag_aids.html#figure153c">DYNDMP Output (3 of 4)</a></dt><dt>15.5. <a href="diag_aids.html#figure153d">DYNDMP Output (4 of 4)</a></dt><dt>15.6. <a href="diag_aids.html#figure151">DYNDMP Symbol Relationships 1</a></dt><dt>15.7. <a href="diag_aids.html#figure152">DYNDMP Symbol Relationships 2</a></dt></dl></div><div class="list-of-tables"><p><b>List of Tables</b></p><dl><dt>1.1. <a href="language_and_syntax.html#elements_table">Statement Elements</a></dt><dt>2.1. <a href="comp_subscr_vars.html#operators_table">Operators</a></dt><dt>2.2. <a href="comp_subscr_vars.html#operators_prec_table">Operator Precedence</a></dt><dt>2.3. <a href="comp_subscr_vars.html#function_table">Arithmetic Functions</a></dt><dt>3.1. <a href="geometry.html#geom_types_table">Geometry Type and Name</a></dt><dt>15.1. <a href="diagnostic_procedures.html#trans_phase_error_table">Transitional Phase Error Messages</a></dt><dt>15.2. <a href="diagnostic_procedures.html#arith_phase_error_table">Arithmetic Element Phase Error Messages</a></dt><dt>15.3. <a href="diagnostic_procedures.html#edit_phase_error_table">Edit Phase Error Messages</a></dt><dt>16.1. <a href="rldsrf_canon.html#rldsrf_canon_format_a_table">RLDSRF Canonical Formats</a></dt></dl></div><div class="list-of-examples"><p><b>List of Examples</b></p><dl><dt>1. <a href="samp_part_prog.html#ex1">Sample Part Program Manuscript</a></dt><dt>5.1. <a href="motion_cmds.html#example_gofwd">GOFWD Usage</a></dt><dt>7.1. <a href="aux_symbol_def.html#obtain_usage_example">OBTAIN Usage</a></dt><dt>8.1. <a href="loops_macros.html#loop_example1">Looping</a></dt><dt>8.2. <a href="macro_def.html#macro_example">MACRO Usage</a></dt><dt>8.3. <a href="macro_def.html#macro_loop_example">MACRO with Loop</a></dt><dt>8.4. <a href="system_macros.html#sys_macro_example">System Macro</a></dt><dt>8.5. <a href="system_macros.html#sys_macro_usage_example">System Macro Usage</a></dt><dt>10.1. <a href="samp_output.html#ex2">Sample Part Program Manuscript (Version 2)</a></dt><dt>13.1. <a href="spec_trans_stmnt.html#vtlaxs_example">VTLAXS Usage</a></dt><dt>13.2. <a href="spec_trans_stmnt.html#wcorn_example">WCORN Example Usage</a></dt></dl></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="intro.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top"> </td><td width="20%" align="center"> </td><td width="40%" align="right" valign="top"> Introduction</td></tr></table></div></body></html>
+      </a></span></dt>
+<dt><span class="sect2"><a href="matrix_kw.html#matrix_by_mirror_planes">3.14.10. A Mirror Matrix about One or More Planes</a></span></dt>
+<dt><span class="sect2"><a href="matrix_kw.html#matrix_by_mirror_line_plane">3.14.11. A Mirror Matrix about a Line or Plane</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="sphere_kw.html">3.15. The Sphere (SPHERE) Definitions</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="sphere_kw.html#sphere_by_point_radius">3.15.1. Center Point and Radius</a></span></dt>
+<dt><span class="sect2"><a href="sphere_kw.html#sphere_by_point_surfpnt">3.15.2. Center Point and a Point on the Surface</a></span></dt>
+<dt><span class="sect2"><a href="sphere_kw.html#sphere_by_point_tan_plane">3.15.3. Center Point and a Plane to which it is Tangent</a></span></dt>
+<dt><span class="sect2"><a href="sphere_kw.html#sphere_by_4pts">3.15.4. Passing Through Four Points</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="qadric_kw.html">3.16. The Quadric (QADRIC) Definitions</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="qadric_kw.html#permis_surfaces">3.16.1. Permissible Quadric Surfaces</a></span></dt>
+<dt><span class="sect2"><a href="qadric_kw.html#qadric_spec_form">3.16.2. Quadratics as a Special Form of QADRIC</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="refsys_kw.html">3.17. The Reference System (REFSYS) Statement</a></span></dt>
+<dt><span class="sect1"><a href="tabcyl_kw.html">3.18. The Tabulated Cylinder (TABCYL) Definition</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="tabcyl_kw.html#tabcyl_trform">3.18.1. Transformation (TRFORM)</a></span></dt>
+<dt><span class="sect2"><a href="tabcyl_kw.html#tabcyl_canon_format">3.18.2. CANON Format</a></span></dt>
+<dt><span class="sect2"><a href="tabcyl_kw.html#tabcyl_noz_rtheta_thetar">3.18.3. NOZ, RTHETA, THETAR Formats</a></span></dt>
+<dt><span class="sect2"><a href="tabcyl_kw.html#tabcyl_nox_noy">3.18.4. NOX, NOY Formats</a></span></dt>
+<dt><span class="sect2"><a href="tabcyl_kw.html#tabcyl_xyz">3.18.5. XYZ Format</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="polcon_kw.html">3.19. The Polyconic (POLCON) Definition</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="polcon_kw.html#polcon_meth_of_def">3.19.1. Method of Definition</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="rldsrf_kw.html">3.20. The Ruled Surface (RLDSRF) Definitions</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="rldsrf_kw.html#rldsrf_by_6pts_2srf">3.20.1. Six Points and Two Surfaces</a></span></dt>
+<dt><span class="sect2"><a href="rldsrf_kw.html#rldsrf_by_2srf_4pt_2vect">3.20.2. Two Surfaces, Four Points and Two Vectors</a></span></dt>
+<dt><span class="sect2"><a href="rldsrf_kw.html#rldsrf_by_2srf_5pt_vect">3.20.3. Two Surfaces, Five Points and a Vector</a></span></dt>
+<dt><span class="sect2"><a href="rldsrf_kw.html#rldsrf_by_pt_for_curve">3.20.4. Replacing One of the Curves with a Point</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="nested_defs.html">3.21. Nested Definitions</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="nested_defs.html#nested_geom_defs">3.21.1. Nested Geometric Definitions Instead of Symbols</a></span></dt>
+<dt><span class="sect2"><a href="nested_defs.html#nested_geom_def_with_sym">3.21.2. Nested Geometric Definitions with Symbols Attached</a></span></dt>
+<dt><span class="sect2"><a href="nested_defs.html#nested_geom_nongeom_stmnt">3.21.3. Nested Geometric Definitions in Non-Geometric Definition
+        Statements</a></span></dt>
+<dt><span class="sect2"><a href="nested_defs.html#nested_def_spec_case">3.21.4. Special Case of Nested Definition</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="canon_kw.html">3.22. The Canonical Form (CANON) Statement</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="canon_kw.html#canon_form">3.22.1. Canonical Form Input</a></span></dt>
+<dt><span class="sect2"><a href="canon_kw.html#canon_ref_to_prev_form">3.22.2. Reference to Previous Canonical Form</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="additional_geom_words.html">3.23. Additional Geometric Words</a></span></dt></dl></dd>
+<dt><span class="chapter"><a href="p2p_programming.html">4. Point-To-Point Programming</a></span></dt><dd><dl>
+<dt><span class="sect1"><a href="p2p_programming.html#from_kw">4.1. The Initialization (FROM) Statement</a></span></dt>
+<dt><span class="sect1"><a href="goto_kw.html">4.2. The Absolute Movement (GOTO) Statement</a></span></dt>
+<dt><span class="sect1"><a href="godlta_kw.html">4.3. The Incremental Movement (GODLTA) Statement</a></span></dt>
+<dt><span class="sect1"><a href="zsurf_implication.html">4.4. Implication of the ZSURF Statement</a></span></dt>
+<dt><span class="sect1"><a href="patern_kw.html">4.5. Pattern Definition Statement</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="patern_kw.html#linear_kw">4.5.1. Linear (LINEAR) Patterns</a></span></dt>
+<dt><span class="sect2"><a href="patern_kw.html#arc_kw">4.5.2. Arc (ARC) Patterns</a></span></dt>
+<dt><span class="sect2"><a href="patern_kw.html#parlel_kw">4.5.3. Parallelogram (PARLEL) Patterns</a></span></dt>
+<dt><span class="sect2"><a href="patern_kw.html#random_kw">4.5.4. Random (RANDOM) Patterns</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="pnt_pnt_motion_cmds.html">4.6. Point-Point Motion Commands</a></span></dt><dd><dl><dt><span class="sect2"><a href="pnt_pnt_motion_cmds.html#invers_kw">4.6.1. INVERS Modifier</a></span></dt>
+<dt><span class="sect2"><a href="pnt_pnt_motion_cmds.html#omit_kw">4.6.2. OMIT Modifier</a></span></dt>
+<dt><span class="sect2"><a href="pnt_pnt_motion_cmds.html#retain_kw">4.6.3. RETAIN Modifier</a></span></dt>
+<dt><span class="sect2"><a href="pnt_pnt_motion_cmds.html#avoid_kw">4.6.4. AVOID Modifier</a></span></dt>
+<dt><span class="sect2"><a href="pnt_pnt_motion_cmds.html#thru_kw">4.6.5. THRU Modifier</a></span></dt>
+<dt><span class="sect2"><a href="pnt_pnt_motion_cmds.html#const_kw">4.6.6. CONST Modifier</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="pnt_pnt_prog_consid.html">4.7. Point-Point Programming Considerations</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="pnt_pnt_prog_consid.html#patern_op_order">4.7.1. Ordering of the Operations Performed on a Pattern</a></span></dt></dl></dd></dl></dd>
+<dt><span class="chapter"><a href="prog_toolpath.html">5. Programming a Tool Path</a></span></dt><dd><dl>
+<dt><span class="sect1"><a href="prog_toolpath.html#prog_intro">5.1. Introduction</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="prog_toolpath.html#cutter_kw">5.1.1. Description of Cutter</a></span></dt>
+<dt><span class="sect2"><a href="prog_toolpath.html#tol_spec">5.1.2. Tolerance Specification</a></span></dt>
+<dt><span class="sect2"><a href="prog_toolpath.html#surf_nomen">5.1.3. Surface Nomenclature</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="cut_surf_relate.html">5.2. CUTTER to Surface Relationships</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="cut_surf_relate.html#part_surf2">5.2.1. Part Surface</a></span></dt>
+<dt><span class="sect2"><a href="cut_surf_relate.html#drive_surf2">5.2.2. Drive Surface</a></span></dt>
+<dt><span class="sect2"><a href="cut_surf_relate.html#check_surf2">5.2.3. Check Surface</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="startup.html">5.3. Startup Procedures</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="startup.html#strtup_init">5.3.1. Initialization</a></span></dt>
+<dt><span class="sect2"><a href="startup.html#go_kw">5.3.2. GO Surface Command</a></span></dt>
+<dt><span class="sect2"><a href="startup.html#offset_kw">5.3.3. The OFFSET/ Statement</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="motion_cmds.html">5.4. Motion Commands</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="motion_cmds.html#gen_motion_stmnt">5.4.1. General Form</a></span></dt>
+<dt><span class="sect2"><a href="motion_cmds.html#dir_modifiers">5.4.2. Directional Modifiers</a></span></dt>
+<dt><span class="sect2"><a href="motion_cmds.html#surf_specification">5.4.3. Surface Specification</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="expanded_tol_stmnt.html">5.5. Expanded Tolerance Statement</a></span></dt>
+<dt><span class="sect1"><a href="multiple_intersections.html">5.6. Multiple Intersections</a></span></dt>
+<dt><span class="sect1"><a href="opt_feedrate.html">5.7. Optional Feed Rate Specification</a></span></dt></dl></dd>
+<dt><span class="chapter"><a href="pp_statement.html">6. Postprocessor Statements</a></span></dt><dd><dl>
+<dt><span class="sect1"><a href="pp_statement.html#pp_no_params">6.1. Postprocessor Commands without Parameters</a></span></dt>
+<dt><span class="sect1"><a href="pp_with_params.html">6.2. Postprocessor Commands with Parameters</a></span></dt>
+<dt><span class="sect1"><a href="pp_fixed_field_words.html">6.3. Fixed-Field Words</a></span></dt>
+<dt><span class="sect1"><a href="spec_fedrat_opt.html">6.4. Special Feedrate Option</a></span></dt></dl></dd>
+<dt><span class="chapter"><a href="special_words.html">7. Special Words in the APT Language</a></span></dt><dd><dl>
+<dt><span class="sect1"><a href="special_words.html#fixed_field_words">7.1. Fixed-Field Words</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="special_words.html#remark_kw">7.1.1. The REMARK Statement</a></span></dt>
+<dt><span class="sect2"><a href="special_words.html#partno_kw">7.1.2. The PARTNO Statement</a></span></dt>
+<dt><span class="sect2"><a href="special_words.html#pprint_kw">7.1.3. The PPRINT Statement</a></span></dt>
+<dt><span class="sect2"><a href="special_words.html#insert_kw">7.1.4. The INSERT Statement</a></span></dt>
+<dt><span class="sect2"><a href="special_words.html#titles_kw">7.1.5. The TITLES Statement</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="aux_symbol_def.html">7.2. The Auxiliary Symbol Definition (OBTAIN) Statement</a></span></dt>
+<dt><span class="sect1"><a href="apt_control_words.html">7.3. APT Processor Control Words</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="apt_control_words.html#noplot_kw">7.3.1. The NOPLOT Statement</a></span></dt>
+<dt><span class="sect2"><a href="apt_control_words.html#machin_kw">7.3.2. The MACHIN Statement</a></span></dt>
+<dt><span class="sect2"><a href="apt_control_words.html#nopost_kw">7.3.3. The NOPOST Statement</a></span></dt>
+<dt><span class="sect2"><a href="apt_control_words.html#clprnt_kw">7.3.4. The CLPRNT Statement</a></span></dt>
+<dt><span class="sect2"><a href="apt_control_words.html#cltv_kw">7.3.5. The CLTV Statement</a></span></dt>
+<dt><span class="sect2"><a href="apt_control_words.html#ptonly_kw">7.3.6. The PTONLY Statement</a></span></dt>
+<dt><span class="sect2"><a href="apt_control_words.html#fini_kw">7.3.7. The FINI Statement</a></span></dt></dl></dd></dl></dd>
+<dt><span class="chapter"><a href="loops_macros.html">8. Loops and Macros in the APT Language</a></span></dt><dd><dl>
+<dt><span class="sect1"><a href="loops_macros.html#loop_def">8.1. The Loop Definition</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="loops_macros.html#loopst_kw">8.1.1. The Loop Start (LOOPST) Statement</a></span></dt>
+<dt><span class="sect2"><a href="loops_macros.html#loopnd_kw">8.1.2. The Loop End (LOOPND) Statement</a></span></dt>
+<dt><span class="sect2"><a href="loops_macros.html#if_kw">8.1.3. The Conditional Branching (IF) Statement</a></span></dt>
+<dt><span class="sect2"><a href="loops_macros.html#jumpto_kw">8.1.4. The Unconditional Branching (JUMPTO) Statement</a></span></dt>
+<dt><span class="sect2"><a href="loops_macros.html#loop_construction">8.1.5. Constructing a Loop</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="macro_def.html">8.2. The Macro Definition</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="macro_def.html#macro_kw">8.2.1. The Macro Definition Start (MACRO) Statement</a></span></dt>
+<dt><span class="sect2"><a href="macro_def.html#termac_kw">8.2.2. The Macro Definition End (TERMAC) Statement</a></span></dt>
+<dt><span class="sect2"><a href="macro_def.html#call_kw">8.2.3. The Macro Execution (CALL) Statement</a></span></dt>
+<dt><span class="sect2"><a href="macro_def.html#macro_var_defs">8.2.4. Definition of Macro Variables</a></span></dt>
+<dt><span class="sect2"><a href="macro_def.html#sample_macro_def">8.2.5. Sample Macro Definition and Execution</a></span></dt>
+<dt><span class="sect2"><a href="macro_def.html#macro_rules">8.2.6. Rules Concerning the Macro Language</a></span></dt>
+<dt><span class="sect2"><a href="macro_def.html#macro_loop_compute">8.2.7. Looping and Computing within a Macro</a></span></dt>
+<dt><span class="sect2"><a href="macro_def.html#macro_nesting">8.2.8. Nesting of Macros</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="system_macros.html">8.3. System Macros</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="system_macros.html#libry_kw">8.3.1. The LIBRY Statement</a></span></dt>
+<dt><span class="sect2"><a href="system_macros.html#execute_sys_macros">8.3.2. Executing System Macros</a></span></dt>
+<dt><span class="sect2"><a href="system_macros.html#sys_macro">8.3.3. System Macro Example</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="multiple_label_usage.html">8.4. Multiple Usage of Statement Labels</a></span></dt></dl></dd>
+<dt><span class="chapter"><a href="pocketing.html">9. Pocketing</a></span></dt>
+<dt><span class="chapter"><a href="samp_output.html">10. Sample Part Program Output</a></span></dt>
+<dt><span class="chapter"><a href="io_stmnts.html">11. Input/Output Statements in the APT Language</a></span></dt><dd><dl>
+<dt><span class="sect1"><a href="io_stmnts.html#print_kw">11.1. The PRINT Statement</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="io_stmnts.html#titles_print">11.1.1. Use of TITLES with the PRINT Statement</a></span></dt>
+<dt><span class="sect2"><a href="io_stmnts.html#print_loop_macro">11.1.2. Use of PRINT in a Loop or Macro</a></span></dt>
+<dt><span class="sect2"><a href="io_stmnts.html#alt_print">11.1.3. Alternate Form of the PRINT Statement</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="punch_kw.html">11.2. The PUNCH Statement</a></span></dt>
+<dt><span class="sect1"><a href="read_kw.html">11.3. The READ Statement</a></span></dt></dl></dd><dt><span class="chapter"><a href="special_prog_call.html">12. Special Programs in APT -- CALL</a></span></dt><dd><dl>
+<dt><span class="sect1"><a href="special_prog_call.html#call_by_value">12.1. Call by Value</a></span></dt>
+<dt><span class="sect1"><a href="call_by_name_val.html">12.2. Call by Parameter Name and Value</a></span></dt>
+<dt><span class="sect1"><a href="use_of_spec_prog.html">12.3. Use of Special Program</a></span></dt></dl></dd>
+<dt><span class="chapter"><a href="cutpath_xform.html">13. Cutter Path Transformation Statements</a></span></dt><dd><dl>
+<dt><span class="sect1"><a href="cutpath_xform.html#tracut_kw">13.1. The Transform only (TRACUT) Statement</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="cutpath_xform.html#sample_tracut">13.1.1. Sample TRACUT Usage</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="copy_index.html">13.2. The Transform and COPY (COPY-INDEX) Statements</a></span></dt><dd><dl><dt><span class="sect2"><a href="copy_index.html#index_kw">13.2.1. The INDEX Statement</a></span></dt>
+<dt><span class="sect2"><a href="copy_index.html#copy_kw">13.2.2. The COPY Statement</a></span></dt>
+<dt><span class="sect2"><a href="copy_index.html#copy_usage">13.2.3. Usage of the COPY Feature</a></span></dt>
+<dt><span class="sect2"><a href="copy_index.html#nesting_copy">13.2.4. Nesting of COPY Loops</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="tracut_copy_usage.html">13.3. Combined Use of TRACUT and COPY</a></span></dt>
+<dt><span class="sect1"><a href="spec_trans_stmnt.html">13.4. Special Transformation Statements (VTLAXS, WCORN)</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="spec_trans_stmnt.html#vtlaxs_kw">13.4.1. The VTLAXS Statement</a></span></dt>
+<dt><span class="sect2"><a href="spec_trans_stmnt.html#wcorn_kw">13.4.2. The WCORN Statement</a></span></dt></dl></dd></dl></dd>
+<dt><span class="chapter"><a href="spec_tech.html">14. Special Techniques</a></span></dt><dd><dl>
+<dt><span class="sect1"><a href="spec_tech.html#spec_feats">14.1. Special Features</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="spec_tech.html#multax_kw">14.1.1. The Multiaxis Output (MULTAX) Statement</a></span></dt>
+<dt><span class="sect2"><a href="spec_tech.html#2dcalc_3dcalc_ndtest_kw">14.1.2. The Processor Mode (2DCALC, 3DCALC, NDTEST) Statements</a></span></dt>
+<dt><span class="sect2"><a href="spec_tech.html#numpts_kw">14.1.3. The Number of Points (NUMPTS) Statement </a></span></dt>
+<dt><span class="sect2"><a href="spec_tech.html#maxdp_kw">14.1.4. The Maximum Step (MAXDP) Statement</a></span></dt>
+<dt><span class="sect2"><a href="spec_tech.html#thick_kw">14.1.5. The Thickness (THICK) Statement</a></span></dt>
+<dt><span class="sect2"><a href="spec_tech.html#dntcut_cut_kw">14.1.6. The Delete Output (DNTCUT, CUT) Statements</a></span></dt>
+<dt><span class="sect2"><a href="spec_tech.html#tranto_kw">14.1.7. The Transfer statement (TRANTO) Statements</a></span></dt>
+<dt><span class="sect2"><a href="spec_tech.html#spec_cutter_opt">14.1.8. The Special Cutter Option</a></span></dt>
+<dt><span class="sect2"><a href="spec_tech.html#gougck_kw">14.1.9. The Special Calculation (GOUGCK) Statement</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="startup_cmds.html">14.2. Startup Commands</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="startup_cmds.html#indir_effect">14.2.1. The Effect of INDIR Vectors</a></span></dt>
+<dt><span class="sect2"><a href="startup_cmds.html#special_go_stmnts">14.2.2. Special Case GO/ Statements</a></span></dt>
+<dt><span class="sect2"><a href="startup_cmds.html#offset_error">14.2.3. Possible Startup Error Using OFFSET</a></span></dt>
+<dt><span class="sect2"><a href="startup_cmds.html#srfvct_kw">14.2.4. The SRFVCT Statement</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="to_on_past_tanto_pstan_impl.html">14.3. Implications of TO, ON, PAST, TANTO, and PSTAN</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="to_on_past_tanto_pstan_impl.html#to_past">14.3.1. TO and PAST</a></span></dt>
+<dt><span class="sect2"><a href="to_on_past_tanto_pstan_impl.html#on">14.3.2. ON</a></span></dt>
+<dt><span class="sect2"><a href="to_on_past_tanto_pstan_impl.html#tanto_pstan">14.3.3. TANTO and PSTAN</a></span></dt>
+<dt><span class="sect2"><a href="to_on_past_tanto_pstan_impl.html#implicit_chk_surf">14.3.4. Implicit Check Surface</a></span></dt>
+<dt><span class="sect2"><a href="to_on_past_tanto_pstan_impl.html#limiting_conditions">14.3.5. Some Limiting Conditions</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="multiaxis_prog.html">14.4. Multiaxis Programming</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="multiaxis_prog.html#tlaxis_kw">14.4.1. The Tool Axis (TLAXIS) Specification Statement</a></span></dt>
+<dt><span class="sect2"><a href="multiaxis_prog.html#4axis_case">14.4.2. The Four-Axis Case</a></span></dt>
+<dt><span class="sect2"><a href="multiaxis_prog.html#5axis_case">14.4.3. The Five-Axis Case</a></span></dt>
+<dt><span class="sect2"><a href="multiaxis_prog.html#impossible_spec">14.4.4. Impossible Specification</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="arelem_requirements.html">14.5. Arithmetic Element Requirements</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="arelem_requirements.html#cutter_arelem_calc">14.5.1. Definition of Cutter Used in ARELEM Calculations</a></span></dt>
+<dt><span class="sect2"><a href="arelem_requirements.html#cut2surf_calc">14.5.2. Cutter-to-Surface Calculation</a></span></dt>
+<dt><span class="sect2"><a href="arelem_requirements.html#improp_cut2surf">14.5.3. Improper Cutter-to-Surface Relationships</a></span></dt>
+<dt><span class="sect2"><a href="arelem_requirements.html#toolpos_mod_change">14.5.4. Change in Tool Position Modifier</a></span></dt>
+<dt><span class="sect2"><a href="arelem_requirements.html#arelem_impossble_spec">14.5.5. Impossible Specification</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="rldsrf_implications.html">14.6. Implications of Ruled Surface (RLDSRF)</a></span></dt>
+<dt><span class="sect1"><a href="plane_limitations.html">14.7. Limitations on Usage of Planes</a></span></dt>
+<dt><span class="sect1"><a href="tan_surf_limitations.html">14.8. Tangent Surface Limitations</a></span></dt></dl></dd>
+<dt><span class="chapter"><a href="diagnostic_procedures.html">15. Diagnostic Procedures</a></span></dt><dd><dl>
+<dt><span class="sect1"><a href="diagnostic_procedures.html#error_messages">15.1. Error Messages</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="diagnostic_procedures.html#control_errmsgs">15.1.1. Control Program Error Message</a></span></dt>
+<dt><span class="sect2"><a href="diagnostic_procedures.html#translation_errmsgs">15.1.2. Translation Phase Error Messages</a></span></dt>
+<dt><span class="sect2"><a href="diagnostic_procedures.html#arithmetic_errmsgs">15.1.3. Arithmetic Element Error Messages</a></span></dt>
+<dt><span class="sect2"><a href="diagnostic_procedures.html#edit_phase_errmsgs">15.1.4. Edit Phase Error Messages</a></span></dt>
+<dt><span class="sect2"><a href="diagnostic_procedures.html#prostproc_errmsgs">15.1.5. Postprocessor Error Messages</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="diag_aids.html">15.2. Diagnostic Aids</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="diag_aids.html#debug_kw">15.2.1. The DEBUG Statement</a></span></dt>
+<dt><span class="sect2"><a href="diag_aids.html#dyndmp_kw">15.2.2. DYNDMP</a></span></dt>
+<dt><span class="sect2"><a href="diag_aids.html#tuneup_kw">15.2.3. TUNEUP</a></span></dt></dl></dd></dl></dd>
+<dt><span class="chapter"><a href="canon_forms.html">16. Canonical Forms</a></span></dt><dd><dl><dt><span class="sect1"><a href="canon_forms.html#point_canon">16.1. POINT</a></span></dt>
+<dt><span class="sect1"><a href="line_canon.html">16.2. LINE</a></span></dt>
+<dt><span class="sect1"><a href="plane_canon.html">16.3. PLANE</a></span></dt>
+<dt><span class="sect1"><a href="circle_canon.html">16.4. CIRCLE</a></span></dt>
+<dt><span class="sect1"><a href="cylndr_canon.html">16.5. CYLNDR</a></span></dt>
+<dt><span class="sect1"><a href="elipse_canon.html">16.6. ELIPSE</a></span></dt>
+<dt><span class="sect1"><a href="hyperb_canon.html">16.7. HYPERB</a></span></dt>
+<dt><span class="sect1"><a href="cone_canon.html">16.8. CONE</a></span></dt>
+<dt><span class="sect1"><a href="gconic_canon.html">16.9. GCONIC</a></span></dt>
+<dt><span class="sect1"><a href="lconic_canon.html">16.10. LCONIC</a></span></dt>
+<dt><span class="sect1"><a href="vector_canon.html">16.11. VECTOR</a></span></dt>
+<dt><span class="sect1"><a href="matrix_canon.html">16.12. MATRIX</a></span></dt>
+<dt><span class="sect1"><a href="sphere_canon.html">16.13. SPHERE</a></span></dt>
+<dt><span class="sect1"><a href="qadric_canon.html">16.14. QADRIC</a></span></dt>
+<dt><span class="sect1"><a href="tabcyl_canon.html">16.15. TABCYL</a></span></dt>
+<dt><span class="sect1"><a href="polcon_canon.html">16.16. POLCON</a></span></dt>
+<dt><span class="sect1"><a href="rldsrf_canon.html">16.17. RLDSRF</a></span></dt>
+</dl></dd></dl></div><div class="list-of-figures"><p><b>List of Figures</b></p><dl>
+<dt>1. <a href="intro.html#fig1">APT System Flowchart</a></dt>
+<dt>2. <a href="samp_part_prog.html#fig2">Sample Part Desciption</a></dt>
+<dt>3. <a href="samp_part_prog.html#fig4">Sample Part Cutter Path</a></dt>
+<dt>3.1. <a href="geometry.html#figure5">Geometry Modifier</a></dt>
+<dt>3.2. <a href="point_kw.html#figure6">POINT by Rectangular Coordinates</a></dt>
+<dt>3.3. <a href="point_kw.html#figure7">POINT by Line, Line Intersection</a></dt>
+<dt>3.4. <a href="point_kw.html#figure8">POINT by Line, Circle Intersection</a></dt>
+<dt>3.5. <a href="point_kw.html#figure9">POINT by Circle, Circle Intersection</a></dt>
+<dt>3.6. <a href="point_kw.html#figure10">POINT by Circle, Angle</a></dt>
+<dt>3.7. <a href="point_kw.html#figure11">POINT by Circle Center</a></dt>
+<dt>3.8. <a href="point_kw.html#figure12">POINT by Line, Conic Intersection</a></dt>
+<dt>3.9. <a href="point_kw.html#figure13">POINT by 3 Plane Intersection</a></dt>
+<dt>3.10. <a href="point_kw.html#figure14">POINT by Polar Coordinates</a></dt>
+<dt>3.11. <a href="point_kw.html#figure15">POINT by Line, Tabulated Cylinder Intersection</a></dt>
+<dt>3.12. <a href="line_kw.html#figure16">LINE by Two Points</a></dt>
+<dt>3.13. <a href="line_kw.html#figure17">LINE by Point and Tangent Circle</a></dt>
+<dt>3.14. <a href="line_kw.html#figure18">LINE by Tangent Circles</a></dt>
+<dt>3.15. <a href="line_kw.html#figure19">LINE by Point Angle</a></dt>
+<dt>3.16. <a href="line_kw.html#figure20">LINE by Point, Angle to Line</a></dt>
+<dt>3.17. <a href="line_kw.html#figure21">LINE by Point, Parallel Line</a></dt>
+<dt>3.18. <a href="line_kw.html#figure22">LINE by Point, Perpendicular Line</a></dt>
+<dt>3.19. <a href="line_kw.html#figure23">LINE by Distance from Parallel Line</a></dt>
+<dt>3.20. <a href="line_kw.html#figure24">LINE by Plane Intersection</a></dt>
+<dt>3.21. <a href="line_kw.html#figure25">LINE by Slope Intercept Form</a></dt>
+<dt>3.22. <a href="line_kw.html#figure26">LINE by Point, Tangent Tabulated Cylinder</a></dt>
+<dt>3.23. <a href="line_kw.html#figure27">LINE by Point, Tangent Tabulated Cylinder</a></dt>
+<dt>3.24. <a href="plane_kw.html#figure28">PLANE by Coefficients</a></dt>
+<dt>3.25. <a href="plane_kw.html#figure29">PLANE by Three Points</a></dt>
+<dt>3.26. <a href="plane_kw.html#figure30">PLANE by Point, Parallel Plane</a></dt>
+<dt>3.27. <a href="plane_kw.html#figure31">PLANE by Parallel Plane at Distance</a></dt>
+<dt>3.28. <a href="plane_kw.html#figure32">PLANE by Point, Vector</a></dt>
+<dt>3.29. <a href="plane_kw.html#figure33">PLANE by Two Points, Perpendicular Plane</a></dt>
+<dt>3.30. <a href="circle_kw.html#figure34">CIRCLE by Coordinates, Radius</a></dt>
+<dt>3.31. <a href="circle_kw.html#figure35">CIRCLE by Center Point, Tangent Line</a></dt>
+<dt>3.32. <a href="circle_kw.html#figure36">CIRCLE by Center Point, Circumference Point</a></dt>
+<dt>3.33. <a href="circle_kw.html#figure37">CIRCLE by Three Points</a></dt>
+<dt>3.34. <a href="circle_kw.html#figure38">CIRCLE by Center Point, Tangent Circle</a></dt>
+<dt>3.35. <a href="circle_kw.html#figure39">CIRCLE by Radius, Two Tangent Lines</a></dt>
+<dt>3.36. <a href="circle_kw.html#figure40">CIRCLE by Radius, Point, Tangent Line</a></dt>
+<dt>3.37. <a href="circle_kw.html#figure41">CIRCLE by Radius, Tangent Line, Tangent Circle</a></dt>
+<dt>3.38. <a href="circle_kw.html#figure42">CIRCLE by Radius, Two Tangent Circles</a></dt>
+<dt>3.39. <a href="circle_kw.html#figure43">CIRCLE by Radius, Tangent Line, Tangent TABCLY</a></dt>
+<dt>3.40. <a href="cylndr_kw.html#figure44">CYLNDR by Point, Vector, Radius</a></dt>
+<dt>3.41. <a href="ellips_kw.html#figure45">ELLIPS Example</a></dt>
+<dt>3.42. <a href="hyperb_kw.html#figure46">HYPERB Example</a></dt>
+<dt>3.43. <a href="cone_kw.html#figure47">CONE by Canonical Form</a></dt>
+<dt>3.44. <a href="lconic_kw.html#figure48">LCONIC by Five Points</a></dt>
+<dt>3.45. <a href="lconic_kw.html#figure49">LCONIC by Four Points, Slope</a></dt>
+<dt>3.46. <a href="lconic_kw.html#figure50">LCONIC by Three Points, Two Slopes</a></dt>
+<dt>3.47. <a href="vector_kw.html#figure51">VECTOR by X, Y, Z</a></dt>
+<dt>3.48. <a href="vector_kw.html#figure52">VECTOR by Perpendicular Plane</a></dt>
+<dt>3.49. <a href="vector_kw.html#figure53">VECTOR by Scaled Vector</a></dt>
+<dt>3.50. <a href="vector_kw.html#figure54">VECTOR by Cross Product</a></dt>
+<dt>3.51. <a href="vector_kw.html#figure55">VECTOR by Normal</a></dt>
+<dt>3.52. <a href="vector_kw.html#figure56">VECTOR by Length, Angle</a></dt>
+<dt>3.53. <a href="vector_kw.html#figure57">VECTOR by Intersecting Planes</a></dt>
+<dt>3.54. <a href="vector_kw.html#figure58">VECTOR by Addition, Subtraction</a></dt>
+<dt>3.55. <a href="vector_kw.html#figure58a">VECTOR by Angle, Line</a></dt>
+<dt>3.56. <a href="sphere_kw.html#figure59">SPHERE by Center Point, Radius</a></dt>
+<dt>3.57. <a href="sphere_kw.html#figure60">SPHERE by Center Point, Tangent Plane</a></dt>
+<dt>3.58. <a href="sphere_kw.html#figure61">SPHERE by Four Points</a></dt>
+<dt>3.59. <a href="qadric_kw.html#figure62a">Elliptic Cone</a></dt>
+<dt>3.60. <a href="qadric_kw.html#figure62b">Elliptic Cylinder</a></dt>
+<dt>3.61. <a href="qadric_kw.html#figure62c">Hyperbolic Cylinder</a></dt>
+<dt>3.62. <a href="qadric_kw.html#figure62d">Parabolic Cylinder</a></dt>
+<dt>3.63. <a href="qadric_kw.html#figure63a">Real Ellipsoid</a></dt>
+<dt>3.64. <a href="qadric_kw.html#figure63b">Hyperboloid of One Sheet</a></dt>
+<dt>3.65. <a href="qadric_kw.html#figure63c">Hyperboloid of Two Sheets</a></dt>
+<dt>3.66. <a href="qadric_kw.html#figure63d">Elliptic Paraboloid</a></dt>
+<dt>3.67. <a href="qadric_kw.html#figure63e">Hyperboloid Paraboloid</a></dt>
+<dt>3.68. <a href="polcon_kw.html#figure64">POLCON Nomenclature</a></dt>
+<dt>3.69. <a href="rldsrf_kw.html#figure65">RLDSRF by Six Points, Two Surfaces</a></dt>
+<dt>3.70. <a href="rldsrf_kw.html#figure66">RLDSRF by Two Surfaces, Four Points, Two Vectors</a></dt>
+<dt>3.71. <a href="rldsrf_kw.html#figure67">RLDSRF by Two Surfaces, Five Points, Vector</a></dt>
+<dt>3.72. <a href="rldsrf_kw.html#figure68">RLDSRF by Replacing Curve with Point</a></dt>
+<dt>4.1. <a href="patern_kw.html#figure68a">LINEAR PATERN 1</a></dt>
+<dt>4.2. <a href="patern_kw.html#figure68b">LINEAR PATERN 2</a></dt>
+<dt>4.3. <a href="patern_kw.html#figure68c">ARC PATERN</a></dt>
+<dt>4.4. <a href="patern_kw.html#figure68e">PARLEL PATERN 1</a></dt>
+<dt>4.5. <a href="patern_kw.html#figure68d">PARLEL PATERN 2</a></dt>
+<dt>4.6. <a href="patern_kw.html#figure68f">RANDOM PATERN</a></dt>
+<dt>4.7. <a href="pnt_pnt_motion_cmds.html#figure68g">Sample Pattern 2</a></dt>
+<dt>4.8. <a href="pnt_pnt_motion_cmds.html#figure68i">Sample Pattern 1</a></dt>
+<dt>5.1. <a href="prog_toolpath.html#figure69">CUTTER Parameters</a></dt>
+<dt>5.2. <a href="prog_toolpath.html#figure70">Simple CUTTER Examples</a></dt>
+<dt>5.3. <a href="prog_toolpath.html#figure71">CUTTER Tolerance</a></dt>
+<dt>5.4. <a href="prog_toolpath.html#figure72">Surface Nomenclature</a></dt>
+<dt>5.5. <a href="cut_surf_relate.html#figure73">TLONPS</a></dt>
+<dt>5.6. <a href="cut_surf_relate.html#figure74">TLOFPS</a></dt>
+<dt>5.7. <a href="cut_surf_relate.html#figure75">TLLFT, TLRGT</a></dt>
+<dt>5.8. <a href="cut_surf_relate.html#figure76">TLON, TLNDON</a></dt>
+<dt>5.9. <a href="cut_surf_relate.html#figure77">Check Surface to Cutter Relationships</a></dt>
+<dt>5.10. <a href="cut_surf_relate.html#figure78">TANTO</a></dt>
+<dt>5.11. <a href="cut_surf_relate.html#figure79">PSTAN</a></dt>
+<dt>5.12. <a href="startup.html#figure80a">INDIRV</a></dt>
+<dt>5.13. <a href="startup.html#figure80b">INDIRP</a></dt>
+<dt>5.14. <a href="startup.html#figure81">Position Modifiers TO, ON, PAST</a></dt>
+<dt>5.15. <a href="startup.html#figure82">TO, ON, PAST in One-Surface Startup</a></dt>
+<dt>5.16. <a href="startup.html#figure83">NOPS in One-Surface Startup</a></dt>
+<dt>5.17. <a href="startup.html#figure84">INDIRV or INDIRP with NOPS</a></dt>
+<dt>5.18. <a href="startup.html#figure85">Impossible One-Surface Startup</a></dt>
+<dt>5.19. <a href="startup.html#figure86">Actual INDIRV Move</a></dt>
+<dt>5.20. <a href="startup.html#figure87">Possible Two-Surface Startup Positions</a></dt>
+<dt>5.21. <a href="startup.html#figure88">Two-Surface Startup INDIRV</a></dt>
+<dt>5.22. <a href="startup.html#figure89">Three-Surface Startup</a></dt>
+<dt>5.23. <a href="startup.html#figure90">Three-Surface Startup with INDIRV</a></dt>
+<dt>5.24. <a href="startup.html#figure91">One-Surface OFFSET</a></dt>
+<dt>5.25. <a href="startup.html#figure92">Two-Surface OFFSET</a></dt>
+<dt>5.26. <a href="motion_cmds.html#figure93">Directional Modifiers</a></dt>
+<dt>5.27. <a href="motion_cmds.html#figure94">GOLFT, GORGT Nomenclature</a></dt>
+<dt>5.28. <a href="motion_cmds.html#figure95">GOLFT, GORGT Example</a></dt>
+<dt>5.29. <a href="motion_cmds.html#figure97">GOFWD, GOBACK General Concept</a></dt>
+<dt>5.30. <a href="motion_cmds.html#figure98">GOUP, GODOWN Usage</a></dt>
+<dt>5.31. <a href="motion_cmds.html#figure99">AUTOPS Usage</a></dt>
+<dt>5.32. <a href="motion_cmds.html#figure100">Check Surface in Motion Command</a></dt>
+<dt>5.33. <a href="motion_cmds.html#figure101a">Check Surface with Small Cutter</a></dt>
+<dt>5.34. <a href="motion_cmds.html#figure101b">Check Surface with Large Cutter</a></dt>
+<dt>5.35. <a href="multiple_intersections.html#figure102">Multiple Motion Intersections</a></dt>
+<dt>9.1. <a href="pocketing.html#figure103">Plane for Pocket Bottom</a></dt>
+<dt>9.2. <a href="pocketing.html#figure103a">Tool Axis Normal to Plane</a></dt>
+<dt>9.3. <a href="pocketing.html#figure104">Tool Axis at Angle to Plane</a></dt>
+<dt>9.4. <a href="pocketing.html#figure105">Material Left in Pocket</a></dt>
+<dt>13.1. <a href="cutpath_xform.html#tracut_pat">TRACUT Programmed Pattern</a></dt>
+<dt>13.2. <a href="cutpath_xform.html#tracut_xform_pat">TRACUT Transformed Pattern</a></dt>
+<dt>13.3. <a href="spec_trans_stmnt.html#swarf_cut1">Swarf Cut Path 1</a></dt>
+<dt>13.4. <a href="spec_trans_stmnt.html#swarf_cut2">Swarf Cut Path 2</a></dt>
+<dt>13.5. <a href="spec_trans_stmnt.html#path_inflection">Path Inflection</a></dt>
+<dt>13.6. <a href="spec_trans_stmnt.html#vtlaxs_tilt_dir">VTLAXS Tilt Direction</a></dt>
+<dt>13.7. <a href="spec_trans_stmnt.html#vtlaxs_drvsrf_side">VTLAXS Drive Surface Side</a></dt>
+<dt>13.8. <a href="spec_trans_stmnt.html#vtlaxs_partpent_1">VTLAXS Part Surface Penetration 1</a></dt>
+<dt>13.9. <a href="spec_trans_stmnt.html#vtlaxs_partpent_2">VTLAXS Part Surface Penetration 2</a></dt>
+<dt>13.10. <a href="spec_trans_stmnt.html#vtlaxs_partpent_3">VTLAXS Part Surface Penetration 3</a></dt>
+<dt>13.11. <a href="spec_trans_stmnt.html#wcorn_cleanout">WCORN Clean Out</a></dt>
+<dt>14.1. <a href="spec_tech.html#figure107">Improper Check Surface</a></dt>
+<dt>14.2. <a href="spec_tech.html#figure108">THICK, Add Material</a></dt>
+<dt>14.3. <a href="spec_tech.html#figure109">THICK, Remove Material</a></dt>
+<dt>14.4. <a href="spec_tech.html#figure110">DNTCUT, CUT Usage</a></dt>
+<dt>14.5. <a href="spec_tech.html#figure111">TRANTO Usage</a></dt>
+<dt>14.6. <a href="spec_tech.html#figure112">Disk Cutter Definition</a></dt>
+<dt>14.7. <a href="spec_tech.html#figure113">Special CUTTER Position Move</a></dt>
+<dt>14.8. <a href="spec_tech.html#figure114">Special CUTTER Invalid Cut Move</a></dt>
+<dt>14.9. <a href="spec_tech.html#figure115">Special CUTTER Valid Cut Move</a></dt>
+<dt>14.10. <a href="spec_tech.html#figure116">GOUGCK Sample Surface</a></dt>
+<dt>14.11. <a href="spec_tech.html#figure117">GOUGCK Bad Cut Vector</a></dt>
+<dt>14.12. <a href="startup_cmds.html#figure118">INDIRV Usage</a></dt>
+<dt>14.13. <a href="startup_cmds.html#figure119">INDIRV Two Vector Form</a></dt>
+<dt>14.14. <a href="startup_cmds.html#figure120">INDIRV Error Condition</a></dt>
+<dt>14.15. <a href="startup_cmds.html#figure121">SRFVCT Usage</a></dt>
+<dt>14.16. <a href="startup_cmds.html#figure122">SRFVCT Two Vector Form</a></dt>
+<dt>14.17. <a href="to_on_past_tanto_pstan_impl.html#figure123">TO, ON, PAST Usage</a></dt>
+<dt>14.18. <a href="to_on_past_tanto_pstan_impl.html#figure124">TO, ON, PAST Usage</a></dt>
+<dt>14.19. <a href="to_on_past_tanto_pstan_impl.html#figure125">TANTO when ON DS</a></dt>
+<dt>14.20. <a href="to_on_past_tanto_pstan_impl.html#figure126">TANTO when Offset from DS</a></dt>
+<dt>14.21. <a href="to_on_past_tanto_pstan_impl.html#figure126a">Pseudo Check Surface</a></dt>
+<dt>14.22. <a href="to_on_past_tanto_pstan_impl.html#figure126b">TANTO Usage vs PAST, TO</a></dt>
+<dt>14.23. <a href="multiaxis_prog.html#figure127">TLAXIS Lead Angle</a></dt>
+<dt>14.24. <a href="multiaxis_prog.html#figure128">TLAXIS Lag Angle</a></dt>
+<dt>14.25. <a href="multiaxis_prog.html#figure129">TLAXIS &#946; Angle Usage</a></dt>
+<dt>14.26. <a href="multiaxis_prog.html#figure130">TLAXIS &#945; Angle Usage</a></dt>
+<dt>14.27. <a href="multiaxis_prog.html#figure131">TLAXIS Cone Envelope</a></dt>
+<dt>14.28. <a href="multiaxis_prog.html#figure132">TLAXIS &#945; Cone Envelope</a></dt>
+<dt>14.29. <a href="multiaxis_prog.html#figure133">TLAXIS &#945; Reduced to &#946;
+            Behavior</a></dt>
+<dt>14.30. <a href="multiaxis_prog.html#figure134">Five-Axis</a></dt>
+<dt>14.31. <a href="multiaxis_prog.html#figure135">TLAXIS Invalid Usage</a></dt>
+<dt>14.32. <a href="arelem_requirements.html#figure136">ARELEM Usage of CUTTER </a></dt>
+<dt>14.33. <a href="arelem_requirements.html#figure137">ARELEM, Cutter/Surface Calc 1</a></dt>
+<dt>14.34. <a href="arelem_requirements.html#figure138">ARELEM, Cutter/Surface Calc 2</a></dt>
+<dt>14.35. <a href="arelem_requirements.html#figure139">ARELEM, Invalid Cutter/Surface</a></dt>
+<dt>14.36. <a href="arelem_requirements.html#figure140">ARELEM, Improper Cutter/Surface 1</a></dt>
+<dt>14.37. <a href="arelem_requirements.html#figure141">ARELEM, Improper Cutter/Surface 2</a></dt>
+<dt>14.38. <a href="arelem_requirements.html#figure142">ARELEM, Improper Cutter/Surface 3</a></dt>
+<dt>14.39. <a href="arelem_requirements.html#figure143">ARELEM, Cutter Switching DS Side</a></dt>
+<dt>14.40. <a href="arelem_requirements.html#figure144">ARELEM, Invalid Check Surface</a></dt>
+<dt>14.41. <a href="rldsrf_implications.html#figure144a">Possible RLDSRF</a></dt>
+<dt>14.42. <a href="rldsrf_implications.html#figure145">Poor RLDSRF Definition</a></dt>
+<dt>14.43. <a href="rldsrf_implications.html#figure146">RLDSRF Ambiguity</a></dt>
+<dt>14.44. <a href="rldsrf_implications.html#figure147">RLDSRF, 3 Point vs 2 Point</a></dt>
+<dt>14.45. <a href="plane_limitations.html#figure148">Pseudo CS with Shallow Plane</a></dt>
+<dt>14.46. <a href="tan_surf_limitations.html#figure149">Tangent PS-DS Failure</a></dt>
+<dt>15.1. <a href="diag_aids.html#figure150">DYNDMP Output Format</a></dt>
+<dt>15.2. <a href="diag_aids.html#figure153a">DYNDMP Output (1 of 4)</a></dt>
+<dt>15.3. <a href="diag_aids.html#figure153b">DYNDMP Output (2 of 4)</a></dt>
+<dt>15.4. <a href="diag_aids.html#figure153c">DYNDMP Output (3 of 4)</a></dt>
+<dt>15.5. <a href="diag_aids.html#figure153d">DYNDMP Output (4 of 4)</a></dt>
+<dt>15.6. <a href="diag_aids.html#figure151">DYNDMP Symbol Relationships 1</a></dt>
+<dt>15.7. <a href="diag_aids.html#figure152">DYNDMP Symbol Relationships 2</a></dt></dl></div><div class="list-of-tables"><p><b>List of Tables</b></p><dl><dt>1.1. <a href="language_and_syntax.html#elements_table">Statement Elements</a></dt>
+<dt>2.1. <a href="comp_subscr_vars.html#operators_table">Operators</a></dt>
+<dt>2.2. <a href="comp_subscr_vars.html#operators_prec_table">Operator Precedence</a></dt>
+<dt>2.3. <a href="comp_subscr_vars.html#function_table">Arithmetic Functions</a></dt>
+<dt>3.1. <a href="geometry.html#geom_types_table">Geometry Type and Name</a></dt>
+<dt>15.1. <a href="diagnostic_procedures.html#trans_phase_error_table">Transitional Phase Error Messages</a></dt>
+<dt>15.2. <a href="diagnostic_procedures.html#arith_phase_error_table">Arithmetic Element Phase Error Messages</a></dt>
+<dt>15.3. <a href="diagnostic_procedures.html#edit_phase_error_table">Edit Phase Error Messages</a></dt>
+<dt>16.1. <a href="rldsrf_canon.html#rldsrf_canon_format_a_table">RLDSRF Canonical Formats</a></dt></dl></div>
+<div class="list-of-examples"><p><b>List of Examples</b></p><dl>
+<dt>1. <a href="samp_part_prog.html#ex1">Sample Part Program Manuscript</a></dt>
+<dt>5.1. <a href="motion_cmds.html#example_gofwd">GOFWD Usage</a></dt>
+<dt>7.1. <a href="aux_symbol_def.html#obtain_usage_example">OBTAIN Usage</a></dt>
+<dt>8.1. <a href="loops_macros.html#loop_example1">Looping</a></dt>
+<dt>8.2. <a href="macro_def.html#macro_example">MACRO Usage</a></dt>
+<dt>8.3. <a href="macro_def.html#macro_loop_example">MACRO with Loop</a></dt>
+<dt>8.4. <a href="system_macros.html#sys_macro_example">System Macro</a></dt>
+<dt>8.5. <a href="system_macros.html#sys_macro_usage_example">System Macro Usage</a></dt>
+<dt>10.1. <a href="samp_output.html#ex2">Sample Part Program Manuscript (Version 2)</a></dt>
+<dt>13.1. <a href="spec_trans_stmnt.html#vtlaxs_example">VTLAXS Usage</a></dt>
+<dt>13.2. <a href="spec_trans_stmnt.html#wcorn_example">WCORN Example Usage</a></dt></dl></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="intro.html"><img src="images/next.gif" alt="Next"></a></td></tr><tr><td width="40%" align="left" valign="top"> </td><td width="20%" align="center"> </td><td width="40%" align="right" valign="top"> Introduction</td></tr></table></div></body></html>
