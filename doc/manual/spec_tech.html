@@ -1,15 +1,54 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Chapter 14. Special Techniques</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="index.html" title="APT360 Programmers Manual"><link rel="prev" href="spec_trans_stmnt.html" title="13.4. Special Transformation Statements (VTLAXS, WCORN)"><link rel="next" href="startup_cmds.html" title="14.2. Startup Commands"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 14. Special Techniques</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="spec_trans_stmnt.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="startup_cmds.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="spec_tech"></a>Chapter 14. Special Techniques</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="sect1"><a href="spec_tech.html#spec_feats">14.1. Special Features</a></span></dt><dd><dl><dt><span class="sect2"><a href="spec_tech.html#multax_kw">14.1.1. The Multiaxis Output (MULTAX) Statement</a></span></dt><dt><span class="sect2"><a href="spec_tech.html#2dcalc_3dcalc_ndtest_kw">14.1.2. The Processor Mode (2DCALC, 3DCALC, NDTEST) Statements</a></span></dt><dt><span class="sect2"><a href="spec_tech.html#numpts_kw">14.1.3. The Number of Points (NUMPTS) Statement </a></span></dt><dt><span class="sect2"><a href="spec_tech.html#maxdp_kw">14.1.4. The Maximum Step (MAXDP) Statement</a></span></dt><dt><span class="sect2"><a href="spec_tech.html#thick_kw">14.1.5. The Thickness (THICK) Statement</a></span></dt><dt><span class="sect2"><a href="spec_tech.html#dntcut_cut_kw">14.1.6. The Delete Output (DNTCUT, CUT) Statements</a></span></dt><dt><span class="sect2"><a href="spec_tech.html#tranto_kw">14.1.7. The Transfer statement (TRANTO) Statements</a></span></dt><dt><span class="sect2"><a href="spec_tech.html#spec_cutter_opt">14.1.8. The Special Cutter Option</a></span></dt><dt><span class="sect2"><a href="spec_tech.html#gougck_kw">14.1.9. The Special Calculation (GOUGCK) Statement</a></span></dt></dl></dd><dt><span class="sect1"><a href="startup_cmds.html">14.2. Startup Commands</a></span></dt><dd><dl><dt><span class="sect2"><a href="startup_cmds.html#indir_effect">14.2.1. The Effect of INDIR Vectors</a></span></dt><dt><span class="sect2"><a href="startup_cmds.html#special_go_stmnts">14.2.2. Special Case GO/ Statements</a></span></dt><dt><span class="sect2"><a href="startup_cmds.html#offset_error">14.2.3. Possible Startup Error Using OFFSET</a></span></dt><dt><span class="sect2"><a href="startup_cmds.html#srfvct_kw">14.2.4. The SRFVCT Statement</a></span></dt></dl></dd><dt><span class="sect1"><a href="to_on_past_tanto_pstan_impl.html">14.3. Implications of TO, ON, PAST, TANTO, and PSTAN</a></span></dt><dd><dl><dt><span class="sect2"><a href="to_on_past_tanto_pstan_impl.html#to_past">14.3.1. TO and PAST</a></span></dt><dt><span class="sect2"><a href="to_on_past_tanto_pstan_impl.html#on">14.3.2. ON</a></span></dt><dt><span class="sect2"><a href="to_on_past_tanto_pstan_impl.html#tanto_pstan">14.3.3. TANTO and PSTAN</a></span></dt><dt><span class="sect2"><a href="to_on_past_tanto_pstan_impl.html#implicit_chk_surf">14.3.4. Implicit Check Surface</a></span></dt><dt><span class="sect2"><a href="to_on_past_tanto_pstan_impl.html#limiting_conditions">14.3.5. Some Limiting Conditions</a></span></dt></dl></dd><dt><span class="sect1"><a href="multiaxis_prog.html">14.4. Multiaxis Programming</a></span></dt><dd><dl><dt><span class="sect2"><a href="multiaxis_prog.html#tlaxis_kw">14.4.1. The Tool Axis (TLAXIS) Specification Statement</a></span></dt><dt><span class="sect2"><a href="multiaxis_prog.html#4axis_case">14.4.2. The Four-Axis Case</a></span></dt><dt><span class="sect2"><a href="multiaxis_prog.html#5axis_case">14.4.3. The Five-Axis Case</a></span></dt><dt><span class="sect2"><a href="multiaxis_prog.html#impossible_spec">14.4.4. Impossible Specification</a></span></dt></dl></dd><dt><span class="sect1"><a href="arelem_requirements.html">14.5. Arithmetic Element Requirements</a></span></dt><dd><dl><dt><span class="sect2"><a href="arelem_requirements.html#cutter_arelem_calc">14.5.1. Definition of Cutter Used in ARELEM Calculations</a></span></dt><dt><span class="sect2"><a href="arelem_requirements.html#cut2surf_calc">14.5.2. Cutter-to-Surface Calculation</a></span></dt><dt><span class="sect2"><a href="arelem_requirements.html#improp_cut2surf">14.5.3. Improper Cutter-to-Surface Relationships</a></span></dt><dt><span class="sect2"><a href="arelem_requirements.html#toolpos_mod_change">14.5.4. Change in Tool Position Modifier</a></span></dt><dt><span class="sect2"><a href="arelem_requirements.html#arelem_impossble_spec">14.5.5. Impossible Specification</a></span></dt></dl></dd><dt><span class="sect1"><a href="rldsrf_implications.html">14.6. Implications of Ruled Surface (RLDSRF)</a></span></dt><dt><span class="sect1"><a href="plane_limitations.html">14.7. Limitations on Usage of Planes</a></span></dt><dt><span class="sect1"><a href="tan_surf_limitations.html">14.8. Tangent Surface Limitations</a></span></dt></dl></div><p>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Chapter 14. Special Techniques</title>
+<link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="index.html" title="APT360 Programmers Manual"><link rel="prev" href="spec_trans_stmnt.html" title="13.4. Special Transformation Statements (VTLAXS, WCORN)"><link rel="next" href="startup_cmds.html" title="14.2. Startup Commands"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader">
+<table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 14. Special Techniques</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="spec_trans_stmnt.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="startup_cmds.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="spec_tech"></a>Chapter 14. Special Techniques</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="sect1"><a href="spec_tech.html#spec_feats">14.1. Special Features</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="spec_tech.html#multax_kw">14.1.1. The Multiaxis Output (MULTAX) Statement</a></span></dt>
+<dt><span class="sect2"><a href="spec_tech.html#2dcalc_3dcalc_ndtest_kw">14.1.2. The Processor Mode (2DCALC, 3DCALC, NDTEST) Statements</a></span></dt><dt><span class="sect2"><a href="spec_tech.html#numpts_kw">14.1.3. The Number of Points (NUMPTS) Statement </a></span></dt>
+<dt><span class="sect2"><a href="spec_tech.html#maxdp_kw">14.1.4. The Maximum Step (MAXDP) Statement</a></span></dt>
+<dt><span class="sect2"><a href="spec_tech.html#thick_kw">14.1.5. The Thickness (THICK) Statement</a></span></dt>
+<dt><span class="sect2"><a href="spec_tech.html#dntcut_cut_kw">14.1.6. The Delete Output (DNTCUT, CUT) Statements</a></span></dt>
+<dt><span class="sect2"><a href="spec_tech.html#tranto_kw">14.1.7. The Transfer statement (TRANTO) Statements</a></span></dt>
+<dt><span class="sect2"><a href="spec_tech.html#spec_cutter_opt">14.1.8. The Special Cutter Option</a></span></dt>
+<dt><span class="sect2"><a href="spec_tech.html#gougck_kw">14.1.9. The Special Calculation (GOUGCK) Statement</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="startup_cmds.html">14.2. Startup Commands</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="startup_cmds.html#indir_effect">14.2.1. The Effect of INDIR Vectors</a></span></dt>
+<dt><span class="sect2"><a href="startup_cmds.html#special_go_stmnts">14.2.2. Special Case GO/ Statements</a></span></dt>
+<dt><span class="sect2"><a href="startup_cmds.html#offset_error">14.2.3. Possible Startup Error Using OFFSET</a></span></dt>
+<dt><span class="sect2"><a href="startup_cmds.html#srfvct_kw">14.2.4. The SRFVCT Statement</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="to_on_past_tanto_pstan_impl.html">14.3. Implications of TO, ON, PAST, TANTO, and PSTAN</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="to_on_past_tanto_pstan_impl.html#to_past">14.3.1. TO and PAST</a></span></dt>
+<dt><span class="sect2"><a href="to_on_past_tanto_pstan_impl.html#on">14.3.2. ON</a></span></dt>
+<dt><span class="sect2"><a href="to_on_past_tanto_pstan_impl.html#tanto_pstan">14.3.3. TANTO and PSTAN</a></span></dt>
+<dt><span class="sect2"><a href="to_on_past_tanto_pstan_impl.html#implicit_chk_surf">14.3.4. Implicit Check Surface</a></span></dt>
+<dt><span class="sect2"><a href="to_on_past_tanto_pstan_impl.html#limiting_conditions">14.3.5. Some Limiting Conditions</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="multiaxis_prog.html">14.4. Multiaxis Programming</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="multiaxis_prog.html#tlaxis_kw">14.4.1. The Tool Axis (TLAXIS) Specification Statement</a></span></dt>
+<dt><span class="sect2"><a href="multiaxis_prog.html#4axis_case">14.4.2. The Four-Axis Case</a></span></dt>
+<dt><span class="sect2"><a href="multiaxis_prog.html#5axis_case">14.4.3. The Five-Axis Case</a></span></dt>
+<dt><span class="sect2"><a href="multiaxis_prog.html#impossible_spec">14.4.4. Impossible Specification</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="arelem_requirements.html">14.5. Arithmetic Element Requirements</a></span></dt><dd><dl>
+<dt><span class="sect2"><a href="arelem_requirements.html#cutter_arelem_calc">14.5.1. Definition of Cutter Used in ARELEM Calculations</a></span></dt>
+<dt><span class="sect2"><a href="arelem_requirements.html#cut2surf_calc">14.5.2. Cutter-to-Surface Calculation</a></span></dt>
+<dt><span class="sect2"><a href="arelem_requirements.html#improp_cut2surf">14.5.3. Improper Cutter-to-Surface Relationships</a></span></dt>
+<dt><span class="sect2"><a href="arelem_requirements.html#toolpos_mod_change">14.5.4. Change in Tool Position Modifier</a></span></dt>
+<dt><span class="sect2"><a href="arelem_requirements.html#arelem_impossble_spec">14.5.5. Impossible Specification</a></span></dt></dl></dd>
+<dt><span class="sect1"><a href="rldsrf_implications.html">14.6. Implications of Ruled Surface (RLDSRF)</a></span></dt>
+<dt><span class="sect1"><a href="plane_limitations.html">14.7. Limitations on Usage of Planes</a></span></dt>
+<dt><span class="sect1"><a href="tan_surf_limitations.html">14.8. Tangent Surface Limitations</a></span></dt></dl></div><p>
     This chapter describes those features of the processor or language with
     regard to motion commands that were sufficiently complex so as to warrant
     their exclusion from the basic discussion of motion commands (<a href="motion_cmds.html" title="5.4. Motion Commands">Section 5.4</a>).  It also includes extensions of concepts
     originally introduced in <a href="prog_toolpath.html" title="Chapter 5. Programming a Tool Path">Chapter 5</a> in a simpler form.
-  </p><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="spec_feats"></a>14.1. Special Features</h2></div></div></div><p>
+  </p><div class="sect1" lang="en"><div class="titlepage"><div>
+<div><h2 class="title" style="clear: both"><a name="spec_feats"></a>14.1. Special Features</h2></div></div></div><p>
       Certain options are available in the APT language that can override the
       normal manner in which the processor computes the required information
       for a series of motion commands.  These options should be used when it
       is know that a special condition exists such that the normal assumptions
       made by the processor will not result in the desired output.
-    </p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="multax_kw"></a>14.1.1. The Multiaxis Output (MULTAX) Statement</h3></div></div></div><p>
+    </p><div class="sect2" lang="en"><div class="titlepage"><div>
+<div><h3 class="title"><a name="multax_kw"></a>14.1.1. The Multiaxis Output (MULTAX) Statement</h3></div></div></div><p>
         Many machine tools have the capability of controlling rotation in one
         or more directions, in addition to moving along the coordinate axes.
         The APT processor has the capability for outputting, in addition to
@@ -18,7 +57,8 @@
         control the rotational axes on the machine tool.  The statement that
         requests the APT processor to output the axis vector along with the
         end point of the tool is as follows:
-      </p><div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig14-01-01-1.png"></div></blockquote></div><p>
+      </p>
+<div class="blockquote"><blockquote class="blockquote"><div class="mediaobject"><img src="images/fig14-01-01-1.png"></div></blockquote></div><p>
         The first form specifies that, from the location of the MULTAX
         statement on, all subsequent cutter locations will carry an associated
         axis vector for the rest of the part program.  In certain instances
@@ -28,7 +68,12 @@
         If both forms have been specified, the MULTAX statement takes
         precedence, and the axis vectors will be output for the rest of the
         part program.
-      </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>
+      </p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td>
+<th align="left">Note</th></tr><tr><td align="left" valign="top"><p>
           The individual postprocessor that is to be used at the conclusion of
           the cutter calculation phase may be set up only to recognize the
           MULTAX specification; that is, it may expect axis vectors for the
@@ -36,7 +81,8 @@
           given.  The user must be sure that the postprocessor will accept the
           alternate form (that is, MULTAX/ ON and MULTAX/ OFF) before it is
           specified in the part program.
-        </p></td></tr></table></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="2dcalc_3dcalc_ndtest_kw"></a>14.1.2. The Processor Mode (2DCALC, 3DCALC, NDTEST) Statements</h3></div></div></div><p>
+        </p></td></tr></table></div></div><div class="sect2" lang="en"><div class="titlepage"><div>
+<div><h3 class="title"><a name="2dcalc_3dcalc_ndtest_kw"></a>14.1.2. The Processor Mode (2DCALC, 3DCALC, NDTEST) Statements</h3></div></div></div><p>
         The APT processor generally uses an iterative technique to determine
         an acceptable cut vector in an elementary cut sequence such that the
         tolerances are not exceeded.  However, the APT processor does have the
