@@ -11,3 +11,7 @@ pre.programlisting {
   padding: 5px 5px 5px 5px;
   border: 1px solid black;
 }
+.vocab td {
+ vertical-align:top;
+ /*border:1px solid #D6DDE6;*/
+}
