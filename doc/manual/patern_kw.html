@@ -1,4 +1,14 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>4.5. Pattern Definition Statement</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="p2p_programming.html" title="Chapter 4. Point-To-Point Programming"><link rel="prev" href="zsurf_implication.html" title="4.4. Implication of the ZSURF Statement"><link rel="next" href="pnt_pnt_motion_cmds.html" title="4.6. Point-Point Motion Commands"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">4.5. Pattern Definition Statement</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="zsurf_implication.html"><img src="images/prev.gif" alt="Prev"></a> </td><th width="60%" align="center">Chapter 4. Point-To-Point Programming</th><td width="20%" align="right"> <a accesskey="n" href="pnt_pnt_motion_cmds.html"><img src="images/next.gif" alt="Next"></a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="patern_kw"></a>4.5. Pattern Definition Statement</h2></div></div></div><p>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>4.5. Pattern Definition Statement</title><link rel="stylesheet" href="apt360.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="APT360 Programmers Manual"><link rel="up" href="p2p_programming.html" title="Chapter 4. Point-To-Point Programming"><link rel="prev" href="zsurf_implication.html" title="4.4. Implication of the ZSURF Statement"><link rel="next" href="pnt_pnt_motion_cmds.html" title="4.6. Point-Point Motion Commands"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader">
+<table width="100%" summary="Navigation header"><tr>
+<th colspan="3" align="center">4.5. Pattern Definition Statement</th></tr>
+<tr><td width="20%" align="left"><a accesskey="p" href="zsurf_implication.html"><img src="images/prev.gif" alt="Prev"></a> </td>
+<th width="60%" align="center">Chapter 4. Point-To-Point Programming</th>
+<td width="20%" align="right"> <a accesskey="n" href="pnt_pnt_motion_cmds.html"><img src="images/next.gif" alt="Next"></a></td></tr>
+</table>
+<hr></div>
+<div class="sect1" lang="en"><div class="titlepage"><div>
+<div><h2 class="title" style="clear: both"><a name="patern_kw"></a>4.5. Pattern Definition Statement</h2>
+</div></div></div><p>
       A pattern is a set of one or more points. The
       maximum number of points that can be included in
       a pattern is 330. Pattern definition statements
@@ -13,22 +23,29 @@
       a pattern definition that cannot define a full 330
       points. Patterns may be defined using the formats
       listed below. Pattern definitions may not be nested.
-    </p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="linear_kw"></a>4.5.1. Linear (LINEAR) Patterns</h3></div></div></div><p>
+    </p>
+<div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title">
+<a name="linear_kw"></a>
+4.5.1. Linear (LINEAR) Patterns</h3></div></div></div><p>
         A linear pattern is a set of point locations, all of which lie on a
         straight line.
-      </p><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="patern_def_lin_2pt"></a>4.5.1.1. 
+      </p><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title">
+<a name="patern_def_lin_2pt"></a>
+4.5.1.1. 
           Start Point, End Point and Number of Equally Spaced Points
         </h4></div></div></div><p>
           The start and end points are included in
           <span class="emphasis"><em>npoints</em></span>.
         </p><div class="blockquote"><blockquote class="blockquote"><p>SPAT = PATERN/ LINEAR, spoint1, spoint2,
             <span class="emphasis"><em>npoints</em></span>
-          </p></blockquote></div><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure68a"></a><p class="title"><b>Figure 4.1. LINEAR PATERN 1</b></p><div class="mediaobject"><img src="images/figure68a.png" alt="LINEAR PATERN 1"></div></div><pre class="programlisting">
+          </p></blockquote></div><div class="blockquote"><blockquote class="blockquote"><div class="figure">
+<a name="figure68a"></a><p class="title"><b>Figure 4.1. LINEAR PATERN 1</b></p><div class="mediaobject"><img src="images/figure68a.png" alt="LINEAR PATERN 1"></div></div><pre class="programlisting">
 PAT1 = PATERN/ LINEAR, PT1, PT2, 9
 $$ or
 PAT1 = PATERN/ LINEAR, PT1, VEC1, 9
 $$ or
-PAT1 = PATERN/ LINEAR, PT1, VEC1, INCR, 8, AT, 1</pre></blockquote></div></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="patern_def_lin_pnt_vect"></a>4.5.1.2. 
+PAT1 = PATERN/ LINEAR, PT1, VEC1, INCR, 8, AT, 1</pre></blockquote></div></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title">
+<a name="patern_def_lin_pnt_vect"></a>4.5.1.2. 
           Start Point, a Vector, and Number of Equally Spaced Points
         </h4></div></div></div><p>
           The start point is included in <span class="emphasis"><em>npoints</em></span>. The
@@ -56,7 +73,8 @@ PAT1 = PATERN/ LINEAR, PT1, VEC1, INCR, 8, AT, 1</pre></blockquote></div></div><
           <span class="emphasis"><em>i</em></span><sub>n</sub>, are the successive
           increments along the vector.
         </p><div class="blockquote"><blockquote class="blockquote"><div class="figure"><a name="figure68b"></a><p class="title"><b>Figure 4.2. LINEAR PATERN 2</b></p><div class="mediaobject"><img src="images/figure68b.png" alt="LINEAR PATERN 2"></div></div><pre class="programlisting">
-PAT2 = PATERN/ LINEAR, PT2, VEC2, INCR, 2, 1, 1, 3</pre></blockquote></div></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="arc_kw"></a>4.5.2. Arc (ARC) Patterns</h3></div></div></div><p>
+PAT2 = PATERN/ LINEAR, PT2, VEC2, INCR, 2, 1, 1, 3</pre></blockquote></div></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title">
+<a name="arc_kw"></a>4.5.2. Arc (ARC) Patterns</h3></div></div></div><p>
         An ARC pattern is a set of point locations, all of
         which lie on a single circle.
         The points may be defined in the counterclockwise or clockwise

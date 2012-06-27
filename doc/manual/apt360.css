@@ -6,6 +6,16 @@ div.itemizedlist img {
     vertical-align: middle;
 }
 
+#outer {
+position:relative;
+}
+
+#inner {
+position:absolute;
+left:75px;
+bottom:0px;
+}
+
 pre.programlisting {
   background-color: #fefedd;
   padding: 5px 5px 5px 5px;
