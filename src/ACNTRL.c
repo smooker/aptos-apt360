@@ -4,7 +4,7 @@
 */
 
 #include "f2c.h"
-#include <config.h>
+#include "config.h"
 
 extern int nopost_flag;
 

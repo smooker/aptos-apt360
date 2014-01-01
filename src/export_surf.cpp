@@ -31,7 +31,7 @@ void export_surf(int* idfsto, double* canon ,double* name, int* sub,int* canonLe
 //-----remove blanks----------------------------------------------------------
 void compressName(char* name)
 {
-	char tmp[8]={0};
+	char tmp[8+2]={0};
 	int j=0,i=0;
 	while(i<8){
 		while(name[i]==' ')++i;

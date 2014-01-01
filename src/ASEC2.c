@@ -5,7 +5,7 @@
 
 #include "f2c.h"
 #include "endianmacs.h"
-#include <config.h>
+#include "config.h"
 
 /* Common Block Declarations */
 
@@ -155,6 +155,7 @@ static integer c__315 = 315;
 
 #define pdum ((doublereal *)&equiv_17)
 
+	int indxfd1, indxfd2, ivalfd1, ivalfd2; // (2014-Jan-01 jsuber)
 
     /* System generated locals */
     integer i__1;
@@ -653,6 +654,56 @@ L2001:
 	goto L2003;
     }
     i__1 = a2cmmn_.nwds;
+	if (i__1 == 2) // (2014-Jan-01 jsuber)
+	{
+		// problem[1]: APT360 manual does not document as valid the statement:
+		//	FEDRAT/0.005, IPR
+		// Existing code interprets as distance to a check surface of 0.005 at a feedrate of 73 IPM
+		// because the fractional portion of the doublereal will wind up making the interrogated 
+		// integer word non-zero (as will 'FEDRAT/40.1, IPM')
+		// To get existing code to work, user must specify:
+		//	FEDRAT/0.005, IPR, fff.*, MAXIPM
+		// problem[2]: the manual does not include IPM as a valid keyword for FEDRAT though:
+		//	FEDRAT/40.,IPM		passes through as expected
+		//	FEDRAT/40.1, IPM	will be treated as distance to check surf case
+		// So the following code looks only at the two parameter case and looks at both parameters
+		// to see if either one is IPM or IPR and if so assumes 2nd value is feedrate value.
+		// The one case where this could possibly be misinterpreted, a user actually wants to
+		// change feedrate to 73 or 74ipm at 73 or 74 inches from the check surface.
+		// Otherwise this just makes things more user friendly.
+		// BTW, the original APT360 code base does not implement MMPM or MMPR minor words.
+		
+		indxfd1 = (1 << 1) - 2;
+		indxfd2 = (2 << 1) - 2;
+		ivalfd1 = ipro[indxfd1];
+		ivalfd2 = ipro[indxfd2];
+
+		if (ivalfd1 == 73  ||  ivalfd1 == 74) // first token is minor word IPM or IPR
+		{
+			if (ivalfd2 != 73  &&  ivalfd2 != 74) // 2nd token *not* minor word
+			{
+				// FEDRAT / {IPR/IPM}, fff.fff case, treat as normal
+//#ifdef _DEBUG
+//				double *pd = (double*)&ipro[indxfd2];
+//				printf("FEDRAT / %s, %-.6f\r\n", (ivalfd1==73?"IPM":"IPR"), *pd);
+//#endif
+				goto L2007;
+			}
+		}
+		else if (ivalfd2 == 73  ||  ivalfd2 == 74) // 2nd token is minor word IPM or IPR
+		{
+			if (ivalfd1 != 73  &&  ivalfd1 != 74) // 1st token *not* minor word
+			{
+				// FEDRAT / fff.fff, {IPR/IPM} case, treat as normal
+//#ifdef _DEBUG
+//				double *pd = (double*)&ipro[indxfd1];
+//				printf("FEDRAT / %s, %-.6f\r\n", (ivalfd2==73?"IPM":"IPR"), *pd);
+//#endif
+				goto L2007;
+			}
+		}
+	}
+
     for (jjj = 1; jjj <= i__1; ++jjj) {
 //	if (ipro[OTHER_ENDIAN_S((jjj << 1) - 2)] == 0) {
 	if (ipro[(jjj << 1) - 2] == 0) {

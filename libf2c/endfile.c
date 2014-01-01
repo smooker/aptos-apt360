@@ -1,5 +1,3 @@
-#include "f2c.h"
-#include "fio.h"
 
 /* Compile this with -DNO_TRUNCATE if unistd.h does not exist or */
 /* if it does not define int truncate(const char *name, off_t). */
@@ -7,10 +5,14 @@
 #ifdef MSDOS
 #undef NO_TRUNCATE
 #define NO_TRUNCATE
+#elif WIN32
+#undef NO_TRUNCATE
+#define NO_TRUNCATE
 #endif
 
+
 #ifndef NO_TRUNCATE
-#include "unistd.h"
+#include <unistd.h>
 #endif
 
 #ifdef KR_headers
@@ -20,12 +22,15 @@ extern FILE *tmpfile();
 #undef abs
 #undef min
 #undef max
-#include "stdlib.h"
-#include "string.h"
+#include <stdlib.h>
+#include <string.h>
 #ifdef __cplusplus
 extern "C" {
 #endif
 #endif
+
+#include "f2c.h"
+#include "fio.h"
 
 extern char *f__r_mode[], *f__w_mode[];
 

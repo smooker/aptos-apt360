@@ -1,13 +1,18 @@
-#include "f2c.h"
-#include "fio.h"
-#include "string.h"
+
+#include <string.h>
+
 #ifndef NON_POSIX_STDIO
 #ifdef MSDOS
-#include "io.h"
+#include <io.h>
+#elif WIN32
+#include <io.h>
 #else
-#include "unistd.h"	/* for access */
+#include <unistd.h>	/* for access */
 #endif
 #endif
+
+#include "f2c.h"
+#include "fio.h"
 
 #ifdef KR_headers
 extern char *malloc();

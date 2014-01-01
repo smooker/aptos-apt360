@@ -1,8 +1,8 @@
 #ifndef SYSDEP_H_INCLUDED
 #include "sysdep1.h"
 #endif
-#include "stdio.h"
-#include "errno.h"
+#include <stdio.h>
+#include <errno.h>
 #ifndef NULL
 /* ANSI C */
 #include "stddef.h"

@@ -6,6 +6,9 @@
 #include <math.h> 
 #include "f2c.h"
 #include "endianmacs.h"
+#ifdef WIN32
+#include "isinf.h"
+#endif
 
 /* Common Block Declarations */
 

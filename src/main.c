@@ -4,8 +4,12 @@
 */
 
 #include "f2c.h"
-#include <getopt.h>
 #include <stdio.h>
+#ifdef WIN32
+#include "getopt.h"
+#else
+#include <getopt.h>
+#endif
 #ifdef HAVE_CONFIG_H
 	#include "../config.h"	
 #endif

@@ -5,7 +5,11 @@
 
 #include "f2c.h"
 #include "endianmacs.h"
+#ifdef WIN32
+#define fabs(x) (doublereal)abs(x)
+#else
 #include <math.h>
+#endif
 //**Canon storing routine**
 //n1=length of iarg1 
 //n2=length of iarg2 

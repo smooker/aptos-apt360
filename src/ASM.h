@@ -1,9 +1,13 @@
 #ifndef ASM_H
 #define ASM_H
-#include <f2c.h>
 #include <stdio.h>
 #include <assert.h>
+#include <f2c.h>
+#ifdef WIN32
+#define fabs(x) (doublereal)abs(x)
+#else
 #include <math.h>
+#endif
 
 
 struct TapeHdr{

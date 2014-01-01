@@ -1,5 +1,5 @@
 #include "sysdep1.h"	/* here to get stat64 on some badly designed Linux systems */
-#include "f2c.h"
+
 #ifdef KR_headers
 #define Const /*nothing*/
 extern char *malloc();
@@ -8,18 +8,22 @@ extern char *malloc();
 #undef abs
 #undef min
 #undef max
-#include "stdlib.h"
+#include <stdlib.h>
 #endif
-#include "fio.h"
-#include "fmt.h"	/* for struct syl */
 
 /* Compile this with -DNO_ISATTY if unistd.h does not exist or */
 /* if it does not define int isatty(int). */
 #ifdef NO_ISATTY
 #define isatty(x) 0
 #else
+#ifndef WIN32
 #include <unistd.h>
 #endif
+#endif
+
+#include "f2c.h"
+#include "fio.h"
+#include "fmt.h"	/* for struct syl */
 
 #ifdef __cplusplus
 extern "C" {

@@ -1,4 +1,3 @@
-#include "f2c.h"
 
 #ifdef KR_headers
 extern double sin(), cos(), sinh(), cosh();
@@ -6,10 +5,12 @@ extern double sin(), cos(), sinh(), cosh();
 VOID c_cos(r, z) complex *r, *z;
 #else
 #undef abs
-#include "math.h"
+#include <math.h>
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+#include "f2c.h"
 
 void c_cos(complex *r, complex *z)
 #endif
