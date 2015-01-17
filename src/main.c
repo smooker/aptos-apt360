@@ -6,7 +6,7 @@
 #include "f2c.h"
 #include <stdio.h>
 #ifdef WIN32
-#include "getopt.h"
+#include "getopt.win.h"
 #else
 #include <getopt.h>
 #endif
