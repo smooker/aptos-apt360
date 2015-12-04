@@ -21,19 +21,6 @@ struct ClassRef{
 	shortint proTapSubClass;
 
 	shortint proTapClass;
-
-/*
-
-	integer classId;
-
-	integer subClass;
-
-	integer proTapSubClass;
-
-	integer proTapClass;
-
-*/
-
 };
 
 

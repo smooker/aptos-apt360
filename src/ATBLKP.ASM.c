@@ -204,7 +204,8 @@ C          IF    A = A THRU D   OR  F    THRU  Z  ,  THEN    NF = 14
 
 extern struct Keyword keyarray[];
 
-void storeClassSubClassInN(unsigned int* n, integer i)
+//void storeClassSubClassInN(unsigned int* n, integer i)
+void storeClassSubClassInN(uinteger* n, integer i)
 
 {
 
@@ -230,7 +231,8 @@ void storeClassSubClassInN(unsigned int* n, integer i)
 
 
 
-int atblkp_(unsigned char* entry,unsigned int* n,unsigned int*c)
+//int atblkp_(unsigned char* entry,unsigned int* n,unsigned int*c)
+int atblkp_(unsigned char* entry, uinteger* n, uinteger*c)
 
 
 
@@ -242,7 +244,8 @@ int atblkp_(unsigned char* entry,unsigned int* n,unsigned int*c)
 
 	char tmpEntry[9];
 
-	long long int* ent;
+//	long long int* ent;
+	uinteger* ent;
 
 	int imax;
 
@@ -316,7 +319,8 @@ skip:
 
 			else { 
 
-				ent=(long long int*)entry;		
+		//		ent=(long long int*)entry;		
+				ent=(uinteger*)entry;		
 
 				*ent=keyarray[i].data.proTapSubClass;
 

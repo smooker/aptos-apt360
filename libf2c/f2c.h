@@ -7,8 +7,18 @@
 #ifndef F2C_INCLUDE
 #define F2C_INCLUDE
 
-typedef long int integer;
-typedef unsigned long int uinteger;
+//-----changes due to x64 porting problems: -------------
+//-----on x64 long int is 8 bytes; on 32bit, 4 bytes.
+//-----unsigned long int is 8bytes on x64, 4 bytes on 32 bit
+//original:
+//typedef long int integer;
+//typedef unsigned long int uinteger;
+//
+//new:
+typedef int integer;
+typedef unsigned int uinteger;
+//new typedefs are 4 bytes on both.
+//------------------------------------------------------
 typedef char *address;
 typedef short int shortint;
 typedef float real;
@@ -42,9 +52,14 @@ typedef short flag;
 typedef short ftnlen;
 typedef short ftnint;
 #else
-typedef long int flag;
-typedef long int ftnlen;
-typedef long int ftnint;
+//-------more x64 porting issues similar to above------
+//typedef long int flag;
+//typedef long int ftnlen;
+//typedef long int ftnint;
+typedef int flag;
+typedef int ftnlen;
+typedef int ftnint;
+//-----------------------------------------------------
 #endif
 
 /*external read, write*/

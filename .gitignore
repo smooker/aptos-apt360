@@ -9,6 +9,8 @@ configure
 compile
 aclocal.m4
 config.h
+/src/*.tap
+/examples/*
 /src/Makefile
 /src/Makefile.in
 /orig_src/Makefile
@@ -21,4 +23,6 @@ config.h
 /src/.deps
 /autom4te.cache/
 /vim/Makefile.in
+/vim/syntax/Makefile.in
 /vim/Makefile
+/src/core

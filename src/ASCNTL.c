@@ -134,8 +134,6 @@ F SURFACES IS \002i4)";
 
 /*     *** THIS PROGRAM LAST MODIFIED FOR VERSION 4,MODIFICATION 4 *** */
 /* *    THIS IS THE CONTROL PROGRAM FOR SECTION 1, THE LANGUAGE TRANSLATOR */
-
-
     if (a1com_1.ifini < 0) {
 	goto L2;
     } else if (a1com_1.ifini == 0) {
