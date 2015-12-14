@@ -24,5 +24,3 @@ Known Issues:
  into the 'apt' script.
 
 *Large Macros cannot yet be stored to tape as in the original.
-
-*The program has not been ported to 64 bit systems.
