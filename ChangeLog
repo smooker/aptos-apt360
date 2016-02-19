@@ -19,3 +19,6 @@ version 1.0.2 (21Mar12):
 	with the main program
 
 	* Added more example programs
+
+version 1.0.3 (16Dec15):
+	* Changes to allow compilation on 64 bit systems 

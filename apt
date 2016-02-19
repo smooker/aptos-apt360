@@ -13,6 +13,10 @@ fi
 for each in $@
 do
 	export APT_FILENAME=${each##*/} #for postproc's use
-		apt360 <$each
+    APT_FILENAME_NO_EXT="${each%.*}"
+    apt360 <$each
+    mv cl.tap ${APT_FILENAME_NO_EXT}.cl.tap
+    mv print.tap $APT_FILENAME_NO_EXT.print.tap
+    wait
 done
 

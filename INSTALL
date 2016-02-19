@@ -14,10 +14,6 @@ command will often work ok, but be aware of the problem. The command will
 fail with an error message if the gsl library is required for a TABCYL 
 definition.
 
-There is currently no support for 64 bit machines.  Until I get a 64 bit 
-machine, or someone offers to patch the code, you may have issues running
-it.
-
 If you are compiling on a bigendian machine (e.g., Mac OSX, Solaris sparc,etc.)
 the code will not work. Since the code was originally for the bigendian 
 OS/360 machine, the conversion to bigendian will only require the writing 
@@ -30,13 +26,6 @@ developed for this purpose.  It works hand-in-hand with the apt360 package,
 and generates the final g-code.  You will definitely need this package to
 use it in your machine. 
 
-You will want some way of viewing your geometry. Sean Dolan's vapt project
-has been developed for this purpose.  Get it at:
-
-https://sourceforge.net/projects/vapt/
-
-I also have a copy at the aptos site for convenience.
- 
 I've also included a vim syntax file in the /vim directory.  If you use vim, 
 you may want to install these files in your ~/.vim directory.
 

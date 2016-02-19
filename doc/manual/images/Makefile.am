@@ -331,8 +331,6 @@ home.gif\
 home.png\
 important.gif\
 important.png\
-Makefile.am\
-Makefile.am~\
 next.gif\
 next.png\
 note.gif\
