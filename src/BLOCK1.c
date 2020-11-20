@@ -21,13 +21,13 @@ struct asistm_1_ {
 
 /* Initialized data */
 
-struct {
+static struct {
     integer e_1[13];
     char e_2[4];
     } a0con_ = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, {' ', ' ', ' ', 
 	    ' '} };
 
-struct {
+static struct {
     integer e_1[22];
     } asistm_ = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 	    0, 0 };

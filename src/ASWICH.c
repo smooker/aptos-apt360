@@ -8,7 +8,7 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     doublereal pint[30];
     integer ifurst, jptind, now, jsub, kreslt, krslt2, nwds, its, next, 
 	    multax;
@@ -16,14 +16,14 @@ struct {
 
 #define amotcm_1 amotcm_
 
-struct {
+static struct {
     doublereal pt[300];
     integer inptp, nw, jmode, klass, klastp, irecn, npt, npr;
 } aptpp_;
 
 #define aptpp_1 aptpp_
 
-struct {
+static struct {
     doublereal vst[2750], ptpp[2225], canon[2225];
 } avst_;
 

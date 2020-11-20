@@ -1,0 +1,6 @@
+ASEC2.o: ../../src/ASEC2.c /usr/include/stdc-predef.h ../libf2c/f2c.h \
+ ../../src/endianmacs.h ../../src/config.h
+/usr/include/stdc-predef.h:
+../libf2c/f2c.h:
+../../src/endianmacs.h:
+../../src/config.h:

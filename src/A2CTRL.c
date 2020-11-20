@@ -7,14 +7,14 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     integer iptnly, itrcut, iwaven, kflag1, ltvmit, nclrec, nopost, noplot, 
 	    numpst, numptr, is3[3], kflags[9];
 } asistm_;
 
 #define asistm_1 asistm_
 
-struct {
+static struct {
     doublereal protap, cantap, cltape, poctap, plotap, srftap, tapes1, tapes2,
 	     tapes3, tapes4;
     integer intape, ioutap;
@@ -23,7 +23,7 @@ struct {
 
 #define ataptb_1 ataptb_
 
-struct {
+static struct {
     doublereal sp[3], sn[3], tp[3], tn[3], snk[3], snl[3], spk[3], spl[3], 
 	    tnk[3], tnl[3], tpk[3], tpl[3], plnv[3], cc[3], u1[3], cuth[3], 
 	    sfvct[3], vndir[3], vmd[3], vt[3], tee[3], slx[3], dplan[3], s[1],
@@ -67,13 +67,13 @@ struct {
 
 #define a2cmmn_1 a2cmmn_
 
-struct {
+static struct {
     integer kdynfq[12], nkfq;
 } a2dydp_;
 
 #define a2dydp_1 a2dydp_
 
-struct {
+static struct {
     doublereal q15x01, qp9x01, qp6x01, qp5x01, qp4x01, qp0001, qp001, qp01, 
 	    qp1, q1p, q10p, q1000p, q1pe5, q1pe6, q1pe10, q1pe20, q1pe30, 
 	    q1pe36, q1pe38, qp8x01, qp7x01, qp4x09, qp9, qp99, qp995, qp997, 
@@ -87,7 +87,7 @@ struct {
 
 #define a2fpc_1 a2fpc_
 
-struct {
+static struct {
     doublereal svtau1, svtau2, svtau, sveps1, sveps8, sveps2, sveps3, sveps4, 
 	    sveps6;
     integer mtau;
@@ -95,14 +95,14 @@ struct {
 
 #define taumd1_1 taumd1_
 
-struct {
+static struct {
     doublereal savtt, savto, savti, savt1, savt2, savt3, savt4, savt6, savt8;
     integer ismata, iismat, kchnge, kon, kst;
 } taumd2_;
 
 #define taumd2_1 taumd2_
 
-struct {
+static struct {
     integer k2flgs[10];
 } s2flgs_;
 

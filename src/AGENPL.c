@@ -7,7 +7,7 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     doublereal defsto[85], partno[11];
 } adfsto_;
 

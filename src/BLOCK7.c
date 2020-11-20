@@ -18,7 +18,7 @@ struct a2dyin_1_ {
 
 /* Initialized data */
 
-struct {
+static struct {
     integer e_1[54];
     char e_2[2800];
     } a2dyin_ = { 1, 1, 721, 1313, 1309, 1409, 1408, 0, 0, 0, 1, 3, 4, 13, 14,

@@ -7,7 +7,7 @@
 
 /* Common Block Declarations */
 /*
-struct {
+static struct {
     doublereal erc1[30], erc2[30], erc3[30], erc4[30], erc5[30], erc6[30], 
 	    erc7[30], erc8[30], erc9[30], erc10[30], erc11[30], erc12[30], 
 	    erc13[30], erc14[30], erc15[30], erc16[30], erc17[30], erc18[30], 
@@ -19,7 +19,7 @@ struct {
 	    erc48[30], erc50[30], erc51[30], erc52[30], erc53[30], erc54[30];
 } errcon_;
 */
-struct {
+static struct {
     char erc1[30*8], erc2[30*8], erc3[30*8], erc4[30*8], erc5[30*8], erc6[30*8], 
 	    erc7[30*8], erc8[30*8], erc9[30*8], erc10[30*8], erc11[30*8], erc12[30*8], 
 	    erc13[30*8], erc14[30*8], erc15[30*8], erc16[30*8], erc17[30*8], erc18[30*8], 

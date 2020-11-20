@@ -1,0 +1,2 @@
+SC4020PP.ASM.o: ../../src/SC4020PP.ASM.c /usr/include/stdc-predef.h
+/usr/include/stdc-predef.h:

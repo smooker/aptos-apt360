@@ -7,13 +7,13 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     doublereal vst[7200];
 } avst_;
 
 #define avst_1 avst_
 
-struct {
+static struct {
     doublereal defsto[85], partno[11];
 } adfsto_;
 

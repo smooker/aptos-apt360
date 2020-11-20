@@ -15,7 +15,7 @@ struct a1stab_1_ {
 
 /* Initialized data */
 
-struct {
+static struct {
     char e_1[184];
     doublereal e_2;
     } a1stab_ = { {' ', 'P', 'O', 'I', 'N', 'T', ' ', ' ', ' ', ' ', 'L', 'I',

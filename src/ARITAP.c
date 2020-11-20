@@ -8,14 +8,14 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     doublereal refsys;
     integer name__, name1, jsuber, jsv, namsub, kdbug, indxpt, loop, ifini;
 } a1com_;
 
 #define a1com_1 a1com_
 
-struct {
+static struct {
     doublereal protap, cantap, cltape, poctap, plotap, srftap, tapes1, tapes2,
 	     tapes3, tapes4;
     integer intape, ioutap, puntap;
@@ -23,14 +23,14 @@ struct {
 
 #define ataptb_1 ataptb_
 
-struct {
+static struct {
     integer iptnly, itrcut, iwaven, kflag1, ltvmit, nclrec, nopost, noplot, 
 	    numpst, numptr, iclprt, indexx, iplotr, kflags[9];
 } asistm_;
 
 #define asistm_1 asistm_
 
-struct {
+static struct {
     integer i__, j, k, l, movlge, kanmax, icanst, iovrec, kanptr, mdftab, 
 	    kancnt, kaux, kdfcnt, idefp, kprcnt, mdfpre, iprep, kovflp, 
 	    ksrfct, kovcnt, lscan, iovflo, maxcan, iref, icansc, namsta, 
@@ -41,7 +41,7 @@ struct {
 
 #define a1pas2_1 a1pas2_
 
-struct {
+static struct {
     doublereal protp[102], prosav[102];
     integer nowclt, lstpsv, incore, jgorit;
     doublereal savmot;

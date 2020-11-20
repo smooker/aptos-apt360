@@ -1,0 +1,5 @@
+ACNTRL.o: ../../src/ACNTRL.c /usr/include/stdc-predef.h ../libf2c/f2c.h \
+ ../../src/config.h
+/usr/include/stdc-predef.h:
+../libf2c/f2c.h:
+../../src/config.h:

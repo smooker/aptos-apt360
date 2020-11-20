@@ -1,0 +1,4 @@
+libf2c_a-signbit.o: ../../libf2c/signbit.c /usr/include/stdc-predef.h \
+ ../../libf2c/arith.h
+/usr/include/stdc-predef.h:
+../../libf2c/arith.h:

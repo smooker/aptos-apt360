@@ -21,16 +21,16 @@
 #define DIRECTORY_PATH_SPACE 100
 #endif
 
-struct {
+static struct {
     doublereal ppname[20];
 } apostp_;
 
-struct {
+static struct {
     integer iptnly, itrcut, iwaven, kflag1, ltvmit, nclrec, nopost, noplot, 
     	    numpst, numptr, is3[3], kflags[9];
 } asistm_;
 
-struct {
+static struct {
     doublereal name__, krfsys;
     integer sum, jsuber, namsub, debug, indxpt, loop, ifini;
 } a1com_;

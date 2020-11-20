@@ -1,0 +1,4 @@
+libf2c_a-r_sign.o: ../../libf2c/r_sign.c /usr/include/stdc-predef.h \
+ ../../libf2c/f2c.h
+/usr/include/stdc-predef.h:
+../../libf2c/f2c.h:

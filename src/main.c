@@ -16,7 +16,7 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     real protap, cantap, cltape, poctap, plotap, srftap, tapes1, tapes2, 
 	    tapes3, tapes4;
     integer intape, ioutap;

@@ -7,7 +7,7 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     doublereal adum[82], tau1[1], tau2[1], afillr[516];
     integer idum[6], itlon[1], ifillr[233];
     doublereal bfllr[536];
@@ -22,13 +22,13 @@ struct {
 
 #define a2cmmn_1 a2cmmn_
 
-struct {
+static struct {
     integer kdynfq[12], nkfq;
 } a2dydp_;
 
 #define a2dydp_1 a2dydp_
 
-struct {
+static struct {
     doublereal q15x01, qp9x01, qp6x01, qp5x01, qp4x01, qp0001, qp001, qp01, 
 	    qp1, q1p, q10p, q1000p, q1pe5, q1pe6, q1pe10, q1pe20, q1pe30, 
 	    q1pe36, q1pe38, qp8x01, qp7x01, qp4x09, qp9, qp99, qp995, qp997, 

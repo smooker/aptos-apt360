@@ -8,20 +8,20 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     doublereal refsys;
     integer name__, name1, jsuber, jsv, namsub, kdbug, indxpt, loop, ifini;
 } a1com_;
 
 #define a1com_1 a1com_
 
-struct {
+static struct {
     integer k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, iblank;
 } a0con_;
 
 #define a0con_1 a0con_
 
-struct {
+static struct {
     doublereal protap, cantap, cltape, poctap, plotap, srftap, tapes1, tapes2,
 	     tapes3, tapes4;
     integer intape, ioutap, puntap;
@@ -29,14 +29,14 @@ struct {
 
 #define ataptb_1 ataptb_
 
-struct {
+static struct {
     doublereal ppseq1, ppseq2, ename, einame;
     integer ierec, isn;
 } a2cls7_;
 
 #define a2cls7_1 a2cls7_
 
-struct {
+static struct {
     doublereal defsto[85], partno[11];
 } adfsto_;
 

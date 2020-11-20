@@ -7,7 +7,7 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     doublereal adum[600];
     integer iafl[1], ipontr[1], ifar[1], ipl[1], iunfl[1], isftyp[1], itlon[1]
 	    , isvfl[1], ifl4[1], iop[1], iopset[1], jiops[1], notan[1], jent[

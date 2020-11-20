@@ -7,7 +7,7 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     doublereal q15x01, qp9x01, qp6x01, qp5x01, qp4x01, qp0001, qp001, qp01, 
 	    qp1, q1p, q10p, q1000p, q1pe5, q1pe6, q1pe10, q1pe20, q1pe30, 
 	    q1pe36, q1pe38, qp8x01, qp7x01, qp4x09, qp9, qp99, qp995, qp997, 
@@ -21,7 +21,7 @@ struct {
 
 #define a2fpc_1 a2fpc_
 
-struct {
+static struct {
     doublereal sp[3], sn[3], tp[3], tn[3], ahold[57], zmvmag[1], bhold[30], 
 	    afillr[500];
     integer ihold[9], iop[1], ihold1[21], ifillr[209];
@@ -34,7 +34,7 @@ struct {
 
 #define a2cmmn_1 a2cmmn_
 
-struct {
+static struct {
     doublereal poldat[127], calc[100];
     integer ipolcm[12];
 } aplcnc_;

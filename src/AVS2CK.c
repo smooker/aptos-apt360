@@ -8,21 +8,21 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     doublereal refsys;
     integer name__, name1, jsuber, jsv, namsub, kdbug, indxpt, loop, ifini;
 } a1com_;
 
 #define a1com_1 a1com_
 
-struct {
+static struct {
     integer maxtab, maxvs1, maxvs2, maxptp, maxscl, maxvs, maxvst, mxptpp, 
 	    mxcan, mxsrcn, maxslr, maxelm, maxpot;
 } amxtab_;
 
 #define amxtab_1 amxtab_
 
-struct {
+static struct {
     doublereal vst[7200];
 } avst_;
 

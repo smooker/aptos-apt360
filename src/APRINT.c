@@ -8,14 +8,14 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     doublereal name__, krfsys;
     integer sum, jsuber, namsub, debug, indxpt, loop, ifini;
 } a1com_;
 
 #define a1com_1 a1com_
 
-struct {
+static struct {
     doublereal protap, cantap, cltape, poctap, plotap, srftap, tapes1, tapes2,
 	     tapes3, tapes4;
     integer intape, ioutap, puntap;
@@ -23,79 +23,79 @@ struct {
 
 #define ataptb_1 ataptb_
 
-struct {
+static struct {
     doublereal synb[100];
     integer insyn, maxsyn;
 } asyntb_;
 
 #define asyntb_1 asyntb_
 
-struct {
+static struct {
     integer k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, iblank;
 } a0con_;
 
 #define a0con_1 a0con_
 
-struct {
+static struct {
     integer maxtab, maxvs1, maxvs2, maxptp, maxscl, maxvs, maxvst, mxptpp, 
 	    mxcan, mxsrcn, maxslr, maxelm, maxpot;
 } amxtab_;
 
 #define amxtab_1 amxtab_
 
-struct {
+static struct {
     doublereal elment[600];
     integer iclass[600], jlment;
 } ailmtb_;
 
 #define ailmtb_1 ailmtb_
 
-struct {
+static struct {
     integer nextnw, nrelcn, kanlcn, locseq, nextcn, nwonrd, lplocn, jsw4, isn,
 	     k, mxloop, jsw2, jsav, jsw1, maxmv, mxnest, inill, kf;
 } abreak_;
 
 #define abreak_1 abreak_
 
-struct {
+static struct {
     doublereal scalr[180];
     integer iscws, nsurf, loctem, iargtp;
 } ascalr_;
 
 #define ascalr_1 ascalr_
 
-struct {
+static struct {
     integer ilpcnt, irpcnt, ilvcnt;
 } apartb_;
 
 #define apartb_1 apartb_
 
-struct {
+static struct {
     integer istarp, iendp, nmove, nl, itsq, lindx;
 } aprtab_;
 
 #define aprtab_1 aprtab_
 
-struct {
+static struct {
     doublereal vst[7200];
 } avst_;
 
 #define avst_1 avst_
 
-struct {
+static struct {
     integer limcan, lmdw, nitems, jwhat, macrec, macvst, macerr;
 } amacro_;
 
 #define amacro_1 amacro_
 
-struct {
+static struct {
     doublereal pt[300];
     integer inptp, nw, jmode, klass, klastp, irecn, npt, npr;
 } aptpp_;
 
 #define aptpp_1 aptpp_
 
-struct {
+static struct {
     doublereal macnam[5];
     integer maccur, maclcn[5], macrd, macstr[5], nmacvr, numids, idlocn, 
 	    macids[5], isvid;

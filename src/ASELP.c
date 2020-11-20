@@ -7,7 +7,7 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     doublereal dummy[1308], cscf[3], dscf[3], cftem[3], vtem[3], ptem1[3], 
 	    ptem2[3], pt[18]	/* was [3][6] */, dot[6], fpnt[3], te2d[3], 
 	    ti2d[3], cr, thds, thcs, tauds, taucs, percen, ans, res, pnttan[3]

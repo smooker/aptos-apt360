@@ -7,13 +7,13 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     doublereal defsto[85], partno[11];
 } adfsto_;
 
 #define adfsto_1 adfsto_
 
-struct {
+static struct {
     doublereal zsur[4];
 } azurf_;
 

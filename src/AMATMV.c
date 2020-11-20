@@ -7,7 +7,7 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     doublereal protap, dumtap, cltape, poctap, plotap, srftap, tapes1, tapes2,
 	     tapes3, tapes4;
     integer intape, ioutap, puntap;
@@ -15,14 +15,14 @@ struct {
 
 #define ataptb_1 ataptb_
 
-struct {
+static struct {
     doublereal name__, krfsys;
     integer sum, jsuber, namsub, debug, indxpt, loop, ifini;
 } a1com_;
 
 #define a1com_1 a1com_
 
-struct {
+static struct {
     doublereal macnam[5];
     integer maccur, maclcn[5], macrd, macstr[5], nmacvr, numids, idlocn, 
 	    macids[5], isvid;
@@ -30,32 +30,32 @@ struct {
 
 #define amcstf_1 amcstf_
 
-struct {
+static struct {
     integer k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, iblank;
 } a0con_;
 
 #define a0con_1 a0con_
 
-struct {
+static struct {
     integer maxtab, maxvs1, maxvs2, maxptp, maxscl, maxvs, maxvst, mxptpp, 
 	    mxcan, mxsrcn, maxslr, maxelm, maxpot;
 } amxtab_;
 
 #define amxtab_1 amxtab_
 
-struct {
+static struct {
     doublereal vst[7200];
 } avst_;
 
 #define avst_1 avst_
 
-struct {
+static struct {
     integer limcan, lmdw, nitems, jwhat, macrec, macvst, macerr;
 } amacro_;
 
 #define amacro_1 amacro_
 
-struct {
+static struct {
     doublereal amacvr[50], amacvl[50];
     integer macicl[50];
     doublereal defnam, segnam;

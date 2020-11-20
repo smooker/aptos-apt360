@@ -1,0 +1,3 @@
+BENDIX.o: ../../src/BENDIX.c /usr/include/stdc-predef.h ../libf2c/f2c.h
+/usr/include/stdc-predef.h:
+../libf2c/f2c.h:

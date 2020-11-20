@@ -8,7 +8,7 @@
 
 /* Common Block Declarations */
 doublereal debug;
-struct {
+static struct {
     doublereal protap, cantap, cltape, poctap, plotap, srftap, tapes1, tapes2,
 	     tapes3, tapes4;
     integer intape, ioutap, puntap;
@@ -16,35 +16,35 @@ struct {
 
 #define ataptb_1 ataptb_
 
-struct {
+static struct {
     doublereal name__, krfsys;
     integer sum, jsuber, namsub, debug, indxpt, loop, ifini;
 } a1com_;
 
 #define a1com_1 a1com_
 
-struct {
+static struct {
     integer maxtab, maxvs1, maxvs2, maxptp, maxscl, maxvs, maxvst, mxptpp, 
 	    mxcan, mxsrcn, maxslr, maxelm, maxpot;
 } amxtab_;
 
 #define amxtab_1 amxtab_
 
-struct {
+static struct {
     doublereal pt[300];
     integer inptp, nw, jmode, klass, klastp, irecn, npt, npr;
 } aptpp_;
 
 #define aptpp_1 aptpp_
 
-struct {
+static struct {
     doublereal ppseq1, ppseq2, idis;
     integer iisn, idvst, kfk;
 } aklas7_;
 
 #define aklas7_1 aklas7_
 
-struct {
+static struct {
     doublereal vst[7200];
 } avst_;
 

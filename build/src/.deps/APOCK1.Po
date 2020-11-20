@@ -1,0 +1,5 @@
+APOCK1.o: ../../src/APOCK1.c /usr/include/stdc-predef.h ../libf2c/f2c.h \
+ ../../src/endianmacs.h
+/usr/include/stdc-predef.h:
+../libf2c/f2c.h:
+../../src/endianmacs.h:

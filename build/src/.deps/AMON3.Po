@@ -1,0 +1,5 @@
+AMON3.o: ../../src/AMON3.c /usr/include/stdc-predef.h ../libf2c/f2c.h \
+ ../../src/endianmacs.h
+/usr/include/stdc-predef.h:
+../libf2c/f2c.h:
+../../src/endianmacs.h:

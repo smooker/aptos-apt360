@@ -1,0 +1,5 @@
+ACLS12.o: ../../src/ACLS12.c /usr/include/stdc-predef.h ../libf2c/f2c.h \
+ ../../src/endianmacs.h
+/usr/include/stdc-predef.h:
+../libf2c/f2c.h:
+../../src/endianmacs.h:

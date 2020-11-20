@@ -8,21 +8,21 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     doublereal refsys;
     integer name__, name1, jsuber, jsv, namsub, kdbug, indxpt, loop, ifini;
 } a1com_;
 
 #define a1com_1 a1com_
 
-struct {
+static struct {
     integer iptnly, itrcut, iwaven, kflag1, ltvmit, nclrec, nopost, noplot, 
 	    numpst, numptr, iclprt, indexx, iplotr, kflags[9];
 } asistm_;
 
 #define asistm_1 asistm_
 
-struct {
+static struct {
     doublereal protap, cantap, cltape, poctap, plotap, srftap, tapes1, tapes2,
 	     tapes3, tapes4;
     integer intape, ioutap, puntap;
@@ -30,40 +30,40 @@ struct {
 
 #define ataptb_1 ataptb_
 
-struct {
+static struct {
     integer maxtab, maxvs1, maxvs2, maxptp, maxscl, maxvs, maxvst, mxptpp, 
 	    mxcan, mxsrcn, maxslr, maxelm, maxpot;
 } amxtab_;
 
 #define amxtab_1 amxtab_
 
-struct {
+static struct {
     doublereal inword[14];
     integer more, ifirst;
 } ainpot_;
 
 #define ainpot_1 ainpot_
 
-struct {
+static struct {
     doublereal vst[7200];
 } avst_;
 
 #define avst_1 avst_
 
-struct {
+static struct {
     integer limcan, lmdw, nitems, jwhat, macrec, macvst, macerr;
 } amacro_;
 
 #define amacro_1 amacro_
 
-struct {
+static struct {
     doublereal scalr[180];
     integer iscws, nsurf, loctem, iargtp;
 } ascalr_;
 
 #define ascalr_1 ascalr_
 
-struct {
+static struct {
     integer i__, j, k, l, movlge, kanmax, icanst, iovrec, kanptr, mdftab, 
 	    kancnt, kaux, kdfcnt, idefp, kprcnt, mdfpre, iprep, kovflp, 
 	    ksrfct, kovcnt, lscan, iovflo, maxcan, iref, icansc, namsta, 

@@ -7,7 +7,7 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     doublereal adum[720], te[3], tek[3], tel[3], tes[3], ta[3], tak[3], tal[3]
 	    , pmove[3], ti[3], tik[3], til[3], u2[3], uvec[3], vtem[3], cmove[
 	    3], ex[3], ey[3], ez[3], vnul[3], tm[3], dir[3], axis[3], axis1[3]
@@ -38,7 +38,7 @@ struct {
 
 #define a2cmmn_1 a2cmmn_
 
-struct {
+static struct {
     integer kdynfq[12], nkfq;
 } a2dydp_;
 

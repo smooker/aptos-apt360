@@ -7,13 +7,13 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     integer k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, iblank;
 } a0con_;
 
 #define a0con_1 a0con_
 
-struct {
+static struct {
     doublereal protap, cantap, cltape, poctap, plotap, srftap, tapes1, tapes2,
 	     tapes3, tapes4;
     integer intape, ioutap, puntap;
@@ -21,20 +21,20 @@ struct {
 
 #define ataptb_1 ataptb_
 
-struct {
+static struct {
     integer iptnly, itrcut, iwaven, kflag1, ltvmit, nclrec, nopost, noplot, 
 	    numpst, numptr, iclprt, indexx, iplotr, kflags[9];
 } asistm_;
 
 #define asistm_1 asistm_
 
-struct {
+static struct {
     doublereal ppname[20];
 } apostp_;
 
 #define apostp_1 apostp_
 
-struct {
+static struct {
     doublereal amati1[16]	/* was [4][4] */, amati2[16]	/* was [4][4] 
 	    */, amati3[16]	/* was [4][4] */, amatrx[12]	/* was [3][4] 
 	    */, amtr[36], an1, an2, aname, ax, ax0, axvec[3], ay, ay0, cntm[
@@ -48,13 +48,13 @@ struct {
 
 #define a3fxd1_1 a3fxd1_
 
-struct {
+static struct {
     doublereal motion[8];
 } a3fxd2_;
 
 #define a3fxd2_1 a3fxd2_
 
-struct {
+static struct {
     integer iarrow, i1, i2, iclwas, icopy, idplot, idplsq, ifirst, igodlt, 
 	    indn, instr1, instr2, ind2tb[160], indoff, indtab[160], indxno[3],
 	     ipersp, ipl5ax, iploti, iplotx, iplwas, ipx, ipy, irecni[3], 
@@ -67,7 +67,7 @@ struct {
 
 #define a3fxi1_1 a3fxi1_
 
-struct {
+static struct {
     integer is, ir, il, ie, jsuber, iabove;
 } c5fxis_;
 

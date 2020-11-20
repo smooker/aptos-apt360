@@ -7,13 +7,13 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     integer k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, iblank;
 } a0con_;
 
 #define a0con_1 a0con_
 
-struct {
+static struct {
     doublereal protap, cantap, cltape, poctap, plotap, srftap, tapes1, tapes2,
 	     tapes3, tapes4;
     integer intape, ioutap;
@@ -22,20 +22,20 @@ struct {
 
 #define ataptb_1 ataptb_
 
-struct {
+static struct {
     doublereal ppname[20];
 } apostp_;
 
 #define apostp_1 apostp_
 
-struct {
+static struct {
     integer iptnly, itrcut, iwaven, kflag1, ltvmit, nclrec, nopost, noplot, 
 	    numpst, numptr, iclprt, indexx, iplotr, kflags[9];
 } asistm_;
 
 #define asistm_1 asistm_
 
-struct {
+static struct {
     doublereal adum[600];
     integer iafl[1], ipontr[1], ifar[1], ipl[1], iunfl[1], isftyp[1], itlon[1]
 	    , isvfl[1], ifl4[1], iop[1], iopset[1], jiops[1], notan[1], jent[
@@ -72,13 +72,13 @@ struct {
 
 #define a2cmmn_1 a2cmmn_
 
-struct {
+static struct {
     integer kdynfq[12], nkfq;
 } a2dydp_;
 
 #define a2dydp_1 a2dydp_
 
-struct {
+static struct {
     doublereal q15x01, qp9x01, qp6x01, qp5x01, qp4x01, qp0001, qp001, qp01, 
 	    qp1, q1p, q10p, q1000p, q1pe5, q1pe6, q1pe10, q1pe20, q1pe30, 
 	    q1pe36, q1pe38, qp8x01, qp7x01, qp4x09, qp9, qp99, qp995, qp997, 
@@ -92,7 +92,7 @@ struct {
 
 #define a2fpc_1 a2fpc_
 
-struct {
+static struct {
     doublereal addem1, addem2, bl[20], cosva, crosto[3], ctemp[60]	/* 
 	    was [3][20] */, cutrad, dcov, deldst, dist, dummy, ofcsto, offsto,
 	     phitmp, ptint[3], qone[3], q[63]	/* was [3][21] */, rtest, 
@@ -105,13 +105,13 @@ struct {
 
 #define a2pok8_1 a2pok8_
 
-struct {
+static struct {
     integer ipcerr, iwdcnt, nwd, ibm1, ibm2, ibm3, ibm4, ibm6;
 } a2pock_;
 
 #define a2pock_1 a2pock_
 
-struct {
+static struct {
     integer jone, nc, ncorig, jtwo, jthr, jfou, kalc, move, init, ncutbk, 
 	    nplus1, nless1, icrsto, ktab[20], kutbac, kolaps, jsave, inter, 
 	    kone, ktwo, jdummy, num, itest, kt1, kt2, kover;

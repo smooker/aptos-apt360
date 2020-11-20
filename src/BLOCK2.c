@@ -47,7 +47,7 @@ struct adata1_1_ {
 
 /* Initialized data */
 /*
-struct {
+static struct {
     char e_1[48];
     integer e_2[2];
     shortint e_3[42];
@@ -82,7 +82,7 @@ struct {
 		0, 772, //ic(10)
 		3, 6146 }; //llass
 */
-struct {
+static struct {
     char e_1[48];
     integer e_2[2];
     shortint e_3[42];

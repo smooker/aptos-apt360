@@ -7,7 +7,7 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     doublereal refsys;
     integer name__, name1, jsuber, jsv, namsub, kdbug, indxpt, loop, ifini;
 } a1com_;

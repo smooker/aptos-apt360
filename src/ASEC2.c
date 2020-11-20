@@ -9,20 +9,20 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     doublereal d1mod, f1mod, f1shot, d1shot, frate;
     integer ifmod;
 } frd_;
 
 #define frd_1 frd_
 
-struct {
+static struct {
     integer k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, iblank;
 } a0con_;
 
 #define a0con_1 a0con_
 
-struct {
+static struct {
     doublereal protap, cantap, cltape, poctap, plotap, srftap, tapes1, tapes2,
 	     tapes3, tapes4;
     integer intape, ioutap;
@@ -31,20 +31,20 @@ struct {
 
 #define ataptb_1 ataptb_
 
-struct {
+static struct {
     integer iptnly, itrcut, iwaven, kflag1, ltvmit, nclrec, nopost, noplot, 
 	    numpst, numptr, iclprt, indexx, iplotr, kflags[9];
 } asistm_;
 
 #define asistm_1 asistm_
 
-struct {
+static struct {
     integer k2flgs[10];
 } s2flgs_;
 
 #define s2flgs_1 s2flgs_
 
-struct {
+static struct {
     doublereal sp[3], sn[3], tp[3], tn[3], snk[3], snl[3], spk[3], spl[3], 
 	    tnk[3], tnl[3], tpk[3], tpl[3], plnv[3], cc[3], u1[3], cuth[3], 
 	    sfvct[3], vndir[3], vmd[3], vt[3], tee[3], slx[3], dplan[3], s[1],
@@ -88,20 +88,20 @@ struct {
 
 #define a2cmmn_1 a2cmmn_
 
-struct {
+static struct {
     integer kdynfq[12], nkfq;
 } a2dydp_;
 
 #define a2dydp_1 a2dydp_
 
-struct {
+static struct {
     doublereal tlhite[1], tanhi[1], tanlo[1], umax[1], r1[1], corrad[1], 
 	    tcont[1], tlinc[65];
 } a2ctdf_;
 
 #define a2ctdf_1 a2ctdf_
 
-struct {
+static struct {
     doublereal q15x01, qp9x01, qp6x01, qp5x01, qp4x01, qp0001, qp001, qp01, 
 	    qp1, q1p, q10p, q1000p, q1pe5, q1pe6, q1pe10, q1pe20, q1pe30, 
 	    q1pe36, q1pe38, qp8x01, qp7x01, qp4x09, qp9, qp99, qp995, qp997, 
@@ -115,7 +115,7 @@ struct {
 
 #define a2fpc_1 a2fpc_
 
-struct {
+static struct {
     doublereal adentc, adent, adummy, ans;
 } a2burp_;
 

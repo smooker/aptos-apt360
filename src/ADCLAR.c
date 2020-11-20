@@ -7,20 +7,20 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     integer k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, iblank;
 } a0con_;
 
 #define a0con_1 a0con_
 
-struct {
+static struct {
     doublereal name__, krfsys;
     integer sum, jsuber, namsub, debug, indxpt, loop, ifini;
 } a1com_;
 
 #define a1com_1 a1com_
 
-struct {
+static struct {
     doublereal protap, cantap, cltape, poctap, plotap, srftap, tapes1, tapes2,
 	     tapes3, tapes4;
     integer intape, ioutap, puntap;
@@ -28,14 +28,14 @@ struct {
 
 #define ataptb_1 ataptb_
 
-struct {
+static struct {
     doublereal elment[600];
     integer iclass[600], jlment;
 } ailmtb_;
 
 #define ailmtb_1 ailmtb_
 
-struct {
+static struct {
     doublereal anodef, blanx, blanks, syn, tlaxis, dummy, plent;
     integer loopst, loopnd, macro, ntrmac, ncall, lapth, japth, iplus, ncomma,
 	     iff, ic[10], llass;

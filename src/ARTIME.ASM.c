@@ -134,7 +134,7 @@ CLOCK    DC    2D'0'
 
 
 
-struct {
+static struct {
 
     doublereal fltime, date, clock[2];
 

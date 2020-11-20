@@ -7,13 +7,13 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     integer k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, iblank;
 } a0con_;
 
 #define a0con_1 a0con_
 
-struct {
+static struct {
     integer iptnly, itrcut, iwaven, kflag1, ltvmit, nclrec, nopost, noplot, 
 	    numpst, numptr, iclprt, indexx, iplotr, kflags[9];
 } asistm_;
@@ -60,11 +60,11 @@ struct a2ctdf_1_ {
 
 /* Initialized data */
 
-struct {
+static struct {
     integer e_1[10];
     } s2flgs_ = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
-struct {
+static struct {
     doublereal e_1[77];
     doublereal fill_2[8];
     } a2fpc_ = { 1e-16, 1e-10, 1e-7, 1e-6, 1e-5, 1e-4, .001, .01, .1, 1., 10.,
@@ -75,7 +75,7 @@ struct {
 	    .7, .75, .8, .866, 1.01, 1.1, 1.2, 1.25, 1.5, 2., 2.5, 3., 3.5, 
 	    4., 8., 11., 45., 90., 130., 4500., 9e3, .02, 0., 3.14159, 100. };
 
-struct {
+static struct {
     doublereal e_1[600];
     integer e_2[240];
     doublereal e_3[536];
@@ -302,11 +302,11 @@ struct {
 	    0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0, 0, 0, 
 	    0, 0, 0, 0, 0, 0, 0 };
 
-struct {
+static struct {
     integer e_1[13];
     } a2dydp_ = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
-struct {
+static struct {
     doublereal e_1[72];
     } a2ctdf_ = { 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 
 	    0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 

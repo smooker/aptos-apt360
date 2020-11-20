@@ -8,7 +8,7 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     doublereal protap, cantap, cltape, poctap, plotap, srftap, tapes1, tapes2,
 	     tapes3, tapes4;
     integer intape, ioutap, puntap;
@@ -16,20 +16,20 @@ struct {
 
 #define ataptb_1 ataptb_
 
-struct {
+static struct {
     doublereal refsys;
     integer name__, name1, jsuber, jsv, namsub, kdbug, indxpt, loop, ifini;
 } a1com_;
 
 #define a1com_1 a1com_
 
-struct {
+static struct {
     doublereal vst[7200];
 } avst_;
 
 #define avst_1 avst_
 
-struct {
+static struct {
     doublereal defsto[85], partno[11];
 } adfsto_;
 

@@ -1,0 +1,4 @@
+libf2c_a-derf_.o: ../../libf2c/derf_.c /usr/include/stdc-predef.h \
+ ../../libf2c/f2c.h
+/usr/include/stdc-predef.h:
+../../libf2c/f2c.h:

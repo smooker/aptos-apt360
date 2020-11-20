@@ -7,20 +7,20 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     doublereal xmat4[16], xmat3[16], xmat2[16], xmat1[16], tmatx[16];
 } atmaty_;
 
 #define atmaty_1 atmaty_
 
-struct {
+static struct {
     doublereal refsys;
     integer name__, name1, jsuber, jsv, namsub, kdbug, indxpt, loop, ifini;
 } a1com_;
 
 #define a1com_1 a1com_
 
-struct {
+static struct {
     doublereal protap, cantap, cltape, poctap, plotap, srftap, tapes1, tapes2,
 	     tapes3, tapes4;
     integer intape, ioutap, puntap;
@@ -28,20 +28,20 @@ struct {
 
 #define ataptb_1 ataptb_
 
-struct {
+static struct {
     doublereal vst[7200];
 } avst_;
 
 #define avst_1 avst_
 
-struct {
+static struct {
     doublereal scalr[180];
     integer iscws, nsurf, loctem, iargtp;
 } ascalr_;
 
 #define ascalr_1 ascalr_
 
-struct {
+static struct {
     integer i__, j, k, l, movlge, kanmax, icanst, iovrec, kanptr, mdftab, 
 	    kancnt, kaux, kdfcnt, idefp, kprcnt, mdfpre, iprep, kovflp, 
 	    ksrfct, kovcnt, lscan, iovflo, maxcan, iref, icansc, namsta, 
@@ -52,19 +52,19 @@ struct {
 
 #define a1pas2_1 a1pas2_
 
-struct {
+static struct {
     doublereal defsto[85], partno[11];
 } adfsto_;
 
 #define adfsto_1 adfsto_
 
-struct {
+static struct {
     doublereal zsur[4];
 } azurf_;
 
 #define azurf_1 azurf_
 
-struct {
+static struct {
     doublereal protp[102], prosav[102];
     integer nowclt, lstpsv, incore, jgorit;
     doublereal savmot;
@@ -72,7 +72,7 @@ struct {
 
 #define aprotp_1 aprotp_
 
-struct {
+static struct {
     integer idebug[3], kcandf;
 } adebug_;
 

@@ -68,7 +68,7 @@ PUNTAP   DC    F'0007'
 
 /* Common Block Declarations */
 
-struct {
+static struct {
 
     doublereal protap, cantap, cltape, poctap, plotap, srftap, tapes1, tapes2,
 

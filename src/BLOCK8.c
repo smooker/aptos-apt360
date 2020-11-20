@@ -15,7 +15,7 @@ struct form1_1_ {
 
 /* Initialized data */
 
-struct {
+static struct {
     char e_1[48];
     doublereal e_2;
     } form1_ = { {'(', '1', 'H', '+', ' ', ' ', ' ', ' ', '1', 'A', '6', ',', 

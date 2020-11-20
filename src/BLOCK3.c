@@ -19,7 +19,7 @@ struct a1com_1_ {
 
 /* Initialized data */
 
-struct {
+static struct {
     doublereal fill_1[5];
     integer e_2;
     } a1com_ = { {0}, 0 };

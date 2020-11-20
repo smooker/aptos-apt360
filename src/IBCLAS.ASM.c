@@ -56,7 +56,7 @@ ICLASS   DC    A(AILMTB+4796)      A(ICLASS-4)
 
 
 
-struct {
+static struct {
 
     doublereal elment[600];
 

@@ -1,0 +1,4 @@
+libf2c_a-ctype.o: ../../libf2c/ctype.c /usr/include/stdc-predef.h \
+ ../../libf2c/ctype.h
+/usr/include/stdc-predef.h:
+../../libf2c/ctype.h:

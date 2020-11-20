@@ -8,40 +8,40 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     integer istarp, iendp, nmove, nl, itsq, lindx;
 } aprtab_;
 
 #define aprtab_1 aprtab_
 
-struct {
+static struct {
     doublereal name__, krfsys;
     integer sum, jsuber, namsub, debug, indxpt, loop, ifini;
 } a1com_;
 
 #define a1com_1 a1com_
 
-struct {
+static struct {
     doublereal vst[2750], ptpp[2225], canon[2225];
 } avst_;
 
 #define avst_1 avst_
 
-struct {
+static struct {
     doublereal elment[600];
     integer iclass[600], jlment;
 } ailmtb_;
 
 #define ailmtb_1 ailmtb_
 
-struct {
+static struct {
     doublereal pt[300];
     integer inptp, nw, jmode, klass, klastp, irecn, npt, npr;
 } aptpp_;
 
 #define aptpp_1 aptpp_
 
-struct {
+static struct {
     doublereal pint[30];
     integer ifurst, jptind, now, jsub, kreslt, krslt2, nwds, its, next, 
 	    multax;
@@ -49,7 +49,7 @@ struct {
 
 #define amotcm_1 amotcm_
 
-struct {
+static struct {
     doublereal anodef, blanx, blanks, syn, tlaxis, dummy, plent;
     integer loopst, loopnd, macro, ntrmac, ncall, lapth, japth, iplus, ncomma,
 	     iff, ic[10], llass;

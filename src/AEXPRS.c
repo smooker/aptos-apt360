@@ -8,27 +8,27 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     doublereal name__, krfsys;
     integer sum, jsuber, namsub, debug, indxpt, loop, ifini;
 } a1com_;
 
 #define a1com_1 a1com_
 
-struct {
+static struct {
     doublereal scalr[180];
     integer iscws, nsurf, loctem, iargtp;
 } ascalr_;
 
 #define ascalr_1 ascalr_
 
-struct {
+static struct {
     integer istarp, iendp, nmove, nl, itsq, lindx;
 } aprtab_;
 
 #define aprtab_1 aprtab_
 
-struct {
+static struct {
     doublereal pt[300];
     integer inptp, nw, jmode, klass, klastp, irecn, npt, npr;
 } aptpp_;

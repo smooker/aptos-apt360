@@ -7,13 +7,13 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     integer k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, iblank;
 } a0con_;
 
 #define a0con_1 a0con_
 
-struct {
+static struct {
     doublereal protap, cantap, cltape, poctap, plotap, srftap, tapes1, tapes2,
 	     tapes3, tapes4;
     integer intape, ioutap, puntap;
@@ -21,20 +21,20 @@ struct {
 
 #define ataptb_1 ataptb_
 
-struct {
+static struct {
     integer iptnly, itrcut, iwaven, kflag1, ltvmit, nclrec, nopost, noplot, 
 	    numpst, numptr, iclprt, indexx, iplotr, kflags[9];
 } asistm_;
 
 #define asistm_1 asistm_
 
-struct {
+static struct {
     doublereal ppname[20];
 } apostp_;
 
 #define apostp_1 apostp_
 
-struct {
+static struct {
     doublereal amati1[16]	/* was [4][4] */, amati2[16]	/* was [4][4] 
 	    */, amati3[16]	/* was [4][4] */, amatrx[12]	/* was [3][4] 
 	    */, amtr[36], an1, an2, aname, ax, ax0, axvec[3], ay, ay0, cntm[
@@ -48,13 +48,13 @@ struct {
 
 #define a3fxd1_1 a3fxd1_
 
-struct {
+static struct {
     doublereal motion[8];
 } a3fxd2_;
 
 #define a3fxd2_1 a3fxd2_
 
-struct {
+static struct {
     integer iarrow, i1, i2, iclwas, icopy, idplot, idplsq, ifirst, igodlt, 
 	    indn, instr1, instr2, ind2tb[160], indoff, indtab[160], indxno[3],
 	     ipersp, ipl5ax, iploti, iplotx, iplwas, ipx, ipy, irecni[3], 
@@ -67,7 +67,7 @@ struct {
 
 #define a3fxi1_1 a3fxi1_
 
-struct {
+static struct {
     doublereal zp1, yp1, xp1, zp2, yp2, xp2, zp3, yp3, xp3, zp1b, yp1b, xp1b, 
 	    zp1f, yp1f, xp1f, zp3f, yp3f, xp3f, zp3b, yp3b, xp3b, zlm, ylm, 
 	    xlm, zta1, yta1, xta1, zta2, yta2, xta2, zta3, yta3, xta3, zdta, 
@@ -79,7 +79,7 @@ struct {
 
 #define a5axis_1 a5axis_
 
-struct {
+static struct {
     doublereal zcp3f, ycp3f, xcp3f, zdp, ydp, xdp, zd01, yd01, xd01, zd03, 
 	    yd03, xd03, zpl1, ypl1, xpl1, zpl3, ypl3, xpl3, wcorn5, wcorn7, 
 	    wcorn8, wtlxs6, tlnth1, tlnth2, ai, alpha, csigma, cphi, sh, 
@@ -89,7 +89,7 @@ struct {
 
 #define b5axis_1 b5axis_
 
-struct {
+static struct {
     integer ip1, ip1i, ip2, ip2i, ip3, ip3i, ip1b, ip1bi, ip1f, ip1fi, ip3f, 
 	    ip3fi, ip3b, ip3bi, ilm, ilmi, ips, icorn1, icorn9, iflag, iflag1,
 	     icm, icmi, ii, iiii, ifg, itcont, itc1;
@@ -97,7 +97,7 @@ struct {
 
 #define a5fxis_1 a5fxis_
 
-struct {
+static struct {
     doublereal z1, z2, zstart, ystart, xstart, zd, yd, xd, zcv, ycv, xcv, zdo,
 	     ydo, xdo, zcc, ycc, xcc, zun, yun, xun, ztr, ytr, xtr, zta, yta, 
 	    xta, z__, stang, endang, dang, cang, dlngth, tlngth, cutter, test,
@@ -106,13 +106,13 @@ struct {
 
 #define c5axis_1 c5axis_
 
-struct {
+static struct {
     integer is, ir, il, ie, jsuber, iabove, isuber;
 } c5fxis_;
 
 #define c5fxis_1 c5fxis_
 
-struct {
+static struct {
     doublereal xxxxta, yyyyta, zzzzta, chingx, chingy, chingz;
 } tachck_;
 

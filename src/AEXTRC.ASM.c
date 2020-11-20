@@ -206,7 +206,7 @@ MDOLAR   DS    F
 
 
 
-struct {
+static struct {
 
     doublereal inword[14];
 
@@ -220,7 +220,7 @@ struct {
 
 
 
-struct {
+static struct {
 
     integer char__, n72, nf, ichar, numcol, mdolar, jskip;
 

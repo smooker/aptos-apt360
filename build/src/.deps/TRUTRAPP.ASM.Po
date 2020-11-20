@@ -1,0 +1,2 @@
+TRUTRAPP.ASM.o: ../../src/TRUTRAPP.ASM.c /usr/include/stdc-predef.h
+/usr/include/stdc-predef.h:

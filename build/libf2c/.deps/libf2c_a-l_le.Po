@@ -1,0 +1,4 @@
+libf2c_a-l_le.o: ../../libf2c/l_le.c /usr/include/stdc-predef.h \
+ ../../libf2c/f2c.h
+/usr/include/stdc-predef.h:
+../../libf2c/f2c.h:

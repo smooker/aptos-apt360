@@ -7,13 +7,13 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     doublereal xmat4[16], xmat3[16], xmat2[16], xmat1[16], tmatx[16];
 } atmaty_;
 
 #define atmaty_1 atmaty_
 
-struct {
+static struct {
     doublereal defsto[85], partno[11];
 } adfsto_;
 

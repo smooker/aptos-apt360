@@ -8,26 +8,26 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     doublereal refsys;
     integer name__, name1, jsuber, jsv, namsub, kdbug, indxpt, loop, ifini;
 } a1com_;
 
 #define a1com_1 a1com_
 
-struct {
+static struct {
     doublereal defsto[85], partno[11];
 } adfsto_;
 
 #define adfsto_1 adfsto_
 
-struct {
+static struct {
     doublereal zsur[4];
 } azurf_;
 
 #define azurf_1 azurf_
 
-struct {
+static struct {
     integer idebug[3], kcandf;
 } adebug_;
 

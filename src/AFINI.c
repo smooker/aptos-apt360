@@ -8,21 +8,21 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     integer nextnw, nrelcn, kanlcn, locseq, nextcn, nwonrd, lplocn, jsw4, isn,
 	     k, mxloop, jsw2, jsav, jsw1, maxmv, mxnest, inill, kf;
 } abreak_;
 
 #define abreak_1 abreak_
 
-struct {
+static struct {
     doublereal ppseq1, ppseq2, idis;
     integer iisn, idvst, kfk;
 } aklas7_;
 
 #define aklas7_1 aklas7_
 
-struct {
+static struct {
     doublereal macnam[5];
     integer maccur, maclcn[5], macrd, macstr[5], nmacvr, numids, idlocn, 
 	    macids[5], isvid;
@@ -30,35 +30,35 @@ struct {
 
 #define amcstf_1 amcstf_
 
-struct {
+static struct {
     doublereal name__, krfsys;
     integer sum, jsuber, namsub, debug, indxpt, loop, ifini;
 } a1com_;
 
 #define a1com_1 a1com_
 
-struct {
+static struct {
     doublereal elment[600];
     integer iclass[600], jlment;
 } ailmtb_;
 
 #define ailmtb_1 ailmtb_
 
-struct {
+static struct {
     doublereal inword[14];
     integer more, ifirst;
 } ainpot_;
 
 #define ainpot_1 ainpot_
 
-struct {
+static struct {
     doublereal alib[126], segnam, dum1;
     integer irdmod, ia1[3];
 } alibry_;
 
 #define alibry_1 alibry_
 
-struct {
+static struct {
     doublereal protap, cantap, cltape, poctap, plotap, srftap, tapes1, tapes2,
 	     tapes3, tapes4;
     integer intape, ioutap;
@@ -67,13 +67,13 @@ struct {
 
 #define ataptb_1 ataptb_
 
-struct {
+static struct {
     integer maxtab, maxvs1, maxvs2, maxptp, maxscl, mx[8];
 } amxtab_;
 
 #define amxtab_1 amxtab_
 
-struct {
+static struct {
     doublereal pt[300];
     integer inptp, nw, jmode, klass, klastp, irecn, npt, npr;
 } aptpp_;

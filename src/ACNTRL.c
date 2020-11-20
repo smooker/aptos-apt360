@@ -10,32 +10,32 @@ extern int nopost_flag;
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     doublereal fltime, date, clock[2];
 } atime_;
 
 #define atime_1 atime_
 
-struct {
+static struct {
     integer k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, iblank;
 } a0con_;
 
 #define a0con_1 a0con_
 
-struct {
+static struct {
     integer iptnly, itrcut, iwaven, kflag1, ltvmit, nclrec, nopost, noplot, 
 	    numpst, numptr, is3[3], kflags[9];
 } asistm_;
 
 #define asistm_1 asistm_
 
-struct {
+static struct {
     doublereal ppname[20];
 } apostp_;
 
 #define apostp_1 apostp_
 
-struct {
+static struct {
     doublereal protap, cantap, cltape, poctap, plotap, srftap, tapes1, tapes2,
 	     tapes3, tapes4;
     integer intape, ioutap, puntap;

@@ -1,0 +1,5 @@
+AXTABL.ASM.o: ../../src/AXTABL.ASM.c /usr/include/stdc-predef.h \
+ ../../src/AXTABL.ASM.h ../libf2c/f2c.h
+/usr/include/stdc-predef.h:
+../../src/AXTABL.ASM.h:
+../libf2c/f2c.h:

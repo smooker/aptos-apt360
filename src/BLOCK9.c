@@ -7,13 +7,13 @@
 
 /* Common Block Declarations */
 /*
-struct {
+static struct {
     doublereal b1[18], b2[18], b3[18], b4[18], b5[18], b6[18], b7[18], b8[18],
 	     b9[18], b10[18];
 } parm1_;
 */
 
-struct {
+static struct {
     char b1[8*18], b2[8*18], b3[8*18], b4[8*18], b5[8*18], b6[8*18], b7[8*18], b8[8*18],
 	     b9[8*18], b10[8*18];
 } parm1_={
@@ -62,11 +62,11 @@ OMIT   AVOID  RANDOM      AT  ANTSPI                  GAPLES  "
 
 #define parm1_1 parm1_
 /*
-struct {
+static struct {
     doublereal a1[22];
 } posta1_;
 */
-struct {
+static struct {
     char a1[8*22];
 } posta1_={
 "END     STOP    OPSTOP  ISTOP   RAPID   SWITCH  RETRCT  DRESS   \
@@ -77,12 +77,12 @@ PROBY   PROBX   ULOCKX  LOCKX   FACEML  "
 
 #define posta1_1 posta1_
 /*
-struct {
+static struct {
     doublereal c1[18], c2[18], c3[18], c4[18];
 } postp1_;
 */
 
-struct {
+static struct {
     char c1[8*18], c2[8*18], c3[8*18], c4[8*18];
 } postp1_={
 "PLUNGE  HEAD    MODE    CLEARP  TMARK   REWIND  CUTCOM  REVERS  \

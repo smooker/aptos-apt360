@@ -1,0 +1,2 @@
+ASECT4.ASM.o: ../../src/ASECT4.ASM.c /usr/include/stdc-predef.h
+/usr/include/stdc-predef.h:

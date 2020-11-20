@@ -1,0 +1,2 @@
+USERTN.ASM.o: ../../src/USERTN.ASM.c /usr/include/stdc-predef.h
+/usr/include/stdc-predef.h:

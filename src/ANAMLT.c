@@ -7,7 +7,7 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     doublereal atapes[10];
     integer intape, ioutap;
     real puntap;

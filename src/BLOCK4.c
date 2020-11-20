@@ -15,7 +15,7 @@ struct ac_1_ {
 
 /* Initialized data */
 
-struct {
+static struct {
     integer e_1[6];
     } ac_ = { 1000, 1001, 1002, 1003, 1004, 1005 };
 

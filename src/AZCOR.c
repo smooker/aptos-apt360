@@ -7,7 +7,7 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     doublereal adum[720], te[3], tek[3], tel[3], tes[3], ta[3], tak[3], tal[3]
 	    , pmove[3], ti[3], tik[3], til[3], u2[3], uvec[3], vtem[3], cmove[
 	    3], ex[3], ey[3], ez[3], vnul[3], tm[3], dir[3], axis[3], axis1[3]
@@ -28,14 +28,14 @@ struct {
 
 #define a2cmmn_1 a2cmmn_
 
-struct {
+static struct {
     doublereal tlhite[1], tanhi[1], tanlo[1], umax[1], r1[1], corrad[1], 
 	    tcont[1], tlinc[65];
 } a2ctdf_;
 
 #define a2ctdf_1 a2ctdf_
 
-struct {
+static struct {
     doublereal q15x01, qp9x01, qp6x01, qp5x01, qp4x01, qp0001, qp001, qp01, 
 	    qp1, q1p, q10p, q1000p, q1pe5, q1pe6, q1pe10, q1pe20, q1pe30, 
 	    q1pe36, q1pe38, qp8x01, qp7x01, qp4x09, qp9, qp99, qp995, qp997, 

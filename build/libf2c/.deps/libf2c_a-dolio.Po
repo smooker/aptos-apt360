@@ -1,0 +1,4 @@
+libf2c_a-dolio.o: ../../libf2c/dolio.c /usr/include/stdc-predef.h \
+ ../../libf2c/f2c.h
+/usr/include/stdc-predef.h:
+../../libf2c/f2c.h:

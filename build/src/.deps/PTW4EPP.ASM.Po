@@ -1,0 +1,2 @@
+PTW4EPP.ASM.o: ../../src/PTW4EPP.ASM.c /usr/include/stdc-predef.h
+/usr/include/stdc-predef.h:

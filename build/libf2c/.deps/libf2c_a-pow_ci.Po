@@ -1,0 +1,4 @@
+libf2c_a-pow_ci.o: ../../libf2c/pow_ci.c /usr/include/stdc-predef.h \
+ ../../libf2c/f2c.h
+/usr/include/stdc-predef.h:
+../../libf2c/f2c.h:

@@ -7,13 +7,13 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     doublereal vst[7200];
 } avst_;
 
 #define avst_1 avst_
 
-struct {
+static struct {
     doublereal smat[12], xxxx1, xxxx2, xxxx3, xxxx4, ans1, ans2, ans3;
     integer ktr, kword, jmod2, jmod1, inkx, kmove, l1, l2, kfrnt, kadd, kadd1;
 } aprbrk_;

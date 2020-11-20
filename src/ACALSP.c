@@ -8,33 +8,33 @@
 
 /* Common Block Declarations */
 
-struct {
+static struct {
     doublereal refsys;
     integer name__, name1, jsuber, jsv, namsub, kdbug, indxpt, loop, ifini;
 } a1com_;
 
 #define a1com_1 a1com_
 
-struct {
+static struct {
     doublereal defsto[85], partno[11];
 } adfsto_;
 
 #define adfsto_1 adfsto_
 
-struct {
+static struct {
     doublereal vst[7200];
 } avst_;
 
 #define avst_1 avst_
 
-struct {
+static struct {
     doublereal ppseq1, ppseq2, ename, einame;
     integer ierec, isn;
 } a2cls7_;
 
 #define a2cls7_1 a2cls7_
 
-struct {
+static struct {
     integer i__, j, k, l, movlge, kanmax, icanst, iovrec, kanptr, mdftab, 
 	    kancnt, kaux, kdfcnt, idefp, kprcnt, mdfpre, iprep, kovflp, 
 	    ksrfct, kovcnt, lscan, iovflo, maxcan, iref, icansc, namsta, 
@@ -45,7 +45,7 @@ struct {
 
 #define a1pas2_1 a1pas2_
 
-struct {
+static struct {
     doublereal protp[102], prosav[102];
     integer nowclt, lstpsv, incore, jgorit;
     doublereal savmot;
@@ -53,7 +53,7 @@ struct {
 
 #define aprotp_1 aprotp_
 
-struct {
+static struct {
     integer idebug[3], kcandf;
 } adebug_;
 
